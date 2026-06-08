@@ -2371,6 +2371,304 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "0_Tactile_Push_Button:R-667842"
+			(pin_names
+				(offset 0.254)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "SW"
+				(at -0.762 9.906 0)
+				(effects
+					(font
+						(size 1.524 1.524)
+					)
+				)
+			)
+			(property "Value" "R-667842"
+				(at 0.254 7.366 0)
+				(effects
+					(font
+						(size 1.524 1.524)
+					)
+				)
+			)
+			(property "Footprint" "R-667_MIT"
+				(at -15.24 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(italic yes)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "R-667842"
+				(at -15.24 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(italic yes)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_locked" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "R-667842"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "R-667_MIT"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "R-667842_0_1"
+				(polyline
+					(pts
+						(xy -6.35 2.54) (xy -2.794 2.54)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -6.35 -2.54) (xy -2.794 -2.54)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.794 2.54) (xy -2.794 -2.54)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center -2.794 0)
+					(radius 0.2032)
+					(stroke
+						(width 0.3048)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.794 0) (xy -1.27 0)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.286 0) (xy -0.254 1.27)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 3.81 3.81) (xy 3.81 -3.81)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 3.81 0) (xy 2.286 0)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 3.81 0)
+					(radius 0.2032)
+					(stroke
+						(width 0.3048)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 3.81 -3.81) (xy 6.35 -3.81)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 6.35 3.81) (xy 3.937 3.81)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin unspecified line
+					(at -13.97 2.54 0)
+					(length 7.62)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at -13.97 -2.54 0)
+					(length 7.62)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at 13.97 3.81 180)
+					(length 7.62)
+					(name "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at 13.97 -3.81 180)
+					(length 7.62)
+					(name "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(symbol "R-667842_1_1"
+				(rectangle
+					(start -6.35 5.334)
+					(end 6.35 -5.334)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type color)
+						(color 255 229 191 1)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "dk_Test-Points:5002"
 			(pin_numbers
 				(hide yes)
@@ -2715,7 +3013,7 @@
 	)
 	(text "Add decoupling cap"
 		(exclude_from_sim no)
-		(at 36.322 65.024 0)
+		(at 27.432 63.754 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2727,8 +3025,16 @@
 		(uuid "96bcace7-aad3-4fe6-ab66-d4cbf2091ad2")
 	)
 	(no_connect
+		(at 121.92 85.09)
+		(uuid "0c54989f-9689-494e-a247-02cf0bd8f315")
+	)
+	(no_connect
 		(at 76.2 41.91)
 		(uuid "a21638e9-04a0-4288-be7f-621f05461ce6")
+	)
+	(no_connect
+		(at 93.98 83.82)
+		(uuid "baac9a09-632e-4996-aaaf-f4ed451b1cdf")
 	)
 	(wire
 		(pts
@@ -2762,7 +3068,7 @@
 	)
 	(wire
 		(pts
-			(xy 100.33 62.23) (xy 100.33 64.77)
+			(xy 91.44 60.96) (xy 91.44 63.5)
 		)
 		(stroke
 			(width 0)
@@ -2772,7 +3078,7 @@
 	)
 	(wire
 		(pts
-			(xy 93.98 67.31) (xy 93.98 62.23)
+			(xy 85.09 66.04) (xy 85.09 60.96)
 		)
 		(stroke
 			(width 0)
@@ -2782,7 +3088,17 @@
 	)
 	(wire
 		(pts
-			(xy 38.1 67.31) (xy 38.1 62.23)
+			(xy 99.06 76.2) (xy 85.09 76.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "276bbcc8-fbcb-478d-b943-3dd210fc9ae0")
+	)
+	(wire
+		(pts
+			(xy 29.21 66.04) (xy 29.21 60.96)
 		)
 		(stroke
 			(width 0)
@@ -2792,13 +3108,23 @@
 	)
 	(wire
 		(pts
-			(xy 93.98 62.23) (xy 100.33 62.23)
+			(xy 85.09 60.96) (xy 91.44 60.96)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "384e880c-069b-4971-b2c7-ee8371d062b2")
+	)
+	(wire
+		(pts
+			(xy 127 77.47) (xy 121.92 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "46547ce2-867f-4332-8226-c08566af1e8e")
 	)
 	(wire
 		(pts
@@ -2822,7 +3148,7 @@
 	)
 	(wire
 		(pts
-			(xy 93.98 77.47) (xy 115.57 77.47)
+			(xy 99.06 60.96) (xy 116.84 60.96)
 		)
 		(stroke
 			(width 0)
@@ -2852,6 +3178,16 @@
 	)
 	(wire
 		(pts
+			(xy 127 83.82) (xy 127 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8697e96e-7645-476e-b64e-c5a034e6c673")
+	)
+	(wire
+		(pts
 			(xy 246.38 71.12) (xy 246.38 74.93)
 		)
 		(stroke
@@ -2862,13 +3198,23 @@
 	)
 	(wire
 		(pts
-			(xy 38.1 67.31) (xy 49.53 67.31)
+			(xy 29.21 66.04) (xy 40.64 66.04)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "97d7e734-78d7-4058-8154-0411a4aae8b6")
+	)
+	(wire
+		(pts
+			(xy 116.84 60.96) (xy 116.84 62.23)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "af80b4b4-2b61-46c9-81af-6fbda8e19d10")
 	)
 	(wire
 		(pts
@@ -2889,6 +3235,26 @@
 			(type default)
 		)
 		(uuid "c0dc3ae0-bc55-44ef-b3fb-35efd64981c6")
+	)
+	(wire
+		(pts
+			(xy 85.09 78.74) (xy 93.98 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cae01a0a-a79f-4fed-b2ed-ee9a298ce54b")
+	)
+	(wire
+		(pts
+			(xy 99.06 60.96) (xy 99.06 76.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ce2880e6-ef30-448e-9174-c35549d0e290")
 	)
 	(global_label "3V"
 		(shape input)
@@ -2958,7 +3324,7 @@
 	)
 	(global_label "3V"
 		(shape input)
-		(at 38.1 62.23 90)
+		(at 29.21 60.96 90)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2968,7 +3334,7 @@
 		)
 		(uuid "d45b76a1-ab4d-48e5-86ee-67c2a49dfb2e")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 38.1 56.9467 90)
+			(at 29.21 55.6767 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3002,7 +3368,7 @@
 	)
 	(symbol
 		(lib_id "0_ATtiny1614:ATTINY1614-SSF")
-		(at 71.12 76.2 0)
+		(at 62.23 74.93 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3011,7 +3377,7 @@
 		(fields_autoplaced yes)
 		(uuid "06c1c792-57fe-40a6-aa97-17d3fd46109d")
 		(property "Reference" "U1"
-			(at 71.755 59.69 0)
+			(at 62.865 58.42 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -3019,7 +3385,7 @@
 			)
 		)
 		(property "Value" "ATTINY1614"
-			(at 71.755 62.23 0)
+			(at 62.865 60.96 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -3027,7 +3393,7 @@
 			)
 		)
 		(property "Footprint" "0_ATtiny1614:SOIC14_SL_MCH-M"
-			(at 71.12 76.2 0)
+			(at 62.23 74.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3037,7 +3403,7 @@
 			)
 		)
 		(property "Datasheet" "ATTINY1614-SSF"
-			(at 71.12 76.2 0)
+			(at 62.23 74.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3047,7 +3413,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 71.12 76.2 0)
+			(at 62.23 74.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3253,6 +3619,74 @@
 			(project "keepsake-keychain"
 				(path "/32670795-e352-430d-9b7f-c7f10ebe6399"
 					(reference "LED32")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GNDREF")
+		(at 127 83.82 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "0df443f8-7a89-4b26-8a3b-4bee06038ef2")
+		(property "Reference" "#PWR06"
+			(at 127 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 129.54 85.0899 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" ""
+			(at 127 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 127 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GNDREF\" , reference supply ground"
+			(at 127 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "e2e7d190-5170-4625-92ae-9c14cfb6baab")
+		)
+		(instances
+			(project "keepsake-keychain"
+				(path "/32670795-e352-430d-9b7f-c7f10ebe6399"
+					(reference "#PWR06")
 					(unit 1)
 				)
 			)
@@ -6637,6 +7071,82 @@
 		)
 	)
 	(symbol
+		(lib_id "0_Tactile_Push_Button:R-667842")
+		(at 107.95 81.28 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "da80b212-86fb-4521-ba75-bdb4562d5966")
+		(property "Reference" "SW2"
+			(at 107.696 73.66 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(property "Value" "R-667842"
+			(at 109.474 73.914 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "R-667_MIT"
+			(at 107.95 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "R-667842"
+			(at 107.95 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 107.95 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "59ddcc43-8a22-4675-b8bb-c1f2ef735890")
+		)
+		(pin "3"
+			(uuid "8a1a6281-cc1d-4c5a-958c-95d5f123684c")
+		)
+		(pin "1"
+			(uuid "c539c9eb-ff4c-49c2-86c8-b85c3588f225")
+		)
+		(pin "4"
+			(uuid "3db6e926-8d88-4c9e-927b-d4d2d67b5b1a")
+		)
+		(instances
+			(project ""
+				(path "/32670795-e352-430d-9b7f-c7f10ebe6399"
+					(reference "SW2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "0_RGB_LED:UHD111A-FKA-C3K23E1L3VG5ZB3Z3")
 		(at 186.69 102.87 0)
 		(unit 1)
@@ -6858,7 +7368,7 @@
 	)
 	(symbol
 		(lib_id "power:GNDREF")
-		(at 100.33 64.77 0)
+		(at 91.44 63.5 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6867,7 +7377,7 @@
 		(fields_autoplaced yes)
 		(uuid "fa5be1e2-8f73-456b-ab07-393414e36c63")
 		(property "Reference" "#PWR03"
-			(at 100.33 71.12 0)
+			(at 91.44 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6876,7 +7386,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 102.87 66.0399 0)
+			(at 93.98 64.7699 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6886,7 +7396,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 100.33 64.77 0)
+			(at 91.44 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6895,7 +7405,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 100.33 64.77 0)
+			(at 91.44 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6904,7 +7414,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GNDREF\" , reference supply ground"
-			(at 100.33 64.77 0)
+			(at 91.44 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6926,16 +7436,15 @@
 	)
 	(symbol
 		(lib_id "dk_Test-Points:5002")
-		(at 115.57 80.01 0)
+		(at 116.84 64.77 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "fc19e890-9305-4382-b783-d1c7645c8ab4")
 		(property "Reference" "TP1"
-			(at 116.84 79.9718 0)
+			(at 118.11 64.7318 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6944,7 +7453,7 @@
 			)
 		)
 		(property "Value" "5002"
-			(at 115.57 82.55 0)
+			(at 116.84 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6953,7 +7462,7 @@
 			)
 		)
 		(property "Footprint" "digikey-footprints:Test_Point_D1.02mm"
-			(at 120.65 74.93 0)
+			(at 121.92 59.69 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -6963,7 +7472,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.keyelco.com/product-pdf.cfm?p=1311"
-			(at 120.65 72.39 0)
+			(at 121.92 57.15 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -6973,7 +7482,7 @@
 			)
 		)
 		(property "Description" "PC TEST POINT MINIATURE WHITE"
-			(at 115.57 80.01 0)
+			(at 116.84 64.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6982,7 +7491,7 @@
 			)
 		)
 		(property "Digi-Key_PN" "36-5002-ND"
-			(at 120.65 69.85 0)
+			(at 121.92 54.61 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -6992,7 +7501,7 @@
 			)
 		)
 		(property "MPN" "5002"
-			(at 120.65 67.31 0)
+			(at 121.92 52.07 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -7002,7 +7511,7 @@
 			)
 		)
 		(property "Category" "Test and Measurement"
-			(at 120.65 64.77 0)
+			(at 121.92 49.53 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -7012,7 +7521,7 @@
 			)
 		)
 		(property "Family" "Test Points"
-			(at 120.65 62.23 0)
+			(at 121.92 46.99 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -7022,7 +7531,7 @@
 			)
 		)
 		(property "DK_Datasheet_Link" "http://www.keyelco.com/product-pdf.cfm?p=1311"
-			(at 120.65 59.69 0)
+			(at 121.92 44.45 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -7032,7 +7541,7 @@
 			)
 		)
 		(property "DK_Detail_Page" "/product-detail/en/keystone-electronics/5002/36-5002-ND/255328"
-			(at 120.65 57.15 0)
+			(at 121.92 41.91 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -7042,7 +7551,7 @@
 			)
 		)
 		(property "Description_1" "PC TEST POINT MINIATURE WHITE"
-			(at 120.65 54.61 0)
+			(at 121.92 39.37 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -7052,7 +7561,7 @@
 			)
 		)
 		(property "Manufacturer" "Keystone Electronics"
-			(at 120.65 52.07 0)
+			(at 121.92 36.83 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -7062,7 +7571,7 @@
 			)
 		)
 		(property "Status" "Active"
-			(at 120.65 49.53 0)
+			(at 121.92 34.29 0)
 			(effects
 				(font
 					(size 1.524 1.524)

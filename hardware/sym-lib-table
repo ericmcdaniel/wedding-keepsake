@@ -6,4 +6,5 @@
   (lib (name "0_74HC595_Shift_Register")(type "KiCad")(uri "${KIPRJMOD}/symbols/74hc595-shift-register.kicad_sym")(options "")(descr ""))
   (lib (name "0_ATtiny1614")(type "KiCad")(uri "${KIPRJMOD}/symbols/attiny-1614.kicad_sym")(options "")(descr ""))
   (lib (name "0_MOSFET")(type "KiCad")(uri "${KIPRJMOD}/symbols/mosfet.kicad_sym")(options "")(descr ""))
+  (lib (name "0_Tactile_Push_Button")(type "KiCad")(uri "${KIPRJMOD}/symbols/tactile-push-button.kicad_sym")(options "")(descr ""))
 )
