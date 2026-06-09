@@ -8,4 +8,6 @@
   (lib (name "0_MOSFET")(type "KiCad")(uri "${KIPRJMOD}/symbols/mosfet.kicad_sym")(options "")(descr ""))
   (lib (name "0_Tactile_Push_Button")(type "KiCad")(uri "${KIPRJMOD}/symbols/tactile-push-button.kicad_sym")(options "")(descr ""))
   (lib (name "0_MEMS_Microphone")(type "KiCad")(uri "${KIPRJMOD}/symbols/mems-microphone.kicad_sym")(options "")(descr ""))
+  (lib (name "0_Op_Amp")(type "KiCad")(uri "${KIPRJMOD}/symbols/op-amp.kicad_sym")(options "")(descr ""))
+  (lib (name "0_Schottky_Diode")(type "KiCad")(uri "${KIPRJMOD}/symbols/schottky-diode.kicad_sym")(options "")(descr ""))
 )

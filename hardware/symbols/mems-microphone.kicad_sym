@@ -96,17 +96,6 @@
 			)
 		)
 		(symbol "3SM123C4T1QA_0_0"
-			(rectangle
-				(start -5.334 5.842)
-				(end 6.35 -5.842)
-				(stroke
-					(width 0.254)
-					(type default)
-				)
-				(fill
-					(type background)
-				)
-			)
 			(pin power_in line
 				(at 11.43 3.81 180)
 				(length 5.08)
@@ -177,6 +166,19 @@
 							(size 1.016 1.016)
 						)
 					)
+				)
+			)
+		)
+		(symbol "3SM123C4T1QA_1_0"
+			(rectangle
+				(start -5.334 5.842)
+				(end 6.35 -5.842)
+				(stroke
+					(width 0)
+					(type solid)
+				)
+				(fill
+					(type background)
 				)
 			)
 		)
