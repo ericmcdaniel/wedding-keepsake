@@ -7,4 +7,7 @@
   (lib (name "0_ATtiny1614")(type "KiCad")(uri "${KIPRJMOD}/footprints/ATtiny1614")(options "")(descr ""))
   (lib (name "0_MOSFET")(type "KiCad")(uri "${KIPRJMOD}/footprints/MOSFET")(options "")(descr ""))
   (lib (name "0_Push_Button")(type "KiCad")(uri "${KIPRJMOD}/footprints/Push_Button")(options "")(descr ""))
+  (lib (name "0_Microphone")(type "KiCad")(uri "${KIPRJMOD}/footprints/MEMS_Mic")(options "")(descr ""))
+  (lib (name "0_Op_Amp")(type "KiCad")(uri "${KIPRJMOD}/footprints/Op_Amp")(options "")(descr ""))
+  (lib (name "0_Schottky_Diode")(type "KiCad")(uri "${KIPRJMOD}/footprints/Schottky_Diode")(options "")(descr ""))
 )

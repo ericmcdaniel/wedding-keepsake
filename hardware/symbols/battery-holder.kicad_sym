@@ -1,28 +1,28 @@
 
 (kicad_symbol_lib (version 20211014) (generator kicad_symbol_editor)
-  (symbol "BH-25C-1" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
+  (symbol "BHX1-2450-SM" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
     (property "Reference" "BT" (id 0) (at -3.81 3.81 0)
       (effects (font (size 1.27 1.27)) (justify bottom left))
     )
-    (property "Value" "BH-25C-1" (id 1) (at -3.81 -5.08 0)
+    (property "Value" "BHX1-2450-SM" (id 1) (at -3.81 -5.08 0)
       (effects (font (size 1.27 1.27)) (justify bottom left))
     )
-    (property "Footprint" "BH-25C-1:BAT_BH-25C-1" (id 2) (at 0 0 0)
+    (property "Footprint" "BHX1-2450-SM:BAT_BHX1-2450-SM" (id 2) (at 0 0 0)
       (effects (font (size 1.27 1.27)) (justify bottom) hide)
     )
-    (property "PARTREV" "" (id 4) (at 0 0 0)
+    (property "PARTREV" "H" (id 4) (at 0 0 0)
       (effects (font (size 1.27 1.27)) (justify bottom) hide)
     )
     (property "STANDARD" "Manufacturer Recommendations" (id 5) (at 0 0 0)
       (effects (font (size 1.27 1.27)) (justify bottom) hide)
     )
-    (property "MAXIMUM_PACKAGE_HEIGHT" "8.7mm" (id 6) (at 0 0 0)
+    (property "MAXIMUM_PACKAGE_HEIGHT" "5.4mm" (id 6) (at 0 0 0)
       (effects (font (size 1.27 1.27)) (justify bottom) hide)
     )
-    (property "MANUFACTURER" "Adam Tech" (id 7) (at 0 0 0)
+    (property "MANUFACTURER" "MPD" (id 7) (at 0 0 0)
       (effects (font (size 1.27 1.27)) (justify bottom) hide)
     )
-    (symbol "BH-25C-1_0_0"
+    (symbol "BHX1-2450-SM_0_0"
       (polyline
         (pts (xy -1.27 2.54) (xy -1.27 -2.54)) (stroke (width 0.254))
       )
@@ -45,7 +45,7 @@
         (name "~"
           (effects (font (size 1.016 1.016)))
         )
-        (number "P"
+        (number "1"
           (effects (font (size 1.016 1.016)))
         )
       )
@@ -53,7 +53,15 @@
         (name "~"
           (effects (font (size 1.016 1.016)))
         )
-        (number "N"
+        (number "2"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at -7.62 0.0 0) (length 5.08)
+        (name "~"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "1_1"
           (effects (font (size 1.016 1.016)))
         )
       )

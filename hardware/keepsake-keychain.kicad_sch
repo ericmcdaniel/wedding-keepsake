@@ -6783,7 +6783,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 271.78 87.63 0)
 			(effects
 				(font
@@ -6850,7 +6850,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 87.63 62.23 0)
 			(effects
 				(font
@@ -7166,7 +7166,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 191.77 74.93 0)
 			(effects
 				(font
@@ -7653,7 +7653,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 125.73 26.67 0)
 			(effects
 				(font
@@ -8426,7 +8426,7 @@
 				)
 			)
 		)
-		(property "Footprint" "SOT-23-5_MC_MCH"
+		(property "Footprint" "0_Op_Amp:SOT-23-5_MC_MCH"
 			(at 233.68 73.66 0)
 			(effects
 				(font
@@ -8885,7 +8885,7 @@
 				)
 			)
 		)
-		(property "Footprint" "SLW-129956-4A-RA-N-D:SW_SLW-129956-4A-RA-N-D"
+		(property "Footprint" "0_SPDT_Switch:spdt-switch"
 			(at 58.42 39.37 0)
 			(effects
 				(font
@@ -11107,7 +11107,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 181.61 26.67 0)
 			(effects
 				(font
@@ -11698,7 +11698,7 @@
 				)
 			)
 		)
-		(property "Footprint" "BAT54:SOT95P240X120-3N"
+		(property "Footprint" "0_Schottky_Diode:SOT95P240X120-3N"
 			(at 208.28 74.93 0)
 			(effects
 				(font
@@ -12229,7 +12229,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 259.08 71.12 0)
 			(effects
 				(font
@@ -12515,7 +12515,7 @@
 				)
 			)
 		)
-		(property "Footprint" "3SM123C4T1QA:MIC_3SM123C4T1QA"
+		(property "Footprint" "0_Microphone:MIC_3SM123C4T1QA"
 			(at 151.13 76.2 0)
 			(effects
 				(font
@@ -13104,7 +13104,7 @@
 				)
 			)
 		)
-		(property "Footprint" "digikey-footprints:Battery_Holder_Coin_2032_BS-7"
+		(property "Footprint" "0_Coin_Battery_Holder:battery-holder"
 			(at 33.02 39.37 0)
 			(effects
 				(font
@@ -13493,7 +13493,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "R-667_MIT"
+		(property "Footprint" "0_Push_Button:SW_PTS636_SK25J_SMTR_LFS_CNK-M"
 			(at 121.92 80.01 0)
 			(effects
 				(font
@@ -13568,7 +13568,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 236.22 26.67 0)
 			(effects
 				(font
@@ -13635,7 +13635,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 199.39 81.28 0)
 			(effects
 				(font
