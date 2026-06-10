@@ -106,17 +106,6 @@
 			)
 		)
 		(symbol "74HC595PW_118_0_0"
-			(rectangle
-				(start -7.874 16.002)
-				(end 7.874 -18.796)
-				(stroke
-					(width 0.4064)
-					(type default)
-				)
-				(fill
-					(type background)
-				)
-			)
 			(pin power_in line
 				(at -12.7 13.97 0)
 				(length 5.08)
@@ -218,24 +207,6 @@
 					)
 				)
 				(number "14"
-					(effects
-						(font
-							(size 1.016 1.016)
-						)
-					)
-				)
-			)
-			(pin passive line
-				(at -12.7 -16.51 0)
-				(length 5.08)
-				(name "GND"
-					(effects
-						(font
-							(size 1.016 1.016)
-						)
-					)
-				)
-				(number "8"
 					(effects
 						(font
 							(size 1.016 1.016)
@@ -398,6 +369,37 @@
 					)
 				)
 				(number "9"
+					(effects
+						(font
+							(size 1.016 1.016)
+						)
+					)
+				)
+			)
+		)
+		(symbol "74HC595PW_118_1_0"
+			(rectangle
+				(start -7.62 16.002)
+				(end 7.366 -18.796)
+				(stroke
+					(width 0)
+					(type solid)
+				)
+				(fill
+					(type background)
+				)
+			)
+			(pin power_in line
+				(at -12.7 -16.51 0)
+				(length 5.08)
+				(name "GND"
+					(effects
+						(font
+							(size 1.016 1.016)
+						)
+					)
+				)
+				(number "8"
 					(effects
 						(font
 							(size 1.016 1.016)
