@@ -767,7 +767,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "0_Coin_Battery_Holder:BH-25C-1"
+		(symbol "0_Coin_Battery_Holder:BHX1-2450-SM"
 			(pin_names
 				(offset 1.016)
 			)
@@ -783,7 +783,7 @@
 					(justify left bottom)
 				)
 			)
-			(property "Value" "BH-25C-1"
+			(property "Value" "BHX1-2450-SM"
 				(at -3.81 -5.08 0)
 				(effects
 					(font
@@ -792,7 +792,7 @@
 					(justify left bottom)
 				)
 			)
-			(property "Footprint" "BH-25C-1:BAT_BH-25C-1"
+			(property "Footprint" "BHX1-2450-SM:BAT_BHX1-2450-SM"
 				(at 0 0 0)
 				(effects
 					(font
@@ -820,7 +820,7 @@
 					(hide yes)
 				)
 			)
-			(property "PARTREV" ""
+			(property "PARTREV" "H"
 				(at 0 0 0)
 				(effects
 					(font
@@ -840,7 +840,7 @@
 					(hide yes)
 				)
 			)
-			(property "MAXIMUM_PACKAGE_HEIGHT" "8.7mm"
+			(property "MAXIMUM_PACKAGE_HEIGHT" "5.4mm"
 				(at 0 0 0)
 				(effects
 					(font
@@ -850,7 +850,7 @@
 					(hide yes)
 				)
 			)
-			(property "MANUFACTURER" "Adam Tech"
+			(property "MANUFACTURER" "MPD"
 				(at 0 0 0)
 				(effects
 					(font
@@ -860,7 +860,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "BH-25C-1_0_0"
+			(symbol "BHX1-2450-SM_0_0"
 				(polyline
 					(pts
 						(xy -3.81 1.905) (xy -2.54 1.905)
@@ -887,7 +887,7 @@
 				)
 				(polyline
 					(pts
-						(xy -1.27 2.54) (xy -1.27 -2.54)
+						(xy -0.762 2.54) (xy -0.762 -2.54)
 					)
 					(stroke
 						(width 0.254)
@@ -899,31 +899,7 @@
 				)
 				(polyline
 					(pts
-						(xy -1.27 0) (xy -2.54 0)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 1.27) (xy 1.27 -1.27)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 0) (xy 2.54 0)
+						(xy 0.762 1.27) (xy 0.762 -1.27)
 					)
 					(stroke
 						(width 0.254)
@@ -943,7 +919,25 @@
 							)
 						)
 					)
-					(number "P"
+					(number "1"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -7.62 0 0)
+					(length 5.08)
+					(name "~"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "1_1"
 						(effects
 							(font
 								(size 1.016 1.016)
@@ -961,12 +955,38 @@
 							)
 						)
 					)
-					(number "N"
+					(number "2"
 						(effects
 							(font
 								(size 1.016 1.016)
 							)
 						)
+					)
+				)
+			)
+			(symbol "BHX1-2450-SM_1_0"
+				(polyline
+					(pts
+						(xy -0.762 0) (xy -2.54 0)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.762 0) (xy 2.54 0)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
 					)
 				)
 			)
@@ -3040,31 +3060,31 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "0_Tactile_Push_Button:R-667842"
+		(symbol "0_Tactile_Push_Button:PTS636_SK25J_SMTR_LFS"
 			(pin_names
 				(offset 0.254)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "SW"
-				(at -0.762 9.906 0)
+			(property "Reference" "U"
+				(at 20.32 10.16 0)
 				(effects
 					(font
 						(size 1.524 1.524)
 					)
 				)
 			)
-			(property "Value" "R-667842"
-				(at 0.254 7.366 0)
+			(property "Value" "PTS636 SK25J SMTR LFS"
+				(at 20.32 7.62 0)
 				(effects
 					(font
 						(size 1.524 1.524)
 					)
 				)
 			)
-			(property "Footprint" "R-667_MIT"
-				(at -15.24 2.54 0)
+			(property "Footprint" "SW_PTS636_SK25J_SMTR_LFS_CNK"
+				(at 0 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -3073,8 +3093,8 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" "R-667842"
-				(at -15.24 2.54 0)
+			(property "Datasheet" "PTS636 SK25J SMTR LFS"
+				(at 0 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -3100,7 +3120,7 @@
 					)
 				)
 			)
-			(property "ki_keywords" "R-667842"
+			(property "ki_keywords" "PTS636 SK25J SMTR LFS"
 				(at 0 0 0)
 				(effects
 					(font
@@ -3109,7 +3129,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_fp_filters" "R-667_MIT"
+			(property "ki_fp_filters" "SW_PTS636_SK25J_SMTR_LFS_CNK SW_PTS636_SK25J_SMTR_LFS_CNK-M SW_PTS636_SK25J_SMTR_LFS_CNK-L"
 				(at 0 0 0)
 				(effects
 					(font
@@ -3118,10 +3138,10 @@
 					(hide yes)
 				)
 			)
-			(symbol "R-667842_0_1"
+			(symbol "PTS636_SK25J_SMTR_LFS_0_1"
 				(polyline
 					(pts
-						(xy -5.842 -1.27) (xy -2.286 -1.27)
+						(xy 14.986 0) (xy 17.78 0)
 					)
 					(stroke
 						(width 0.127)
@@ -3133,7 +3153,7 @@
 				)
 				(polyline
 					(pts
-						(xy -4.064 1.27) (xy -2.286 1.27)
+						(xy 17.78 0) (xy 20.32 1.778)
 					)
 					(stroke
 						(width 0.127)
@@ -3145,7 +3165,7 @@
 				)
 				(polyline
 					(pts
-						(xy -2.286 1.27) (xy -2.286 -1.27)
+						(xy 20.32 0) (xy 23.114 0)
 					)
 					(stroke
 						(width 0.127)
@@ -3156,93 +3176,10 @@
 					)
 				)
 				(circle
-					(center -2.286 0)
-					(radius 0.2032)
+					(center 20.32 0)
+					(radius 0.127)
 					(stroke
-						(width 0.3048)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.286 0) (xy -0.762 0)
-					)
-					(stroke
-						(width 0.127)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.778 0) (xy -0.762 1.27)
-					)
-					(stroke
-						(width 0.127)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 3.302 2.54) (xy 3.302 -2.54)
-					)
-					(stroke
-						(width 0.127)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 3.302 0) (xy 1.778 0)
-					)
-					(stroke
-						(width 0.127)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 3.302 0)
-					(radius 0.2032)
-					(stroke
-						(width 0.3048)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 3.302 -2.54) (xy 5.08 -2.54)
-					)
-					(stroke
-						(width 0.127)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 5.08 2.54) (xy 3.302 2.54)
-					)
-					(stroke
-						(width 0.127)
+						(width 0.254)
 						(type default)
 					)
 					(fill
@@ -3250,10 +3187,10 @@
 					)
 				)
 			)
-			(symbol "R-667842_1_1"
+			(symbol "PTS636_SK25J_SMTR_LFS_1_1"
 				(rectangle
-					(start -4.064 4.064)
-					(end 5.08 -4.064)
+					(start 14.986 3.556)
+					(end 23.114 -2.794)
 					(stroke
 						(width 0)
 						(type solid)
@@ -3264,7 +3201,7 @@
 					)
 				)
 				(pin passive line
-					(at -11.43 1.27 0)
+					(at 7.62 0 0)
 					(length 7.62)
 					(name "1"
 						(effects
@@ -3282,7 +3219,7 @@
 					)
 				)
 				(pin passive line
-					(at -11.43 -1.27 0)
+					(at 30.48 0 180)
 					(length 7.62)
 					(name "2"
 						(effects
@@ -3292,149 +3229,6 @@
 						)
 					)
 					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 12.7 2.54 180)
-					(length 7.62)
-					(name "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 12.7 -2.54 180)
-					(length 7.62)
-					(name "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "Connector:TestPoint"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0.762)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "TP"
-				(at 0 6.858 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "TestPoint"
-				(at 0 5.08 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 5.08 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 5.08 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "test point"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "test point tp"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "Pin* Test*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "TestPoint_0_1"
-				(circle
-					(center 0 3.302)
-					(radius 0.762)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "TestPoint_1_1"
-				(pin passive line
-					(at 0 0 90)
-					(length 2.54)
-					(name "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -4221,12 +4015,6 @@
 		(uuid "38141586-db9a-4486-99e7-e6e1ee4e6cb4")
 	)
 	(junction
-		(at 134.62 82.55)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "465fd5a7-cdac-4d4d-a4bd-397e0ce3b78d")
-	)
-	(junction
 		(at 40.64 58.42)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4301,10 +4089,6 @@
 	(no_connect
 		(at 66.04 41.91)
 		(uuid "a21638e9-04a0-4288-be7f-621f05461ce6")
-	)
-	(no_connect
-		(at 110.49 81.28)
-		(uuid "baac9a09-632e-4996-aaaf-f4ed451b1cdf")
 	)
 	(wire
 		(pts
@@ -4818,7 +4602,7 @@
 	)
 	(wire
 		(pts
-			(xy 134.62 82.55) (xy 134.62 77.47)
+			(xy 133.35 78.74) (xy 133.35 85.09)
 		)
 		(stroke
 			(width 0)
@@ -4975,16 +4759,6 @@
 			(type default)
 		)
 		(uuid "8660adaf-b173-45ad-8b50-60dc09b52c64")
-	)
-	(wire
-		(pts
-			(xy 134.62 82.55) (xy 134.62 86.36)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8697e96e-7645-476e-b64e-c5a034e6c673")
 	)
 	(wire
 		(pts
@@ -6985,7 +6759,7 @@
 				)
 			)
 		)
-		(property "Footprint" "0_ATtiny1614:SOIC14_SL_MCH-M"
+		(property "Footprint" "0_ATtiny1614:SOIC14_SL_MCH"
 			(at 62.23 74.93 0)
 			(effects
 				(font
@@ -7150,7 +6924,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "09a4998e-f90e-4109-84a5-c2b28d3f948e")
-		(property "Reference" "C5"
+		(property "Reference" "C6"
 			(at 191.77 69.088 90)
 			(effects
 				(font
@@ -7202,7 +6976,7 @@
 		(instances
 			(project "keepsake-keychain"
 				(path "/32670795-e352-430d-9b7f-c7f10ebe6399"
-					(reference "C5")
+					(reference "C6")
 					(unit 1)
 				)
 			)
@@ -7420,7 +7194,7 @@
 	)
 	(symbol
 		(lib_id "power:GNDREF")
-		(at 134.62 86.36 0)
+		(at 133.35 85.09 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7428,8 +7202,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0df443f8-7a89-4b26-8a3b-4bee06038ef2")
-		(property "Reference" "#PWR022"
-			(at 134.62 92.71 0)
+		(property "Reference" "#PWR023"
+			(at 133.35 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7438,7 +7212,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 137.16 87.6299 0)
+			(at 135.89 86.3599 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7448,7 +7222,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 134.62 86.36 0)
+			(at 133.35 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7457,7 +7231,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 134.62 86.36 0)
+			(at 133.35 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7466,7 +7240,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GNDREF\" , reference supply ground"
-			(at 134.62 86.36 0)
+			(at 133.35 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7480,7 +7254,7 @@
 		(instances
 			(project "keepsake-keychain"
 				(path "/32670795-e352-430d-9b7f-c7f10ebe6399"
-					(reference "#PWR022")
+					(reference "#PWR023")
 					(unit 1)
 				)
 			)
@@ -8058,73 +7832,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 180.34 69.85 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "27a2a732-336d-4779-8448-6a78a5614938")
-		(property "Reference" "TP1"
-			(at 175.514 71.628 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "TestPoint"
-			(at 171.45 73.406 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
-			(at 175.26 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 175.26 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "test point"
-			(at 180.34 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "e75d0825-8498-4f40-8e8e-7f377bc3cb89")
-		)
-		(instances
-			(project ""
-				(path "/32670795-e352-430d-9b7f-c7f10ebe6399"
-					(reference "TP1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GNDREF")
 		(at 245.11 29.21 0)
 		(unit 1)
@@ -8414,15 +8121,15 @@
 			(at 233.68 64.77 0)
 			(effects
 				(font
-					(size 1.524 1.524)
+					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "MCP6001"
+		(property "Value" "Op Amp"
 			(at 233.68 67.31 0)
 			(effects
 				(font
-					(size 1.524 1.524)
+					(size 1.27 1.27)
 				)
 			)
 		)
@@ -9460,73 +9167,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 30.48 78.74 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "4db6b6ee-88f4-49db-90b4-154c477ff0f6")
-		(property "Reference" "TP3"
-			(at 32.004 84.582 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "TestPoint"
-			(at 27.94 80.7721 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "Connector_Pin:Pin_D1.0mm_L10.0mm"
-			(at 25.4 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 25.4 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "test point"
-			(at 30.48 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "f9205a98-8813-47bc-b870-2d06afabd59b")
-		)
-		(instances
-			(project ""
-				(path "/32670795-e352-430d-9b7f-c7f10ebe6399"
-					(reference "TP3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "0_RGB_LED:UHD111A-FKA-C3K23E1L3VG5ZB3Z3")
 		(at 219.71 102.87 0)
 		(unit 1)
@@ -9679,7 +9319,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "595178ae-d969-4a09-ad25-170af5a00270")
-		(property "Reference" "#PWR024"
+		(property "Reference" "#PWR025"
 			(at 237.49 96.52 0)
 			(effects
 				(font
@@ -9731,7 +9371,7 @@
 		(instances
 			(project "keepsake-keychain"
 				(path "/32670795-e352-430d-9b7f-c7f10ebe6399"
-					(reference "#PWR024")
+					(reference "#PWR025")
 					(unit 1)
 				)
 			)
@@ -10043,7 +9683,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "65eb87a8-7dfc-4211-85cf-b341a9af5b91")
-		(property "Reference" "#PWR021"
+		(property "Reference" "#PWR022"
 			(at 163.83 88.9 0)
 			(effects
 				(font
@@ -10095,74 +9735,7 @@
 		(instances
 			(project "keepsake-keychain"
 				(path "/32670795-e352-430d-9b7f-c7f10ebe6399"
-					(reference "#PWR021")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 35.56 81.28 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "6b77d002-0972-4bea-818d-77e0d9b928f7")
-		(property "Reference" "TP4"
-			(at 37.084 87.122 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "TestPoint"
-			(at 33.02 83.3121 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "Connector_Pin:Pin_D1.0mm_L10.0mm"
-			(at 30.48 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 30.48 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "test point"
-			(at 35.56 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "bb3e5d1c-354b-42a1-81ad-3246ad7e0149")
-		)
-		(instances
-			(project "keepsake-keychain"
-				(path "/32670795-e352-430d-9b7f-c7f10ebe6399"
-					(reference "TP4")
+					(reference "#PWR022")
 					(unit 1)
 				)
 			)
@@ -11673,6 +11246,118 @@
 		)
 	)
 	(symbol
+		(lib_id "0_Coin_Battery_Holder:BHX1-2450-SM")
+		(at 33.02 39.37 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a9d06f2b-2a7a-469e-b0b5-7210abfc395a")
+		(property "Reference" "BT1"
+			(at 33.655 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "CR2450 Coin Battery"
+			(at 33.655 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "0_Coin_Battery_Holder:battery-holder"
+			(at 33.02 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 33.02 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 33.02 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PARTREV" "H"
+			(at 33.02 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "STANDARD" "Manufacturer Recommendations"
+			(at 33.02 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" "5.4mm"
+			(at 33.02 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "MPD"
+			(at 33.02 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(pin "1_1"
+			(uuid "d247af70-50f7-411e-80a8-9be158928c58")
+		)
+		(pin "2"
+			(uuid "2478eecf-fa32-45aa-8709-c7a04d7a6fcb")
+		)
+		(pin "1"
+			(uuid "66ea50cb-b18d-4a8b-9107-512d39c259b3")
+		)
+		(instances
+			(project ""
+				(path "/32670795-e352-430d-9b7f-c7f10ebe6399"
+					(reference "BT1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "0_Schottky_Diode:BAT54")
 		(at 208.28 74.93 0)
 		(mirror y)
@@ -12213,7 +11898,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "ba05f3cf-0957-45ae-9eb2-6d4ecc9819f3")
-		(property "Reference" "C6"
+		(property "Reference" "C5"
 			(at 259.334 65.532 90)
 			(effects
 				(font
@@ -12265,7 +11950,7 @@
 		(instances
 			(project "keepsake-keychain"
 				(path "/32670795-e352-430d-9b7f-c7f10ebe6399"
-					(reference "C6")
+					(reference "C5")
 					(unit 1)
 				)
 			)
@@ -12415,6 +12100,76 @@
 		)
 	)
 	(symbol
+		(lib_id "0_Tactile_Push_Button:PTS636_SK25J_SMTR_LFS")
+		(at 102.87 78.74 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "c0a6091d-c303-4cbe-be3e-b0aaf9a2ada3")
+		(property "Reference" "SW2"
+			(at 122.428 73.66 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(property "Value" "PTS636 SK25J SMTR LFS"
+			(at 123.19 71.12 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "0_SPDT_Switch:spdt-switch"
+			(at 102.87 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "PTS636 SK25J SMTR LFS"
+			(at 102.87 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 102.87 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "0fda5c03-d769-4788-9d0f-b973e149be0c")
+		)
+		(pin "1"
+			(uuid "aff9a947-45f5-4638-81db-42c2260ea94c")
+		)
+		(instances
+			(project ""
+				(path "/32670795-e352-430d-9b7f-c7f10ebe6399"
+					(reference "SW2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "0_RGB_LED:UHD111A-FKA-C3K23E1L3VG5ZB3Z3")
 		(at 87.63 153.67 0)
 		(unit 1)
@@ -12507,7 +12262,7 @@
 				)
 			)
 		)
-		(property "Value" "3SM123C4T1QA"
+		(property "Value" "MEMS Microphone"
 			(at 151.384 68.834 0)
 			(effects
 				(font
@@ -13079,115 +12834,6 @@
 		)
 	)
 	(symbol
-		(lib_id "0_Coin_Battery_Holder:BH-25C-1")
-		(at 33.02 39.37 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "d20dc903-46ee-44e4-b56b-d9ddf1d737ea")
-		(property "Reference" "BT1"
-			(at 33.655 31.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "CR2032 Coin Battery"
-			(at 33.655 34.29 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "0_Coin_Battery_Holder:battery-holder"
-			(at 33.02 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 33.02 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 33.02 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PARTREV" ""
-			(at 33.02 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "STANDARD" "Manufacturer Recommendations"
-			(at 33.02 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "MAXIMUM_PACKAGE_HEIGHT" "8.7mm"
-			(at 33.02 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "MANUFACTURER" "Adam Tech"
-			(at 33.02 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(pin "P"
-			(uuid "8df14efb-41e3-4f00-b688-eeb572e75e90")
-		)
-		(pin "N"
-			(uuid "a789eec5-60ab-4d69-808e-adc33555f1f6")
-		)
-		(instances
-			(project ""
-				(path "/32670795-e352-430d-9b7f-c7f10ebe6399"
-					(reference "BT1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "0_RGB_LED:UHD111A-FKA-C3K23E1L3VG5ZB3Z3")
 		(at 20.32 153.67 0)
 		(unit 1)
@@ -13409,7 +13055,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d9c4bb41-b6c4-4c38-8333-753def39f991")
-		(property "Reference" "#PWR025"
+		(property "Reference" "#PWR021"
 			(at 264.16 83.82 0)
 			(effects
 				(font
@@ -13461,60 +13107,61 @@
 		(instances
 			(project "keepsake-keychain"
 				(path "/32670795-e352-430d-9b7f-c7f10ebe6399"
-					(reference "#PWR025")
+					(reference "#PWR021")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "0_Tactile_Push_Button:R-667842")
-		(at 121.92 80.01 0)
+		(lib_id "dk_Test-Points:5002")
+		(at 35.56 83.82 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "da80b212-86fb-4521-ba75-bdb4562d5966")
-		(property "Reference" "SW2"
-			(at 122.428 74.168 0)
+		(uuid "dc074b00-e722-4300-b316-1fa0309e3497")
+		(property "Reference" "TP4"
+			(at 37.084 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "5002"
+			(at 35.56 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "digikey-footprints:Test_Point_D1.02mm"
+			(at 40.64 78.74 0)
 			(effects
 				(font
 					(size 1.524 1.524)
 				)
+				(justify left)
+				(hide yes)
 			)
 		)
-		(property "Value" "R-667842"
-			(at 123.444 72.644 0)
+		(property "Datasheet" "http://www.keyelco.com/product-pdf.cfm?p=1311"
+			(at 40.64 76.2 0)
 			(effects
 				(font
 					(size 1.524 1.524)
 				)
+				(justify left)
 				(hide yes)
 			)
 		)
-		(property "Footprint" "0_Push_Button:SW_PTS636_SK25J_SMTR_LFS_CNK-M"
-			(at 121.92 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "R-667842"
-			(at 121.92 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 121.92 80.01 0)
+		(property "Description" "PC TEST POINT MINIATURE WHITE"
+			(at 35.56 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13522,22 +13169,103 @@
 				(hide yes)
 			)
 		)
-		(pin "2"
-			(uuid "59ddcc43-8a22-4675-b8bb-c1f2ef735890")
+		(property "Digi-Key_PN" "36-5002-ND"
+			(at 40.64 73.66 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+				(hide yes)
+			)
 		)
-		(pin "3"
-			(uuid "8a1a6281-cc1d-4c5a-958c-95d5f123684c")
+		(property "MPN" "5002"
+			(at 40.64 71.12 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Category" "Test and Measurement"
+			(at 40.64 68.58 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Family" "Test Points"
+			(at 40.64 66.04 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "DK_Datasheet_Link" "http://www.keyelco.com/product-pdf.cfm?p=1311"
+			(at 40.64 63.5 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "DK_Detail_Page" "/product-detail/en/keystone-electronics/5002/36-5002-ND/255328"
+			(at 40.64 60.96 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Description_1" "PC TEST POINT MINIATURE WHITE"
+			(at 40.64 58.42 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Keystone Electronics"
+			(at 40.64 55.88 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Status" "Active"
+			(at 40.64 53.34 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+				(hide yes)
+			)
 		)
 		(pin "1"
-			(uuid "c539c9eb-ff4c-49c2-86c8-b85c3588f225")
-		)
-		(pin "4"
-			(uuid "3db6e926-8d88-4c9e-927b-d4d2d67b5b1a")
+			(uuid "c7732db9-6687-4c7e-a16d-a55785e6f9ee")
 		)
 		(instances
-			(project ""
+			(project "keepsake-keychain"
 				(path "/32670795-e352-430d-9b7f-c7f10ebe6399"
-					(reference "SW2")
+					(reference "TP4")
 					(unit 1)
 				)
 			)
@@ -13687,7 +13415,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e2b45417-fdfa-4427-b0b5-bb96d022c5c7")
-		(property "Reference" "#PWR023"
+		(property "Reference" "#PWR024"
 			(at 87.63 95.25 0)
 			(effects
 				(font
@@ -13739,7 +13467,165 @@
 		(instances
 			(project "keepsake-keychain"
 				(path "/32670795-e352-430d-9b7f-c7f10ebe6399"
-					(reference "#PWR023")
+					(reference "#PWR024")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "dk_Test-Points:5002")
+		(at 180.34 72.39 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e4e36f8b-fdff-46be-b188-67ef97fd5942")
+		(property "Reference" "TP1"
+			(at 175.514 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "5002"
+			(at 180.34 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "digikey-footprints:Test_Point_D1.02mm"
+			(at 185.42 67.31 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.keyelco.com/product-pdf.cfm?p=1311"
+			(at 185.42 64.77 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Description" "PC TEST POINT MINIATURE WHITE"
+			(at 180.34 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "36-5002-ND"
+			(at 185.42 62.23 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "MPN" "5002"
+			(at 185.42 59.69 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Category" "Test and Measurement"
+			(at 185.42 57.15 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Family" "Test Points"
+			(at 185.42 54.61 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "DK_Datasheet_Link" "http://www.keyelco.com/product-pdf.cfm?p=1311"
+			(at 185.42 52.07 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "DK_Detail_Page" "/product-detail/en/keystone-electronics/5002/36-5002-ND/255328"
+			(at 185.42 49.53 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Description_1" "PC TEST POINT MINIATURE WHITE"
+			(at 185.42 46.99 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Keystone Electronics"
+			(at 185.42 44.45 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Status" "Active"
+			(at 185.42 41.91 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6327efb8-82f4-4655-aaee-8770538509c8")
+		)
+		(instances
+			(project "keepsake-keychain"
+				(path "/32670795-e352-430d-9b7f-c7f10ebe6399"
+					(reference "TP1")
 					(unit 1)
 				)
 			)
@@ -13816,6 +13702,164 @@
 			(project "keepsake-keychain"
 				(path "/32670795-e352-430d-9b7f-c7f10ebe6399"
 					(reference "LED6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "dk_Test-Points:5002")
+		(at 30.48 81.28 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e9eeba80-d5b9-4aca-9f41-6cf82a8275b1")
+		(property "Reference" "TP3"
+			(at 25.4 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "5002"
+			(at 30.48 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "digikey-footprints:Test_Point_D1.02mm"
+			(at 35.56 76.2 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.keyelco.com/product-pdf.cfm?p=1311"
+			(at 35.56 73.66 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Description" "PC TEST POINT MINIATURE WHITE"
+			(at 30.48 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "36-5002-ND"
+			(at 35.56 71.12 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "MPN" "5002"
+			(at 35.56 68.58 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Category" "Test and Measurement"
+			(at 35.56 66.04 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Family" "Test Points"
+			(at 35.56 63.5 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "DK_Datasheet_Link" "http://www.keyelco.com/product-pdf.cfm?p=1311"
+			(at 35.56 60.96 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "DK_Detail_Page" "/product-detail/en/keystone-electronics/5002/36-5002-ND/255328"
+			(at 35.56 58.42 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Description_1" "PC TEST POINT MINIATURE WHITE"
+			(at 35.56 55.88 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Keystone Electronics"
+			(at 35.56 53.34 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Status" "Active"
+			(at 35.56 50.8 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9eddedff-ae24-4951-a54c-8abe03fdd5cf")
+		)
+		(instances
+			(project "keepsake-keychain"
+				(path "/32670795-e352-430d-9b7f-c7f10ebe6399"
+					(reference "TP3")
 					(unit 1)
 				)
 			)
@@ -14109,7 +14153,7 @@
 		(dnp no)
 		(uuid "fc19e890-9305-4382-b783-d1c7645c8ab4")
 		(property "Reference" "TP2"
-			(at 103.886 74.168 90)
+			(at 106.426 76.2 90)
 			(effects
 				(font
 					(size 1.27 1.27)
