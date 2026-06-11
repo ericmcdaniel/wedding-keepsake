@@ -25,7 +25,7 @@
 				)
 			)
 		)
-		(property "Footprint" "SW_PTS636_SK25J_SMTR_LFS_CNK"
+		(property "Footprint" "0_Tactile_Push_Button:SW_PTS636_SM43J_SMTR_LFS"
 			(at 0 0 0)
 			(effects
 				(font
@@ -52,14 +52,6 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
-			)
-		)
-		(property "ki_locked" ""
-			(at 0 0 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
 			)
 		)
 		(property "ki_keywords" "PTS636 SK25J SMTR LFS"

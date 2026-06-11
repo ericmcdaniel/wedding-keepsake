@@ -1,0 +1,241 @@
+(footprint "SW_PTS636_SM43J_SMTR_LFS"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 0.175 -3.135 0)
+		(layer "F.SilkS")
+		(uuid "63e84b4b-533a-4823-a8f2-ec9a66ec91c2")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "SW_PTS636_SM43J_SMTR_LFS"
+		(at 12.24 3.135 0)
+		(layer "F.Fab")
+		(uuid "2921f10d-0f56-48ef-9039-8cd554e1caad")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "bc166f9a-d2b4-4bbc-a37e-caed3d7c2c41")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "b72f1aa0-ae72-47ae-a04a-117a8d4dfa07")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_line
+		(start -3 -1.75)
+		(end 3 -1.75)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "b5ae5bd9-591f-447c-9096-5e5c21c7cadf")
+	)
+	(fp_line
+		(start -3 -1.0135)
+		(end -3 -1.75)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "4c23c0a3-549c-47af-8436-d3fc26c278b6")
+	)
+	(fp_line
+		(start -3 1.75)
+		(end -3 1.0135)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "7ae0a949-610b-42d5-b1a7-730efab60c45")
+	)
+	(fp_line
+		(start 3 -1.75)
+		(end 3 -1.0135)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "aafb2c5f-aa54-46a9-8b1e-6dbad9e29d9c")
+	)
+	(fp_line
+		(start 3 1.0135)
+		(end 3 1.75)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "5e357c10-bddd-4495-93a3-42e67a6aa5d7")
+	)
+	(fp_line
+		(start 3 1.75)
+		(end -3 1.75)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "77cc98a3-156c-4c6d-80d9-69b88ee789c7")
+	)
+	(fp_circle
+		(center -4.25 0)
+		(end -4.15 0)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "7676488b-4c3c-4276-b8e1-ee1e5561bcb4")
+	)
+	(fp_line
+		(start -3.95 -2)
+		(end 3.95 -2)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "a1331962-3e77-41bc-8ee0-0012b7eeb062")
+	)
+	(fp_line
+		(start -3.95 2)
+		(end -3.95 -2)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "b0deb089-9130-483b-aa23-1329f3465fa2")
+	)
+	(fp_line
+		(start 3.95 -2)
+		(end 3.95 2)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "39c0f49b-4d76-4cab-8d31-5a0b54720777")
+	)
+	(fp_line
+		(start 3.95 2)
+		(end -3.95 2)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "54250baa-2ab8-4a1d-b7d1-4b2dedd91ece")
+	)
+	(fp_line
+		(start -3 -1.75)
+		(end 3 -1.75)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "b09f3423-be68-4e09-80e2-97839f85c5f8")
+	)
+	(fp_line
+		(start -3 1.75)
+		(end -3 -1.75)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "bca0fb86-3ea9-4a25-8b05-81ea17c4b74f")
+	)
+	(fp_line
+		(start 3 -1.75)
+		(end 3 1.75)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "539c273e-a8cb-47be-a95a-7b14fdf9b821")
+	)
+	(fp_line
+		(start 3 1.75)
+		(end -3 1.75)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "c71f63cb-a373-427f-8199-7ea4082e6278")
+	)
+	(fp_circle
+		(center -4.25 0)
+		(end -4.15 0)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.Fab")
+		(uuid "f667b181-d55f-4e14-a885-407e626c2eca")
+	)
+	(pad "1" smd rect
+		(at -3.25 0)
+		(size 0.9 1.4)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(solder_mask_margin 0.102)
+		(uuid "2c21f5bb-feeb-4c53-8084-16ea483aa1b5")
+	)
+	(pad "2" smd rect
+		(at 3.25 0)
+		(size 0.9 1.4)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(solder_mask_margin 0.102)
+		(uuid "a62aeb4b-0fae-4200-8121-63c945b487fc")
+	)
+	(embedded_fonts no)
+	(model "${KIPRJMOD}/cad-models/tactile-push-button.step"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz -90 -0 -0)
+		)
+	)
+)

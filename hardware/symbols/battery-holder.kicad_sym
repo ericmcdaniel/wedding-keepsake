@@ -27,7 +27,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "BHX1-2450-SM:BAT_BHX1-2450-SM"
+		(property "Footprint" "0_Coin_Battery_Holder:battery-holder"
 			(at 0 0 0)
 			(effects
 				(font

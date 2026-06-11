@@ -27,7 +27,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "3SM123C4T1QA:MIC_3SM123C4T1QA"
+		(property "Footprint" "0_Microphone:MIC_3SM123C4T1QA"
 			(at 0 0 0)
 			(effects
 				(font

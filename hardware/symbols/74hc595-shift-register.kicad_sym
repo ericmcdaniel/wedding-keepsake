@@ -27,7 +27,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "74HC595PW_118:SOP65P640X110-16N"
+		(property "Footprint" "0_74HC595_Shift_Register:shift-register"
 			(at 0 0 0)
 			(effects
 				(font

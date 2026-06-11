@@ -25,7 +25,7 @@
 				)
 			)
 		)
-		(property "Footprint" "SOIC14_SL_MCH"
+		(property "Footprint" "0_ATtiny1614:SOIC14_SL_MCH"
 			(at -23.622 8.89 0)
 			(effects
 				(font
@@ -52,14 +52,6 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
-			)
-		)
-		(property "ki_locked" ""
-			(at 0 0 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
 			)
 		)
 		(property "ki_keywords" "ATTINY1614-SSF"

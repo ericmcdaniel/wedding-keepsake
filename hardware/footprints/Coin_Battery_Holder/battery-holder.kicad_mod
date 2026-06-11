@@ -292,4 +292,15 @@
 		(uuid "c3f69289-ee89-46a5-b55e-d0b35918ca83")
 	)
 	(embedded_fonts no)
+	(model "${KIPRJMOD}/cad-models/coin-battery-holder.step"
+		(offset
+			(xyz 0 -2 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz -90 -0 -0)
+		)
+	)
 )

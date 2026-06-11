@@ -268,7 +268,7 @@
 	(embedded_fonts no)
 	(model "${KIPRJMOD}/cad-models/spdt-switch.step"
 		(offset
-			(xyz 0 -1.5 0)
+			(xyz 0 -1.5 -0.666666)
 		)
 		(scale
 			(xyz 1 1 1)

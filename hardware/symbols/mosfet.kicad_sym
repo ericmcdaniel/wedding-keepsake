@@ -27,7 +27,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "MMFTP4042K:TRANS_MMFTP4042K"
+		(property "Footprint" "0_MOSFET:mosfet"
 			(at 0 0 0)
 			(effects
 				(font
