@@ -71,8 +71,8 @@
 		(uuid "3202810e-aa5e-48eb-8c74-883f1c60862f")
 	)
 	(fp_circle
-		(center -2.5 -0.575)
-		(end -2.4 -0.575)
+		(center -0.758828 -0.004588)
+		(end -0.658828 -0.004588)
 		(stroke
 			(width 0.2)
 			(type solid)
@@ -160,28 +160,6 @@
 		)
 		(layer "F.Fab")
 		(uuid "62f6012c-c811-47bf-b200-9875195ce235")
-	)
-	(fp_circle
-		(center -2.5 -0.575)
-		(end -2.4 -0.575)
-		(stroke
-			(width 0.2)
-			(type solid)
-		)
-		(fill no)
-		(layer "F.Fab")
-		(uuid "cc3c85df-e3d1-46f6-83ad-004a7f849c07")
-	)
-	(fp_circle
-		(center -0.88 0)
-		(end -0.63 0)
-		(stroke
-			(width 0.127)
-			(type solid)
-		)
-		(fill no)
-		(layer "F.Fab")
-		(uuid "97a7844b-ce00-4378-a13c-ec32dd1a53f9")
 	)
 	(pad "1" smd circle
 		(at -1.33 -0.575)
