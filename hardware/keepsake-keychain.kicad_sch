@@ -6304,6 +6304,16 @@
 		)
 		(uuid "65793c81-7f9f-4aec-8f88-6810e954615d")
 	)
+	(label "POS_SHELL"
+		(at 41.91 33.02 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b2750eca-9562-4ead-ae28-12a1b7f9c2a8")
+	)
 	(global_label "RED_1"
 		(shape input)
 		(at 74.93 128.27 0)
