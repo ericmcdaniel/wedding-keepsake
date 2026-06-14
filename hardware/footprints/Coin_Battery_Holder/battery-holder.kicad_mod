@@ -57,7 +57,7 @@
 			(width 0.127)
 			(type solid)
 		)
-		(layer "Dwgs.User")
+		(layer "Cmts.User")
 		(uuid "3eafc3c1-2706-4a91-b3e4-a27cef1f837e")
 	)
 	(fp_line
@@ -67,7 +67,7 @@
 			(width 0.127)
 			(type solid)
 		)
-		(layer "Dwgs.User")
+		(layer "Cmts.User")
 		(uuid "b1b07c62-fef9-4980-9c19-a0377770dcb1")
 	)
 	(fp_line
@@ -77,7 +77,7 @@
 			(width 0.127)
 			(type solid)
 		)
-		(layer "Dwgs.User")
+		(layer "Cmts.User")
 		(uuid "55ed4cc5-ef01-474f-bb28-0ae04186ddb7")
 	)
 	(fp_line
@@ -87,7 +87,7 @@
 			(width 0.127)
 			(type solid)
 		)
-		(layer "Dwgs.User")
+		(layer "Cmts.User")
 		(uuid "8aced7e5-8243-4a6a-a322-d18ef32ccf35")
 	)
 	(fp_line
@@ -97,7 +97,7 @@
 			(width 0.127)
 			(type solid)
 		)
-		(layer "Dwgs.User")
+		(layer "Cmts.User")
 		(uuid "1eb8c35e-8e30-4c00-b957-223a2445a358")
 	)
 	(fp_line
@@ -107,7 +107,7 @@
 			(width 0.127)
 			(type solid)
 		)
-		(layer "Dwgs.User")
+		(layer "Cmts.User")
 		(uuid "c7296a2c-8313-42e7-976a-642d49282eca")
 	)
 	(fp_line
@@ -270,19 +270,19 @@
 		(layer "F.Fab")
 		(uuid "69df2c2b-a53d-492c-8bf3-39a95de6be40")
 	)
+	(pad "" smd rect
+		(at 16.73 0)
+		(size 5.3 5.3)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(solder_mask_margin 0.102)
+		(uuid "2cfe764f-ef5c-4902-af1c-c7e40436dfb0")
+	)
 	(pad "1" smd rect
 		(at -16.73 0)
 		(size 5.3 5.3)
 		(layers "F.Cu" "F.Mask" "F.Paste")
 		(solder_mask_margin 0.102)
 		(uuid "3fc9fcdb-a8b2-4946-bf3d-8196def3e531")
-	)
-	(pad "1" smd rect
-		(at 16.73 0)
-		(size 5.3 5.3)
-		(layers "F.Cu" "F.Mask" "F.Paste")
-		(solder_mask_margin 0.102)
-		(uuid "2cfe764f-ef5c-4902-af1c-c7e40436dfb0")
 	)
 	(pad "2" smd rect
 		(at 0 0)
