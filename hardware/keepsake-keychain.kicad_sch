@@ -3058,45 +3058,46 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "0_Tactile_Push_Button:PTS636_SK25J_SMTR_LFS"
+		(symbol "0_Tactile_Push_Button:TS18-5-15-SL-160-SMT-TR"
 			(pin_names
-				(offset 0.254)
+				(offset 1.016)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "U"
-				(at 20.32 10.16 0)
+			(property "Reference" "S"
+				(at -2.54 5.08 0)
 				(effects
 					(font
-						(size 1.524 1.524)
+						(size 1.27 1.27)
 					)
+					(justify left bottom)
 				)
 			)
-			(property "Value" "PTS636 SK25J SMTR LFS"
-				(at 20.32 7.62 0)
+			(property "Value" "TS18-5-15-SL-160-SMT-TR"
+				(at -2.54 -5.08 0)
 				(effects
 					(font
-						(size 1.524 1.524)
+						(size 1.27 1.27)
 					)
+					(justify left top)
 				)
 			)
-			(property "Footprint" "0_Tactile_Push_Button:SW_PTS636_SM43J_SMTR_LFS"
+			(property "Footprint" "TS18-5-15-SL-160-SMT-TR:SW_TS18-5-15-SL-160-SMT-TR"
 				(at 0 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
-						(italic yes)
 					)
+					(justify bottom)
 					(hide yes)
 				)
 			)
-			(property "Datasheet" "PTS636 SK25J SMTR LFS"
+			(property "Datasheet" ""
 				(at 0 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
-						(italic yes)
 					)
 					(hide yes)
 				)
@@ -3110,31 +3111,43 @@
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "PTS636 SK25J SMTR LFS"
+			(property "PARTREV" "1.02"
 				(at 0 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify bottom)
 					(hide yes)
 				)
 			)
-			(property "ki_fp_filters" "SW_PTS636_SK25J_SMTR_LFS_CNK SW_PTS636_SK25J_SMTR_LFS_CNK-M SW_PTS636_SK25J_SMTR_LFS_CNK-L"
+			(property "STANDARD" "Manufacturer Recommendations"
 				(at 0 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify bottom)
 					(hide yes)
 				)
 			)
-			(symbol "PTS636_SK25J_SMTR_LFS_0_1"
+			(property "MANUFACTURER" "Same Sky"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(symbol "TS18-5-15-SL-160-SMT-TR_0_0"
 				(polyline
 					(pts
-						(xy 14.986 0) (xy 17.78 0)
+						(xy -5.08 -2.54) (xy -5.08 2.54)
 					)
 					(stroke
-						(width 0.127)
+						(width 0.1524)
 						(type default)
 					)
 					(fill
@@ -3143,10 +3156,10 @@
 				)
 				(polyline
 					(pts
-						(xy 17.78 0) (xy 20.32 1.778)
+						(xy -2.54 0) (xy -5.08 0)
 					)
 					(stroke
-						(width 0.127)
+						(width 0.1524)
 						(type default)
 					)
 					(fill
@@ -3155,10 +3168,10 @@
 				)
 				(polyline
 					(pts
-						(xy 20.32 0) (xy 23.114 0)
+						(xy -2.54 0) (xy 2.794 2.1336)
 					)
 					(stroke
-						(width 0.127)
+						(width 0.1524)
 						(type default)
 					)
 					(fill
@@ -3166,62 +3179,108 @@
 					)
 				)
 				(circle
-					(center 20.32 0)
-					(radius 0.127)
+					(center 2.54 0)
+					(radius 0.3302)
 					(stroke
-						(width 0.254)
+						(width 0.1524)
 						(type default)
 					)
 					(fill
 						(type none)
 					)
 				)
-			)
-			(symbol "PTS636_SK25J_SMTR_LFS_1_1"
-				(rectangle
-					(start 14.986 3.556)
-					(end 23.114 -2.794)
+				(polyline
+					(pts
+						(xy 5.08 2.54) (xy 5.08 -2.54)
+					)
 					(stroke
-						(width 0)
-						(type solid)
+						(width 0.1524)
+						(type default)
 					)
 					(fill
-						(type color)
-						(color 255 255 194 1)
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 5.08 0) (xy 2.921 0)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
 					)
 				)
 				(pin passive line
-					(at 7.62 0 0)
-					(length 7.62)
-					(name "1"
+					(at -10.16 2.54 0)
+					(length 5.08)
+					(name "~"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -10.16 -2.54 0)
+					(length 5.08)
+					(name "~"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 10.16 2.54 180)
+					(length 5.08)
+					(name "~"
+						(effects
+							(font
+								(size 1.016 1.016)
 							)
 						)
 					)
 					(number "1"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.016 1.016)
 							)
 						)
 					)
 				)
 				(pin passive line
-					(at 30.48 0 180)
-					(length 7.62)
-					(name "2"
+					(at 10.16 -2.54 180)
+					(length 5.08)
+					(name "~"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.016 1.016)
 							)
 						)
 					)
 					(number "2"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.016 1.016)
 							)
 						)
 					)
@@ -4375,6 +4434,12 @@
 		(uuid "47903213-5cd0-499b-b09f-021aece91234")
 	)
 	(junction
+		(at 83.82 82.55)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4a0a57a7-204c-43f3-930b-3a7e641e3565")
+	)
+	(junction
 		(at 97.79 22.86)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4475,6 +4540,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "faccd9f3-7fc4-435e-a2d4-f7e7a1afa6ba")
+	)
+	(junction
+		(at 111.76 87.63)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ff72e199-0e15-4589-8dc7-4a8ce388aee0")
 	)
 	(no_connect
 		(at 19.05 193.04)
@@ -4607,6 +4678,16 @@
 			(type default)
 		)
 		(uuid "1ab2832b-11fa-4120-8107-0515fe687fa9")
+	)
+	(wire
+		(pts
+			(xy 105.41 87.63) (xy 111.76 87.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1b9cdceb-7cd0-4745-a402-69794ebb8204")
 	)
 	(wire
 		(pts
@@ -4757,6 +4838,16 @@
 			(type default)
 		)
 		(uuid "2a7f0937-ca76-4a8b-95c9-2738d4bc65f6")
+	)
+	(wire
+		(pts
+			(xy 111.76 87.63) (xy 111.76 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2b01eb10-0cd2-48c9-9f1a-b707ae27125b")
 	)
 	(wire
 		(pts
@@ -5080,6 +5171,16 @@
 	)
 	(wire
 		(pts
+			(xy 105.41 82.55) (xy 111.76 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5387f2b8-009a-4d41-809f-7ab17662bbe2")
+	)
+	(wire
+		(pts
 			(xy 153.67 53.34) (xy 153.67 45.72)
 		)
 		(stroke
@@ -5167,6 +5268,16 @@
 			(type default)
 		)
 		(uuid "5f411809-9d9c-4bb2-96c2-0b26be548b79")
+	)
+	(wire
+		(pts
+			(xy 83.82 80.01) (xy 83.82 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "60bb9579-b387-4f0e-9e9b-54658b2bfdc6")
 	)
 	(wire
 		(pts
@@ -5290,16 +5401,6 @@
 	)
 	(wire
 		(pts
-			(xy 83.82 83.82) (xy 83.82 80.01)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6e988838-098e-411a-986a-9591bf41aa43")
-	)
-	(wire
-		(pts
 			(xy 264.16 26.67) (xy 266.7 26.67)
 		)
 		(stroke
@@ -5347,6 +5448,16 @@
 			(type default)
 		)
 		(uuid "71c47049-792a-4e46-8f65-c76ffe0a64d2")
+	)
+	(wire
+		(pts
+			(xy 83.82 82.55) (xy 83.82 87.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "71fb2fbf-3441-480b-96db-76ef705ae3dd")
 	)
 	(wire
 		(pts
@@ -5620,16 +5731,6 @@
 	)
 	(wire
 		(pts
-			(xy 106.68 83.82) (xy 109.22 83.82)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8f00092e-630f-412e-a4ed-95ff4ce73f81")
-	)
-	(wire
-		(pts
 			(xy 71.12 182.88) (xy 74.93 182.88)
 		)
 		(stroke
@@ -5677,6 +5778,16 @@
 			(type default)
 		)
 		(uuid "9a42ace0-8f28-4562-bc8d-a21070039128")
+	)
+	(wire
+		(pts
+			(xy 111.76 82.55) (xy 111.76 87.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9bf2ea78-00c8-4fcd-8160-a561d9a5b353")
 	)
 	(wire
 		(pts
@@ -5870,6 +5981,16 @@
 	)
 	(wire
 		(pts
+			(xy 83.82 87.63) (xy 85.09 87.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b1733021-435a-4f77-8996-3bb852ef0a03")
+	)
+	(wire
+		(pts
 			(xy 140.97 30.48) (xy 142.24 30.48)
 		)
 		(stroke
@@ -6027,6 +6148,16 @@
 			(type default)
 		)
 		(uuid "c19ea6dd-aa89-4467-98c7-911d69056af9")
+	)
+	(wire
+		(pts
+			(xy 83.82 82.55) (xy 85.09 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c296b0be-e0a1-4603-a01a-8a24be93b946")
 	)
 	(wire
 		(pts
@@ -6247,16 +6378,6 @@
 			(type default)
 		)
 		(uuid "f0e0d86e-b536-4ea9-bb6f-0a88f8339d43")
-	)
-	(wire
-		(pts
-			(xy 109.22 83.82) (xy 109.22 88.9)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f22f8f59-9813-4d65-8820-a8055771d025")
 	)
 	(wire
 		(pts
@@ -10878,7 +10999,7 @@
 	)
 	(symbol
 		(lib_id "power:GNDREF")
-		(at 109.22 88.9 0)
+		(at 111.76 91.44 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -10886,8 +11007,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0df443f8-7a89-4b26-8a3b-4bee06038ef2")
-		(property "Reference" "#PWR021"
-			(at 109.22 95.25 0)
+		(property "Reference" "#PWR023"
+			(at 111.76 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10896,7 +11017,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 111.76 90.1699 0)
+			(at 114.3 92.7099 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10906,7 +11027,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 109.22 88.9 0)
+			(at 111.76 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10915,7 +11036,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 109.22 88.9 0)
+			(at 111.76 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10924,7 +11045,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GNDREF\" , reference supply ground"
-			(at 109.22 88.9 0)
+			(at 111.76 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10938,7 +11059,7 @@
 		(instances
 			(project "keepsake-keychain"
 				(path "/32670795-e352-430d-9b7f-c7f10ebe6399"
-					(reference "#PWR021")
+					(reference "#PWR023")
 					(unit 1)
 				)
 			)
@@ -13819,7 +13940,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "595178ae-d969-4a09-ad25-170af5a00270")
-		(property "Reference" "#PWR022"
+		(property "Reference" "#PWR021"
 			(at 242.57 96.52 0)
 			(effects
 				(font
@@ -13871,7 +13992,7 @@
 		(instances
 			(project "keepsake-keychain"
 				(path "/32670795-e352-430d-9b7f-c7f10ebe6399"
-					(reference "#PWR022")
+					(reference "#PWR021")
 					(unit 1)
 				)
 			)
@@ -14039,7 +14160,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5c43829b-9a45-4ca7-a4e0-40f2a998693e")
-		(property "Reference" "#PWR023"
+		(property "Reference" "#PWR022"
 			(at 276.86 96.52 0)
 			(effects
 				(font
@@ -14091,7 +14212,7 @@
 		(instances
 			(project "keepsake-keychain"
 				(path "/32670795-e352-430d-9b7f-c7f10ebe6399"
-					(reference "#PWR023")
+					(reference "#PWR022")
 					(unit 1)
 				)
 			)
@@ -17199,8 +17320,8 @@
 		)
 	)
 	(symbol
-		(lib_id "0_Tactile_Push_Button:PTS636_SK25J_SMTR_LFS")
-		(at 76.2 83.82 0)
+		(lib_id "0_Tactile_Push_Button:TS18-5-15-SL-160-SMT-TR")
+		(at 95.25 85.09 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -17208,7 +17329,7 @@
 		(dnp no)
 		(uuid "c0a6091d-c303-4cbe-be3e-b0aaf9a2ada3")
 		(property "Reference" "SW2"
-			(at 95.758 78.74 0)
+			(at 95.25 87.376 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -17216,7 +17337,7 @@
 			)
 		)
 		(property "Value" "PTS636 SK25J SMTR LFS"
-			(at 96.52 76.2 0)
+			(at 115.57 77.47 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -17224,32 +17345,61 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "0_Tactile_Push_Button:SW_PTS636_SM43J_SMTR_LFS"
-			(at 76.2 83.82 0)
+		(property "Footprint" "0_Tactile_Push_Button:SW_TS18-5-15-SL-160-SMT-TR"
+			(at 95.25 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
-					(italic yes)
 				)
+				(justify bottom)
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "PTS636 SK25J SMTR LFS"
-			(at 76.2 83.82 0)
+		(property "Datasheet" ""
+			(at 95.25 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
-					(italic yes)
 				)
 				(hide yes)
 			)
 		)
 		(property "Description" ""
-			(at 76.2 83.82 0)
+			(at 95.25 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
+			)
+		)
+		(property "STANDARD" "Manufacturer Recommendations"
+			(at 95.25 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "PARTREV" "1.02"
+			(at 95.25 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Same Sky"
+			(at 95.25 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
 				(hide yes)
 			)
 		)
@@ -17258,6 +17408,12 @@
 		)
 		(pin "1"
 			(uuid "aff9a947-45f5-4638-81db-42c2260ea94c")
+		)
+		(pin "3"
+			(uuid "22e5dd0c-fb35-4614-ad86-5c747eee10cb")
+		)
+		(pin "4"
+			(uuid "bbebda2c-33b4-4f3d-bdee-9c08657d4f34")
 		)
 		(instances
 			(project ""

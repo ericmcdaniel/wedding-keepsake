@@ -51,16 +51,6 @@
 	)
 	(attr smd)
 	(fp_line
-		(start -15.1 14.24)
-		(end 15.1 14.24)
-		(stroke
-			(width 0.127)
-			(type solid)
-		)
-		(layer "F.SilkS")
-		(uuid "55ed4cc5-ef01-474f-bb28-0ae04186ddb7")
-	)
-	(fp_line
 		(start -15.1 -13.4)
 		(end -15.1 -2.97)
 		(stroke
@@ -79,6 +69,16 @@
 		)
 		(layer "Dwgs.User")
 		(uuid "b1b07c62-fef9-4980-9c19-a0377770dcb1")
+	)
+	(fp_line
+		(start -15.1 14.24)
+		(end 15.1 14.24)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "Dwgs.User")
+		(uuid "55ed4cc5-ef01-474f-bb28-0ae04186ddb7")
 	)
 	(fp_line
 		(start 15.1 -13.4)
