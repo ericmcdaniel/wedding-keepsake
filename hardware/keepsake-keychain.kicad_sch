@@ -2715,6 +2715,44 @@
 					)
 				)
 			)
+			(symbol "SLW-129956-4A-RA-N-D_1_1"
+				(pin no_connect line
+					(at -7.62 -2.54 270)
+					(length 2.54)
+					(name "SH1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "SH1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin no_connect line
+					(at -5.08 -2.54 270)
+					(length 2.54)
+					(name "SH2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "SH2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
 			(embedded_fonts no)
 		)
 		(symbol "0_Schottky_Diode:BAT54"
@@ -3469,23 +3507,27 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Mechanical:MountingHole"
+		(symbol "Mechanical:MountingHole_Pad"
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
 				(offset 1.016)
+				(hide yes)
 			)
 			(exclude_from_sim no)
 			(in_bom no)
 			(on_board yes)
 			(property "Reference" "H"
-				(at 0 5.08 0)
+				(at 0 6.35 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(property "Value" "MountingHole"
-				(at 0 3.175 0)
+			(property "Value" "MountingHole_Pad"
+				(at 0 4.445 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -3510,7 +3552,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Mounting Hole without connection"
+			(property "Description" "Mounting Hole with connection"
 				(at 0 0 0)
 				(effects
 					(font
@@ -3528,7 +3570,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_fp_filters" "MountingHole*"
+			(property "ki_fp_filters" "MountingHole*Pad*"
 				(at 0 0 0)
 				(effects
 					(font
@@ -3537,9 +3579,9 @@
 					(hide yes)
 				)
 			)
-			(symbol "MountingHole_0_1"
+			(symbol "MountingHole_Pad_0_1"
 				(circle
-					(center 0 0)
+					(center 0 1.27)
 					(radius 1.27)
 					(stroke
 						(width 1.27)
@@ -3547,6 +3589,26 @@
 					)
 					(fill
 						(type none)
+					)
+				)
+			)
+			(symbol "MountingHole_Pad_1_1"
+				(pin input line
+					(at 0 -2.54 90)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
 					)
 				)
 			)
@@ -4367,6 +4429,12 @@
 		(uuid "b739eab0-0c77-4d7a-b8c0-2a613be7548f")
 	)
 	(junction
+		(at 157.48 22.86)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b8abf724-87a1-49ea-93de-b999fd2e25cb")
+	)
+	(junction
 		(at 152.4 182.88)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4396,6 +4464,22 @@
 		(color 0 0 0 0)
 		(uuid "f49497bc-5e36-42cc-ad96-06df2dadbeae")
 	)
+	(junction
+		(at 92.71 22.86)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "f67e4034-f45b-435b-9172-ff6ee44dcdc0")
+	)
+	(junction
+		(at 223.52 22.86)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "faccd9f3-7fc4-435e-a2d4-f7e7a1afa6ba")
+	)
+	(no_connect
+		(at 19.05 193.04)
+		(uuid "7a8ac9ce-7ca1-4254-a32d-333bccf0a7a7")
+	)
 	(no_connect
 		(at 64.77 33.02)
 		(uuid "a21638e9-04a0-4288-be7f-621f05461ce6")
@@ -4413,16 +4497,6 @@
 			(type default)
 		)
 		(uuid "00b845fc-fc32-440e-b316-c735ee21fbed")
-	)
-	(wire
-		(pts
-			(xy 157.48 22.86) (xy 162.56 22.86)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "01db9f1c-305c-461e-8387-f23f0ceebffb")
 	)
 	(wire
 		(pts
@@ -5016,7 +5090,7 @@
 	)
 	(wire
 		(pts
-			(xy 228.6 21.59) (xy 228.6 22.86)
+			(xy 223.52 21.59) (xy 223.52 22.86)
 		)
 		(stroke
 			(width 0)
@@ -5496,7 +5570,7 @@
 	)
 	(wire
 		(pts
-			(xy 97.79 22.86) (xy 97.79 21.59)
+			(xy 92.71 22.86) (xy 92.71 21.59)
 		)
 		(stroke
 			(width 0)
@@ -6006,6 +6080,16 @@
 	)
 	(wire
 		(pts
+			(xy 157.48 22.86) (xy 162.56 22.86)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d3cc0af1-4039-4bc9-864a-930733547b5d")
+	)
+	(wire
+		(pts
 			(xy 207.01 81.28) (xy 254 81.28)
 		)
 		(stroke
@@ -6076,7 +6160,7 @@
 	)
 	(wire
 		(pts
-			(xy 162.56 21.59) (xy 162.56 22.86)
+			(xy 157.48 21.59) (xy 157.48 22.86)
 		)
 		(stroke
 			(width 0)
@@ -12640,7 +12724,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Mechanical:MountingHole")
+		(lib_id "Mechanical:MountingHole_Pad")
 		(at 19.05 190.5 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -12666,7 +12750,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_Pad_Via"
+		(property "Footprint" "MountingHole:MountingHole_3.5mm_Pad_TopBottom"
 			(at 19.05 190.5 0)
 			(effects
 				(font
@@ -12684,7 +12768,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Mounting Hole without connection"
+		(property "Description" "Mounting Hole with connection"
 			(at 19.05 190.5 0)
 			(effects
 				(font
@@ -12692,6 +12776,9 @@
 				)
 				(hide yes)
 			)
+		)
+		(pin "1"
+			(uuid "6d7d3f5c-a525-4211-906f-08135d63aa39")
 		)
 		(instances
 			(project ""
@@ -12804,6 +12891,12 @@
 		)
 		(pin "3"
 			(uuid "dc482243-907a-47c2-bfc3-f5a2950264b9")
+		)
+		(pin "SH2"
+			(uuid "f67e4d8f-c8e4-4b09-9ed7-5c0906f69676")
+		)
+		(pin "SH1"
+			(uuid "13003624-352a-47ad-b198-bb2544925590")
 		)
 		(instances
 			(project ""
@@ -14351,7 +14444,7 @@
 	)
 	(symbol
 		(lib_id "power:+3V3")
-		(at 97.79 21.59 0)
+		(at 92.71 21.59 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -14360,7 +14453,7 @@
 		(fields_autoplaced yes)
 		(uuid "6e49b9d8-c09b-4f2d-b10a-35bcaaa7eace")
 		(property "Reference" "#PWR01"
-			(at 97.79 25.4 0)
+			(at 92.71 25.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14369,7 +14462,7 @@
 			)
 		)
 		(property "Value" "+3V3"
-			(at 97.79 16.51 0)
+			(at 92.71 16.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14377,7 +14470,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 97.79 21.59 0)
+			(at 92.71 21.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14386,7 +14479,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 97.79 21.59 0)
+			(at 92.71 21.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14395,7 +14488,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 97.79 21.59 0)
+			(at 92.71 21.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14483,7 +14576,7 @@
 	)
 	(symbol
 		(lib_id "power:+3V3")
-		(at 162.56 21.59 0)
+		(at 157.48 21.59 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -14492,7 +14585,7 @@
 		(fields_autoplaced yes)
 		(uuid "76011f23-3324-439d-bf90-4a24487cc988")
 		(property "Reference" "#PWR02"
-			(at 162.56 25.4 0)
+			(at 157.48 25.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14501,7 +14594,7 @@
 			)
 		)
 		(property "Value" "+3V3"
-			(at 162.56 16.51 0)
+			(at 157.48 16.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14509,7 +14602,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 162.56 21.59 0)
+			(at 157.48 21.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14518,7 +14611,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 162.56 21.59 0)
+			(at 157.48 21.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14527,7 +14620,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 162.56 21.59 0)
+			(at 157.48 21.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15133,7 +15226,7 @@
 	)
 	(symbol
 		(lib_id "power:+3V3")
-		(at 228.6 21.59 0)
+		(at 223.52 21.59 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -15142,7 +15235,7 @@
 		(fields_autoplaced yes)
 		(uuid "9184fb47-3cf6-40f4-bf41-7063f0056575")
 		(property "Reference" "#PWR03"
-			(at 228.6 25.4 0)
+			(at 223.52 25.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15151,7 +15244,7 @@
 			)
 		)
 		(property "Value" "+3V3"
-			(at 228.6 16.51 0)
+			(at 223.52 16.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15159,7 +15252,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 228.6 21.59 0)
+			(at 223.52 21.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15168,7 +15261,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 228.6 21.59 0)
+			(at 223.52 21.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15177,7 +15270,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 228.6 21.59 0)
+			(at 223.52 21.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
