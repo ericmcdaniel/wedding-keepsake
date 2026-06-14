@@ -12329,7 +12329,7 @@
 		(dnp no)
 		(uuid "331ef3ac-880b-49b5-8a6c-bee601ccb833")
 		(property "Reference" "U4"
-			(at 238.76 76.962 0)
+			(at 238.506 70.358 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13881,7 +13881,7 @@
 			)
 		)
 		(property "Value" "100K"
-			(at 250.19 90.424 90)
+			(at 250.19 90.17 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17668,7 +17668,7 @@
 		(dnp no)
 		(uuid "c7eccbe5-fd19-41ec-80e2-3a1930ef9efb")
 		(property "Reference" "U6"
-			(at 147.574 76.708 0)
+			(at 147.574 75.438 0)
 			(effects
 				(font
 					(size 1.27 1.27)
