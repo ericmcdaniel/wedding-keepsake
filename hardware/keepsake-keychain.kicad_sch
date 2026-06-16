@@ -10389,6 +10389,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "1292-0603B105K250CT-ND"
+			(at 276.86 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "0603B105K250CT"
+			(at 276.86 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Walsin Technology Corporation"
+			(at 276.86 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "fea55b9c-de71-4b0c-af83-411db6b0f049")
 		)
@@ -10448,6 +10475,33 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 76.2 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "4713-GMC10X7R104K25NTCT-ND"
+			(at 76.2 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GMC10X7R104K25NT"
+			(at 76.2 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cal-Chip Electronics, Inc. "
 			(at 76.2 63.5 0)
 			(effects
 				(font
@@ -10517,6 +10571,33 @@
 			)
 		)
 		(property "Description" ""
+			(at 50.8 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "ATTINY1614-SSF-ND"
+			(at 50.8 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "ATTINY1614-SSF"
+			(at 50.8 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Microchip Technology"
 			(at 50.8 76.2 0)
 			(effects
 				(font
@@ -10631,6 +10712,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "90-UHD111A-FKA-C3K23E1L3VG5ZB3Z3-ND"
+			(at 220.98 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "UHD111A-FKA-C3K23E1L3VG5ZB3Z3"
+			(at 220.98 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cree LED"
+			(at 220.98 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "252fb840-0180-4bac-b551-05ed280a54db")
 		)
@@ -10704,6 +10812,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "4713-GMC10X7R104K25NTCT-ND"
+			(at 196.85 72.39 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GMC10X7R104K25NT"
+			(at 196.85 72.39 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cal-Chip Electronics, Inc. "
+			(at 196.85 72.39 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "6f08c5ca-85d7-4c49-b1ca-f0d9ebadfab1")
 		)
@@ -10765,6 +10900,33 @@
 		)
 		(property "Description" "Resistor, small US symbol"
 			(at 269.24 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "RMCF0603JT180RCT-ND"
+			(at 269.24 49.53 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RMCF0603JT180R"
+			(at 269.24 49.53 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Stackpole Electronics Inc"
+			(at 269.24 49.53 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10902,6 +11064,33 @@
 			)
 		)
 		(property "Description" ""
+			(at 251.46 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "90-UHD111A-FKA-C3K23E1L3VG5ZB3Z3-ND"
+			(at 251.46 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "UHD111A-FKA-C3K23E1L3VG5ZB3Z3"
+			(at 251.46 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cree LED"
 			(at 251.46 160.02 0)
 			(effects
 				(font
@@ -11183,6 +11372,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "311-10.0KHRCT-ND"
+			(at 105.41 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RC0603FR-0710KL"
+			(at 105.41 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 105.41 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "729359eb-00a6-4544-b0df-c78ca06d5742")
 		)
@@ -11245,6 +11461,33 @@
 			)
 		)
 		(property "Description" ""
+			(at 153.67 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "90-UHD111A-FKA-C3K23E1L3VG5ZB3Z3-ND"
+			(at 153.67 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "UHD111A-FKA-C3K23E1L3VG5ZB3Z3"
+			(at 153.67 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cree LED"
 			(at 153.67 116.84 0)
 			(effects
 				(font
@@ -11327,6 +11570,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "RMCF0603JT120RCT-ND"
+			(at 203.2 34.29 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RMCF0603JT120R"
+			(at 203.2 34.29 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Stackpole Electronics Inc"
+			(at 203.2 34.29 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "859b4b27-c19e-4b72-ae2a-13558be64a8a")
 		)
@@ -11388,6 +11658,33 @@
 		)
 		(property "Description" "Resistor, small US symbol"
 			(at 203.2 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "RMCF0603JT120RCT-ND"
+			(at 203.2 45.72 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RMCF0603JT120R"
+			(at 203.2 45.72 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Stackpole Electronics Inc"
+			(at 203.2 45.72 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11462,6 +11759,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "4713-GMC10X7R104K25NTCT-ND"
+			(at 100.33 53.34 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GMC10X7R104K25NT"
+			(at 100.33 53.34 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cal-Chip Electronics, Inc. "
+			(at 100.33 53.34 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "b308accc-dc93-4686-818e-ea42b1760675")
 		)
@@ -11524,6 +11848,33 @@
 			)
 		)
 		(property "Description" ""
+			(at 251.46 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "90-UHD111A-FKA-C3K23E1L3VG5ZB3Z3-ND"
+			(at 251.46 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "UHD111A-FKA-C3K23E1L3VG5ZB3Z3"
+			(at 251.46 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cree LED"
 			(at 251.46 143.51 0)
 			(effects
 				(font
@@ -11606,6 +11957,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "RMCF0603JT180RCT-ND"
+			(at 269.24 30.48 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RMCF0603JT180R"
+			(at 269.24 30.48 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Stackpole Electronics Inc"
+			(at 269.24 30.48 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "f674cd61-48f9-4ac3-b49a-0a9e7757ce07")
 		)
@@ -11668,6 +12046,33 @@
 			)
 		)
 		(property "Description" ""
+			(at 119.38 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "90-UHD111A-FKA-C3K23E1L3VG5ZB3Z3-ND"
+			(at 119.38 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "UHD111A-FKA-C3K23E1L3VG5ZB3Z3"
+			(at 119.38 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cree LED"
 			(at 119.38 160.02 0)
 			(effects
 				(font
@@ -11750,6 +12155,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "RMCF0603JT180RCT-ND"
+			(at 269.24 41.91 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RMCF0603JT180R"
+			(at 269.24 41.91 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Stackpole Electronics Inc"
+			(at 269.24 41.91 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "8ecd8c02-42e2-4612-8b6b-e287ed838c29")
 		)
@@ -11809,6 +12241,33 @@
 			)
 		)
 		(property "Description" "Resistor, small US symbol"
+			(at 152.4 179.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "CR0603-JW-104ELFCT-ND"
+			(at 152.4 179.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CR0603-JW-104ELF"
+			(at 152.4 179.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Bourns Inc."
 			(at 152.4 179.07 0)
 			(effects
 				(font
@@ -11887,6 +12346,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "90-UHD111A-FKA-C3K23E1L3VG5ZB3Z3-ND"
+			(at 119.38 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "UHD111A-FKA-C3K23E1L3VG5ZB3Z3"
+			(at 119.38 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cree LED"
+			(at 119.38 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "d7c3dff5-d81c-4ab3-9c52-bc8c7ca69b5b")
 		)
@@ -11952,6 +12438,33 @@
 			)
 		)
 		(property "Description" "Resistor, small US symbol"
+			(at 276.86 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "1292-WR06X2203FTLCT-ND"
+			(at 276.86 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "WR06X2203FTL"
+			(at 276.86 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Walsin Technology Corporation"
 			(at 276.86 67.31 0)
 			(effects
 				(font
@@ -12097,6 +12610,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "90-UHD111A-FKA-C3K23E1L3VG5ZB3Z3-ND"
+			(at 21.59 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "UHD111A-FKA-C3K23E1L3VG5ZB3Z3"
+			(at 21.59 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cree LED"
+			(at 21.59 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "a5f7052d-0df7-4a8e-8de3-bd5783110572")
 		)
@@ -12164,6 +12704,33 @@
 		)
 		(property "Description" "Resistor, small US symbol"
 			(at 203.2 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "RMCF0603JT120RCT-ND"
+			(at 203.2 41.91 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RMCF0603JT120R"
+			(at 203.2 41.91 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Stackpole Electronics Inc"
+			(at 203.2 41.91 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12304,6 +12871,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "CR0603-JW-104ELFCT-ND"
+			(at 74.93 179.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CR0603-JW-104ELF"
+			(at 74.93 179.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Bourns Inc."
+			(at 74.93 179.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "f12dfcae-050f-43cb-a697-e7cf94305b51")
 		)
@@ -12365,6 +12959,33 @@
 			)
 		)
 		(property "Description" ""
+			(at 238.76 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "MCP6001T-I/OTCT-ND"
+			(at 238.76 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "MCP6001T-I/OT"
+			(at 238.76 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Microchip Technology"
 			(at 238.76 73.66 0)
 			(effects
 				(font
@@ -12500,6 +13121,24 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "1727-3068-1-ND"
+			(at 251.46 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Nexperia USA Inc."
+			(at 251.46 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "3"
 			(uuid "fd16c98d-eacf-46b3-aed9-4c72b56d372c")
 		)
@@ -12612,6 +13251,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "90-UHD111A-FKA-C3K23E1L3VG5ZB3Z3-ND"
+			(at 185.42 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "UHD111A-FKA-C3K23E1L3VG5ZB3Z3"
+			(at 185.42 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cree LED"
+			(at 185.42 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "b55c7adf-cbab-4520-94be-448cf59d968b")
 		)
@@ -12680,6 +13346,33 @@
 			)
 		)
 		(property "Description" ""
+			(at 119.38 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "90-UHD111A-FKA-C3K23E1L3VG5ZB3Z3-ND"
+			(at 119.38 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "UHD111A-FKA-C3K23E1L3VG5ZB3Z3"
+			(at 119.38 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cree LED"
 			(at 119.38 125.73 0)
 			(effects
 				(font
@@ -12761,6 +13454,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "311-10.0KHRCT-ND"
+			(at 276.86 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RC0603FR-0710KL"
+			(at 276.86 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 276.86 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "b8860adb-9cfc-49f9-acf3-aba407de4461")
 		)
@@ -12829,6 +13549,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "1292-WR06X101JTLCT-ND"
+			(at 138.43 22.86 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "WR06X101 JTL"
+			(at 138.43 22.86 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Walsin Technology Corporation"
+			(at 138.43 22.86 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "2b5ffa02-e0ec-4002-9352-0eaffd80ee08")
 		)
@@ -12851,7 +13598,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "3825a787-d260-4425-a451-02638fbcbb3b")
 		(property "Reference" "H1"
 			(at 21.59 189.2299 0)
@@ -12915,9 +13662,9 @@
 		(at 57.15 30.48 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "38d239b3-b964-4c3a-bd04-779ffbb8882f")
 		(property "Reference" "SW1"
@@ -13001,6 +13748,33 @@
 					(size 1.27 1.27)
 				)
 				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "2223-SLW-835636-3A-RA-N-D-ND"
+			(at 57.15 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "SLW-835636-3A-RA-N-D"
+			(at 57.15 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Same Sky (Formerly CUI Devices)"
+			(at 57.15 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -13151,6 +13925,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "90-UHD111A-FKA-C3K23E1L3VG5ZB3Z3-ND"
+			(at 251.46 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "UHD111A-FKA-C3K23E1L3VG5ZB3Z3"
+			(at 251.46 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cree LED"
+			(at 251.46 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "4cdc04ec-0ee7-423c-abbb-481250cfe969")
 		)
@@ -13284,6 +14085,33 @@
 			)
 		)
 		(property "Description" "Resistor, small US symbol"
+			(at 36.83 179.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "CR0603-JW-104ELFCT-ND"
+			(at 36.83 179.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CR0603-JW-104ELF"
+			(at 36.83 179.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Bourns Inc."
 			(at 36.83 179.07 0)
 			(effects
 				(font
@@ -13428,6 +14256,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "90-UHD111A-FKA-C3K23E1L3VG5ZB3Z3-ND"
+			(at 153.67 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "UHD111A-FKA-C3K23E1L3VG5ZB3Z3"
+			(at 153.67 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cree LED"
+			(at 153.67 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "ce22847e-de53-4f7d-a9ae-6a1f098d34a6")
 		)
@@ -13495,6 +14350,33 @@
 		)
 		(property "Description" "Resistor, small US symbol"
 			(at 138.43 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "1292-WR06X101JTLCT-ND"
+			(at 138.43 41.91 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "WR06X101 JTL"
+			(at 138.43 41.91 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Walsin Technology Corporation"
+			(at 138.43 41.91 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13636,6 +14518,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "RMCF0603JT180RCT-ND"
+			(at 269.24 38.1 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RMCF0603JT180R"
+			(at 269.24 38.1 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Stackpole Electronics Inc"
+			(at 269.24 38.1 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "8d9ee77d-5560-4caa-a1e3-926e598fcb71")
 		)
@@ -13697,6 +14606,33 @@
 		)
 		(property "Description" "Resistor, small US symbol"
 			(at 269.24 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "RMCF0603JT180RCT-ND"
+			(at 269.24 45.72 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RMCF0603JT180R"
+			(at 269.24 45.72 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Stackpole Electronics Inc"
+			(at 269.24 45.72 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13766,6 +14702,33 @@
 			)
 		)
 		(property "Description" ""
+			(at 220.98 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "90-UHD111A-FKA-C3K23E1L3VG5ZB3Z3-ND"
+			(at 220.98 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "UHD111A-FKA-C3K23E1L3VG5ZB3Z3"
+			(at 220.98 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cree LED"
 			(at 220.98 100.33 0)
 			(effects
 				(font
@@ -13848,6 +14811,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "RMCF0603JT180RCT-ND"
+			(at 269.24 26.67 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RMCF0603JT180R"
+			(at 269.24 26.67 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Stackpole Electronics Inc"
+			(at 269.24 26.67 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "5281215b-3bc2-472e-8fe5-c9a51277b947")
 		)
@@ -13908,6 +14898,33 @@
 		)
 		(property "Description" "Resistor, small US symbol"
 			(at 250.19 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "CR0603-JW-104ELFCT-ND"
+			(at 250.19 85.09 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CR0603-JW-104ELF"
+			(at 250.19 85.09 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Bourns Inc."
+			(at 250.19 85.09 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14053,6 +15070,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "90-UHD111A-FKA-C3K23E1L3VG5ZB3Z3-ND"
+			(at 153.67 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "UHD111A-FKA-C3K23E1L3VG5ZB3Z3"
+			(at 153.67 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cree LED"
+			(at 153.67 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "0b6eb8cf-a230-47b2-bc39-7117af4bf1dc")
 		)
@@ -14121,6 +15165,33 @@
 			)
 		)
 		(property "Description" ""
+			(at 88.9 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "90-UHD111A-FKA-C3K23E1L3VG5ZB3Z3-ND"
+			(at 88.9 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "UHD111A-FKA-C3K23E1L3VG5ZB3Z3"
+			(at 88.9 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cree LED"
 			(at 88.9 116.84 0)
 			(effects
 				(font
@@ -14273,6 +15344,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "90-UHD111A-FKA-C3K23E1L3VG5ZB3Z3-ND"
+			(at 88.9 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "UHD111A-FKA-C3K23E1L3VG5ZB3Z3"
+			(at 88.9 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cree LED"
+			(at 88.9 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "8be74859-2308-4f0e-8408-edc586ced769")
 		)
@@ -14339,6 +15437,33 @@
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
 			(at 167.64 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "4713-GMC10X7R104K25NTCT-ND"
+			(at 167.64 72.39 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GMC10X7R104K25NT"
+			(at 167.64 72.39 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cal-Chip Electronics, Inc. "
+			(at 167.64 72.39 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14475,6 +15600,33 @@
 		)
 		(property "Description" "Resistor, small US symbol"
 			(at 138.43 26.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "1292-WR06X101JTLCT-ND"
+			(at 138.43 26.67 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "WR06X101 JTL"
+			(at 138.43 26.67 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Walsin Technology Corporation"
+			(at 138.43 26.67 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14816,6 +15968,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "90-UHD111A-FKA-C3K23E1L3VG5ZB3Z3-ND"
+			(at 53.34 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "UHD111A-FKA-C3K23E1L3VG5ZB3Z3"
+			(at 53.34 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cree LED"
+			(at 53.34 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "57e88b54-0a03-4eeb-b238-af08ed1c4171")
 		)
@@ -14890,6 +16069,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "RMCF0603JT120RCT-ND"
+			(at 203.2 49.53 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RMCF0603JT120R"
+			(at 203.2 49.53 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Stackpole Electronics Inc"
+			(at 203.2 49.53 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "8c056125-0b7c-42ae-b039-5fe49b204a93")
 		)
@@ -14952,6 +16158,33 @@
 			)
 		)
 		(property "Description" ""
+			(at 53.34 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "90-UHD111A-FKA-C3K23E1L3VG5ZB3Z3-ND"
+			(at 53.34 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "UHD111A-FKA-C3K23E1L3VG5ZB3Z3"
+			(at 53.34 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cree LED"
 			(at 53.34 125.73 0)
 			(effects
 				(font
@@ -15036,6 +16269,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "90-UHD111A-FKA-C3K23E1L3VG5ZB3Z3-ND"
+			(at 53.34 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "UHD111A-FKA-C3K23E1L3VG5ZB3Z3"
+			(at 53.34 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cree LED"
+			(at 53.34 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "e617693e-e1c3-4b73-a990-e8926297769a")
 		)
@@ -15112,6 +16372,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "90-UHD111A-FKA-C3K23E1L3VG5ZB3Z3-ND"
+			(at 153.67 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "UHD111A-FKA-C3K23E1L3VG5ZB3Z3"
+			(at 153.67 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cree LED"
+			(at 153.67 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "9b64f64d-ac4f-40ae-8962-8c7efa8dd2ac")
 		)
@@ -15179,6 +16466,33 @@
 		)
 		(property "Description" "Resistor, small US symbol"
 			(at 203.2 26.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "RMCF0603JT120RCT-ND"
+			(at 203.2 26.67 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RMCF0603JT120R"
+			(at 203.2 26.67 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Stackpole Electronics Inc"
+			(at 203.2 26.67 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15316,6 +16630,33 @@
 			)
 		)
 		(property "Description" ""
+			(at 53.34 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "90-UHD111A-FKA-C3K23E1L3VG5ZB3Z3-ND"
+			(at 53.34 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "UHD111A-FKA-C3K23E1L3VG5ZB3Z3"
+			(at 53.34 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cree LED"
 			(at 53.34 109.22 0)
 			(effects
 				(font
@@ -15529,6 +16870,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "4713-GMC10X7R104K25NTCT-ND"
+			(at 163.83 53.34 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GMC10X7R104K25NT"
+			(at 163.83 53.34 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cal-Chip Electronics, Inc. "
+			(at 163.83 53.34 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "93b10515-5f1a-49c2-bceb-028fe121badc")
 		)
@@ -15665,6 +17033,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "90-UHD111A-FKA-C3K23E1L3VG5ZB3Z3-ND"
+			(at 119.38 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "UHD111A-FKA-C3K23E1L3VG5ZB3Z3"
+			(at 119.38 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cree LED"
+			(at 119.38 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "bf97e499-8d06-436b-8593-c05d57232f5b")
 		)
@@ -15732,6 +17127,33 @@
 		)
 		(property "Description" "Resistor, small US symbol"
 			(at 138.43 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "1292-WR06X101JTLCT-ND"
+			(at 138.43 38.1 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "WR06X101 JTL"
+			(at 138.43 38.1 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Walsin Technology Corporation"
+			(at 138.43 38.1 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15872,6 +17294,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "CR0603-JW-104ELFCT-ND"
+			(at 113.03 179.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CR0603-JW-104ELF"
+			(at 113.03 179.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Bourns Inc."
+			(at 113.03 179.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "0986a2ff-0fa4-4788-976f-f390d841a43a")
 		)
@@ -15980,6 +17429,33 @@
 					(size 1.27 1.27)
 				)
 				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "4878-MMFTP4042KCT-ND"
+			(at 44.45 185.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "MMFTP4042K"
+			(at 44.45 185.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Diotec Semiconductor"
+			(at 44.45 185.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -16097,6 +17573,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "4878-MMFTP4042KCT-ND"
+			(at 120.65 185.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "MMFTP4042K"
+			(at 120.65 185.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Diotec Semiconductor"
+			(at 120.65 185.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "8900b0f0-b921-43b4-bfed-fe40dfcb866e")
 		)
@@ -16162,6 +17665,33 @@
 			)
 		)
 		(property "Description" ""
+			(at 21.59 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "90-UHD111A-FKA-C3K23E1L3VG5ZB3Z3-ND"
+			(at 21.59 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "UHD111A-FKA-C3K23E1L3VG5ZB3Z3"
+			(at 21.59 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cree LED"
 			(at 21.59 116.84 0)
 			(effects
 				(font
@@ -16246,6 +17776,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "90-UHD111A-FKA-C3K23E1L3VG5ZB3Z3-ND"
+			(at 21.59 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "UHD111A-FKA-C3K23E1L3VG5ZB3Z3"
+			(at 21.59 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cree LED"
+			(at 21.59 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "7738afc8-a378-461f-b60a-0e0c918295c0")
 		)
@@ -16273,9 +17830,9 @@
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "a9d06f2b-2a7a-469e-b0b5-7210abfc395a")
 		(property "Reference" "BT1"
 			(at 36.83 23.876 0)
@@ -16358,6 +17915,33 @@
 					(size 1.27 1.27)
 				)
 				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "BHX1-2450-SM-ND"
+			(at 36.83 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "BHX1-2450-SM"
+			(at 36.83 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "MPD (Memory Protection Devices)"
+			(at 36.83 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -16490,6 +18074,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "4878-BAT54CT-ND"
+			(at 213.36 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "BAT54"
+			(at 213.36 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Diotec Semiconductor"
+			(at 213.36 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "520c16c4-0512-44d5-8ffd-4a724bc24369")
 		)
@@ -16554,6 +18165,33 @@
 		)
 		(property "Description" "Resistor, small US symbol"
 			(at 203.2 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "RMCF0603JT120RCT-ND"
+			(at 203.2 30.48 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RMCF0603JT120R"
+			(at 203.2 30.48 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Stackpole Electronics Inc"
+			(at 203.2 30.48 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16699,6 +18337,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "90-UHD111A-FKA-C3K23E1L3VG5ZB3Z3-ND"
+			(at 88.9 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "UHD111A-FKA-C3K23E1L3VG5ZB3Z3"
+			(at 88.9 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cree LED"
+			(at 88.9 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "9aae7d88-d4f3-48eb-95ee-2256cfee602e")
 		)
@@ -16766,6 +18431,33 @@
 		)
 		(property "Description" "Resistor, small US symbol"
 			(at 203.2 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "RMCF0603JT120RCT-ND"
+			(at 203.2 38.1 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RMCF0603JT120R"
+			(at 203.2 38.1 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Stackpole Electronics Inc"
+			(at 203.2 38.1 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16884,6 +18576,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "4878-MMFTP4042KCT-ND"
+			(at 82.55 185.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "MMFTP4042K"
+			(at 82.55 185.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Diotec Semiconductor"
+			(at 82.55 185.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "71db889d-e5e9-4f22-8925-a32479bce6fc")
 		)
@@ -16949,6 +18668,33 @@
 			)
 		)
 		(property "Description" ""
+			(at 220.98 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "90-UHD111A-FKA-C3K23E1L3VG5ZB3Z3-ND"
+			(at 220.98 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "UHD111A-FKA-C3K23E1L3VG5ZB3Z3"
+			(at 220.98 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cree LED"
 			(at 220.98 151.13 0)
 			(effects
 				(font
@@ -17161,6 +18907,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "4713-GMC10X7R104K25NTCT-ND"
+			(at 264.16 71.12 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GMC10X7R104K25NT"
+			(at 264.16 71.12 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cal-Chip Electronics, Inc. "
+			(at 264.16 71.12 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "4b2da137-0406-44cf-b41c-055beaf0ec0f")
 		)
@@ -17220,6 +18993,33 @@
 			)
 		)
 		(property "Description" "Resistor, small US symbol"
+			(at 257.81 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "CR0603-JW-104ELFCT-ND"
+			(at 257.81 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CR0603-JW-104ELF"
+			(at 257.81 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Bourns Inc."
 			(at 257.81 78.74 0)
 			(effects
 				(font
@@ -17298,6 +19098,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "90-UHD111A-FKA-C3K23E1L3VG5ZB3Z3-ND"
+			(at 185.42 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "UHD111A-FKA-C3K23E1L3VG5ZB3Z3"
+			(at 185.42 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cree LED"
+			(at 185.42 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "575f3a07-4363-4a0b-8251-14d8e43c606b")
 		)
@@ -17324,9 +19151,9 @@
 		(at 95.25 85.09 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "c0a6091d-c303-4cbe-be3e-b0aaf9a2ada3")
 		(property "Reference" "SW2"
 			(at 95.25 87.376 0)
@@ -17400,6 +19227,33 @@
 					(size 1.27 1.27)
 				)
 				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "2223-TS18-5-15-SL-160-SMT-TRCT-ND"
+			(at 95.25 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "TS18-5-15-SL-160-SMT-TR"
+			(at 95.25 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Same Sky (Formerly CUI Devices)"
+			(at 95.25 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -17479,6 +19333,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "90-UHD111A-FKA-C3K23E1L3VG5ZB3Z3-ND"
+			(at 88.9 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "UHD111A-FKA-C3K23E1L3VG5ZB3Z3"
+			(at 88.9 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cree LED"
+			(at 88.9 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "5437d80b-6522-45b9-8ff2-30c2e76dece1")
 		)
@@ -17505,9 +19386,9 @@
 		(at 25.4 35.56 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "c50093e6-8079-40a1-a0b3-dc131e0a5ea0")
 		(property "Reference" "TP2"
 			(at 26.924 35.56 0)
@@ -17556,7 +19437,7 @@
 				(hide yes)
 			)
 		)
-		(property "Digi-Key_PN" "36-5002-ND"
+		(property "Digi-Key_PN" ""
 			(at 30.48 25.4 0)
 			(effects
 				(font
@@ -17566,7 +19447,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "5002"
+		(property "MPN" ""
 			(at 30.48 22.86 0)
 			(effects
 				(font
@@ -17626,7 +19507,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Keystone Electronics"
+		(property "Manufacturer" ""
 			(at 30.48 7.62 0)
 			(effects
 				(font
@@ -17748,6 +19629,33 @@
 					(size 1.27 1.27)
 				)
 				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "5280-3SM123C4T1QACT-ND"
+			(at 151.13 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "3SM123C4T1QA"
+			(at 151.13 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "3S (Solid State System)"
+			(at 151.13 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -17875,6 +19783,24 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "1727-3068-1-ND"
+			(at 120.65 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Nexperia USA Inc."
+			(at 120.65 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "3"
 			(uuid "5b7b1c85-a8de-491d-86ae-d5573f92dfae")
 		)
@@ -17979,6 +19905,33 @@
 			)
 		)
 		(property "Description" ""
+			(at 185.42 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "90-UHD111A-FKA-C3K23E1L3VG5ZB3Z3-ND"
+			(at 185.42 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "UHD111A-FKA-C3K23E1L3VG5ZB3Z3"
+			(at 185.42 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cree LED"
 			(at 185.42 125.73 0)
 			(effects
 				(font
@@ -18111,6 +20064,24 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "1727-3068-1-ND"
+			(at 185.42 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Nexperia USA Inc."
+			(at 185.42 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "3"
 			(uuid "d211f3a2-d40b-4e94-b224-ac917d67287e")
 		)
@@ -18239,9 +20210,9 @@
 		(at 71.12 33.02 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "d035dfc5-8c0e-4759-8d6d-6b6ced20f63c")
 		(property "Reference" "TP1"
 			(at 72.644 33.02 0)
@@ -18290,7 +20261,7 @@
 				(hide yes)
 			)
 		)
-		(property "Digi-Key_PN" "36-5002-ND"
+		(property "Digi-Key_PN" ""
 			(at 76.2 22.86 0)
 			(effects
 				(font
@@ -18300,7 +20271,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "5002"
+		(property "MPN" ""
 			(at 76.2 20.32 0)
 			(effects
 				(font
@@ -18360,7 +20331,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Keystone Electronics"
+		(property "Manufacturer" ""
 			(at 76.2 5.08 0)
 			(effects
 				(font
@@ -18447,6 +20418,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "90-UHD111A-FKA-C3K23E1L3VG5ZB3Z3-ND"
+			(at 251.46 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "UHD111A-FKA-C3K23E1L3VG5ZB3Z3"
+			(at 251.46 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cree LED"
+			(at 251.46 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "9386f4a9-a8df-4d89-9e0b-4d567a0725fb")
 		)
@@ -18515,6 +20513,33 @@
 			)
 		)
 		(property "Description" ""
+			(at 21.59 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "90-UHD111A-FKA-C3K23E1L3VG5ZB3Z3-ND"
+			(at 21.59 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "UHD111A-FKA-C3K23E1L3VG5ZB3Z3"
+			(at 21.59 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cree LED"
 			(at 21.59 151.13 0)
 			(effects
 				(font
@@ -18658,6 +20683,33 @@
 		)
 		(property "Description" "Resistor, small US symbol"
 			(at 138.43 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "1292-WR06X101JTLCT-ND"
+			(at 138.43 34.29 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "WR06X101 JTL"
+			(at 138.43 34.29 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Walsin Technology Corporation"
+			(at 138.43 34.29 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18821,9 +20873,9 @@
 		(at 26.67 85.09 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "dc074b00-e722-4300-b316-1fa0309e3497")
 		(property "Reference" "TP6"
 			(at 28.194 85.09 0)
@@ -18872,7 +20924,7 @@
 				(hide yes)
 			)
 		)
-		(property "Digi-Key_PN" "36-5002-ND"
+		(property "Digi-Key_PN" ""
 			(at 31.75 74.93 0)
 			(effects
 				(font
@@ -18882,7 +20934,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "5002"
+		(property "MPN" ""
 			(at 31.75 72.39 0)
 			(effects
 				(font
@@ -18942,7 +20994,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Keystone Electronics"
+		(property "Manufacturer" ""
 			(at 31.75 57.15 0)
 			(effects
 				(font
@@ -19027,6 +21079,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "1292-WR06X101JTLCT-ND"
+			(at 138.43 30.48 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "WR06X101 JTL"
+			(at 138.43 30.48 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Walsin Technology Corporation"
+			(at 138.43 30.48 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "c1512d0c-f2f0-47e3-88d1-2af224b19e8a")
 		)
@@ -19088,6 +21167,33 @@
 		)
 		(property "Description" "Resistor, small US symbol"
 			(at 269.24 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "RMCF0603JT180RCT-ND"
+			(at 269.24 34.29 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RMCF0603JT180R"
+			(at 269.24 34.29 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Stackpole Electronics Inc"
+			(at 269.24 34.29 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19162,6 +21268,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "4713-GMC10X7R104K25NTCT-ND"
+			(at 231.14 53.34 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GMC10X7R104K25NT"
+			(at 231.14 53.34 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cal-Chip Electronics, Inc. "
+			(at 231.14 53.34 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "9c196c32-f2c7-4d8a-bab3-d08f1b093601")
 		)
@@ -19229,6 +21362,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "1292-0603B105K250CT-ND"
+			(at 204.47 81.28 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "0603B105K250CT"
+			(at 204.47 81.28 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Walsin Technology Corporation"
+			(at 204.47 81.28 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "db1e76ff-387d-4729-b4bb-5ea7f96bebdb")
 		)
@@ -19249,9 +21409,9 @@
 		(at 185.42 69.85 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "e4e36f8b-fdff-46be-b188-67ef97fd5942")
 		(property "Reference" "TP4"
 			(at 180.594 69.85 0)
@@ -19300,7 +21460,7 @@
 				(hide yes)
 			)
 		)
-		(property "Digi-Key_PN" "36-5002-ND"
+		(property "Digi-Key_PN" ""
 			(at 190.5 59.69 0)
 			(effects
 				(font
@@ -19310,7 +21470,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "5002"
+		(property "MPN" ""
 			(at 190.5 57.15 0)
 			(effects
 				(font
@@ -19370,7 +21530,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Keystone Electronics"
+		(property "Manufacturer" ""
 			(at 190.5 41.91 0)
 			(effects
 				(font
@@ -19457,6 +21617,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "90-UHD111A-FKA-C3K23E1L3VG5ZB3Z3-ND"
+			(at 185.42 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "UHD111A-FKA-C3K23E1L3VG5ZB3Z3"
+			(at 185.42 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cree LED"
+			(at 185.42 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "a1506657-7933-419b-82e0-09f489bce079")
 		)
@@ -19531,6 +21718,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "1292-WR06X101JTLCT-ND"
+			(at 138.43 45.72 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "WR06X101 JTL"
+			(at 138.43 45.72 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Walsin Technology Corporation"
+			(at 138.43 45.72 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "ddfc6c06-cd5a-479c-8a7e-abd7a81653b1")
 		)
@@ -19551,9 +21765,9 @@
 		(at 21.59 85.09 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "e9eeba80-d5b9-4aca-9f41-6cf82a8275b1")
 		(property "Reference" "TP5"
 			(at 16.51 85.344 0)
@@ -19602,7 +21816,7 @@
 				(hide yes)
 			)
 		)
-		(property "Digi-Key_PN" "36-5002-ND"
+		(property "Digi-Key_PN" ""
 			(at 26.67 74.93 0)
 			(effects
 				(font
@@ -19612,7 +21826,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "5002"
+		(property "MPN" ""
 			(at 26.67 72.39 0)
 			(effects
 				(font
@@ -19672,7 +21886,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Keystone Electronics"
+		(property "Manufacturer" ""
 			(at 26.67 57.15 0)
 			(effects
 				(font
@@ -19757,6 +21971,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "RMCF0603JT180RCT-ND"
+			(at 269.24 22.86 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RMCF0603JT180R"
+			(at 269.24 22.86 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Stackpole Electronics Inc"
+			(at 269.24 22.86 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "5b1f131f-2303-4d52-80ee-b0ecbe9f0b80")
 		)
@@ -19819,6 +22060,33 @@
 			)
 		)
 		(property "Description" ""
+			(at 220.98 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "90-UHD111A-FKA-C3K23E1L3VG5ZB3Z3-ND"
+			(at 220.98 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "UHD111A-FKA-C3K23E1L3VG5ZB3Z3"
+			(at 220.98 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cree LED"
 			(at 220.98 116.84 0)
 			(effects
 				(font
@@ -20035,6 +22303,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "RMCF0603JT120RCT-ND"
+			(at 203.2 22.86 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RMCF0603JT120R"
+			(at 203.2 22.86 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Stackpole Electronics Inc"
+			(at 203.2 22.86 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "ef25fb62-b9b9-4950-a748-3081fc74835a")
 		)
@@ -20096,6 +22391,33 @@
 		)
 		(property "Description" "Resistor, small US symbol"
 			(at 138.43 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "1292-WR06X101JTLCT-ND"
+			(at 138.43 49.53 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "WR06X101 JTL"
+			(at 138.43 49.53 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Walsin Technology Corporation"
+			(at 138.43 49.53 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -20191,9 +22513,9 @@
 		(at 116.84 68.58 180)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "fc19e890-9305-4382-b783-d1c7645c8ab4")
 		(property "Reference" "TP3"
 			(at 118.872 66.04 0)
@@ -20242,7 +22564,7 @@
 				(hide yes)
 			)
 		)
-		(property "Digi-Key_PN" "36-5002-ND"
+		(property "Digi-Key_PN" ""
 			(at 111.76 78.74 0)
 			(effects
 				(font
@@ -20252,7 +22574,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "5002"
+		(property "MPN" ""
 			(at 111.76 81.28 0)
 			(effects
 				(font
@@ -20312,7 +22634,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Keystone Electronics"
+		(property "Manufacturer" ""
 			(at 111.76 96.52 0)
 			(effects
 				(font
@@ -20437,6 +22759,33 @@
 					(size 1.27 1.27)
 				)
 				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "4878-MMFTP4042KCT-ND"
+			(at 160.02 185.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "MMFTP4042K"
+			(at 160.02 185.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Diotec Semiconductor"
+			(at 160.02 185.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)

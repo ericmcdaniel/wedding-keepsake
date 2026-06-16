@@ -1,0 +1,27 @@
+### Footprint positions - created on 2026-06-15T22:14:27-0500 ###
+### Printed by KiCad version 9.0.5
+## Unit = mm, Angle = deg.
+## Side : bottom
+# Ref     Val                  Package                                           PosX       PosY       Rot  Side
+BT1       CR2450_Coin_Battery  battery-holder                                166.1300   -94.0532  180.0000  bottom
+R1        100                  R_0603_1608Metric_Pad0.98x0.95mm_HandSolder   112.6452   -92.1612  100.0000  bottom
+R2        120                  R_0603_1608Metric_Pad0.98x0.95mm_HandSolder   119.2452   -99.5080  -45.0000  bottom
+R3        180                  R_0603_1608Metric_Pad0.98x0.95mm_HandSolder   115.2452   -96.0080  -45.0000  bottom
+R4        100                  R_0603_1608Metric_Pad0.98x0.95mm_HandSolder   112.6452   -88.1612   80.0000  bottom
+R5        120                  R_0603_1608Metric_Pad0.98x0.95mm_HandSolder   127.2452  -106.5080  -45.0000  bottom
+R6        180                  R_0603_1608Metric_Pad0.98x0.95mm_HandSolder   127.1452   -85.0080  -45.0000  bottom
+R7        100                  R_0603_1608Metric_Pad0.98x0.95mm_HandSolder   114.1452   -84.0080   45.0000  bottom
+R8        120                  R_0603_1608Metric_Pad0.98x0.95mm_HandSolder   118.1452   -82.0080  -165.0000  bottom
+R9        180                  R_0603_1608Metric_Pad0.98x0.95mm_HandSolder   130.6452   -85.0080   45.0000  bottom
+R10       100                  R_0603_1608Metric_Pad0.98x0.95mm_HandSolder   134.6452   -82.0080   15.0000  bottom
+R12       180                  R_0603_1608Metric_Pad0.98x0.95mm_HandSolder   123.1452   -82.0080  -15.0000  bottom
+R13       100                  R_0603_1608Metric_Pad0.98x0.95mm_HandSolder   139.6452   -82.0080  -15.0000  bottom
+R16       100                  R_0603_1608Metric_Pad0.98x0.95mm_HandSolder   143.6452   -84.0080  -45.0000  bottom
+R17       120                  R_0603_1608Metric_Pad0.98x0.95mm_HandSolder   138.6452   -99.5080  -135.0000  bottom
+R19       100                  R_0603_1608Metric_Pad0.98x0.95mm_HandSolder   145.1452   -88.1612  100.0000  bottom
+R20       120                  R_0603_1608Metric_Pad0.98x0.95mm_HandSolder   130.6452  -106.5080  -135.0000  bottom
+R21       180                  R_0603_1608Metric_Pad0.98x0.95mm_HandSolder   142.6452   -96.0080   45.0000  bottom
+R22       100                  R_0603_1608Metric_Pad0.98x0.95mm_HandSolder   145.1452   -92.1612   80.0000  bottom
+R23       120                  R_0603_1608Metric_Pad0.98x0.95mm_HandSolder   123.2452  -103.0080  -45.0000  bottom
+R24       180                  R_0603_1608Metric_Pad0.98x0.95mm_HandSolder   134.6452  -103.0080  -135.0000  bottom
+## End
