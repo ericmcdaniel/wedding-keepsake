@@ -1,18 +1,18 @@
 #include <Arduino.h>
+#include "engine/engine.h"
 
-// put function declarations here:
-int myFunction(int, int);
-
-void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+void setup()
+{
+  Engine::GameEngine engine;
+  engine.runApplication();
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
-}
-
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
+/**
+ * loop() functions just as a catch block does in modern try/catch exception handling.
+ * There is no game logic here.
+ */
+void loop()
+{
+  Serial.println("Keychain has encountered an unrecoverable error state.");
+  delay(1000);
 }
