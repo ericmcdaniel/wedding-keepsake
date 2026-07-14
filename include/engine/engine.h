@@ -1,5 +1,7 @@
 #pragma once
 
+#include "platform/context-manager.h"
+
 namespace Engine
 {
   class GameEngine
@@ -9,5 +11,9 @@ namespace Engine
 
     void initializeEngine();
     void runApplication();
+
+  private:
+    Platform::ContextManager contextManager;
+    void renderFrame();
   };
 }
