@@ -4,5 +4,196 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"files.associations": {
+			"type_traits": "cpp",
+			"cstddef": "cpp",
+			"limits": "cpp",
+			"new": "cpp",
+			"array": "cpp",
+			"deque": "cpp",
+			"string": "cpp",
+			"unordered_map": "cpp",
+			"unordered_set": "cpp",
+			"vector": "cpp",
+			"string_view": "cpp",
+			"initializer_list": "cpp",
+			"utility": "cpp",
+			"random": "cpp",
+			"list": "cpp",
+			"condition_variable": "cpp",
+			"functional": "cpp",
+			"iterator": "cpp",
+			"memory_resource": "cpp",
+			"optional": "cpp",
+			"fstream": "cpp",
+			"istream": "cpp",
+			"ostream": "cpp",
+			"sstream": "cpp",
+			"streambuf": "cpp",
+			"thread": "cpp",
+			"tuple": "cpp",
+			"ratio": "cpp",
+			"system_error": "cpp",
+			"cmath": "cpp",
+			"memory": "cpp",
+			"cstdint": "cpp",
+			"atomic": "cpp",
+			"cctype": "cpp",
+			"chrono": "cpp",
+			"clocale": "cpp",
+			"csignal": "cpp",
+			"cstdarg": "cpp",
+			"cstdio": "cpp",
+			"cstdlib": "cpp",
+			"cstring": "cpp",
+			"ctime": "cpp",
+			"cwchar": "cpp",
+			"cwctype": "cpp",
+			"exception": "cpp",
+			"algorithm": "cpp",
+			"map": "cpp",
+			"numeric": "cpp",
+			"set": "cpp",
+			"iomanip": "cpp",
+			"iosfwd": "cpp",
+			"iostream": "cpp",
+			"mutex": "cpp",
+			"stdexcept": "cpp",
+			"cinttypes": "cpp",
+			"typeinfo": "cpp",
+			"any": "cpp",
+			"variant": "cpp",
+			"format": "cpp",
+			"forward_list": "cpp",
+			"xhash": "cpp",
+			"xstring": "cpp",
+			"xtree": "cpp",
+			"xutility": "cpp"
+		},
+		"terminal.integrated.profiles.windows": {
+			"PowerShell": {
+				"source": "PowerShell",
+				"icon": "terminal-powershell"
+			},
+			"Command Prompt": {
+				"path": [
+					"${env:windir}\\Sysnative\\cmd.exe",
+					"${env:windir}\\System32\\cmd.exe"
+				],
+				"args": [
+					"/k",
+					"C:\\Espressif\\idf_cmd_init.bat",
+					"esp-idf-1dcc643656a1439837fdf6ab63363005"
+				],
+				"icon": "terminal-cmd"
+			},
+			"Git Bash": {
+				"source": "Git Bash"
+			}
+		},
+		"files.exclude": {
+			"**/.git": true,
+			"**/.svn": true,
+			"**/.hg": true,
+			"**/.DS_Store": true,
+			"**/Thumbs.db": true
+		},
+		"python.analysis.autoImportCompletions": true,
+		"python.analysis.typeCheckingMode": "off",
+		"autopep8.args": [
+			"--max-line-length=160"
+		],
+		"platformio-ide.toolbar": [
+			{
+				"text": "$(home)",
+				"tooltip": "PlatformIO: Home",
+				"commands": [
+					{
+						"id": "platformio-ide.showHome"
+					},
+				]
+			},
+			{
+				"text": "$(remote-explorer)",
+				"tooltip": "Start Virtualization",
+				"commands": [
+					{
+						"id": "workbench.action.tasks.runTask",
+						"args": [
+							"Start Virtualization"
+						]
+					},
+				]
+			},
+			{
+				"text": "$(check)",
+				"tooltip": "PlatformIO: Build",
+				"commands": [
+					{
+						"id": "platformio-ide.build"
+					},
+				]
+			},
+			{
+				"text": "$(debug-alt)",
+				"tooltip": "PlatformIO: Upload (Virtualization)",
+				"commands": [
+					{
+						"id": "workbench.action.tasks.runTask",
+						"args": [
+							"Upload and Start Virtualization"
+						]
+					},
+				]
+			},
+			{
+				"text": "$(terminal)",
+				"tooltip": "PlatformIO: Upload (Debug)",
+				"type": "shell",
+				"commands": [
+					{
+						"id": "workbench.action.tasks.runTask",
+						"args": [
+							"Upload and Start Debug"
+						]
+					}
+				]
+			},
+			{
+				"text": "$(arrow-right)",
+				"tooltip": "PlatformIO: Upload (Release)",
+				"type": "shell",
+				"commands": [
+					{
+						"id": "workbench.action.tasks.runTask",
+						"args": [
+							"Wedding Keychain - Upload (release)"
+						]
+					},
+				]
+			},
+			{
+				"text": "$(trashcan)",
+				"tooltip": "PlatformIO: Clean",
+				"commands": [
+					{
+						"id": "workbench.action.tasks.runTask",
+						"args": [
+							"Wedding Keychain - Clean",
+						],
+					},
+				]
+			},
+			{
+				"text": "$(plug)",
+				"tooltip": "PlatformIO: Serial Monitor",
+				"commands": [
+					{
+						"id": "platformio-ide.serialMonitor"
+					},
+				]
+			}
+		],
+	}
 }
