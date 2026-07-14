@@ -1,10 +1,10 @@
 #include <Arduino.h>
-// #include "engine/engine.h"
+#include "engine/engine.h"
 
 void setup()
 {
-  // Engine::GameEngine engine;
-  // engine.runApplication();
+  Engine::GameEngine engine;
+  engine.runApplication();
 }
 
 /**
