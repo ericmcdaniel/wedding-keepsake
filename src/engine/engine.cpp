@@ -22,14 +22,13 @@ void GameEngine::initializeEngine()
   {
     delay(100);
   }
-  log("Serial connection established.");
+#endif
 
+  log("Serial connection established.");
   log("Printing environment variables.");
   logf("numLeds = %u", Platform::Configuration::numLeds);
   logf("serialBaud = %u", Platform::Configuration::serialBaud);
   logf("startupState = %u\n", Platform::Configuration::startupState());
-#endif
-
   log("Startup process completed. Transitioning to the first animation.");
 }
 
