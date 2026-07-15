@@ -1,0 +1,1 @@
+# Manufactured PCB and enclosure

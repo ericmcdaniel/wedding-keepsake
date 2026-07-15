@@ -12,23 +12,23 @@ This is the full design and plans for the RGB LED PCB for Eric and Stephie's wed
 
 # 3D Preview
 ![Front side of the PCB](./hardware/images/pcb-3d-render-front.png)
-1. Front side of the PCB
+<p align="center"><i>Front side of the PCB</i></p>
 
 ![Back side of the PCB](./hardware/images/pcb-3d-render-back.png)
-2. Back side of the PCB
+<p align="center"><i>Back side of the PCB</i></p>
 
-# Design
+# Electrical Schematic
 ![Electrical Schematic](./hardware/images/keepsake-keychain.jpg)
-Electrical schematic
 
+# PCB Layout
 ![Layer 1 of PCB Design](./hardware/images/pcb-design-L1.png)
-1. Layer 1 of the PCB (signals/components)
+<p align="center"><i>Layer 1 of the PCB (signals/components)</i></p>
 
 ![Layer 2 of PCB Design](./hardware/images/pcb-design-L2.png)
-2. Layer 2 of the PCB (GND)
+<p align="center"><i>Layer 2 of the PCB (GND)</i><p>
 
 ![Layer 3 of PCB Design](./hardware/images/pcb-design-L3.png)
-3. Layer 3 of the PCB (3V3 copper pour)
+<p align="center"><i>Layer 3 of the PCB (3V3 copper pour)</i><p>
 
 ![Layer 4 of PCB Design](./hardware/images/pcb-design-L4.png)
-4. Layer 4 of the PCB (Additional signals/components)
+<p align="center"><i>Layer 4 of the PCB (Additional signals/components)</i><p>
