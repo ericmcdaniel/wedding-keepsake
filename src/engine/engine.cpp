@@ -16,7 +16,7 @@ void GameEngine::initializeEngine()
   renderFrame();
 
   // If debugging, ensure serial connection is stable before setting up components
-#if defined(VIRTUALIZATION) || defined(DEBUG)
+#ifdef DEBUG
   Serial.begin(Platform::Configuration::serialBaud);
   while (!Serial)
   {
@@ -35,16 +35,7 @@ void GameEngine::initializeEngine()
 void GameEngine::renderFrame()
 {
   // contextManager.renderer.leds.adjustLuminance(); //TODO: Luminance
-#ifdef VIRTUALIZATION
-  Serial.write(0xAA); // sync bytes
-  Serial.write(0x55);
-  // Serial.write(reinterpret_cast<uint8_t *>(contextManager.renderer.leds.getRawColors()), SystemCore::Configuration::numLeds() * sizeof(Lights::Color));
-  // TODO: stream bits
-#endif
-
-#ifdef RELEASE
   // TODO: implement multiplex with PWM for RGB values.
-#endif
 }
 
 void GameEngine::runApplication()

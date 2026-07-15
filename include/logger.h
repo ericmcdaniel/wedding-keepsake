@@ -4,8 +4,7 @@
   Interesting compiler optimization below, when building with the DEBUG flag
   on it prints to the serial monitor as normal, but when building in RELEASE
   mode (optimization is set to Os), then the do-while loop has zero executions,
-  so the entire call to log/logf is removed. Same for the VIRTUALIZATION build,
-  which doesn't need those logs in the terminal
+  so the entire call to log/logf is removed.
 */
 
 #ifdef DEBUG

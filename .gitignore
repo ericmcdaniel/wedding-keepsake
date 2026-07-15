@@ -45,8 +45,5 @@ fp-info-cache
 .vscode/c_cpp_properties.json
 .vscode/launch.json
 .vscode/ipch
-.csode/settings.json
-tools/.venv
-activate-virtual-env.*
-__pycache__
+.vsode/settings.json
 build

@@ -115,18 +115,6 @@
 				]
 			},
 			{
-				"text": "$(remote-explorer)",
-				"tooltip": "Start Virtualization",
-				"commands": [
-					{
-						"id": "workbench.action.tasks.runTask",
-						"args": [
-							"Start Virtualization"
-						]
-					},
-				]
-			},
-			{
 				"text": "$(check)",
 				"tooltip": "PlatformIO: Build",
 				"commands": [
@@ -137,18 +125,6 @@
 			},
 			{
 				"text": "$(debug-alt)",
-				"tooltip": "PlatformIO: Upload (Virtualization)",
-				"commands": [
-					{
-						"id": "workbench.action.tasks.runTask",
-						"args": [
-							"Upload and Start Virtualization"
-						]
-					},
-				]
-			},
-			{
-				"text": "$(terminal)",
 				"tooltip": "PlatformIO: Upload (Debug)",
 				"type": "shell",
 				"commands": [
