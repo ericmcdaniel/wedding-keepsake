@@ -1,5 +1,7 @@
 #pragma once
 
+#include "lights/led-matrix.h"
+
 namespace Engine
 {
   class Renderer
@@ -7,7 +9,7 @@ namespace Engine
   public:
     Renderer() = default;
 
-    // Lights::LedMatrix leds;
+    Lights::LedMatrix leds;
 
     // void drawPixel(const RenderModel &renderModel, const uint16_t offset);
     // void renderEntity(const RenderModel &model);

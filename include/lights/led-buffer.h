@@ -1,0 +1,31 @@
+#pragma once
+
+#include <stdint.h>
+
+#include "platform/configuration.h"
+#include "lights/color.h"
+
+namespace Lights
+{
+  class LedBuffer
+  {
+  public:
+    LedBuffer() : leds{new Color[Platform::Configuration::numLeds]} {}
+    ~LedBuffer() { delete[] leds; }
+    LedBuffer(LedBuffer &&other) = delete;
+    LedBuffer &operator=(LedBuffer &&other) = delete;
+    LedBuffer(const LedBuffer &other) = delete;
+    LedBuffer &operator=(const LedBuffer &other) = delete;
+
+    Color &operator[](uint16_t index) { return leds[index]; }
+    const Color &operator[](uint16_t index) const { return leds[index]; }
+
+    explicit operator Color *() { return leds; }
+    explicit operator const Color *() const { return leds; }
+
+    uint16_t size() { return Platform::Configuration::numLeds; }
+
+  private:
+    Color *leds;
+  };
+}
