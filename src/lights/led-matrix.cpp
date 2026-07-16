@@ -1,6 +1,8 @@
 #include "lights/led-matrix.h"
+#include "clamp.h"
 
 using namespace Lights;
+
 LedMatrix::LedMatrix()
 {
   reset();
@@ -8,7 +10,7 @@ LedMatrix::LedMatrix()
 
 Color *LedMatrix::getRawColors()
 {
-  return static_cast<Color *>(buffer);
+  return static_cast<Color *>(buffer.data());
 }
 
 void LedMatrix::reset()
@@ -22,7 +24,6 @@ void LedMatrix::reset()
 
 void LedMatrix::adjustLuminance()
 {
-#ifdef RELEASE
   luminance.adjustLuminance();
   float brightnessScale = static_cast<float>(luminance.getLuminance()) / LedLuminance::MAX_LED_BRIGHTNESS;
   constexpr float redGain = 0.90f;
@@ -41,13 +42,12 @@ void LedMatrix::adjustLuminance()
     g *= greenGain;
     b *= blueGain;
 
-    r = std::clamp(r, 0.0f, 255.0f);
-    g = std::clamp(g, 0.0f, 255.0f);
-    b = std::clamp(b, 0.0f, 255.0f);
+    r = CustomDataStructures::clamp(r, 0.0f, 255.0f);
+    g = CustomDataStructures::clamp(g, 0.0f, 255.0f);
+    b = CustomDataStructures::clamp(b, 0.0f, 255.0f);
 
     c.r = LedLuminance::applyGamma(static_cast<uint8_t>(r));
     c.g = LedLuminance::applyGamma(static_cast<uint8_t>(g));
     c.b = LedLuminance::applyGamma(static_cast<uint8_t>(b));
   }
-#endif
 }

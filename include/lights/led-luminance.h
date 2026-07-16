@@ -14,7 +14,7 @@ namespace Lights
 
     uint16_t getLuminance();
     void adjustLuminance();
-    // static uint8_t applyGamma(uint8_t value); // TODO: Borrowed from LumenLab, however it was never used. Investigate.
+    static uint8_t applyGamma(uint8_t value); // TODO: Borrowed from LumenLab, however it was never used. Investigate.
 
   private:
     uint16_t currentLuminance;

@@ -49,30 +49,31 @@ void GameEngine::runApplication()
 {
   while (contextManager.stateManager.isRunning())
   {
-    // contextManager.renderer.leds.reset();
+    contextManager.renderer.leds.reset();
+    contextManager.renderer.leds(0, 1);
     // contextManager.controller.poll(); // TODO: poll from tactile switch
 
     uint32_t now = micros();
-    // if (now - lastFrame >= frameRefreshRate)
-    // {
-    //   lastFrame += frameRefreshRate;
+    if (now - lastFrame >= frameRefreshRate)
+    {
+      lastFrame += frameRefreshRate;
 
-    //   switch (contextManager.stateManager.current())
-    //   {
-    //   case SystemState::Initialize:
-    //     break;
-    //     // case SystemState::Animation_1:
-    //     // contextManager.application->nextEvent();
-    //     // break;
-    //   case SystemState::Error:
-    //     // TODO: (maybe) Animate an error state?
-    //     break;
-    //   default:
-    //     // ideally shouldn't encounter this
-    //     contextManager.stateManager.setNext(SystemState::Error);
-    //     break;
-    //   }
-    // }
+      switch (contextManager.stateManager.current())
+      {
+      case SystemState::Initialize:
+        break;
+        // case SystemState::Animation_1:
+        // contextManager.application->nextEvent();
+        // break;
+      case SystemState::Error:
+        // TODO: (maybe) Animate an error state?
+        break;
+      default:
+        // ideally shouldn't encounter this
+        contextManager.stateManager.setNext(SystemState::Error);
+        break;
+      }
+    }
 
     if (now - lastRender >= rowRefreshRate)
     {

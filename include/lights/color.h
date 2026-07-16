@@ -1,7 +1,7 @@
 #pragma once
 
-// #include "lights/color-code.h"
 #include <stdint.h>
+#include "clamp.h"
 
 namespace Lights
 {
@@ -19,9 +19,9 @@ namespace Lights
     Color operator*(double scale) const
     {
       Color result;
-      // result.r = static_cast<uint8_t>(std::clamp(r * scale, 0.0, 255.0));
-      // result.g = static_cast<uint8_t>(std::clamp(g * scale, 0.0, 255.0));
-      // result.b = static_cast<uint8_t>(std::clamp(b * scale, 0.0, 255.0));
+      result.r = static_cast<uint8_t>(CustomDataStructures::clamp(r * scale, 0.0, 255.0));
+      result.g = static_cast<uint8_t>(CustomDataStructures::clamp(g * scale, 0.0, 255.0));
+      result.b = static_cast<uint8_t>(CustomDataStructures::clamp(b * scale, 0.0, 255.0));
       return result;
     }
 
@@ -37,9 +37,9 @@ namespace Lights
     Color operator/(double scale) const
     {
       Color result;
-      // result.r = static_cast<uint8_t>(std::clamp(r / scale, 0.0, 255.0));
-      // result.g = static_cast<uint8_t>(std::clamp(g / scale, 0.0, 255.0));
-      // result.b = static_cast<uint8_t>(std::clamp(b / scale, 0.0, 255.0));
+      result.r = static_cast<uint8_t>(CustomDataStructures::clamp(r / scale, 0.0, 255.0));
+      result.g = static_cast<uint8_t>(CustomDataStructures::clamp(g / scale, 0.0, 255.0));
+      result.b = static_cast<uint8_t>(CustomDataStructures::clamp(b / scale, 0.0, 255.0));
       return result;
     }
 
@@ -54,17 +54,10 @@ namespace Lights
 
     Color &operator*=(double scale)
     {
-      // r = static_cast<uint8_t>(std::clamp(r * scale, 0.0, 255.0));
-      // g = static_cast<uint8_t>(std::clamp(g * scale, 0.0, 255.0));
-      // b = static_cast<uint8_t>(std::clamp(b * scale, 0.0, 255.0));
+      r = static_cast<uint8_t>(CustomDataStructures::clamp(r * scale, 0.0, 255.0));
+      g = static_cast<uint8_t>(CustomDataStructures::clamp(g * scale, 0.0, 255.0));
+      b = static_cast<uint8_t>(CustomDataStructures::clamp(b * scale, 0.0, 255.0));
       return *this;
     }
   };
-
-  // TODO: Revisit?
-  // inline const Color colorPalette[4] = {
-  //     Color(ColorCode::ThemeBlue),
-  //     Color(ColorCode::ThemeRed),
-  //     Color(ColorCode::ThemeGreen),
-  //     Color(ColorCode::ThemeYellow)};
 }

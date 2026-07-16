@@ -9,8 +9,11 @@ namespace Platform
   {
   public:
     static constexpr uint16_t numLeds = 32;
+    static constexpr uint16_t numRows = 4;
+    static constexpr uint16_t numColumns = 8;
     static constexpr uint32_t serialBaud = 115200;
-    static Engine::SystemState &startupState() { return _startupState; };
+
+    inline static Engine::SystemState &startupState() { return _startupState; };
 
     static void load();
 

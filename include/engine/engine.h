@@ -19,7 +19,7 @@ namespace Engine
     uint32_t lastFrame = 0;
     uint8_t activeRow = 0;
     static constexpr uint32_t rowRefreshRate = 4166;    // 1/4 of 60Hz, as each row is multiplexed
-    static constexpr uint32_t frameRefreshRate = 16666; // 60Hz
+    static constexpr uint32_t frameRefreshRate = 16666; // 60Hz, to keep multiplexer in sync
 
     void renderFrameRow();
     inline void disableActiveRow();
