@@ -13,7 +13,7 @@ void GameEngine::initializeEngine()
 {
   contextManager.initializeSystemMemory();
   // contextManager.renderer.leds.reset(); //TODO: Remember to reset the LED matrix
-  renderFrameRow(); // TODO: clear?
+  // renderFrameRow(); // TODO: clear?
 
   // If debugging, ensure serial connection is stable before setting up components
 #ifdef DEBUG
@@ -30,19 +30,77 @@ void GameEngine::initializeEngine()
   logf("serialBaud = %u", Platform::Configuration::serialBaud);
   logf("startupState = %u\n", Platform::Configuration::startupState());
   log("Startup process completed. Transitioning to the first animation.");
+
+  pinMode(PIN_PA1, OUTPUT);
+  pinMode(PIN_PA2, OUTPUT);
+  pinMode(PIN_PA3, OUTPUT);
+  pinMode(PIN_PA4, OUTPUT);
+  pinMode(PIN_PA5, OUTPUT);
+  pinMode(PIN_PA6, OUTPUT);
+  pinMode(PIN_PA7, OUTPUT);
+
+  digitalWrite(PIN_PA4, HIGH);
+  digitalWrite(PIN_PA5, HIGH);
+  digitalWrite(PIN_PA6, HIGH);
+  digitalWrite(PIN_PA7, HIGH);
 }
 
 void GameEngine::renderFrameRow()
 {
-  // contextManager.renderer.leds.adjustLuminance(); //TODO: Luminance
-  // TODO: gamma correction?
-
-  // TODO: implement multiplex with PWM for RGB values. Psuedocode:
+  // contextManager.renderer.leds.adjustLuminance(); //TODO: Luminance? Gamma correction?
 
   disableActiveRow();
   setNextRow();
-  // sendColumns(buffer[activeRow]);
-  enableActiveRow();
+
+  uint8_t red = 0;
+  uint8_t green = 0;
+  uint8_t blue = 0;
+
+  const uint8_t bit = (1 << bamBitPlane);
+
+  for (uint8_t col = 0; col < Platform::Configuration::numColumns; col++)
+  {
+    const Lights::Color pixel = Lights::ColorCode::ThemeGreen;
+
+    if (pixel.r & bit)
+    {
+      red |= (1 << col);
+    }
+
+    if (pixel.g & bit)
+    {
+      green |= (1 << col);
+    }
+
+    if (pixel.b & bit)
+    {
+      blue |= (1 << col);
+    }
+
+    shiftOutByte(~red);
+    shiftOutByte(~green);
+    shiftOutByte(~blue);
+
+    // latch high then low
+    PORTA.OUTSET = PIN3_bm;
+    PORTA.OUTCLR = PIN3_bm;
+
+    setNextRow();
+    enableActiveRow();
+
+    bamCounter++;
+
+    if (bamCounter >= bamDurations[bamBitPlane])
+    {
+      bamCounter = 0;
+      bamBitPlane++;
+
+      if (bamBitPlane >= 8)
+      {
+        bamBitPlane = 0;
+      }
+    }
+  }
 }
 
 void GameEngine::runApplication()
@@ -85,22 +143,39 @@ void GameEngine::runApplication()
 
 inline void GameEngine::disableActiveRow()
 {
-  // TODO: Finish
-  // psuedocode:
-  // diitalWrite(activeRow, LOW)
+  PORTA.OUTSET = rowMask;
 }
 
 inline void GameEngine::enableActiveRow()
 {
-  // TODO: Finish
-  // someting like digitalWrite(activeRow, HIGH)
+  PORTA.OUTCLR = (PIN4_bm << activeRow);
 }
 
 inline void GameEngine::setNextRow()
 {
   activeRow++;
-  if (activeRow >= 4)
+  if (activeRow >= Platform::Configuration::numRows)
   {
     activeRow = 0;
+  }
+}
+
+void GameEngine::shiftOutByte(uint8_t value)
+{
+  for (int8_t i = 7; i >= 0; i--)
+  {
+    if (value & (1 << i))
+    {
+      // PA1 high
+      PORTA.OUTSET = PIN1_bm;
+    }
+    else
+    {
+      // PA1 low
+      PORTA.OUTCLR = PIN1_bm;
+    }
+
+    PORTA.OUTSET = PIN2_bm; // same format as above, PA2 high
+    PORTA.OUTCLR = PIN2_bm; // PA2 low
   }
 }

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <stdint.h>
+#include "lights/color-code.h"
 #include "clamp.h"
 
 namespace Lights
@@ -10,7 +11,8 @@ namespace Lights
   public:
     Color() : r{0}, g{0}, b{0} {}
     Color(uint8_t red, uint8_t green, uint8_t blue) : r{red}, g{green}, b{blue} {}
-    // Color(ColorCode color) : CRGB{static_cast<uint32_t>(color)} {} //TODO: revisit? No FastLED
+    Color(uint32_t rgb);
+    Color(ColorCode colorCode) : Color{static_cast<uint32_t>(colorCode)} {}
 
     uint8_t r;
     uint8_t g;

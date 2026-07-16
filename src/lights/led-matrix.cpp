@@ -15,7 +15,7 @@ Color *LedMatrix::getRawColors()
 
 void LedMatrix::reset()
 {
-  for (uint16_t i = 0; i < size(); i++)
+  for (uint16_t i = 0; i < Platform::Configuration::numLeds; i++)
   {
     buffer[i] = Color{};
     // layer[i] = Engine::Layer::Background; //TODO: confirm, can this be removed?
@@ -30,7 +30,7 @@ void LedMatrix::adjustLuminance()
   constexpr float greenGain = 0.75f;
   constexpr float blueGain = 0.60f;
 
-  for (uint16_t i = 0; i < size(); ++i)
+  for (uint16_t i = 0; i < Platform::Configuration::numLeds; ++i)
   {
     Color &c = buffer[i];
 

@@ -13,6 +13,13 @@ namespace Platform
     static constexpr uint16_t numColumns = 8;
     static constexpr uint32_t serialBaud = 115200;
 
+    static constexpr uint8_t shiftRegisterDataPin = 11;
+    static constexpr uint8_t rowPins[] = {
+        PIN_PA4,
+        PIN_PA5,
+        PIN_PA6,
+        PIN_PA7};
+
     inline static Engine::SystemState &startupState() { return _startupState; };
 
     static void load();
