@@ -43,22 +43,20 @@ void GameEngine::runApplication()
 {
   while (contextManager.stateManager.isRunning())
   {
-    contextManager.renderer.leds.reset();
-    contextManager.renderer.leds(0, 1);
-    // contextManager.controller.poll(); // TODO: poll from tactile switch
-
     uint32_t now = micros();
 
-    if (now - lastColorActivation >= 1000000)
+    if (now - lastColorActivation >= 500000)
     {
       // colorIdx = (colorIdx + 1) & 5;
-      colorIdx = (colorIdx + 1) % 16;
-      lastColorActivation += 1000000;
+      colorIdx = (colorIdx + 1) % 20;
+      lastColorActivation += 500000;
     }
 
     if (now - lastFrame >= frameRefreshRate)
     {
       lastFrame += frameRefreshRate;
+      contextManager.renderer.leds.reset();
+      // contextManager.controller.poll(); // TODO: poll from tactile switch
 
       switch (contextManager.stateManager.current())
       {
@@ -77,11 +75,11 @@ void GameEngine::runApplication()
       }
     }
 
-    if (now - lastRender >= rowRefreshRate)
-    {
-      lastRender += rowRefreshRate;
-      renderFrameRow();
-    }
+    // if (now - lastRender >= rowRefreshRate)
+    // {
+    // lastRender += rowRefreshRate;
+    renderFrameRow();
+    // }
   }
 }
 
@@ -97,7 +95,7 @@ void GameEngine::renderFrameRow()
   disableActiveRow();
   setNextRow();
 
-  const uint8_t bit = (1 << bamBitPlane);
+  const uint8_t bit = (1 << bamSequence[bamBitPlane]);
 
   for (uint8_t col = 0; col < Platform::Configuration::numColumns; col++)
   {
@@ -173,7 +171,7 @@ inline void GameEngine::shiftBamBit()
   // This is an optimization of the original implementation, which
   // used a counter increasing from 0-255, and verified the row
   // that was activated based on bit position.
-  if (++bamCounter >= (1u << bamBitPlane))
+  if (++bamCounter >= (1u << bamSequence[bamBitPlane]))
   {
     bamCounter = 0;
     bamBitPlane = (bamBitPlane + 1) & 0x7;
