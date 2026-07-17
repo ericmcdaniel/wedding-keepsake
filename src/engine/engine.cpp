@@ -31,18 +31,12 @@ void GameEngine::initializeEngine()
   logf("startupState = %u\n", Platform::Configuration::startupState());
   log("Startup process completed. Transitioning to the first animation.");
 
-  pinMode(PIN_PA1, OUTPUT);
-  pinMode(PIN_PA2, OUTPUT);
-  pinMode(PIN_PA3, OUTPUT);
-  pinMode(PIN_PA4, OUTPUT);
-  pinMode(PIN_PA5, OUTPUT);
-  pinMode(PIN_PA6, OUTPUT);
-  pinMode(PIN_PA7, OUTPUT);
+  // pin setup
+  PORTA.DIRSET = PIN1_bm | PIN2_bm | PIN3_bm |
+                 PIN4_bm | PIN5_bm | PIN6_bm | PIN7_bm;
 
-  digitalWrite(PIN_PA4, HIGH);
-  digitalWrite(PIN_PA5, HIGH);
-  digitalWrite(PIN_PA6, HIGH);
-  digitalWrite(PIN_PA7, HIGH);
+  // pin set to high
+  PORTA.OUTSET = PIN4_bm | PIN5_bm | PIN6_bm | PIN7_bm;
 }
 
 void GameEngine::runApplication()
@@ -57,7 +51,8 @@ void GameEngine::runApplication()
 
     if (now - lastColorActivation >= 1000000)
     {
-      colorIdx = (colorIdx + 1) & 3;
+      // colorIdx = (colorIdx + 1) & 5;
+      colorIdx = (colorIdx + 1) % 16;
       lastColorActivation += 1000000;
     }
 
@@ -134,10 +129,10 @@ void GameEngine::renderFrameRow()
   PORTA.OUTCLR = PIN3_bm;
 
   enableActiveRow();
-  if (activeRow == 0)
-  {
-    shiftBamBit();
-  }
+  // if (activeRow == 0)
+  // {
+  shiftBamBit();
+  // }
 }
 
 inline void GameEngine::disableActiveRow()
