@@ -45,64 +45,6 @@ void GameEngine::initializeEngine()
   digitalWrite(PIN_PA7, HIGH);
 }
 
-void GameEngine::renderFrameRow()
-{
-  // contextManager.renderer.leds.adjustLuminance(); //TODO: Luminance? Gamma correction?
-
-  disableActiveRow();
-  setNextRow();
-
-  uint8_t red = 0;
-  uint8_t green = 0;
-  uint8_t blue = 0;
-
-  const uint8_t bit = (1 << bamBitPlane);
-
-  for (uint8_t col = 0; col < Platform::Configuration::numColumns; col++)
-  {
-    const Lights::Color pixel = Lights::ColorCode::ThemeGreen;
-
-    if (pixel.r & bit)
-    {
-      red |= (1 << col);
-    }
-
-    if (pixel.g & bit)
-    {
-      green |= (1 << col);
-    }
-
-    if (pixel.b & bit)
-    {
-      blue |= (1 << col);
-    }
-
-    shiftOutByte(~red);
-    shiftOutByte(~green);
-    shiftOutByte(~blue);
-
-    // latch high then low
-    PORTA.OUTSET = PIN3_bm;
-    PORTA.OUTCLR = PIN3_bm;
-
-    setNextRow();
-    enableActiveRow();
-
-    bamCounter++;
-
-    if (bamCounter >= bamDurations[bamBitPlane])
-    {
-      bamCounter = 0;
-      bamBitPlane++;
-
-      if (bamBitPlane >= 8)
-      {
-        bamBitPlane = 0;
-      }
-    }
-  }
-}
-
 void GameEngine::runApplication()
 {
   while (contextManager.stateManager.isRunning())
@@ -112,6 +54,13 @@ void GameEngine::runApplication()
     // contextManager.controller.poll(); // TODO: poll from tactile switch
 
     uint32_t now = micros();
+
+    if (now - lastColorActivation >= 1000000)
+    {
+      colorIdx = (colorIdx + 1) & 3;
+      lastColorActivation += 1000000;
+    }
+
     if (now - lastFrame >= frameRefreshRate)
     {
       lastFrame += frameRefreshRate;
@@ -141,6 +90,56 @@ void GameEngine::runApplication()
   }
 }
 
+void GameEngine::renderFrameRow()
+{
+  // contextManager.renderer.leds.adjustLuminance(); //TODO: Luminance? Gamma correction?
+
+  uint8_t red = 0;
+  uint8_t green = 0;
+  uint8_t blue = 0;
+  uint8_t currentColor = colorIdx;
+
+  disableActiveRow();
+  setNextRow();
+
+  const uint8_t bit = (1 << bamBitPlane);
+
+  for (uint8_t col = 0; col < Platform::Configuration::numColumns; col++)
+  {
+    // const Lights::Color pixel = Lights::ColorCode::ThemeGreen;
+    const Lights::Color pixel = colorArray[currentColor];
+
+    if (pixel.r & bit)
+    {
+      red |= (1 << col);
+    }
+
+    if (pixel.g & bit)
+    {
+      green |= (1 << col);
+    }
+
+    if (pixel.b & bit)
+    {
+      blue |= (1 << col);
+    }
+  }
+
+  shiftOutByte(~red);
+  shiftOutByte(~green);
+  shiftOutByte(~blue);
+
+  // latch high then low
+  PORTA.OUTSET = PIN3_bm;
+  PORTA.OUTCLR = PIN3_bm;
+
+  enableActiveRow();
+  if (activeRow == 0)
+  {
+    shiftBamBit();
+  }
+}
+
 inline void GameEngine::disableActiveRow()
 {
   PORTA.OUTSET = rowMask;
@@ -153,11 +152,7 @@ inline void GameEngine::enableActiveRow()
 
 inline void GameEngine::setNextRow()
 {
-  activeRow++;
-  if (activeRow >= Platform::Configuration::numRows)
-  {
-    activeRow = 0;
-  }
+  activeRow = (activeRow + 1) & (Platform::Configuration::numRows - 1);
 }
 
 void GameEngine::shiftOutByte(uint8_t value)
@@ -166,16 +161,26 @@ void GameEngine::shiftOutByte(uint8_t value)
   {
     if (value & (1 << i))
     {
-      // PA1 high
-      PORTA.OUTSET = PIN1_bm;
+      PORTA.OUTSET = PIN1_bm; // PA1 high to 74HC595 data pin
     }
     else
     {
-      // PA1 low
-      PORTA.OUTCLR = PIN1_bm;
+      PORTA.OUTCLR = PIN1_bm; // PA1 low
     }
 
     PORTA.OUTSET = PIN2_bm; // same format as above, PA2 high
     PORTA.OUTCLR = PIN2_bm; // PA2 low
+  }
+}
+
+inline void GameEngine::shiftBamBit()
+{
+  // This is an optimization of the original implementation, which
+  // used a counter increasing from 0-255, and verified the row
+  // that was activated based on bit position.
+  if (++bamCounter >= (1u << bamBitPlane))
+  {
+    bamCounter = 0;
+    bamBitPlane = (bamBitPlane + 1) & 0x7;
   }
 }
