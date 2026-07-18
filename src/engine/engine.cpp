@@ -45,16 +45,9 @@ void GameEngine::runApplication()
   {
     uint32_t now = micros();
 
-    if (now - lastColorActivation >= 500000)
+    if (now - lastFullFrameRender >= frameRefreshRate)
     {
-      // colorIdx = (colorIdx + 1) & 5;
-      colorIdx = (colorIdx + 1) % 20;
-      lastColorActivation += 500000;
-    }
-
-    if (now - lastFrame >= frameRefreshRate)
-    {
-      lastFrame += frameRefreshRate;
+      lastFullFrameRender += frameRefreshRate;
       contextManager.renderer.leds.reset();
       // contextManager.controller.poll(); // TODO: poll from tactile switch
 
@@ -62,9 +55,9 @@ void GameEngine::runApplication()
       {
       case SystemState::Initialize:
         break;
-        // case SystemState::Animation_1:
-        // contextManager.application->nextEvent();
-        // break;
+      case SystemState::Animation_1:
+        contextManager.application->nextEvent();
+        break;
       case SystemState::Error:
         // TODO: (maybe) Animate an error state?
         break;
@@ -75,62 +68,37 @@ void GameEngine::runApplication()
       }
     }
 
-    // if (now - lastRender >= rowRefreshRate)
-    // {
-    // lastRender += rowRefreshRate;
-    renderFrameRow();
-    // }
+    if (now - lastMatrixRowRender >= rowRefreshRate)
+    {
+      lastMatrixRowRender += rowRefreshRate;
+      renderFrameRow();
+    }
   }
 }
 
 void GameEngine::renderFrameRow()
 {
-  // contextManager.renderer.leds.adjustLuminance(); //TODO: Luminance? Gamma correction?
-
-  uint8_t red = 0;
-  uint8_t green = 0;
-  uint8_t blue = 0;
-  uint8_t currentColor = colorIdx;
-
+  // contextManager.renderer.leds.adjustLuminance(); // TODO: Return to luminance? Gamma correction?
   disableActiveRow();
-  setNextRow();
 
-  const uint8_t bit = (1 << bamSequence[bamBitPlane]);
-
-  for (uint8_t col = 0; col < Platform::Configuration::numColumns; col++)
+  ///////////////////////////////////////////////////////////////////
+  static uint8_t colorPhase = 0;         // temp, for testing      //
+  static uint32_t lastUpdate = millis(); // temp, for testing      //
+  static Lights::Color pixel;            // temp, for testing      //
+  if (millis() - lastUpdate > 20)        // temp, for testing      //
   {
-    // const Lights::Color pixel = Lights::ColorCode::ThemeGreen;
-    const Lights::Color pixel = colorArray[currentColor];
-
-    if (pixel.r & bit)
-    {
-      red |= (1 << col);
-    }
-
-    if (pixel.g & bit)
-    {
-      green |= (1 << col);
-    }
-
-    if (pixel.b & bit)
-    {
-      blue |= (1 << col);
-    }
+    // TODO: remove and replace with actual buffer
+    lastUpdate = millis();
+    pixel = getRainbowColor(colorPhase);
+    colorPhase++;
   }
+  ///////////////////////////////////////////////////////////////////
 
-  shiftOutByte(~red);
-  shiftOutByte(~green);
-  shiftOutByte(~blue);
-
-  // latch high then low
-  PORTA.OUTSET = PIN3_bm;
-  PORTA.OUTCLR = PIN3_bm;
-
+  pwmAdjustAndShiftToLeds(pixel);
+  toggleLatch();
+  selectNextMaxtrixRow();
   enableActiveRow();
-  // if (activeRow == 0)
-  // {
   shiftBamBit();
-  // }
 }
 
 inline void GameEngine::disableActiveRow()
@@ -143,9 +111,47 @@ inline void GameEngine::enableActiveRow()
   PORTA.OUTCLR = (PIN4_bm << activeRow);
 }
 
-inline void GameEngine::setNextRow()
+inline void GameEngine::selectNextMaxtrixRow()
 {
   activeRow = (activeRow + 1) & (Platform::Configuration::numRows - 1);
+}
+
+void GameEngine::pwmAdjustAndShiftToLeds(const Lights::Color &pixel)
+{
+  uint8_t red = 0;
+  uint8_t green = 0;
+  uint8_t blue = 0;
+
+  const uint8_t bamSequenceBit = (1 << bamSequence[bamBitPlane]);
+  for (uint8_t col = 0; col < Platform::Configuration::numColumns; col++)
+  {
+
+    if (reduceTo6Bit(pixel.r) & bamSequenceBit)
+    {
+      red |= (1 << col);
+    }
+
+    if (reduceTo6Bit(pixel.g) & bamSequenceBit)
+    {
+      green |= (1 << col);
+    }
+
+    if (reduceTo6Bit(pixel.b) & bamSequenceBit)
+    {
+      blue |= (1 << col);
+    }
+  }
+
+  shiftOutByte(~red);
+  shiftOutByte(~green);
+  shiftOutByte(~blue);
+}
+
+inline void GameEngine::toggleLatch()
+{
+  // latch high then low
+  PORTA.OUTSET = PIN3_bm;
+  PORTA.OUTCLR = PIN3_bm;
 }
 
 void GameEngine::shiftOutByte(uint8_t value)
@@ -174,6 +180,61 @@ inline void GameEngine::shiftBamBit()
   if (++bamCounter >= (1u << bamSequence[bamBitPlane]))
   {
     bamCounter = 0;
-    bamBitPlane = (bamBitPlane + 1) & 0x7;
+    bamBitPlane++;
+
+    if (bamBitPlane >= 6)
+    {
+      bamBitPlane = 0;
+    }
   }
+}
+
+inline uint8_t GameEngine::reduceTo6Bit(uint8_t value)
+{
+  return value >> 2;
+}
+
+/**
+ * For testing purposes only
+ */
+Lights::Color GameEngine::getRainbowColor(uint8_t phase)
+{
+  Lights::Color c;
+
+  uint8_t section = phase / 43;
+  uint8_t offset = (phase % 43) * 6;
+
+  switch (section)
+  {
+  case 0:
+    c = {255, offset, 0};
+    break;
+  case 1:
+    c = {255 - offset, 255, 0};
+    break;
+  case 2:
+    c = {0, 255, offset};
+    break;
+  case 3:
+    c = {0, 255 - offset, 255};
+    break;
+  case 4:
+    c = {offset, 0, 255};
+    break;
+  default:
+    c = {255, 0, 255 - offset};
+    break;
+  }
+  return c;
+}
+
+/**
+ * For testing purposes only
+ */
+uint8_t GameEngine::wave(uint8_t x)
+{
+  if (x < 128)
+    return x * 2;
+  else
+    return 255 - ((x - 128) * 2);
 }
