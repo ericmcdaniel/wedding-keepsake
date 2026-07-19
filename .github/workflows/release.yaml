@@ -1,0 +1,96 @@
+name: CD - Deploy, Label, and Create Release
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: release-main
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout (full history)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Determine PR number
+        id: pr
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+        run: |
+          PR_NUMBER=$(gh pr list \
+            --state merged \
+            --base main \
+            --json number,mergeCommit \
+            --jq '.[] | select(.mergeCommit.oid=="'"$GITHUB_SHA"'") | .number')
+          if [[ -z "$PR_NUMBER" ]]; then
+            echo "No PR associated with this commit; skipping release."
+            echo "run_release=false" >> $GITHUB_OUTPUT
+          else
+            echo "Found PR #$PR_NUMBER"
+            echo "run_release=true" >> $GITHUB_OUTPUT
+            echo "pr_number=$PR_NUMBER" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Determine next version id from PR labels
+        id: semver
+        run: |
+          PR_NUMBER=${{ steps.pr.outputs.pr_number }}
+          export PR_NUMBER
+          bash .github/scripts/compute-semver.sh
+          echo "pr_number=$PR_NUMBER" >> "$GITHUB_OUTPUT"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Get release description notes from PR
+        id: pr_details
+        run: bash .github/scripts/get-pr-details.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ steps.semver.outputs.pr_number }}
+
+      - name: Cache PlatformIO and Python
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/pip
+            ~/.platformio/.cache
+          key: ${{ runner.os }}-build-tools-${{ hashFiles('**/platformio.ini') }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install PlatformIO
+        run: pip install --upgrade platformio
+
+      - name: Build Keychain Firmware
+        run: pio run -e release
+
+      - name: Package keychain firmware zip
+        run: |
+          mkdir -p build
+          zip -j build/keychain-firmware.zip .pio/build/release/firmware.hex
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.semver.outputs.tag }}
+          name: ${{ steps.semver.outputs.tag }} - ${{ steps.pr_details.outputs.title }}
+          body: ${{ steps.pr_details.outputs.body }}
+          files: |
+            ./build/keychain-firmware.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

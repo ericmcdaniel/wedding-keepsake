@@ -1,6 +1,4 @@
 /*
-	This automates the creation of the Virtualization GUI window.
-
 	*** IMPORTANT ***
 	Be aware that this task is configured for development in Windows.
 	Adjust the options.shell.executable field below should you launch
@@ -11,92 +9,6 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Start Virtualization",
-      "type": "shell",
-      "options": {
-        "statusbar": {
-          "hide": true
-        },
-        "shell": {
-          "executable": "cmd.exe",
-          "args": [
-            "/d",
-            "/c"
-          ]
-        }
-      },
-      "command": "${workspaceFolder}\\tools\\.venv\\Scripts\\python",
-      "args": [
-        "${workspaceFolder}\\tools\\start_virtualization.py"
-      ],
-      "group": {
-        "kind": "build",
-        "isDefault": false
-      },
-      "problemMatcher": [],
-      "presentation": {
-        "reveal": "never",
-      }
-    },
-    {
-      "label": "Wedding Keychain - Upload (Virtualization)",
-      "type": "shell",
-      "command": "platformio",
-      "args": [
-        "run",
-        "-e",
-        "virtualization",
-        "--target",
-        "upload"
-      ],
-      "problemMatcher": [
-        "$platformio"
-      ],
-      "options": {
-        "statusbar": {
-          "hide": true
-        }
-      },
-      "presentation": {
-        "reveal": "always",
-        "focus": true,
-        "panel": "shared"
-      }
-    },
-    {
-      "label": "PlatformIO: Upload",
-      "type": "shell",
-      "command": "platformio run --target upload",
-      "options": {
-        "statusbar": {
-          "hide": true
-        }
-      },
-      "presentation": {
-        "reveal": "always",
-        "focus": true,
-        "panel": "shared"
-      }
-    },
-    {
-      "label": "Upload and Start Virtualization",
-      "dependsOrder": "sequence",
-      "dependsOn": [
-        "Wedding Keychain - Upload (Virtualization)",
-        "Start Virtualization"
-      ],
-      "options": {
-        "statusbar": {
-          "hide": true
-        }
-      },
-      "presentation": {
-        "reveal": "always",
-        "focus": true,
-        "panel": "shared"
-      }
-    },
-    {
       "label": "Upload and Start Debug",
       "type": "shell",
       "command": "platformio",
@@ -105,11 +17,7 @@
         "-e",
         "debug",
         "--target",
-        "upload",
-        "&&",
-        "platformio",
-        "device",
-        "monitor"
+        "upload"
       ],
       "problemMatcher": [],
       "options": {
@@ -127,9 +35,7 @@
     {
       "label": "Wedding Keychain - Upload (release)",
       "type": "shell",
-      // "command": "export WEDDING_KEYCHAIN_VERSION=v9.99.999 && platformio run -e release --target upload",
-      // Alternative command to align with prod releases:
-      "command": "export WEDDING_KEYCHAIN_VERSION=$(git describe --tags --abbrev=0) && platformio run -e release --target upload",
+      "command": "platformio run -e release --target upload",
       "problemMatcher": [
         "$platformio"
       ],
@@ -147,27 +53,9 @@
     {
       "label": "Wedding Keychain - Clean",
       "type": "shell",
-      "command": "platformio run --target clean -e virtualization -e debug -e release",
+      "command": "platformio run --target clean -e debug -e release",
       "problemMatcher": [
         "$platformio"
-      ],
-      "options": {
-        "statusbar": {
-          "hide": true
-        }
-      },
-      "presentation": {
-        "reveal": "always",
-        "focus": true,
-        "panel": "shared"
-      }
-    },
-    {
-      "label": "Upload and Start Virtualization",
-      "dependsOrder": "sequence",
-      "dependsOn": [
-        "Wedding Keychain - Upload (Virtualization)",
-        "Start Virtualization"
       ],
       "options": {
         "statusbar": {

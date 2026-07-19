@@ -11,6 +11,7 @@ namespace Engine
   enum class SystemState
   {
     Initialize,
+    Animation_1,
     Error
   };
 
