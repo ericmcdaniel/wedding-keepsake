@@ -96,7 +96,7 @@ void GameEngine::renderFrameRow()
 
   pwmAdjustAndShiftToLeds(pixel);
   toggleLatch();
-  selectNextMaxtrixRow();
+  selectNextMatrixRow();
   enableActiveRow();
   shiftBamBit();
 }
@@ -111,40 +111,44 @@ inline void GameEngine::enableActiveRow()
   PORTA.OUTCLR = (PIN4_bm << activeRow);
 }
 
-inline void GameEngine::selectNextMaxtrixRow()
+inline void GameEngine::selectNextMatrixRow()
 {
   activeRow = (activeRow + 1) & (Platform::Configuration::numRows - 1);
 }
 
 void GameEngine::pwmAdjustAndShiftToLeds(const Lights::Color &pixel)
 {
-  uint8_t red = 0;
-  uint8_t green = 0;
-  uint8_t blue = 0;
+  uint8_t finalRed = 0;
+  uint8_t finalGreen = 0;
+  uint8_t finalBlue = 0;
+
+  const uint8_t r = reduceTo6Bit(pixel.r);
+  const uint8_t g = reduceTo6Bit(pixel.g);
+  const uint8_t b = reduceTo6Bit(pixel.b);
 
   const uint8_t bamSequenceBit = (1 << bamSequence[bamBitPlane]);
   for (uint8_t col = 0; col < Platform::Configuration::numColumns; col++)
   {
 
-    if (reduceTo6Bit(pixel.r) & bamSequenceBit)
+    if (r & bamSequenceBit)
     {
-      red |= (1 << col);
+      finalRed |= (1 << col);
     }
 
-    if (reduceTo6Bit(pixel.g) & bamSequenceBit)
+    if (g & bamSequenceBit)
     {
-      green |= (1 << col);
+      finalGreen |= (1 << col);
     }
 
-    if (reduceTo6Bit(pixel.b) & bamSequenceBit)
+    if (b & bamSequenceBit)
     {
-      blue |= (1 << col);
+      finalBlue |= (1 << col);
     }
   }
 
-  shiftOutByte(~red);
-  shiftOutByte(~green);
-  shiftOutByte(~blue);
+  shiftOutByte(~finalRed);
+  shiftOutByte(~finalGreen);
+  shiftOutByte(~finalBlue);
 }
 
 inline void GameEngine::toggleLatch()
@@ -164,7 +168,7 @@ void GameEngine::shiftOutByte(uint8_t value)
     }
     else
     {
-      PORTA.OUTCLR = PIN1_bm; // PA1 low
+      PORTA.OUTCLR = PIN1_bm; // PA1 (data pin) low
     }
 
     PORTA.OUTSET = PIN2_bm; // same format as above, PA2 high
@@ -226,15 +230,4 @@ Lights::Color GameEngine::getRainbowColor(uint8_t phase)
     break;
   }
   return c;
-}
-
-/**
- * For testing purposes only
- */
-uint8_t GameEngine::wave(uint8_t x)
-{
-  if (x < 128)
-    return x * 2;
-  else
-    return 255 - ((x - 128) * 2);
 }

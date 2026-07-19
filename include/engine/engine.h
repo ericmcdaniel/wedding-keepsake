@@ -30,7 +30,7 @@ namespace Engine
     void renderFrameRow();
     inline void disableActiveRow();
     inline void enableActiveRow();
-    inline void selectNextMaxtrixRow();
+    inline void selectNextMatrixRow();
     void pwmAdjustAndShiftToLeds(const Lights::Color &pixel);
     inline void toggleLatch();
     void shiftOutByte(uint8_t value);
@@ -41,6 +41,5 @@ namespace Engine
      * For testing purposes only
      */
     Lights::Color getRainbowColor(uint8_t phase);
-    uint8_t GameEngine::wave(uint8_t x);
   };
 }
