@@ -4,7 +4,7 @@
 #include "engine/application-runtime.h"
 #include "engine/state-manager.h"
 #include "engine/renderer.h"
-#include "user/controller.h"
+#include "user/button.h"
 
 namespace Platform
 {
@@ -19,8 +19,9 @@ namespace Platform
     Engine::ApplicationRuntime *application = nullptr;
     Engine::StateManager stateManager;
     Engine::Renderer renderer;
-    User::Controller controller;
+    User::Button button;
 
     void initializeSystemMemory();
+    void changeApplication();
   };
 }

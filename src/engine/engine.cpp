@@ -31,12 +31,16 @@ void GameEngine::initializeEngine()
   logf("startupState = %u\n", Platform::Configuration::startupState());
   log("Startup process completed. Transitioning to the first animation.");
 
-  // pin setup
+  // immediately set PA4-7 as HIGH, the row MOSFET is active low.
+  PORTA.OUTSET = PIN4_bm | PIN5_bm | PIN6_bm | PIN7_bm;
+
+  // setup pins PA1-7 as output
   PORTA.DIRSET = PIN1_bm | PIN2_bm | PIN3_bm |
                  PIN4_bm | PIN5_bm | PIN6_bm | PIN7_bm;
 
-  // pin set to high
-  PORTA.OUTSET = PIN4_bm | PIN5_bm | PIN6_bm | PIN7_bm;
+  // Set PB0 (the SMD button) is input with internal pull-up resistor, and as a falling-edge interrupt
+  PORTB.DIRCLR = PIN0_bm;
+  PORTB.PIN0CTRL = PORT_PULLUPEN_bm | PORT_ISC_FALLING_gc;
 }
 
 void GameEngine::runApplication()
@@ -44,18 +48,24 @@ void GameEngine::runApplication()
   while (contextManager.stateManager.isRunning())
   {
     uint32_t now = micros();
+    contextManager.button.update(now);
+    if (contextManager.button.wasHeld())
+    {
+      // TODO: change modes here.
+    }
 
     if (now - lastFullFrameRender >= frameRefreshRate)
     {
       lastFullFrameRender += frameRefreshRate;
+
       contextManager.renderer.leds.reset();
-      // contextManager.controller.poll(); // TODO: poll from tactile switch
 
       switch (contextManager.stateManager.current())
       {
       case SystemState::Initialize:
         break;
-      case SystemState::Animation_1:
+      case SystemState::Animation:
+      case SystemState::Game:
         contextManager.application->nextEvent();
         break;
       case SystemState::Error:
