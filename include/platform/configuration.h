@@ -14,7 +14,7 @@ namespace Platform
     static constexpr uint32_t serialBaud = 115200;
 
     // static constexpr uint8_t shiftRegisterDataPin = PIN_PA1;
-    static constexpr uint8_t buttonPin = PIN_PB0;
+    static constexpr uint8_t buttonPin = PIN0_bm;
     static constexpr uint8_t rowPins[] = {
         PIN_PA4,
         PIN_PA5,

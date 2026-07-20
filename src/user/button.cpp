@@ -3,28 +3,29 @@
 
 using namespace User;
 
-volatile bool Button::interruptTriggered = false;
+volatile uint8_t Button::interruptCount = 0;
 
 //
 // Hardware interrupt.
-//
-// Must be global. AVR interrupt vectors cannot point
-// directly to class member functions.
+// Must be global. AVR interrupt vectors cannot point directly to class member functions.
 //
 ISR(PORTB_PORT_vect)
 {
-  // Clears/sets interrupt flag
-  PORTB.INTFLAGS = PIN2_bm;
-  Button::interruptHandler();
+  if (PORTB.INTFLAGS & PIN0_bm)
+  {
+    // Clears/sets interrupt flag
+    PORTB.INTFLAGS = PIN0_bm;
+    Button::interruptHandler();
+  }
 }
 
 void Button::update(uint32_t currentTime)
 {
-  clearEvents();
-
-  if (interruptTriggered)
+  uint8_t count = Button::interruptCount;
+  if (count)
   {
-    interruptTriggered = false;
+    Button::interruptCount = 0;
+
     switch (state)
     {
     case State::Idle:
@@ -34,7 +35,13 @@ void Button::update(uint32_t currentTime)
     case State::WaitingForSecondPress:
       if (currentTime - stateTimestamp <= doublePressWindow)
       {
-        doublePress = true;
+        completingDoublePress = true;
+        state = State::Debouncing;
+        stateTimestamp = currentTime;
+      }
+      else
+      {
+        completingDoublePress = false;
         state = State::Debouncing;
         stateTimestamp = currentTime;
       }
@@ -52,7 +59,7 @@ void Button::update(uint32_t currentTime)
 
       if (pressed)
       {
-        handlePress();
+        handlePress(currentTime);
       }
       else
       {
@@ -72,7 +79,7 @@ void Button::update(uint32_t currentTime)
     }
     else if (PORTB.IN & Platform::Configuration::buttonPin) // Normal release.
     {
-      handleRelease();
+      handleRelease(currentTime);
     }
   }
 
@@ -91,35 +98,77 @@ void Button::update(uint32_t currentTime)
     if (currentTime - stateTimestamp > doublePressWindow)
     {
       singlePress = true;
+      completingDoublePress = false;
       state = State::Idle;
     }
   }
 }
 
-void Button::handlePress()
+void Button::handlePress(uint32_t currentTime)
 {
+  if (completingDoublePress)
+  {
+    doublePress = true;
+    secondPressPending = true;
+    completingDoublePress = false;
+  }
+
   state = State::Pressed;
-  stateTimestamp = millis();
+  stateTimestamp = currentTime;
   holdTriggered = false;
 }
 
-void Button::handleRelease()
+void Button::handleRelease(uint32_t currentTime)
 {
-  // Ignore release after hold.
+  // Ignore release after hold
   if (holdTriggered)
   {
     state = State::Idle;
     return;
   }
 
+  if (secondPressPending)
+  {
+    secondPressPending = false;
+    state = State::Idle;
+    return;
+  }
+
   // Begin double-click detection.
   state = State::WaitingForSecondPress;
-  stateTimestamp = millis();
+  stateTimestamp = currentTime;
 }
 
-void Button::clearEvents()
+bool Button::wasSinglePress()
 {
-  singlePress = false;
-  doublePress = false;
-  held = false;
+  if (singlePress)
+  {
+    singlePress = false;
+    return true;
+  }
+
+  return false;
+}
+
+bool Button::wasDoublePress()
+{
+  if (doublePress)
+  {
+    doublePress = false;
+    singlePress = false;
+    return true;
+  }
+
+  return false;
+}
+
+bool Button::wasHeld()
+{
+  if (held)
+  {
+    held = false;
+    return true;
+  }
+
+  return false;
 }

@@ -47,14 +47,28 @@ void GameEngine::runApplication()
 {
   while (contextManager.stateManager.isRunning())
   {
-    uint32_t now = micros();
-    contextManager.button.update(now);
-    if (contextManager.button.wasHeld())
+    uint32_t nowMicros = micros();
+    uint32_t nowMillis = millis();
+    contextManager.button.update(nowMillis);
+
+    if (contextManager.button.wasDoublePress())
+    {
+      log("Double Pressed");
+      colorPhase = 90;
+    }
+    else if (contextManager.button.wasSinglePress())
+    {
+      log("Single Pressed");
+      colorPhase = 0;
+    }
+    else if (contextManager.button.wasHeld())
     {
       // TODO: change modes here.
+      log("Btn held");
+      colorPhase = 180;
     }
 
-    if (now - lastFullFrameRender >= frameRefreshRate)
+    if (nowMicros - lastFullFrameRender >= frameRefreshRate)
     {
       lastFullFrameRender += frameRefreshRate;
 
@@ -78,27 +92,26 @@ void GameEngine::runApplication()
       }
     }
 
-    if (now - lastMatrixRowRender >= rowRefreshRate)
+    if (nowMicros - lastMatrixRowRender >= rowRefreshRate)
     {
       lastMatrixRowRender += rowRefreshRate;
-      renderFrameRow();
+      renderFrameRow(nowMillis);
     }
   }
 }
 
-void GameEngine::renderFrameRow()
+void GameEngine::renderFrameRow(uint32_t currentTime)
 {
   // contextManager.renderer.leds.adjustLuminance(); // TODO: Return to luminance? Gamma correction?
   disableActiveRow();
 
   ///////////////////////////////////////////////////////////////////
-  static uint8_t colorPhase = 0;         // temp, for testing      //
   static uint32_t lastUpdate = millis(); // temp, for testing      //
   static Lights::Color pixel;            // temp, for testing      //
-  if (millis() - lastUpdate > 20)        // temp, for testing      //
+  if (currentTime - lastUpdate > 20)     // temp, for testing      //
   {
     // TODO: remove and replace with actual buffer
-    lastUpdate = millis();
+    lastUpdate = currentTime;
     pixel = getRainbowColor(colorPhase);
     colorPhase++;
   }

@@ -8,10 +8,10 @@ namespace User
   {
   public:
     void update(uint32_t currentTime);
-    bool wasSinglePress() const { return singlePress; };
-    bool wasDoublePress() const { return doublePress; };
-    bool wasHeld() const { return held; };
-    static void interruptHandler() { interruptTriggered = true; }
+    bool wasSinglePress();
+    bool wasDoublePress();
+    bool wasHeld();
+    static inline void interruptHandler() { interruptCount++; }
 
   private:
     enum class State
@@ -23,19 +23,20 @@ namespace User
       WaitingForRelease
     };
 
-    void clearEvents();
-    void handlePress();
-    void handleRelease();
+    void handlePress(uint32_t currentTime);
+    void handleRelease(uint32_t currentTime);
 
-    static volatile bool interruptTriggered;
+    static volatile uint8_t interruptCount;
     State state = State::Idle;
     bool singlePress = false;
     bool doublePress = false;
+    bool secondPressPending = false;
+    bool completingDoublePress = false;
     bool held = false;
     uint32_t stateTimestamp = 0;
-    static constexpr uint16_t debounceTime = 30;
-    static constexpr uint16_t doublePressWindow = 300;
-    static constexpr uint16_t holdTime = 1000;
+    static constexpr uint32_t debounceTime = 30;
+    static constexpr uint32_t doublePressWindow = 85;
+    static constexpr uint32_t holdTime = 1000;
     bool holdTriggered = false;
   };
 }
