@@ -22,6 +22,6 @@ namespace Platform
     User::Button button;
 
     void initializeSystemMemory();
-    void changeApplication();
+    void changeApplication(Engine::SystemState nextState);
   };
 }

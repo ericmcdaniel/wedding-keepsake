@@ -12,6 +12,9 @@ namespace Apps::Animations
     Rainbow(Platform::ContextManager *ctx) : contextManager{ctx} {}
     void nextEvent() override;
 
+    uint8_t colorPhase = 0;
+    Lights::Color getRainbowColor(uint8_t phase);
+
   private:
     Platform::ContextManager *contextManager;
   };

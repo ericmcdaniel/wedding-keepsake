@@ -20,11 +20,12 @@ namespace Engine
     uint8_t activeRow = 0;
     uint8_t bamBitPlane = 0;
     uint8_t bamCounter = 0;
-    static constexpr uint32_t rowRefreshRate = 50;
-    static constexpr uint32_t frameRefreshRate = 16666; // Was orig for 60Hz, but this might change... like the val above.
+    static constexpr uint32_t rowRefreshRate = 50;      // Leave multiplexed row on for 50us minimum.
+    static constexpr uint32_t frameRefreshRate = 16666; // Refresh full frame at 60 Hz (16.6 ms)
     static constexpr uint8_t rowMask = PIN4_bm | PIN5_bm | PIN6_bm | PIN7_bm;
-    // completely arbitrary values, but iterating from 0-5 leads to choppy considering how BAM works. This
-    // mixes up long PWM durations with short onces, making it look more natural.
+
+    // completely arbitrary values, but iterating from 0-5 leads to choppy display. This is
+    // a symptom of how BOM works. this 6-bit array mixes up long PWM durations with short onces, making it look more natural.
     static constexpr uint8_t bamSequence[6] = {5, 0, 4, 1, 3, 2};
 
     void renderFrameRow(uint32_t currentTime);
@@ -36,11 +37,5 @@ namespace Engine
     void shiftOutByte(uint8_t value);
     inline void shiftBamBit();
     inline uint8_t reduceTo6Bit(uint8_t value);
-
-    /*
-     * For testing purposes only
-     */
-    uint8_t colorPhase = 0;
-    Lights::Color getRainbowColor(uint8_t phase);
   };
 }

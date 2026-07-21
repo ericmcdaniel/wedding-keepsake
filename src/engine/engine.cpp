@@ -12,8 +12,6 @@ GameEngine::GameEngine()
 void GameEngine::initializeEngine()
 {
   contextManager.initializeSystemMemory();
-  // contextManager.renderer.leds.reset(); //TODO: Remember to reset the LED matrix
-  // renderFrameRow(); // TODO: clear?
 
   // If debugging, ensure serial connection is stable before setting up components
 #ifdef DEBUG
@@ -41,8 +39,7 @@ void GameEngine::initializeEngine()
   // Set PB0 (the SMD button) is input with internal pull-up resistor, and as a falling-edge interrupt
   PORTB.DIRCLR = PIN0_bm;
   PORTB.PIN0CTRL = PORT_PULLUPEN_bm | PORT_ISC_FALLING_gc;
-  contextManager.stateManager.setNext(SystemState::Animation);
-  contextManager.changeApplication();
+  contextManager.changeApplication(Platform::Configuration::startupState());
 }
 
 void GameEngine::runApplication()
@@ -57,24 +54,14 @@ void GameEngine::runApplication()
     {
       // TODO: do better than this...
       SystemState nextState = contextManager.stateManager.current() == SystemState::Animation ? SystemState::Game : SystemState::Animation;
-      contextManager.stateManager.setNext(nextState);
-      contextManager.changeApplication();
+      contextManager.changeApplication(nextState);
       continue;
     }
 
     if (nowMicros - lastFullFrameRender >= frameRefreshRate)
     {
       lastFullFrameRender += frameRefreshRate;
-      contextManager.renderer.leds.reset();
-      for (uint16_t i = 0; i < 32; ++i) // Temporary, just for the proof of concept
-      {
-        Lights::Color color;
-        color.r = 255;
-        color.g = 0;
-        color.b = 0;
-
-        contextManager.renderer.leds[i] = color;
-      }
+      contextManager.renderer.reset();
       contextManager.application->nextEvent();
     }
 
@@ -89,21 +76,12 @@ void GameEngine::runApplication()
 void GameEngine::renderFrameRow(uint32_t currentTime)
 {
   // contextManager.renderer.leds.adjustLuminance(); // TODO: Return to luminance? Gamma correction?
-  ///////////////////////////////////////////////////////////////////
-  static uint32_t lastUpdate = millis(); // temp, for testing      //
-  static Lights::Color pixel;            // temp, for testing      //
-  if (currentTime - lastUpdate > 20)     // temp, for testing      //
-  {
-    lastUpdate = currentTime;
-    pixel = getRainbowColor(colorPhase);
-    colorPhase++;
-  }
-  ///////////////////////////////////////////////////////////////////
+
   disableActiveRow();
   pwmAdjustAndShiftToLeds();
   toggleLatch();
-  selectNextMatrixRow();
   enableActiveRow();
+  selectNextMatrixRow();
   shiftBamBit();
 }
 
@@ -131,7 +109,8 @@ void GameEngine::pwmAdjustAndShiftToLeds()
 
   for (uint8_t col = 0; col < Platform::Configuration::numColumns; col++)
   {
-    const Lights::Color pixel = contextManager.renderer.leds(activeRow, col);
+    const Lights::Color pixel = contextManager.renderer.getPixel(activeRow, col);
+
     const uint8_t r = reduceTo6Bit(pixel.r);
     const uint8_t g = reduceTo6Bit(pixel.g);
     const uint8_t b = reduceTo6Bit(pixel.b);
@@ -202,38 +181,4 @@ inline void GameEngine::shiftBamBit()
 inline uint8_t GameEngine::reduceTo6Bit(uint8_t value)
 {
   return value >> 2;
-}
-
-/**
- * For testing purposes only
- */
-Lights::Color GameEngine::getRainbowColor(uint8_t phase)
-{
-  Lights::Color c;
-
-  uint8_t section = phase / 43;
-  uint8_t offset = (phase % 43) * 6;
-
-  switch (section)
-  {
-  case 0:
-    c = {255, offset, 0};
-    break;
-  case 1:
-    c = {255 - offset, 255, 0};
-    break;
-  case 2:
-    c = {0, 255, offset};
-    break;
-  case 3:
-    c = {0, 255 - offset, 255};
-    break;
-  case 4:
-    c = {offset, 0, 255};
-    break;
-  default:
-    c = {255, 0, 255 - offset};
-    break;
-  }
-  return c;
 }

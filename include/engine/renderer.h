@@ -7,14 +7,25 @@ namespace Engine
   class Renderer
   {
   public:
-    Renderer() = default;
+    void drawPixel(const Lights::Color &color, const uint16_t index);
+    void drawPixel(const Lights::Color &color, const uint16_t row, const uint16_t col);
 
-    Lights::LedMatrix leds;
+    void fillSolid(const Lights::Color &color);
+    void fillLine(const Lights::Color &color, const uint16_t start, const uint16_t end); // inclusive
 
-    // void drawPixel(const RenderModel &renderModel, const uint16_t offset);
-    // void renderEntity(const RenderModel &model);
+    void reset() { leds.reset(); }
+
+    Lights::Color &getPixel(uint16_t row, uint16_t column)
+    {
+      return leds(row, column);
+    }
+
+    const Lights::Color &getPixel(uint16_t row, uint16_t column) const
+    {
+      return leds(row, column);
+    }
 
   private:
-    // void blend(const RenderModel &renderModel, const uint16_t offset);
+    Lights::LedMatrix leds;
   };
 }

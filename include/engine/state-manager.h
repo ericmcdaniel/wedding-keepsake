@@ -10,7 +10,6 @@ namespace Engine
 {
   enum class SystemState
   {
-    Initialize,
     Animation,
     Game,
     Error
@@ -20,7 +19,7 @@ namespace Engine
   {
   public:
     StateManager(Platform::ContextManager *ctx) : contextManager{ctx},
-                                                  systemState{SystemState::Initialize} {}
+                                                  systemState{SystemState::Animation} {}
 
     bool isRunning() const { return systemState != SystemState::Error; }
     const SystemState current() const { return systemState; }
