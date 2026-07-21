@@ -39,6 +39,7 @@ void GameEngine::initializeEngine()
   // Set PB0 (the SMD button) is input with internal pull-up resistor, and as a falling-edge interrupt
   PORTB.DIRCLR = PIN0_bm;
   PORTB.PIN0CTRL = PORT_PULLUPEN_bm | PORT_ISC_FALLING_gc;
+  contextManager.entropy.begin();
   contextManager.changeApplication(Platform::Configuration::startupState());
 }
 
@@ -48,6 +49,7 @@ void GameEngine::runApplication()
   {
     uint32_t nowMicros = micros();
     uint32_t nowMillis = millis();
+    contextManager.entropy.update(nowMicros);
     contextManager.button.update(nowMillis);
 
     if (contextManager.button.wasHeld())
