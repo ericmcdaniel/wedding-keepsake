@@ -41,6 +41,8 @@ void GameEngine::initializeEngine()
   // Set PB0 (the SMD button) is input with internal pull-up resistor, and as a falling-edge interrupt
   PORTB.DIRCLR = PIN0_bm;
   PORTB.PIN0CTRL = PORT_PULLUPEN_bm | PORT_ISC_FALLING_gc;
+  contextManager.stateManager.setNext(SystemState::Animation);
+  contextManager.changeApplication();
 }
 
 void GameEngine::runApplication()
@@ -51,45 +53,20 @@ void GameEngine::runApplication()
     uint32_t nowMillis = millis();
     contextManager.button.update(nowMillis);
 
-    if (contextManager.button.wasDoublePress())
+    if (contextManager.button.wasHeld())
     {
-      log("Double Pressed");
-      colorPhase = 90;
-    }
-    else if (contextManager.button.wasSinglePress())
-    {
-      log("Single Pressed");
-      colorPhase = 0;
-    }
-    else if (contextManager.button.wasHeld())
-    {
-      // TODO: change modes here.
-      log("Btn held");
-      colorPhase = 180;
+      // TODO: do better than this...
+      SystemState nextState = contextManager.stateManager.current() == SystemState::Animation ? SystemState::Game : SystemState::Animation;
+      contextManager.stateManager.setNext(nextState);
+      contextManager.changeApplication();
+      continue;
     }
 
     if (nowMicros - lastFullFrameRender >= frameRefreshRate)
     {
       lastFullFrameRender += frameRefreshRate;
-
       contextManager.renderer.leds.reset();
-
-      switch (contextManager.stateManager.current())
-      {
-      case SystemState::Initialize:
-        break;
-      case SystemState::Animation:
-      case SystemState::Game:
-        contextManager.application->nextEvent();
-        break;
-      case SystemState::Error:
-        // TODO: (maybe) Animate an error state?
-        break;
-      default:
-        // ideally shouldn't encounter this
-        contextManager.stateManager.setNext(SystemState::Error);
-        break;
-      }
+      contextManager.application->nextEvent();
     }
 
     if (nowMicros - lastMatrixRowRender >= rowRefreshRate)
@@ -110,7 +87,6 @@ void GameEngine::renderFrameRow(uint32_t currentTime)
   static Lights::Color pixel;            // temp, for testing      //
   if (currentTime - lastUpdate > 20)     // temp, for testing      //
   {
-    // TODO: remove and replace with actual buffer
     lastUpdate = currentTime;
     pixel = getRainbowColor(colorPhase);
     colorPhase++;
