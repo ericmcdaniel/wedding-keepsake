@@ -10,7 +10,7 @@ namespace Apps::Animations
   {
   public:
     Rainbow(Platform::ContextManager *ctx) : contextManager{ctx} {}
-    void nextEvent() override {}
+    void nextEvent() override;
 
   private:
     Platform::ContextManager *contextManager;

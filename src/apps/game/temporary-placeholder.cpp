@@ -1,4 +1,4 @@
-#include "apps/games/temporary-placeholder.h"
+#include "apps/game/temporary-placeholder.h"
 #include "logger.h"
 
 using namespace Apps::Game;

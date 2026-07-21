@@ -31,7 +31,7 @@ namespace Engine
     inline void disableActiveRow();
     inline void enableActiveRow();
     inline void selectNextMatrixRow();
-    void pwmAdjustAndShiftToLeds(const Lights::Color &pixel);
+    void pwmAdjustAndShiftToLeds();
     inline void toggleLatch();
     void shiftOutByte(uint8_t value);
     inline void shiftBamBit();

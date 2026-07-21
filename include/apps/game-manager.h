@@ -3,7 +3,7 @@
 #include "platform/context-manager.h"
 #include "engine/application-runtime.h"
 #include "engine/timer.h"
-#include "apps/games/temporary-placeholder.h"
+#include "apps/game/temporary-placeholder.h"
 #include "logger.h"
 
 namespace Apps

@@ -66,6 +66,15 @@ void GameEngine::runApplication()
     {
       lastFullFrameRender += frameRefreshRate;
       contextManager.renderer.leds.reset();
+      for (uint16_t i = 0; i < 32; ++i) // Temporary, just for the proof of concept
+      {
+        Lights::Color color;
+        color.r = 255;
+        color.g = 0;
+        color.b = 0;
+
+        contextManager.renderer.leds[i] = color;
+      }
       contextManager.application->nextEvent();
     }
 
@@ -80,8 +89,6 @@ void GameEngine::runApplication()
 void GameEngine::renderFrameRow(uint32_t currentTime)
 {
   // contextManager.renderer.leds.adjustLuminance(); // TODO: Return to luminance? Gamma correction?
-  disableActiveRow();
-
   ///////////////////////////////////////////////////////////////////
   static uint32_t lastUpdate = millis(); // temp, for testing      //
   static Lights::Color pixel;            // temp, for testing      //
@@ -92,8 +99,8 @@ void GameEngine::renderFrameRow(uint32_t currentTime)
     colorPhase++;
   }
   ///////////////////////////////////////////////////////////////////
-
-  pwmAdjustAndShiftToLeds(pixel);
+  disableActiveRow();
+  pwmAdjustAndShiftToLeds();
   toggleLatch();
   selectNextMatrixRow();
   enableActiveRow();
@@ -115,39 +122,39 @@ inline void GameEngine::selectNextMatrixRow()
   activeRow = (activeRow + 1) & (Platform::Configuration::numRows - 1);
 }
 
-void GameEngine::pwmAdjustAndShiftToLeds(const Lights::Color &pixel)
+void GameEngine::pwmAdjustAndShiftToLeds()
 {
-  uint8_t finalRed = 0;
-  uint8_t finalGreen = 0;
-  uint8_t finalBlue = 0;
-
-  const uint8_t r = reduceTo6Bit(pixel.r);
-  const uint8_t g = reduceTo6Bit(pixel.g);
-  const uint8_t b = reduceTo6Bit(pixel.b);
-
   const uint8_t bamSequenceBit = (1 << bamSequence[bamBitPlane]);
+  uint8_t adjustedRed = 0;
+  uint8_t adjustedGreen = 0;
+  uint8_t adjustedBlue = 0;
+
   for (uint8_t col = 0; col < Platform::Configuration::numColumns; col++)
   {
+    const Lights::Color pixel = contextManager.renderer.leds(activeRow, col);
+    const uint8_t r = reduceTo6Bit(pixel.r);
+    const uint8_t g = reduceTo6Bit(pixel.g);
+    const uint8_t b = reduceTo6Bit(pixel.b);
 
     if (r & bamSequenceBit)
     {
-      finalRed |= (1 << col);
+      adjustedRed |= (1 << col);
     }
 
     if (g & bamSequenceBit)
     {
-      finalGreen |= (1 << col);
+      adjustedGreen |= (1 << col);
     }
 
     if (b & bamSequenceBit)
     {
-      finalBlue |= (1 << col);
+      adjustedBlue |= (1 << col);
     }
   }
 
-  shiftOutByte(~finalRed);
-  shiftOutByte(~finalGreen);
-  shiftOutByte(~finalBlue);
+  shiftOutByte(~adjustedRed);
+  shiftOutByte(~adjustedGreen);
+  shiftOutByte(~adjustedBlue);
 }
 
 inline void GameEngine::toggleLatch()
