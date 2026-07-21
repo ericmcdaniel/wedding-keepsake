@@ -1,0 +1,16 @@
+#include "apps/games/temporary-placeholder.h"
+#include "logger.h"
+
+using namespace Apps::Game;
+
+void Apps::Game::TemporaryPlaceholder::nextEvent()
+{
+  if (contextManager->button.wasDoublePress())
+  {
+    log("Double press fired.");
+  }
+  else if (contextManager->button.wasSinglePress())
+  {
+    log("Single press fired.");
+  }
+}

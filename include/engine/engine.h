@@ -27,7 +27,7 @@ namespace Engine
     // mixes up long PWM durations with short onces, making it look more natural.
     static constexpr uint8_t bamSequence[6] = {5, 0, 4, 1, 3, 2};
 
-    void renderFrameRow();
+    void renderFrameRow(uint32_t currentTime);
     inline void disableActiveRow();
     inline void enableActiveRow();
     inline void selectNextMatrixRow();
@@ -40,6 +40,7 @@ namespace Engine
     /*
      * For testing purposes only
      */
+    uint8_t colorPhase = 0;
     Lights::Color getRainbowColor(uint8_t phase);
   };
 }

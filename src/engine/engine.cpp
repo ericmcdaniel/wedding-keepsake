@@ -31,64 +31,63 @@ void GameEngine::initializeEngine()
   logf("startupState = %u\n", Platform::Configuration::startupState());
   log("Startup process completed. Transitioning to the first animation.");
 
-  // pin setup
+  // immediately set PA4-7 as HIGH, the row MOSFET is active low.
+  PORTA.OUTSET = PIN4_bm | PIN5_bm | PIN6_bm | PIN7_bm;
+
+  // setup pins PA1-7 as output
   PORTA.DIRSET = PIN1_bm | PIN2_bm | PIN3_bm |
                  PIN4_bm | PIN5_bm | PIN6_bm | PIN7_bm;
 
-  // pin set to high
-  PORTA.OUTSET = PIN4_bm | PIN5_bm | PIN6_bm | PIN7_bm;
+  // Set PB0 (the SMD button) is input with internal pull-up resistor, and as a falling-edge interrupt
+  PORTB.DIRCLR = PIN0_bm;
+  PORTB.PIN0CTRL = PORT_PULLUPEN_bm | PORT_ISC_FALLING_gc;
+  contextManager.stateManager.setNext(SystemState::Animation);
+  contextManager.changeApplication();
 }
 
 void GameEngine::runApplication()
 {
   while (contextManager.stateManager.isRunning())
   {
-    uint32_t now = micros();
+    uint32_t nowMicros = micros();
+    uint32_t nowMillis = millis();
+    contextManager.button.update(nowMillis);
 
-    if (now - lastFullFrameRender >= frameRefreshRate)
+    if (contextManager.button.wasHeld())
+    {
+      // TODO: do better than this...
+      SystemState nextState = contextManager.stateManager.current() == SystemState::Animation ? SystemState::Game : SystemState::Animation;
+      contextManager.stateManager.setNext(nextState);
+      contextManager.changeApplication();
+      continue;
+    }
+
+    if (nowMicros - lastFullFrameRender >= frameRefreshRate)
     {
       lastFullFrameRender += frameRefreshRate;
       contextManager.renderer.leds.reset();
-      // contextManager.controller.poll(); // TODO: poll from tactile switch
-
-      switch (contextManager.stateManager.current())
-      {
-      case SystemState::Initialize:
-        break;
-      case SystemState::Animation_1:
-        contextManager.application->nextEvent();
-        break;
-      case SystemState::Error:
-        // TODO: (maybe) Animate an error state?
-        break;
-      default:
-        // ideally shouldn't encounter this
-        contextManager.stateManager.setNext(SystemState::Error);
-        break;
-      }
+      contextManager.application->nextEvent();
     }
 
-    if (now - lastMatrixRowRender >= rowRefreshRate)
+    if (nowMicros - lastMatrixRowRender >= rowRefreshRate)
     {
       lastMatrixRowRender += rowRefreshRate;
-      renderFrameRow();
+      renderFrameRow(nowMillis);
     }
   }
 }
 
-void GameEngine::renderFrameRow()
+void GameEngine::renderFrameRow(uint32_t currentTime)
 {
   // contextManager.renderer.leds.adjustLuminance(); // TODO: Return to luminance? Gamma correction?
   disableActiveRow();
 
   ///////////////////////////////////////////////////////////////////
-  static uint8_t colorPhase = 0;         // temp, for testing      //
   static uint32_t lastUpdate = millis(); // temp, for testing      //
   static Lights::Color pixel;            // temp, for testing      //
-  if (millis() - lastUpdate > 20)        // temp, for testing      //
+  if (currentTime - lastUpdate > 20)     // temp, for testing      //
   {
-    // TODO: remove and replace with actual buffer
-    lastUpdate = millis();
+    lastUpdate = currentTime;
     pixel = getRainbowColor(colorPhase);
     colorPhase++;
   }
