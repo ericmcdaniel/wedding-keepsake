@@ -4,9 +4,15 @@ using namespace Apps::Animations;
 
 void Rainbow::nextEvent()
 {
-  colorPhase++;
-  Lights::Color color = getRainbowColor(colorPhase);
-  contextManager->renderer.fillSolid(color);
+  if (isReady())
+  {
+    wait(100);
+    contextManager->renderer.reset();
+
+    colorPhase++;
+    Lights::Color color = getRainbowColor(colorPhase);
+    contextManager->renderer.fillSolid(color);
+  }
 }
 
 Lights::Color Rainbow::getRainbowColor(uint8_t phase)

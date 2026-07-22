@@ -27,6 +27,7 @@ namespace Platform
 
   private:
     inline static Engine::SystemState _startupState = Engine::SystemState::Animation;
+    static_assert((Platform::Configuration::numColumns & (Platform::Configuration::numColumns - 1)) == 0, "numColumns must be a power of two");
     static_assert((Platform::Configuration::numRows & (Platform::Configuration::numRows - 1)) == 0, "numRows must be a power of two");
   };
 }

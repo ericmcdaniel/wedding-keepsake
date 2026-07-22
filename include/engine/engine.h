@@ -27,8 +27,9 @@ namespace Engine
     // completely arbitrary values, but iterating from 0-5 leads to choppy display. This is
     // a symptom of how BOM works. this 6-bit array mixes up long PWM durations with short onces, making it look more natural.
     static constexpr uint8_t bamSequence[6] = {5, 0, 4, 1, 3, 2};
+    static inline uint8_t reduceTo6Bit(uint8_t value);
 
-    void renderFrameRow(uint32_t currentTime);
+    void renderFrameRow();
     inline void disableActiveRow();
     inline void enableActiveRow();
     inline void selectNextMatrixRow();
@@ -36,6 +37,5 @@ namespace Engine
     inline void toggleLatch();
     void shiftOutByte(uint8_t value);
     inline void shiftBamBit();
-    inline uint8_t reduceTo6Bit(uint8_t value);
   };
 }

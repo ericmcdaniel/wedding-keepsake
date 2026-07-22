@@ -14,9 +14,9 @@ namespace Platform
     stir(micros());
   }
 
-  void Entropy::update(uint32_t currentTime)
+  void Entropy::update(uint32_t currentTimeMicros)
   {
-    stir(currentTime);
+    stir(currentTimeMicros);
 
     if (!adcBusy)
     {
@@ -64,9 +64,11 @@ namespace Platform
 
   uint32_t Entropy::mix(uint32_t value)
   {
+    // Anyone reading this, there's a very interesting video about how RNG was implemented on the original
+    // NES. What seems so trivial is so math intensive. https://www.youtube.com/watch?v=HSUvPVTVRCw
+
     // Shamelessly stolen from the MurmurHash3 algorithm, the final stage
     // https://en.wikipedia.org/wiki/MurmurHash
-
     value ^= value >> 16;
     value *= 0x85EBCA6B;
     value ^= value >> 13;

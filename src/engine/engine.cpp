@@ -63,22 +63,19 @@ void GameEngine::runApplication()
     if (nowMicros - lastFullFrameRender >= frameRefreshRate)
     {
       lastFullFrameRender += frameRefreshRate;
-      contextManager.renderer.reset();
       contextManager.application->nextEvent();
     }
 
     if (nowMicros - lastMatrixRowRender >= rowRefreshRate)
     {
       lastMatrixRowRender += rowRefreshRate;
-      renderFrameRow(nowMillis);
+      renderFrameRow();
     }
   }
 }
 
-void GameEngine::renderFrameRow(uint32_t currentTime)
+void GameEngine::renderFrameRow()
 {
-  // contextManager.renderer.leds.adjustLuminance(); // TODO: Return to luminance? Gamma correction?
-
   disableActiveRow();
   pwmAdjustAndShiftToLeds();
   toggleLatch();
@@ -105,6 +102,7 @@ inline void GameEngine::selectNextMatrixRow()
 void GameEngine::pwmAdjustAndShiftToLeds()
 {
   const uint8_t bamSequenceBit = (1 << bamSequence[bamBitPlane]);
+
   uint8_t adjustedRed = 0;
   uint8_t adjustedGreen = 0;
   uint8_t adjustedBlue = 0;
@@ -113,9 +111,9 @@ void GameEngine::pwmAdjustAndShiftToLeds()
   {
     const Lights::Color pixel = contextManager.renderer.getPixel(activeRow, col);
 
-    const uint8_t r = reduceTo6Bit(pixel.r);
-    const uint8_t g = reduceTo6Bit(pixel.g);
-    const uint8_t b = reduceTo6Bit(pixel.b);
+    const uint8_t r = Lights::LedLuminance::applyGamma(reduceTo6Bit(pixel.r));
+    const uint8_t g = Lights::LedLuminance::applyGamma(reduceTo6Bit(pixel.g));
+    const uint8_t b = Lights::LedLuminance::applyGamma(reduceTo6Bit(pixel.b));
 
     if (r & bamSequenceBit)
     {
@@ -180,7 +178,7 @@ inline void GameEngine::shiftBamBit()
   }
 }
 
-inline uint8_t GameEngine::reduceTo6Bit(uint8_t value)
+uint8_t GameEngine::reduceTo6Bit(uint8_t value)
 {
   return value >> 2;
 }

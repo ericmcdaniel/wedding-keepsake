@@ -19,7 +19,7 @@ ISR(PORTB_PORT_vect)
   }
 }
 
-void Button::update(uint32_t currentTime)
+void Button::update(uint32_t currentTimeMillis)
 {
   uint8_t count = Button::interruptCount;
   if (count)
@@ -30,20 +30,20 @@ void Button::update(uint32_t currentTime)
     {
     case State::Idle:
       state = State::Debouncing;
-      stateTimestamp = currentTime;
+      stateTimestamp = currentTimeMillis;
       break;
     case State::WaitingForSecondPress:
-      if (currentTime - stateTimestamp <= doublePressWindow)
+      if (currentTimeMillis - stateTimestamp <= doublePressWindow)
       {
         completingDoublePress = true;
         state = State::Debouncing;
-        stateTimestamp = currentTime;
+        stateTimestamp = currentTimeMillis;
       }
       else
       {
         completingDoublePress = false;
         state = State::Debouncing;
-        stateTimestamp = currentTime;
+        stateTimestamp = currentTimeMillis;
       }
       break;
     default:
@@ -53,13 +53,13 @@ void Button::update(uint32_t currentTime)
 
   if (state == State::Debouncing)
   {
-    if (currentTime - stateTimestamp >= debounceTime)
+    if (currentTimeMillis - stateTimestamp >= debounceTime)
     {
       bool pressed = !(PORTB.IN & Platform::Configuration::buttonPin);
 
       if (pressed)
       {
-        handlePress(currentTime);
+        handlePress(currentTimeMillis);
       }
       else
       {
@@ -71,7 +71,7 @@ void Button::update(uint32_t currentTime)
   // button is currently held down
   if (state == State::Pressed)
   {
-    if (!holdTriggered && currentTime - stateTimestamp >= holdTime)
+    if (!holdTriggered && currentTimeMillis - stateTimestamp >= holdTime)
     {
       held = true;
       holdTriggered = true;
@@ -79,7 +79,7 @@ void Button::update(uint32_t currentTime)
     }
     else if (PORTB.IN & Platform::Configuration::buttonPin) // Normal release.
     {
-      handleRelease(currentTime);
+      handleRelease(currentTimeMillis);
     }
   }
 
@@ -95,7 +95,7 @@ void Button::update(uint32_t currentTime)
   // no second press, interpret as as a single press.
   if (state == State::WaitingForSecondPress)
   {
-    if (currentTime - stateTimestamp > doublePressWindow)
+    if (currentTimeMillis - stateTimestamp > doublePressWindow)
     {
       singlePress = true;
       completingDoublePress = false;
@@ -104,7 +104,7 @@ void Button::update(uint32_t currentTime)
   }
 }
 
-void Button::handlePress(uint32_t currentTime)
+void Button::handlePress(uint32_t currentTimeMillis)
 {
   if (completingDoublePress)
   {
@@ -114,11 +114,11 @@ void Button::handlePress(uint32_t currentTime)
   }
 
   state = State::Pressed;
-  stateTimestamp = currentTime;
+  stateTimestamp = currentTimeMillis;
   holdTriggered = false;
 }
 
-void Button::handleRelease(uint32_t currentTime)
+void Button::handleRelease(uint32_t currentTimeMillis)
 {
   // Ignore release after hold
   if (holdTriggered)
@@ -136,7 +136,7 @@ void Button::handleRelease(uint32_t currentTime)
 
   // Begin double-click detection.
   state = State::WaitingForSecondPress;
-  stateTimestamp = currentTime;
+  stateTimestamp = currentTimeMillis;
 }
 
 bool Button::wasSinglePress()
