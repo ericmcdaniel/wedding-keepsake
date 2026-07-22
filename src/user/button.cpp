@@ -11,10 +11,10 @@ volatile uint8_t Button::interruptCount = 0;
 //
 ISR(PORTB_PORT_vect)
 {
-  if (PORTB.INTFLAGS & PIN0_bm)
+  if (PORTB.INTFLAGS & Platform::Configuration::pinButton)
   {
     // Clears/sets interrupt flag
-    PORTB.INTFLAGS = PIN0_bm;
+    PORTB.INTFLAGS = Platform::Configuration::pinButton;
     Button::interruptHandler();
   }
 }
@@ -55,7 +55,7 @@ void Button::update(uint32_t currentTimeMillis)
   {
     if (currentTimeMillis - stateTimestamp >= debounceTime)
     {
-      bool pressed = !(PORTB.IN & Platform::Configuration::buttonPin);
+      bool pressed = !(PORTB.IN & Platform::Configuration::pinButton);
 
       if (pressed)
       {
@@ -68,7 +68,7 @@ void Button::update(uint32_t currentTimeMillis)
     }
   }
 
-  // button is currently held down
+  // button is currently held down, need to determine if being held or double pressed
   if (state == State::Pressed)
   {
     if (!holdTriggered && currentTimeMillis - stateTimestamp >= holdTime)
@@ -77,7 +77,7 @@ void Button::update(uint32_t currentTimeMillis)
       holdTriggered = true;
       state = State::WaitingForRelease; // stop generating events until release.
     }
-    else if (PORTB.IN & Platform::Configuration::buttonPin) // Normal release.
+    else if (PORTB.IN & Platform::Configuration::pinButton) // Normal release.
     {
       handleRelease(currentTimeMillis);
     }
@@ -86,7 +86,8 @@ void Button::update(uint32_t currentTimeMillis)
   // after hold, wait until release.
   if (state == State::WaitingForRelease)
   {
-    if (PORTB.IN & Platform::Configuration::buttonPin)
+    // read if button is pressed
+    if (PORTB.IN & Platform::Configuration::pinButton)
     {
       state = State::Idle;
     }

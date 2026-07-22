@@ -1,27 +1,20 @@
 #include "engine/renderer.h"
+#include "logger.h"
 
 using namespace Engine;
 
-void Renderer::drawPixel(const Lights::Color &color, const uint16_t index)
-{
-  if (index < 0 || index >= Platform::Configuration::numLeds)
-    return;
-
-  leds[index] = color;
-}
-
 void Renderer::drawPixel(const Lights::Color &color, const uint16_t row, const uint16_t col)
 {
-  if (row < 0 || col < 0)
+  if (row < 0 || col < 0 || row >= Platform::Configuration::numRows || col >= Platform::Configuration::numColumns)
+  {
+    logf("Received value out of boundary: row=%u col=%u", row, col);
     return;
+  }
 
-  if (row >= Platform::Configuration::numRows || col >= Platform::Configuration::numColumns)
-    return;
-
-  leds(row, col) = color;
+  leds[row * Platform::Configuration::numColumns + col] = color;
 }
 
-void Renderer::fillSolid(const Lights::Color &color)
+void Renderer::drawFullCanvas(const Lights::Color &color)
 {
   for (uint16_t i = 0; i < Platform::Configuration::numLeds; i++)
   {
@@ -29,18 +22,117 @@ void Renderer::fillSolid(const Lights::Color &color)
   }
 }
 
-void Renderer::fillLine(const Lights::Color &color, const uint16_t start, const uint16_t end)
+void Renderer::drawHorizontalLine(const Lights::Color &color, const uint16_t row, const uint16_t start, const uint16_t end)
 {
   // End is inclusive. The boundary will however be checked.
-
-  if (start < 0 || end >= Platform::Configuration::numLeds)
+  if (start < 0 || start >= Platform::Configuration::numColumns || end < 0 || end >= Platform::Configuration::numColumns)
+  {
+    logf("Received value out of boundary: start=%u end=%u", start, end);
     return;
+  }
 
   if (end < start)
+  {
+    logf("Received invalid horizontal boundary, end cannot be before start: start=%u end=%u", start, end);
     return;
+  }
+
+  if (row < 0 || row >= Platform::Configuration::numRows)
+  {
+    logf("Received invalid vertical boundary: row=%u", row);
+  }
 
   for (uint16_t i = start; i <= end; i++)
   {
-    leds[i] = color;
+    leds[row * Platform::Configuration::numColumns + i] = color;
   }
+}
+
+void Renderer::drawVerticalLine(const Lights::Color &color, const uint16_t column, const uint16_t start, const uint16_t end)
+{
+  // End is inclusive. The boundary will however be checked.
+  if (checkVerticalBoundary(start) || checkVerticalBoundary(end))
+  {
+    logf("Received value out of boundary: start=%u end=%u", start, end);
+    return;
+  }
+
+  if (checkReverseOrder(start, end))
+  {
+    logf("Received invalid vertical boundary, end cannot be before start: start=%u end=%u", start, end);
+    return;
+  }
+
+  if (checkHorizontalBoundary(column))
+  {
+    logf("Received invalid horizontal boundary: column=%u", column);
+    return;
+  }
+
+  for (uint16_t i = start; i <= end; i++)
+  {
+    leds[i * Platform::Configuration::numColumns + column] = color;
+  }
+}
+
+void Renderer::drawSolidRect(const Lights::Color &color, const uint16_t tlx, const uint16_t tly, const uint16_t brx, const uint16_t bry)
+{
+  // draws a rectangle:
+  //  *  tlx = top-left x-axis
+  //  *  bry = bottom-right y-axis
+
+  if (checkHorizontalBoundary(tlx))
+  {
+    logf("Received invalid top-left x-axis boundary. Expected tlx=0-7, Received tlx=%u", tlx);
+    return;
+  }
+  if (checkHorizontalBoundary(brx))
+  {
+    logf("Received invalid bottom-right x-axis boundary. Expected brx=0-7, Received brx=%u", brx);
+    return;
+  }
+  if (checkVerticalBoundary(tly))
+  {
+    logf("Received invalid top-left y-axis boundary. Expected tly=0-3, Received tly=%u", tly);
+    return;
+  }
+  if (checkVerticalBoundary(bry))
+  {
+    logf("Received invalid bottom-right y-axis boundary. Expected bry=0-3, Received bry=%u", bry);
+    return;
+  }
+  if (checkReverseOrder(tlx, brx) || checkReverseOrder(tly, bry))
+  {
+    logf("Received invalid boundaries. Reversed. Expected tlx <= brx and tyl <= bry, Received tlx=%u brx=%u tyl=%u bry=%u", tlx, brx, tly, bry);
+    return;
+  }
+
+  for (uint16_t row = tly; row <= bry; row++)
+  {
+    for (uint16_t col = tlx; col <= brx; col++)
+    {
+      leds(row, col) = color;
+    }
+  }
+}
+
+inline bool Renderer::checkVerticalBoundary(const uint16_t coordinate)
+{
+  if (coordinate < 0 || coordinate >= Platform::Configuration::numRows)
+    return true;
+  return false;
+}
+
+inline bool Renderer::checkHorizontalBoundary(const uint16_t coordinate)
+{
+  if (coordinate < 0 || coordinate >= Platform::Configuration::numColumns)
+    return true;
+  return false;
+}
+
+inline bool Renderer::checkReverseOrder(const uint16_t start, const uint16_t end)
+{
+  if (end < start)
+    return true;
+  return false;
 }

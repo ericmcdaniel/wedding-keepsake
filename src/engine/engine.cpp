@@ -33,11 +33,10 @@ void GameEngine::initializeEngine()
   PORTA.OUTSET = PIN4_bm | PIN5_bm | PIN6_bm | PIN7_bm;
 
   // setup pins PA1-7 as output
-  PORTA.DIRSET = PIN1_bm | PIN2_bm | PIN3_bm |
-                 PIN4_bm | PIN5_bm | PIN6_bm | PIN7_bm;
+  PORTA.DIRSET = PIN1_bm | PIN2_bm | PIN3_bm | PIN4_bm | PIN5_bm | PIN6_bm | PIN7_bm;
 
   // Set PB0 (the SMD button) is input with internal pull-up resistor, and as a falling-edge interrupt
-  PORTB.DIRCLR = PIN0_bm;
+  PORTB.DIRCLR = Platform::Configuration::pinButton;
   PORTB.PIN0CTRL = PORT_PULLUPEN_bm | PORT_ISC_FALLING_gc;
   contextManager.entropy.begin();
   contextManager.changeApplication(Platform::Configuration::startupState());

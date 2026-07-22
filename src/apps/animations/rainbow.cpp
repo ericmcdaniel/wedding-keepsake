@@ -11,7 +11,7 @@ void Rainbow::nextEvent()
 
     colorPhase++;
     Lights::Color color = getRainbowColor(colorPhase);
-    contextManager->renderer.fillSolid(color);
+    contextManager->renderer.drawFullCanvas(color);
   }
 }
 
@@ -21,26 +21,27 @@ Lights::Color Rainbow::getRainbowColor(uint8_t phase)
 
   uint8_t section = phase / 43;
   uint8_t offset = (phase % 43) * 6;
+  uint8_t max = 255;
 
   switch (section)
   {
   case 0:
-    c = {255, offset, 0};
+    c = {max, offset, 0};
     break;
   case 1:
-    c = {255 - offset, 255, 0};
+    c = {max - offset, max, 0};
     break;
   case 2:
-    c = {0, 255, offset};
+    c = {0, max, offset};
     break;
   case 3:
-    c = {0, 255 - offset, 255};
+    c = {0, max - offset, max};
     break;
   case 4:
-    c = {offset, 0, 255};
+    c = {offset, 0, max};
     break;
   default:
-    c = {255, 0, 255 - offset};
+    c = {max, 0, max - offset};
     break;
   }
   return c;
