@@ -44,9 +44,11 @@ void KeychainEngine::runApplication()
 {
   while (contextManager.stateManager.isRunning())
   {
-    contextManager.time.update();
-    contextManager.entropy.update(contextManager.time.getMicrosecond());
-    contextManager.button.update(contextManager.time.getMillisecond());
+    auto &time = contextManager.time;
+
+    time.update();
+    contextManager.entropy.update(time.getMicrosecond());
+    contextManager.button.update(time.getMillisecond());
 
     if (contextManager.button.wasHeld())
     {
@@ -56,13 +58,13 @@ void KeychainEngine::runApplication()
       continue;
     }
 
-    if (contextManager.time.getMicrosecond() - lastFullFrameRender >= frameRefreshRate)
+    if (time.getMicrosecond() - lastFullFrameRender >= frameRefreshRate)
     {
       lastFullFrameRender += frameRefreshRate;
       contextManager.application->nextEvent();
     }
 
-    if (contextManager.time.getMicrosecond() - lastMatrixRowRender >= rowRefreshRate)
+    if (time.getMicrosecond() - lastMatrixRowRender >= rowRefreshRate)
     {
       lastMatrixRowRender += rowRefreshRate;
       renderFrameRow();

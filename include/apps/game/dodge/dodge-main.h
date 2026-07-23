@@ -9,10 +9,10 @@ namespace Apps::Game
   class DodgeMain : public Engine::ApplicationRuntime, public Engine::Timer
   {
   public:
-    DodgeMain(Platform::ContextManager *ctx) : Engine::Timer{&(ctx->time)}, contextManager{ctx} { wait(20); }
+    DodgeMain(Platform::ContextManager &ctx) : Engine::Timer{ctx.time}, contextManager{ctx} { wait(20); }
     void nextEvent() override;
 
   private:
-    Platform::ContextManager *contextManager;
+    Platform::ContextManager &contextManager;
   };
 }

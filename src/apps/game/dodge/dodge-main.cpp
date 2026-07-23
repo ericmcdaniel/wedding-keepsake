@@ -9,14 +9,14 @@ void Apps::Game::DodgeMain::nextEvent()
   {
     wait(20);
 
-    contextManager->renderer.reset();
-    contextManager->renderer.drawSolidRect({255, 255, 255}, 3, 1, 4, 2);
+    contextManager.renderer.reset();
+    contextManager.renderer.drawSolidRect({255, 255, 255}, 3, 1, 4, 2);
 
-    if (contextManager->button.wasDoublePress())
+    if (contextManager.button.wasDoublePress())
     {
       log("Double press fired.");
     }
-    else if (contextManager->button.wasSinglePress())
+    else if (contextManager.button.wasSinglePress())
     {
       log("Single press fired.");
     }

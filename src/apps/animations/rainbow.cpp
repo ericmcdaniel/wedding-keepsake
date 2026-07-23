@@ -7,11 +7,11 @@ void Rainbow::nextEvent()
   if (isReady())
   {
     wait(115);
-    contextManager->renderer.reset();
+    contextManager.renderer.reset();
 
     colorPhaseShift++;
     Lights::Color color = getRainbowColor(colorPhaseShift);
-    contextManager->renderer.drawFullCanvas(color);
+    contextManager.renderer.drawFullCanvas(color);
   }
 }
 

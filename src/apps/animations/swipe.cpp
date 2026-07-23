@@ -7,10 +7,10 @@ void Swipe::nextEvent()
   if (isReady())
   {
     wait(115);
-    contextManager->renderer.reset();
+    contextManager.renderer.reset();
 
     Lights::Color color = getSwipeColor();
-    contextManager->renderer.drawFullCanvas(color);
+    contextManager.renderer.drawFullCanvas(color);
   }
 }
 

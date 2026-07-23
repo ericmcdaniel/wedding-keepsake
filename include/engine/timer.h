@@ -15,14 +15,14 @@ namespace Engine
   class Timer
   {
   public:
-    Timer(Platform::Time *t) : time{t}, next{time->getMillisecond()} {}
+    Timer(Platform::Time &t) : time{t}, next{time.getMillisecond()} {}
 
-    void wait(uint32_t futureTime) { next = time->getMillisecond() + futureTime; }
-    const bool isReady() const { return time->getMillisecond() >= next; };
+    void wait(uint32_t futureTime) { next = time.getMillisecond() + futureTime; }
+    const bool isReady() const { return time.getMillisecond() >= next; };
     uint32_t nextOccurrence() const { return next; }
 
   private:
-    Platform::Time *time;
+    Platform::Time &time;
     uint32_t next;
   };
 }

@@ -34,11 +34,11 @@ void ContextManager::changeApplication(Engine::SystemState nextState)
   switch (nextState)
   {
   case Engine::SystemState::Animation:
-    application = new Apps::AnimationManager{this};
+    application = new Apps::AnimationManager{*this};
     logf("Transitioning to Animations");
     break;
   case Engine::SystemState::Game:
-    application = new Apps::GameManager{this};
+    application = new Apps::GameManager{*this};
     logf("Transitioning to Games (Temporary Placeholder)");
     break;
   }

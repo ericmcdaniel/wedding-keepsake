@@ -7,7 +7,7 @@ using namespace Apps;
 
 void AnimationManager::nextEvent()
 {
-  if (contextManager->button.wasSinglePress())
+  if (contextManager.button.wasSinglePress())
   {
     nextAnimation();
   }

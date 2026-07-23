@@ -18,7 +18,7 @@ namespace Engine
   class StateManager
   {
   public:
-    StateManager(Platform::ContextManager *ctx) : contextManager{ctx},
+    StateManager(Platform::ContextManager &ctx) : contextManager{ctx},
                                                   systemState{SystemState::Animation} {}
 
     bool isRunning() const { return systemState != SystemState::Error; }
@@ -26,7 +26,7 @@ namespace Engine
     void setNext(SystemState currentState) { systemState = currentState; };
 
   private:
-    Platform::ContextManager *contextManager;
+    Platform::ContextManager &contextManager;
     SystemState systemState;
   };
 }

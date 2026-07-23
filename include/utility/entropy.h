@@ -14,13 +14,13 @@ namespace Utility
   class Entropy
   {
   public:
-    Entropy(Platform::Time *t) : time{t} {}
+    Entropy(Platform::Time &t) : time{t} {}
     void begin();
     void update(uint32_t currentTime);
     uint32_t get();
 
   private:
-    Platform::Time *time;
+    Platform::Time &time;
     uint32_t state = 0xA341316C;
     bool adcBusy = false;
 

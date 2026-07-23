@@ -14,7 +14,7 @@ namespace Platform
   class ContextManager
   {
   public:
-    ContextManager() : stateManager{this}, entropy{&time} {}
+    ContextManager() : stateManager{*this}, entropy{time} {}
     ~ContextManager();
     ContextManager(ContextManager &&other) = delete;
     ContextManager(const ContextManager &other) = delete;
