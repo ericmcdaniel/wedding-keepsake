@@ -4,10 +4,10 @@
 
 namespace Engine
 {
-  class GameEngine
+  class KeychainEngine
   {
   public:
-    GameEngine();
+    KeychainEngine();
 
     void initializeEngine();
     void runApplication();

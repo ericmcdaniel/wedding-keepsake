@@ -19,6 +19,13 @@ ISR(PORTB_PORT_vect)
   }
 }
 
+Button::Button()
+{
+  // Set PB0 (the SMD button) is input with internal pull-up resistor, and as a falling-edge interrupt
+  PORTB.DIRCLR = Platform::Configuration::pinButton;
+  PORTB.PIN0CTRL = PORT_PULLUPEN_bm | PORT_ISC_FALLING_gc;
+}
+
 void Button::update(uint32_t currentTimeMillis)
 {
   uint8_t count = Button::interruptCount;

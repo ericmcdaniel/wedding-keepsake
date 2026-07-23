@@ -5,12 +5,12 @@
 
 using namespace Engine;
 
-GameEngine::GameEngine()
+KeychainEngine::KeychainEngine()
 {
   initializeEngine();
 }
 
-void GameEngine::initializeEngine()
+void KeychainEngine::initializeEngine()
 {
   contextManager.initializeSystemMemory();
 
@@ -36,21 +36,17 @@ void GameEngine::initializeEngine()
   // setup pins PA1-7 as output
   PORTA.DIRSET = PIN1_bm | PIN2_bm | PIN3_bm | PIN4_bm | PIN5_bm | PIN6_bm | PIN7_bm;
 
-  // Set PB0 (the SMD button) is input with internal pull-up resistor, and as a falling-edge interrupt
-  PORTB.DIRCLR = Platform::Configuration::pinButton;
-  PORTB.PIN0CTRL = PORT_PULLUPEN_bm | PORT_ISC_FALLING_gc;
   contextManager.entropy.begin();
   contextManager.changeApplication(Platform::Configuration::startupState());
 }
 
-void GameEngine::runApplication()
+void KeychainEngine::runApplication()
 {
   while (contextManager.stateManager.isRunning())
   {
-    uint32_t nowMicros = micros();
-    uint32_t nowMillis = millis();
-    contextManager.entropy.update(nowMicros);
-    contextManager.button.update(nowMillis);
+    contextManager.time.update();
+    contextManager.entropy.update(contextManager.time.getMicrosecond());
+    contextManager.button.update(contextManager.time.getMillisecond());
 
     if (contextManager.button.wasHeld())
     {
@@ -60,13 +56,13 @@ void GameEngine::runApplication()
       continue;
     }
 
-    if (nowMicros - lastFullFrameRender >= frameRefreshRate)
+    if (contextManager.time.getMicrosecond() - lastFullFrameRender >= frameRefreshRate)
     {
       lastFullFrameRender += frameRefreshRate;
       contextManager.application->nextEvent();
     }
 
-    if (nowMicros - lastMatrixRowRender >= rowRefreshRate)
+    if (contextManager.time.getMicrosecond() - lastMatrixRowRender >= rowRefreshRate)
     {
       lastMatrixRowRender += rowRefreshRate;
       renderFrameRow();
@@ -74,7 +70,7 @@ void GameEngine::runApplication()
   }
 }
 
-void GameEngine::renderFrameRow()
+void KeychainEngine::renderFrameRow()
 {
   disableActiveRow();
   pwmAdjustAndShiftToLeds();
@@ -84,22 +80,22 @@ void GameEngine::renderFrameRow()
   shiftBamBit();
 }
 
-inline void GameEngine::disableActiveRow()
+inline void KeychainEngine::disableActiveRow()
 {
   PORTA.OUTSET = rowMask;
 }
 
-inline void GameEngine::enableActiveRow()
+inline void KeychainEngine::enableActiveRow()
 {
   PORTA.OUTCLR = (PIN4_bm << activeRow);
 }
 
-inline void GameEngine::selectNextMatrixRow()
+inline void KeychainEngine::selectNextMatrixRow()
 {
   activeRow = (activeRow + 1) & (Platform::Configuration::numRows - 1);
 }
 
-void GameEngine::pwmAdjustAndShiftToLeds()
+void KeychainEngine::pwmAdjustAndShiftToLeds()
 {
   const uint8_t bamSequenceBit = (1 << bamSequence[bamBitPlane]);
 
@@ -138,14 +134,14 @@ void GameEngine::pwmAdjustAndShiftToLeds()
   shiftOutByte(~adjustedBlue);
 }
 
-inline void GameEngine::toggleLatch()
+inline void KeychainEngine::toggleLatch()
 {
   // latch high then low
   PORTA.OUTSET = PIN3_bm;
   PORTA.OUTCLR = PIN3_bm;
 }
 
-void GameEngine::shiftOutByte(uint8_t value)
+void KeychainEngine::shiftOutByte(uint8_t value)
 {
   for (int8_t i = 7; i >= 0; i--)
   {
@@ -163,7 +159,7 @@ void GameEngine::shiftOutByte(uint8_t value)
   }
 }
 
-inline void GameEngine::shiftBamBit()
+inline void KeychainEngine::shiftBamBit()
 {
   // This is an optimization of the original implementation, which
   // used a counter increasing from 0-255, and verified the row
@@ -180,7 +176,7 @@ inline void GameEngine::shiftBamBit()
   }
 }
 
-uint8_t GameEngine::reduceTo6Bit(uint8_t value)
+uint8_t KeychainEngine::reduceTo6Bit(uint8_t value)
 {
   return value >> 2;
 }

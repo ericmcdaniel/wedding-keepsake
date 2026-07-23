@@ -7,6 +7,7 @@ namespace User
   class Button
   {
   public:
+    Button();
     void update(uint32_t currentTime);
     bool wasSinglePress();
     bool wasDoublePress();

@@ -9,7 +9,7 @@ namespace Apps::Animations
   class Rainbow : public Engine::ApplicationRuntime, public Engine::Timer
   {
   public:
-    Rainbow(Platform::ContextManager *ctx) : contextManager{ctx} { wait(25); }
+    Rainbow(Platform::ContextManager *ctx) : Engine::Timer{&(ctx->time)}, contextManager{ctx} { wait(25); }
     void nextEvent() override;
 
     uint8_t colorPhaseShift = 0;

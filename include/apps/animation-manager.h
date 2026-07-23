@@ -11,7 +11,7 @@ namespace Apps
   class AnimationManager : public Engine::ApplicationRuntime, public Engine::Timer
   {
   public:
-    AnimationManager(Platform::ContextManager *ctx) : contextManager{ctx}
+    AnimationManager(Platform::ContextManager *ctx) : Engine::Timer{&(ctx->time)}, contextManager{ctx}
     {
       currentAnimation = new Apps::Animations::Rainbow{contextManager};
       log("Initializing AnimationManager, starting with Rainbow.");

@@ -1,5 +1,4 @@
 #include "utility/entropy.h"
-#include <Arduino.h>
 
 namespace Utility
 {
@@ -12,7 +11,7 @@ namespace Utility
     ADC0.CTRLC = ADC_PRESC_DIV16_gc | ADC_REFSEL_VDDREF_gc;
     ADC0.MUXPOS = ADC_MUXPOS_AIN11_gc;
 
-    stir(micros());
+    stir(time->getMicrosecond());
   }
 
   void Entropy::update(uint32_t currentTimeMicros)
@@ -59,7 +58,7 @@ namespace Utility
 
   uint32_t Entropy::get()
   {
-    state = mix(state + micros());
+    state = mix(state + time->getMicrosecond());
     return state;
   }
 

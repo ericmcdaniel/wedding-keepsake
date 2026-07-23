@@ -9,7 +9,7 @@ namespace Apps::Animations
   class Tunnel : public Engine::ApplicationRuntime, public Engine::Timer
   {
   public:
-    Tunnel(Platform::ContextManager *ctx) : contextManager{ctx} { wait(25); }
+    Tunnel(Platform::ContextManager *ctx) : Engine::Timer{&(ctx->time)}, contextManager{ctx} { wait(25); }
     void nextEvent() override;
 
     uint8_t colorPhaseShift = 0;
