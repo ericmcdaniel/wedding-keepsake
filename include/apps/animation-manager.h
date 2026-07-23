@@ -26,8 +26,15 @@ namespace Apps
     void nextEvent() override;
 
   private:
+    enum class AnimationRegistry
+    {
+      Rainbow,
+      Tunnel
+    };
+
     Platform::ContextManager *contextManager;
     Engine::ApplicationRuntime *currentAnimation = nullptr;
+    AnimationRegistry state = AnimationRegistry::Rainbow;
     void nextAnimation();
   };
 }

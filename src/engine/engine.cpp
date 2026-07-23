@@ -110,9 +110,9 @@ void GameEngine::pwmAdjustAndShiftToLeds()
   {
     const Lights::Color pixel = contextManager.renderer.getPixel(activeRow, col);
 
-    const uint8_t r = Lights::LedLuminance::applyGamma(reduceTo6Bit(pixel.r));
-    const uint8_t g = Lights::LedLuminance::applyGamma(reduceTo6Bit(pixel.g));
-    const uint8_t b = Lights::LedLuminance::applyGamma(reduceTo6Bit(pixel.b));
+    const uint8_t r = Lights::LedBrightness::apply(reduceTo6Bit(pixel.r));
+    const uint8_t g = Lights::LedBrightness::apply(reduceTo6Bit(pixel.g));
+    const uint8_t b = Lights::LedBrightness::apply(reduceTo6Bit(pixel.b));
 
     if (r & bamSequenceBit)
     {

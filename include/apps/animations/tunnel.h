@@ -6,14 +6,14 @@
 
 namespace Apps::Animations
 {
-  class Rainbow : public Engine::ApplicationRuntime, public Engine::Timer
+  class Tunnel : public Engine::ApplicationRuntime, public Engine::Timer
   {
   public:
-    Rainbow(Platform::ContextManager *ctx) : contextManager{ctx} { wait(25); }
+    Tunnel(Platform::ContextManager *ctx) : contextManager{ctx} { wait(25); }
     void nextEvent() override;
 
     uint8_t colorPhaseShift = 0;
-    Lights::Color getRainbowColor(uint8_t phase);
+    Lights::Color getTunnelColor(uint8_t phase);
 
   private:
     Platform::ContextManager *contextManager;

@@ -4,13 +4,13 @@
 
 namespace Lights
 {
-  class LedLuminance
+  class LedBrightness
   {
   public:
-    static uint8_t applyGamma(uint8_t value) { return gammaTable[value]; }
+    static uint8_t apply(uint8_t value) { return brightnessTable[value]; }
 
   private:
-    static constexpr uint8_t gammaTable[64] =
+    static constexpr uint8_t brightnessTable[64] =
         {
             0, 0, 0, 1, 1, 1, 1, 1,
             2, 2, 3, 3, 4, 4, 5, 6,

@@ -3,7 +3,7 @@
 #include "platform/configuration.h"
 #include "lights/color.h"
 #include "lights/led-buffer.h"
-#include "lights/led-luminance.h"
+#include "lights/led-brightness.h"
 
 namespace Lights
 {
@@ -20,10 +20,9 @@ namespace Lights
 
     Color *getRawColors();
     void reset();
-    void adjustLuminance();
 
   private:
     LedBuffer buffer;
-    LedLuminance luminance;
+    LedBrightness brightness;
   };
 }
