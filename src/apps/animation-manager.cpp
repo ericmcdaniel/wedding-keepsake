@@ -14,5 +14,5 @@ void AnimationManager::nextEvent()
 
 void AnimationManager::nextAnimation()
 {
-  log("Next animation.");
+  log("Next animation was requested, but only one exists.");
 }

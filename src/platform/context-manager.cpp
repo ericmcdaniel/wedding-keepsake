@@ -21,14 +21,17 @@ void ContextManager::initializeSystemMemory()
   stateManager.setNext(Configuration::startupState());
 }
 
-void ContextManager::changeApplication()
+void ContextManager::changeApplication(Engine::SystemState nextState)
 {
   if (application)
   {
     delete application;
     application = nullptr;
   }
-  switch (stateManager.current())
+
+  stateManager.setNext(nextState);
+
+  switch (nextState)
   {
   case Engine::SystemState::Animation:
     application = new Apps::AnimationManager{this};

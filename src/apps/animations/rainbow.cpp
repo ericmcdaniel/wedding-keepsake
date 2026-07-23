@@ -1,0 +1,50 @@
+#include "apps/animations/rainbow.h"
+
+using namespace Apps::Animations;
+
+void Rainbow::nextEvent()
+{
+  if (isReady())
+  {
+    wait(100);
+    contextManager->renderer.reset();
+
+    colorPhase++;
+    Lights::Color color = getRainbowColor(colorPhase);
+    contextManager->renderer.drawFullCanvas(color);
+    auto colorLight = getRainbowColor(colorPhase + 16);
+    contextManager->renderer.drawSolidRect(colorLight, 1, 1, 6, 2);
+  }
+}
+
+Lights::Color Rainbow::getRainbowColor(uint8_t phase)
+{
+  Lights::Color c;
+
+  uint8_t section = phase / 43;
+  uint8_t offset = (phase % 43) * 6;
+  uint8_t max = 255;
+
+  switch (section)
+  {
+  case 0:
+    c = {max, offset, 0};
+    break;
+  case 1:
+    c = {max - offset, max, 0};
+    break;
+  case 2:
+    c = {0, max, offset};
+    break;
+  case 3:
+    c = {0, max - offset, max};
+    break;
+  case 4:
+    c = {offset, 0, max};
+    break;
+  default:
+    c = {max, 0, max - offset};
+    break;
+  }
+  return c;
+}

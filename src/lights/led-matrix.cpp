@@ -18,7 +18,6 @@ void LedMatrix::reset()
   for (uint16_t i = 0; i < Platform::Configuration::numLeds; i++)
   {
     buffer[i] = Color{};
-    // layer[i] = Engine::Layer::Background; //TODO: confirm, can this be removed?
   }
 }
 

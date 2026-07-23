@@ -4,7 +4,7 @@ using namespace Platform;
 
 void Configuration::load()
 {
-  _startupState = Engine::SystemState::Initialize;
+  _startupState = Engine::SystemState::Animation;
 
   // TODO: read from eeprom here
 }
