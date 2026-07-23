@@ -5,7 +5,7 @@ using namespace Engine;
 
 void Renderer::drawPixel(const Lights::Color &color, const uint16_t row, const uint16_t col)
 {
-  if (row < 0 || col < 0 || row >= Platform::Configuration::numRows || col >= Platform::Configuration::numColumns)
+  if (checkHorizontalBoundary(col) || checkVerticalBoundary(row))
   {
     logf("Received value out of boundary: row=%u col=%u", row, col);
     return;
@@ -25,19 +25,19 @@ void Renderer::drawFullCanvas(const Lights::Color &color)
 void Renderer::drawHorizontalLine(const Lights::Color &color, const uint16_t row, const uint16_t start, const uint16_t end)
 {
   // End is inclusive. The boundary will however be checked.
-  if (start < 0 || start >= Platform::Configuration::numColumns || end < 0 || end >= Platform::Configuration::numColumns)
+  if (checkHorizontalBoundary(start))
   {
     logf("Received value out of boundary: start=%u end=%u", start, end);
     return;
   }
 
-  if (end < start)
+  if (checkReverseOrder(start, end))
   {
     logf("Received invalid horizontal boundary, end cannot be before start: start=%u end=%u", start, end);
     return;
   }
 
-  if (row < 0 || row >= Platform::Configuration::numRows)
+  if (checkVerticalBoundary(row))
   {
     logf("Received invalid vertical boundary: row=%u", row);
   }
@@ -118,21 +118,15 @@ void Renderer::drawSolidRect(const Lights::Color &color, const uint16_t tlx, con
 
 inline bool Renderer::checkVerticalBoundary(const uint16_t coordinate)
 {
-  if (coordinate < 0 || coordinate >= Platform::Configuration::numRows)
-    return true;
-  return false;
+  return coordinate >= Platform::Configuration::numRows;
 }
 
 inline bool Renderer::checkHorizontalBoundary(const uint16_t coordinate)
 {
-  if (coordinate < 0 || coordinate >= Platform::Configuration::numColumns)
-    return true;
-  return false;
+  return coordinate >= Platform::Configuration::numColumns;
 }
 
 inline bool Renderer::checkReverseOrder(const uint16_t start, const uint16_t end)
 {
-  if (end < start)
-    return true;
-  return false;
+  return end < start;
 }

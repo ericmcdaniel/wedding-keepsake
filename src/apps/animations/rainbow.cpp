@@ -12,6 +12,8 @@ void Rainbow::nextEvent()
     colorPhase++;
     Lights::Color color = getRainbowColor(colorPhase);
     contextManager->renderer.drawFullCanvas(color);
+    auto colorLight = getRainbowColor(colorPhase + 16);
+    contextManager->renderer.drawSolidRect(colorLight, 1, 1, 6, 2);
   }
 }
 
