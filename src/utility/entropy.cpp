@@ -1,6 +1,7 @@
-#include "platform/entropy.h"
+#include "utility/entropy.h"
+#include <Arduino.h>
 
-namespace Platform
+namespace Utility
 {
   void Entropy::begin()
   {
@@ -20,26 +21,26 @@ namespace Platform
 
     if (!adcBusy)
     {
-      startADC();
+      startAdc();
       return;
     }
 
     uint16_t sample;
 
-    if (readADC(sample))
+    if (readAdc(sample))
     {
       stir(sample);
       adcBusy = false;
     }
   }
 
-  void Entropy::startADC()
+  void Entropy::startAdc()
   {
     ADC0.COMMAND = ADC_STCONV_bm;
     adcBusy = true;
   }
 
-  bool Entropy::readADC(uint16_t &value)
+  bool Entropy::readAdc(uint16_t &value)
   {
     if (!(ADC0.INTFLAGS & ADC_RESRDY_bm))
       return false;

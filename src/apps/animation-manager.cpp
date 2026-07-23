@@ -1,7 +1,7 @@
 #include "apps/animation-manager.h"
 #include "apps/animations/rainbow.h"
 #include "apps/animations/tunnel.h"
-#include "logger.h"
+#include "utility/logger.h"
 
 using namespace Apps;
 

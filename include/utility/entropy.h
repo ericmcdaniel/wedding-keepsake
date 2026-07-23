@@ -1,8 +1,8 @@
 #pragma once
 
-#include <Arduino.h>
+#include <stdint.h>
 
-namespace Platform
+namespace Utility
 {
   class Entropy
   {
@@ -17,7 +17,7 @@ namespace Platform
 
     static uint32_t mix(uint32_t value);
     void stir(uint32_t value);
-    void startADC();
-    bool readADC(uint16_t &value);
+    void startAdc();
+    bool readAdc(uint16_t &value);
   };
 }

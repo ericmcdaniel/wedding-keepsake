@@ -1,6 +1,7 @@
 #include "engine/engine.h"
 #include "platform/configuration.h"
-#include "logger.h"
+#include "lights/color-correction.h"
+#include "utility/logger.h"
 
 using namespace Engine;
 
@@ -108,7 +109,9 @@ void GameEngine::pwmAdjustAndShiftToLeds()
 
   for (uint8_t col = 0; col < Platform::Configuration::numColumns; col++)
   {
-    const Lights::Color pixel = contextManager.renderer.getPixel(activeRow, col);
+    Lights::Color pixel = contextManager.renderer.getPixel(activeRow, col);
+
+    pixel = Lights::ColorCorrection::apply(pixel);
 
     const uint8_t r = Lights::LedBrightness::apply(reduceTo6Bit(pixel.r));
     const uint8_t g = Lights::LedBrightness::apply(reduceTo6Bit(pixel.g));

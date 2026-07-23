@@ -1,5 +1,4 @@
 #include "lights/led-matrix.h"
-#include "clamp.h"
 
 using namespace Lights;
 

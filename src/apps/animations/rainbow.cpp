@@ -6,7 +6,7 @@ void Rainbow::nextEvent()
 {
   if (isReady())
   {
-    wait(100);
+    wait(115);
     contextManager->renderer.reset();
 
     colorPhaseShift++;

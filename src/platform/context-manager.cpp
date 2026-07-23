@@ -2,7 +2,7 @@
 #include "platform/configuration.h"
 #include "apps/animation-manager.h"
 #include "apps/game-manager.h"
-#include "logger.h"
+#include "utility/logger.h"
 
 using namespace Platform;
 

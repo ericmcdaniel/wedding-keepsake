@@ -5,7 +5,7 @@
 #include "engine/state-manager.h"
 #include "engine/renderer.h"
 #include "user/button.h"
-#include "platform/entropy.h"
+#include "utility/entropy.h"
 
 namespace Platform
 {
@@ -21,7 +21,7 @@ namespace Platform
     Engine::StateManager stateManager;
     Engine::Renderer renderer;
     User::Button button;
-    Entropy entropy;
+    Utility::Entropy entropy;
 
     void initializeSystemMemory();
     void changeApplication(Engine::SystemState nextState);
