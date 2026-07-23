@@ -3,7 +3,7 @@
 #include "platform/context-manager.h"
 #include "engine/application-runtime.h"
 #include "engine/timer.h"
-#include "apps/game/temporary-placeholder.h"
+#include "apps/game/dodge/dodge-main.h"
 #include "logger.h"
 
 namespace Apps
@@ -13,8 +13,8 @@ namespace Apps
   public:
     GameManager(Platform::ContextManager *ctx) : contextManager{ctx}
     {
-      currentGame = new Apps::Game::TemporaryPlaceholder{contextManager};
-      log("Initializing GameManager with TemporaryPlaceholder (TBD).");
+      currentGame = new Apps::Game::DodgeMain{contextManager};
+      log("Initializing GameManager with DodgeMain (TBD).");
     }
 
     ~GameManager()

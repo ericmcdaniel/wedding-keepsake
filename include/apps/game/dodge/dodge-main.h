@@ -6,10 +6,10 @@
 
 namespace Apps::Game
 {
-  class TemporaryPlaceholder : public Engine::ApplicationRuntime, public Engine::Timer
+  class DodgeMain : public Engine::ApplicationRuntime, public Engine::Timer
   {
   public:
-    TemporaryPlaceholder(Platform::ContextManager *ctx) : contextManager{ctx} {}
+    DodgeMain(Platform::ContextManager *ctx) : contextManager{ctx} { wait(20); }
     void nextEvent() override;
 
   private:
