@@ -1,4 +1,4 @@
-#include "apps/game/dodge/dodge-main.h"
+#include "apps/games/dodge/dodge-main.h"
 #include "utility/logger.h"
 
 using namespace Apps::Game;

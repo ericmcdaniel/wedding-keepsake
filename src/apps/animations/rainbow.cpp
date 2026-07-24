@@ -9,18 +9,18 @@ void Rainbow::nextEvent()
     wait(115);
     contextManager.renderer.reset();
 
-    colorPhaseShift++;
-    Lights::Color color = getRainbowColor(colorPhaseShift);
+    Lights::Color color = getRainbowColor();
     contextManager.renderer.drawFullCanvas(color);
   }
 }
 
-Lights::Color Rainbow::getRainbowColor(uint8_t phase)
+Lights::Color Rainbow::getRainbowColor()
 {
   Lights::Color c;
+  colorPhaseShift++;
 
-  uint8_t section = phase / 43;
-  uint8_t offset = (phase % 43) * 6;
+  uint8_t section = colorPhaseShift / 43;
+  uint8_t offset = (colorPhaseShift % 43) * 6;
   uint8_t max = 255;
 
   switch (section)

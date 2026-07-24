@@ -3,7 +3,7 @@
 #include "platform/context-manager.h"
 #include "engine/application-runtime.h"
 #include "engine/timer.h"
-#include "apps/game/dodge/dodge-main.h"
+#include "apps/games/dodge/dodge-main.h"
 #include "utility/logger.h"
 
 namespace Apps

@@ -8,7 +8,15 @@
 
 namespace Apps
 {
-  class AnimationManager : public Engine::ApplicationRuntime, public Engine::Timer
+  enum class AnimationRegistry
+  {
+    Rainbow,
+    Tunnel,
+    Swipe,
+    COUNT
+  };
+
+    class AnimationManager : public Engine::ApplicationRuntime, public Engine::Timer
   {
   public:
     AnimationManager(Platform::ContextManager &ctx) : Engine::Timer{ctx.time}, contextManager{ctx}
@@ -26,12 +34,6 @@ namespace Apps
     void nextEvent() override;
 
   private:
-    enum class AnimationRegistry
-    {
-      Rainbow,
-      Tunnel
-    };
-
     Platform::ContextManager &contextManager;
     Engine::ApplicationRuntime *currentAnimation = nullptr;
     AnimationRegistry state = AnimationRegistry::Rainbow;
