@@ -8,9 +8,9 @@ namespace Platform
   class Configuration
   {
   public:
-    static constexpr uint16_t numRows = 4;
-    static constexpr uint16_t numColumns = 8;
-    static constexpr uint16_t numLeds = numRows * numColumns;
+    static constexpr int8_t numRows = 4;
+    static constexpr int8_t numColumns = 8;
+    static constexpr int8_t numLeds = numRows * numColumns;
     static constexpr uint32_t serialBaud = 115200;
     static constexpr uint8_t pinButton = PIN0_bm;
 

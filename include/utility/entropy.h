@@ -27,6 +27,6 @@ namespace Utility
     static uint32_t mix(uint32_t value);
     void stir(uint32_t value);
     void startAdc();
-    bool readAdc(uint16_t &value);
+    bool readAdc(uint32_t &value);
   };
 }

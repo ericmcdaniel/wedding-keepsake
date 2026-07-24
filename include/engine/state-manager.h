@@ -2,7 +2,7 @@
 
 namespace Platform
 {
-  // forward declaration because of ContextManager/OledDisplay circular dependency
+  // forward declaration because of circular dependency
   class ContextManager;
 }
 

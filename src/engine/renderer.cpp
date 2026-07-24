@@ -3,7 +3,7 @@
 
 using namespace Engine;
 
-void Renderer::drawPixel(const Lights::Color &color, const uint16_t row, const uint16_t col)
+void Renderer::drawPixel(const Lights::Color &color, const int8_t row, const int8_t col)
 {
   if (checkHorizontalBoundary(col) || checkVerticalBoundary(row))
   {
@@ -16,13 +16,13 @@ void Renderer::drawPixel(const Lights::Color &color, const uint16_t row, const u
 
 void Renderer::drawFullCanvas(const Lights::Color &color)
 {
-  for (uint16_t i = 0; i < Platform::Configuration::numLeds; i++)
+  for (int8_t i = 0; i < Platform::Configuration::numLeds; i++)
   {
     leds[i] = color;
   }
 }
 
-void Renderer::drawHorizontalLine(const Lights::Color &color, const uint16_t row, const uint16_t start, const uint16_t end)
+void Renderer::drawHorizontalLine(const Lights::Color &color, const int8_t row, const int8_t start, const int8_t end)
 {
   // End is inclusive. The boundary will however be checked.
   if (checkHorizontalBoundary(start))
@@ -42,13 +42,13 @@ void Renderer::drawHorizontalLine(const Lights::Color &color, const uint16_t row
     logf("Received invalid vertical boundary: row=%u", row);
   }
 
-  for (uint16_t i = start; i <= end; i++)
+  for (int8_t i = start; i <= end; i++)
   {
     leds[row * Platform::Configuration::numColumns + i] = color;
   }
 }
 
-void Renderer::drawVerticalLine(const Lights::Color &color, const uint16_t column, const uint16_t start, const uint16_t end)
+void Renderer::drawVerticalLine(const Lights::Color &color, const int8_t column, const int8_t start, const int8_t end)
 {
   // End is inclusive. The boundary will however be checked.
   if (checkVerticalBoundary(start) || checkVerticalBoundary(end))
@@ -69,13 +69,13 @@ void Renderer::drawVerticalLine(const Lights::Color &color, const uint16_t colum
     return;
   }
 
-  for (uint16_t i = start; i <= end; i++)
+  for (int8_t i = start; i <= end; i++)
   {
     leds[i * Platform::Configuration::numColumns + column] = color;
   }
 }
 
-void Renderer::drawSolidRect(const Lights::Color &color, const uint16_t tlx, const uint16_t tly, const uint16_t brx, const uint16_t bry)
+void Renderer::drawSolidRect(const Lights::Color &color, const int8_t tlx, const int8_t tly, const int8_t brx, const int8_t bry)
 {
   // draws a rectangle:
   //  *  tlx = top-left x-axis
@@ -107,26 +107,26 @@ void Renderer::drawSolidRect(const Lights::Color &color, const uint16_t tlx, con
     return;
   }
 
-  for (uint16_t row = tly; row <= bry; row++)
+  for (int8_t row = tly; row <= bry; row++)
   {
-    for (uint16_t col = tlx; col <= brx; col++)
+    for (int8_t col = tlx; col <= brx; col++)
     {
       leds(row, col) = color;
     }
   }
 }
 
-inline bool Renderer::checkVerticalBoundary(const uint16_t coordinate)
+inline bool Renderer::checkVerticalBoundary(const int8_t coordinate)
 {
-  return coordinate >= Platform::Configuration::numRows;
+  return coordinate < 0 || coordinate >= Platform::Configuration::numRows;
 }
 
-inline bool Renderer::checkHorizontalBoundary(const uint16_t coordinate)
+inline bool Renderer::checkHorizontalBoundary(const int8_t coordinate)
 {
-  return coordinate >= Platform::Configuration::numColumns;
+  return coordinate < 0 || coordinate >= Platform::Configuration::numColumns;
 }
 
-inline bool Renderer::checkReverseOrder(const uint16_t start, const uint16_t end)
+inline bool Renderer::checkReverseOrder(const int8_t start, const int8_t end)
 {
   return end < start;
 }

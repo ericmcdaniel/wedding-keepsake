@@ -12,11 +12,11 @@ namespace Lights
   public:
     LedMatrix();
 
-    Color &operator()(uint8_t row, uint8_t column) { return buffer(row, column); }
-    const Color &operator()(uint8_t row, uint8_t column) const { return buffer(row, column); }
+    Color &operator()(int8_t row, int8_t column) { return buffer(row, column); }
+    const Color &operator()(int8_t row, int8_t column) const { return buffer(row, column); }
 
-    Color &operator[](uint16_t index) { return buffer[index]; }
-    const Color &operator[](uint16_t index) const { return buffer[index]; }
+    Color &operator[](int8_t index) { return buffer[index]; }
+    const Color &operator[](int8_t index) const { return buffer[index]; }
 
     Color *getRawColors();
     void reset();

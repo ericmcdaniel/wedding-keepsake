@@ -27,8 +27,8 @@ namespace Apps::Animations
     Swipe(Platform::ContextManager &ctx) : Engine::Timer{ctx.time}, contextManager{ctx}
     {
       wait(25);
-      slot[0] = {contextManager.entropy.get() % 256, contextManager.entropy.get() % 256, contextManager.entropy.get() % 256};
-      slot[1] = {contextManager.entropy.get() % 256, contextManager.entropy.get() % 256, contextManager.entropy.get() % 256};
+      slot[0] = {contextManager.entropy.get() % 256u, contextManager.entropy.get() % 256u, contextManager.entropy.get() % 256u};
+      slot[1] = {contextManager.entropy.get() % 256u, contextManager.entropy.get() % 256u, contextManager.entropy.get() % 256u};
     }
     void nextEvent() override;
 
@@ -40,8 +40,7 @@ namespace Apps::Animations
     SwipeState state = SwipeState::Idle;
 
     Lights::Color slot[2];
-    size_t active = 0;
-    size_t position = 0;
+    uint8_t active = 0;
 
     void handleIdleState();
     void handleSwipeAnimation();

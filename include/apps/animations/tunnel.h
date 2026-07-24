@@ -12,7 +12,7 @@ namespace Apps::Animations
     Tunnel(Platform::ContextManager &ctx) : Engine::Timer{ctx.time}, contextManager{ctx} { wait(25); }
     void nextEvent() override;
 
-    uint8_t colorPhaseShift = 0;
+    uint8_t colorPhaseShift = 0u;
     Lights::Color getTunnelColor(uint8_t phase);
 
   private:

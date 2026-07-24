@@ -6,10 +6,10 @@ namespace Lights
 {
   enum class ColorCode : uint32_t
   {
-    ThemeBlue = 0x4da6ff,
-    ThemeRed = 0xff4d4d,
-    ThemeGreen = 0x4dff4d,
-    ThemeYellow = 0xffd24d,
-    MenuUnselected = 0x5a5a50,
+    Blue = 0x0000ff,
+    Red = 0xff0000,
+    Green = 0x009100,
+    Yellow = 0xffff00,
+    Gray = 0x476c6c,
   };
 }

@@ -24,7 +24,7 @@ namespace Utility
       return;
     }
 
-    uint16_t sample;
+    uint32_t sample;
 
     if (readAdc(sample))
     {
@@ -39,7 +39,7 @@ namespace Utility
     adcBusy = true;
   }
 
-  bool Entropy::readAdc(uint16_t &value)
+  bool Entropy::readAdc(uint32_t &value)
   {
     if (!(ADC0.INTFLAGS & ADC_RESRDY_bm))
       return false;

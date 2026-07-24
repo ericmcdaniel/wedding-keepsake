@@ -14,7 +14,7 @@ Color *LedMatrix::getRawColors()
 
 void LedMatrix::reset()
 {
-  for (uint16_t i = 0; i < Platform::Configuration::numLeds; i++)
+  for (size_t i = 0; i < Platform::Configuration::numLeds; i++)
   {
     buffer[i] = Color{};
   }
