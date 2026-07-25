@@ -23,9 +23,7 @@ void Swipe::handleIdleState()
   {
     state = SwipeState::Swiping;
     activeColor = nextIndex();
-    contextManager.renderer.clear();
     slot[activeColor] = getSwipeColor();
-    wait(100);
     return;
   }
   contextManager.renderer.clear();
@@ -40,7 +38,7 @@ void Swipe::handleSwipeAnimation()
   {
     swipeProgress++;
 
-    wait(250); // or whatever feels right
+    wait(25);
 
     if (swipeProgress >= Platform::Configuration::numColumns)
     {
@@ -84,11 +82,11 @@ void Swipe::drawSwipeRight()
     {
       if (col <= revealColumn)
       {
-        contextManager.renderer.drawPixel(slot[activeColor], row, col);
+        contextManager.renderer.drawPixel(slot[nextIndex()], row, col);
       }
       else
       {
-        contextManager.renderer.drawPixel(slot[nextIndex()], row, col);
+        contextManager.renderer.drawPixel(slot[activeColor], row, col);
       }
     }
   }

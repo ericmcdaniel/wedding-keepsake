@@ -16,12 +16,12 @@ namespace Apps
     COUNT
   };
 
-    class AnimationManager : public Engine::ApplicationRuntime, public Engine::Timer
+  class AnimationManager : public Engine::ApplicationRuntime, public Engine::Timer
   {
   public:
     AnimationManager(Platform::ContextManager &ctx) : Engine::Timer{ctx.time}, contextManager{ctx}
     {
-      currentAnimation = new Apps::Animations::Rainbow{contextManager};
+      nextAnimation();
       log("Initializing AnimationManager, starting with Rainbow.");
     }
 
@@ -36,7 +36,7 @@ namespace Apps
   private:
     Platform::ContextManager &contextManager;
     Engine::ApplicationRuntime *currentAnimation = nullptr;
-    AnimationRegistry state = AnimationRegistry::Rainbow;
+    AnimationRegistry state = AnimationRegistry::Tunnel;
     void nextAnimation();
   };
 }
