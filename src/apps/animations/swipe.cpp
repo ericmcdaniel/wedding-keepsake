@@ -34,20 +34,21 @@ void Swipe::handleIdleState()
 
 void Swipe::handleSwipeAnimation()
 {
+  drawSwipe();
 
   if (isReady())
   {
     swipeProgress++;
+
+    wait(250); // or whatever feels right
 
     if (swipeProgress >= Platform::Configuration::numColumns)
     {
       swipeProgress = 0;
       state = SwipeState::Idle;
       wait(900);
-      return;
     }
   }
-  drawSwipe();
 }
 
 Lights::Color Swipe::getSwipeColor()
@@ -70,13 +71,18 @@ void Swipe::drawSwipe()
 
 void Swipe::drawSwipeRight()
 {
+  uint8_t revealColumn = swipeEase[swipeProgress];
+
+  if (revealColumn >= Platform::Configuration::numColumns)
+  {
+    revealColumn = Platform::Configuration::numColumns - 1;
+  }
+
   for (uint8_t row = 0; row < Platform::Configuration::numRows; row++)
   {
     for (uint8_t col = 0; col < Platform::Configuration::numColumns; col++)
     {
-      int8_t distance = col - swipeProgress;
-
-      if (distance <= 0)
+      if (col <= revealColumn)
       {
         contextManager.renderer.drawPixel(slot[activeColor], row, col);
       }
