@@ -17,7 +17,13 @@ namespace Utility
     Entropy(Platform::Time &t) : time{t} {}
     void begin();
     void update(uint32_t currentTime);
-    uint32_t get();
+    uint32_t random();
+
+    template <typename T>
+    T randomEnum(T maxValue)
+    {
+      return static_cast<T>(random() % static_cast<uint32_t>(maxValue));
+    }
 
   private:
     Platform::Time &time;

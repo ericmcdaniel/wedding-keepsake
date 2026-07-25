@@ -1,4 +1,6 @@
 #include "apps/animations/swipe.h"
+#include "utility/entropy.h"
+#include "utility/common.h"
 
 using namespace Apps::Animations;
 
@@ -13,14 +15,6 @@ void Swipe::nextEvent()
     handleSwipeAnimation();
     break;
   }
-  // if (isReady())
-  // {
-  //   wait(115);
-  //   contextManager.renderer.reset();
-
-  //   Lights::Color color = getSwipeColor();
-  //   contextManager.renderer.drawFullCanvas(color);
-  // }
 }
 
 void Swipe::handleIdleState()
@@ -28,20 +22,68 @@ void Swipe::handleIdleState()
   if (isReady())
   {
     state = SwipeState::Swiping;
-    active = (active + 1) % 2;
-    slot[active] = {contextManager.entropy.get() % 128, contextManager.entropy.get() % 128, contextManager.entropy.get() % 128};
-    wait(900);
+    activeColor = nextIndex();
+    contextManager.renderer.clear();
+    slot[activeColor] = getSwipeColor();
+    wait(100);
     return;
   }
-  contextManager.renderer.reset();
-  contextManager.renderer.drawFullCanvas(slot[active]);
+  contextManager.renderer.clear();
+  contextManager.renderer.drawFullCanvas(slot[activeColor]);
 }
 
 void Swipe::handleSwipeAnimation()
 {
+
+  if (isReady())
+  {
+    swipeProgress++;
+
+    if (swipeProgress >= Platform::Configuration::numColumns)
+    {
+      swipeProgress = 0;
+      state = SwipeState::Idle;
+      wait(900);
+      return;
+    }
+  }
+  drawSwipe();
 }
 
 Lights::Color Swipe::getSwipeColor()
 {
-  // random color
+  return Lights::Color{Lights::pico8Palette[contextManager.entropy.random() % arraySize(Lights::pico8Palette)]};
+}
+
+void Swipe::drawSwipe()
+{
+  switch (direction)
+  {
+  case Direction::Up:
+  case Direction::Down:
+  case Direction::Left:
+  case Direction::Right:
+    drawSwipeRight();
+    break;
+  }
+}
+
+void Swipe::drawSwipeRight()
+{
+  for (uint8_t row = 0; row < Platform::Configuration::numRows; row++)
+  {
+    for (uint8_t col = 0; col < Platform::Configuration::numColumns; col++)
+    {
+      int8_t distance = col - swipeProgress;
+
+      if (distance <= 0)
+      {
+        contextManager.renderer.drawPixel(slot[activeColor], row, col);
+      }
+      else
+      {
+        contextManager.renderer.drawPixel(slot[nextIndex()], row, col);
+      }
+    }
+  }
 }

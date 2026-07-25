@@ -56,7 +56,7 @@ namespace Utility
     state ^= mix(value + state);
   }
 
-  uint32_t Entropy::get()
+  uint32_t Entropy::random()
   {
     state = mix(state + time.getMicrosecond());
     return state;

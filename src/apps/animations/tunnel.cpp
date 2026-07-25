@@ -7,7 +7,7 @@ void Tunnel::nextEvent()
   if (isReady())
   {
     wait(10);
-    contextManager.renderer.reset();
+    contextManager.renderer.clear();
     colorPhaseShift += 2;
 
     Lights::Color backgroundColor = getTunnelColor(colorPhaseShift);

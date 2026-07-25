@@ -9,7 +9,7 @@ void Apps::Game::DodgeMain::nextEvent()
   {
     wait(20);
 
-    contextManager.renderer.reset();
+    contextManager.renderer.clear();
     contextManager.renderer.drawSolidRect({255, 255, 255}, 3, 1, 4, 2);
 
     if (contextManager.button.wasDoublePress())

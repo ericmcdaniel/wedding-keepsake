@@ -3,7 +3,7 @@
 #include "engine/application-runtime.h"
 #include "engine/timer.h"
 #include "platform/context-manager.h"
-#include "utility/entropy.h"
+#include "lights/color-palette.h"
 
 namespace Apps::Animations
 {
@@ -12,7 +12,8 @@ namespace Apps::Animations
     Up,
     Right,
     Down,
-    Left
+    Left,
+    COUNT
   };
 
   enum class SwipeState
@@ -26,9 +27,9 @@ namespace Apps::Animations
   public:
     Swipe(Platform::ContextManager &ctx) : Engine::Timer{ctx.time}, contextManager{ctx}
     {
-      wait(25);
-      slot[0] = {contextManager.entropy.get() % 256u, contextManager.entropy.get() % 256u, contextManager.entropy.get() % 256u};
-      slot[1] = {contextManager.entropy.get() % 256u, contextManager.entropy.get() % 256u, contextManager.entropy.get() % 256u};
+      ctx.renderer.clear();
+      slot[0] = getSwipeColor();
+      slot[1] = getSwipeColor();
     }
     void nextEvent() override;
 
@@ -36,13 +37,17 @@ namespace Apps::Animations
 
   private:
     Platform::ContextManager &contextManager;
-    Direction direction = Direction::Up;
-    SwipeState state = SwipeState::Idle;
+    Direction direction = contextManager.entropy.randomEnum(Direction::COUNT);
+    SwipeState state = SwipeState::Swiping;
 
     Lights::Color slot[2];
-    uint8_t active = 0;
+    uint8_t activeColor = 0;
+    int8_t swipeProgress = 0;
 
     void handleIdleState();
     void handleSwipeAnimation();
+    void drawSwipe();
+    void drawSwipeRight();
+    inline const uint8_t nextIndex() const { return (activeColor + 1) % 2; }
   };
 }

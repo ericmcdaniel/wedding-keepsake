@@ -13,7 +13,7 @@ namespace Apps::Animations
     Rainbow(Platform::ContextManager &ctx) : Engine::Timer{ctx.time}, contextManager{ctx}
     {
       wait(25);
-      colorPhaseShift = (ctx.entropy.get() / 43) * 6;
+      colorPhaseShift = (ctx.entropy.random() / 43) * 6;
     }
     void nextEvent() override;
 
