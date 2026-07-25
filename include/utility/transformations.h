@@ -4,23 +4,27 @@
 
 namespace Utility
 {
-  template <int8_t Size>
+  template <uint16_t Size>
   struct EaseCurve
   {
-    int8_t values[Size];
+    uint16_t values[Size];
 
     constexpr EaseCurve() : values{}
     {
-      int16_t value = 255;
+      uint16_t value = 1;
 
-      for (int8_t i = 0; i < Size; i++)
+      for (uint16_t i = 0; i < Size; i++)
       {
         values[i] = value;
-        value >>= 1;
+        value <<= 2;
+        if (value > 255)
+        {
+          value = 255;
+        }
       }
     }
 
-    constexpr int8_t operator[](int8_t index) const
+    constexpr uint16_t operator[](uint16_t index) const
     {
       return values[index];
     }

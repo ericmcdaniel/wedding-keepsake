@@ -34,33 +34,40 @@ void Swipe::handleSwipeAnimation()
 {
   drawSwipe();
 
-  if (isReady())
+  if (!isReady())
   {
-    swipeProgress++;
-
-    wait(25);
-
-    if (swipeProgress >= Platform::Configuration::numColumns)
-    {
-      swipeProgress = 0;
-      state = SwipeState::Idle;
-      wait(900);
-    }
+    return;
   }
+
+  if (swipeProgress >= Platform::Configuration::numColumns - 1)
+  {
+    swipeProgress = 0;
+    state = SwipeState::Idle;
+    direction = static_cast<Direction>((static_cast<uint8_t>(direction) + 1u) % 2);
+    wait(idleWaitTime);
+    return;
+  }
+
+  constexpr uint32_t minDelay = 4;
+  constexpr uint32_t maxDelay = 48;
+  uint32_t delayMs = minDelay + ((maxDelay - minDelay) * swipeTiming[swipeProgress]) / 128;
+  wait(delayMs);
+
+  swipeProgress++;
 }
 
 Lights::Color Swipe::getSwipeColor()
 {
-  return Lights::Color{Lights::pico8Palette[contextManager.entropy.random() % arraySize(Lights::pico8Palette)]};
+  return Lights::Color{Lights::vividPalette[contextManager.entropy.random(8) % arraySize(Lights::vividPalette)]};
 }
 
 void Swipe::drawSwipe()
 {
   switch (direction)
   {
-  case Direction::Up:
-  case Direction::Down:
   case Direction::Left:
+    drawSwipeLeft();
+    break;
   case Direction::Right:
     drawSwipeRight();
     break;
@@ -69,24 +76,35 @@ void Swipe::drawSwipe()
 
 void Swipe::drawSwipeRight()
 {
-  uint8_t revealColumn = swipeEase[swipeProgress];
-
-  if (revealColumn >= Platform::Configuration::numColumns)
+  for (int8_t row = 0; row < Platform::Configuration::numRows; row++)
   {
-    revealColumn = Platform::Configuration::numColumns - 1;
-  }
-
-  for (uint8_t row = 0; row < Platform::Configuration::numRows; row++)
-  {
-    for (uint8_t col = 0; col < Platform::Configuration::numColumns; col++)
+    for (int8_t col = 0; col < Platform::Configuration::numColumns; col++)
     {
-      if (col <= revealColumn)
+      if (col <= swipeProgress)
       {
-        contextManager.renderer.drawPixel(slot[nextIndex()], row, col);
+        contextManager.renderer.drawPixel(slot[activeColor], row, col);
       }
       else
       {
+        contextManager.renderer.drawPixel(slot[nextIndex()], row, col);
+      }
+    }
+  }
+}
+
+void Swipe::drawSwipeLeft()
+{
+  for (int8_t row = 0; row < Platform::Configuration::numRows; row++)
+  {
+    for (int8_t col = Platform::Configuration::numColumns - 1; col >= 0; col--)
+    {
+      if (col >= Platform::Configuration::numColumns - 1 - swipeProgress)
+      {
         contextManager.renderer.drawPixel(slot[activeColor], row, col);
+      }
+      else
+      {
+        contextManager.renderer.drawPixel(slot[nextIndex()], row, col);
       }
     }
   }

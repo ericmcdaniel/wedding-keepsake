@@ -10,11 +10,8 @@ namespace Apps::Animations
 {
   enum class Direction
   {
-    Up,
-    Right,
-    Down,
     Left,
-    COUNT
+    Right
   };
 
   enum class SwipeState
@@ -23,7 +20,7 @@ namespace Apps::Animations
     Swiping
   };
 
-  constexpr Utility::EaseCurve<Platform::Configuration::numColumns> swipeEase;
+  constexpr Utility::EaseCurve<Platform::Configuration::numColumns> swipeTiming;
 
   class Swipe : public Engine::ApplicationRuntime, public Engine::Timer
   {
@@ -31,6 +28,7 @@ namespace Apps::Animations
     Swipe(Platform::ContextManager &ctx) : Engine::Timer{ctx.time}, contextManager{ctx}
     {
       ctx.renderer.clear();
+      wait(idleWaitTime);
       slot[0] = getSwipeColor();
       slot[1] = getSwipeColor();
     }
@@ -40,8 +38,9 @@ namespace Apps::Animations
 
   private:
     Platform::ContextManager &contextManager;
-    Direction direction = contextManager.entropy.randomEnum(Direction::COUNT);
-    SwipeState state = SwipeState::Swiping;
+    Direction direction = Direction::Right;
+    SwipeState state = SwipeState::Idle;
+    static constexpr uint32_t idleWaitTime = 900;
 
     Lights::Color slot[2];
     uint8_t activeColor = 0;
@@ -51,6 +50,7 @@ namespace Apps::Animations
     void handleSwipeAnimation();
     void drawSwipe();
     void drawSwipeRight();
+    void drawSwipeLeft();
     inline const uint8_t nextIndex() const { return (activeColor + 1) % 2; }
   };
 }
