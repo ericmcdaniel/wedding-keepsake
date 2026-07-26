@@ -1,16 +1,16 @@
 #include "apps/games/dodge/dodge-main.h"
 #include "utilities/logger.h"
 
-using namespace Apps::Game;
+using namespace Apps::Game::Dodge;
 
-void Apps::Game::DodgeMain::nextEvent()
+void DodgeMain::nextEvent()
 {
   if (isReady())
   {
     wait(20);
 
     contextManager.renderer.clear();
-    contextManager.renderer.drawSolidRect({255, 255, 255}, 3, 1, 4, 2);
+    player.render();
 
     if (contextManager.button.wasDoublePress())
     {
