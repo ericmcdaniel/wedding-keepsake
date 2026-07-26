@@ -78,11 +78,11 @@ void Swipe::drawSwipeRight()
     {
       if (col <= swipeProgress)
       {
-        contextManager.renderer.drawPixel(slot[activeColor], row, col);
+        contextManager.renderer.drawPixel(slot[activeColor], col, row);
       }
       else
       {
-        contextManager.renderer.drawPixel(slot[nextIndex()], row, col);
+        contextManager.renderer.drawPixel(slot[nextIndex()], col, row);
       }
     }
   }
@@ -96,11 +96,11 @@ void Swipe::drawSwipeLeft()
     {
       if (col >= Platform::Configuration::numColumns - 1 - swipeProgress)
       {
-        contextManager.renderer.drawPixel(slot[activeColor], row, col);
+        contextManager.renderer.drawPixel(slot[activeColor], col, row);
       }
       else
       {
-        contextManager.renderer.drawPixel(slot[nextIndex()], row, col);
+        contextManager.renderer.drawPixel(slot[nextIndex()], col, row);
       }
     }
   }

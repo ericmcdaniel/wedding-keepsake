@@ -3,15 +3,15 @@
 
 using namespace Engine;
 
-void Renderer::drawPixel(const Lights::Color &color, const int8_t row, const int8_t col)
+void Renderer::drawPixel(const Lights::Color &color, const int8_t xPos, const int8_t yPos)
 {
-  if (checkHorizontalBoundary(col) || checkVerticalBoundary(row))
+  if (checkValidXAxisBoundary(xPos) || checkValidYAxisBoundary(yPos))
   {
-    logf("Received value out of boundary: row=%u col=%u", row, col);
+    logf("Received value out of boundary. Coordinates: (%u, %u)", xPos, yPos);
     return;
   }
 
-  leds[row * Platform::Configuration::numColumns + col] = color;
+  leds[yPos * Platform::Configuration::numColumns + xPos] = color;
 }
 
 void Renderer::drawPixel(const Lights::Color &color, const int8_t index)
@@ -33,56 +33,56 @@ void Renderer::drawFullCanvas(const Lights::Color &color)
   }
 }
 
-void Renderer::drawHorizontalLine(const Lights::Color &color, const int8_t row, const int8_t start, const int8_t end)
+void Renderer::drawHorizontalLine(const Lights::Color &color, const int8_t yPos, const int8_t xStart, const int8_t xEnd)
 {
   // End is inclusive. The boundary will however be checked.
-  if (checkHorizontalBoundary(start))
+  if (checkValidXAxisBoundary(xStart) || checkValidXAxisBoundary(xEnd))
   {
-    logf("Received value out of boundary: start=%u end=%u", start, end);
+    logf("Received value out of boundary: xStart=%u xEnd=%u", xStart, xEnd);
     return;
   }
 
-  if (checkReverseOrder(start, end))
+  if (checkReverseOrder(xStart, xEnd))
   {
-    logf("Received invalid horizontal boundary, end cannot be before start: start=%u end=%u", start, end);
+    logf("Received invalid horizontal boundary, end cannot be before start: xStart=%u xEnd=%u", xStart, xEnd);
     return;
   }
 
-  if (checkVerticalBoundary(row))
+  if (checkValidYAxisBoundary(yPos))
   {
-    logf("Received invalid vertical boundary: row=%u", row);
+    logf("Received invalid vertical boundary: yPos=%u", yPos);
   }
 
-  for (int8_t i = start; i <= end; i++)
+  for (int8_t i = xStart; i <= xEnd; i++)
   {
-    leds[row * Platform::Configuration::numColumns + i] = color;
+    leds[yPos * Platform::Configuration::numColumns + i] = color;
   }
 }
 
-void Renderer::drawVerticalLine(const Lights::Color &color, const int8_t column, const int8_t start, const int8_t end)
+void Renderer::drawVerticalLine(const Lights::Color &color, const int8_t xPos, const int8_t yStart, const int8_t yEnd)
 {
   // End is inclusive. The boundary will however be checked.
-  if (checkVerticalBoundary(start) || checkVerticalBoundary(end))
+  if (checkValidYAxisBoundary(yStart) || checkValidYAxisBoundary(yEnd))
   {
-    logf("Received value out of boundary: start=%u end=%u", start, end);
+    logf("Received value out of boundary: yStart=%u yEnd=%u", yStart, yEnd);
     return;
   }
 
-  if (checkReverseOrder(start, end))
+  if (checkValidXAxisBoundary(xPos))
   {
-    logf("Received invalid vertical boundary, end cannot be before start: start=%u end=%u", start, end);
+    logf("Received invalid horizontal boundary: xPos=%u", xPos);
     return;
   }
 
-  if (checkHorizontalBoundary(column))
+  if (checkReverseOrder(yStart, yEnd))
   {
-    logf("Received invalid horizontal boundary: column=%u", column);
+    logf("Received invalid vertical boundary, end cannot be before start: yStart=%u yEnd=%u", yStart, yEnd);
     return;
   }
 
-  for (int8_t i = start; i <= end; i++)
+  for (int8_t i = yStart; i <= yEnd; i++)
   {
-    leds[i * Platform::Configuration::numColumns + column] = color;
+    leds[i * Platform::Configuration::numColumns + xPos] = color;
   }
 }
 
@@ -92,22 +92,22 @@ void Renderer::drawSolidRect(const Lights::Color &color, const int8_t tlx, const
   //  *  tlx = top-left x-axis
   //  *  bry = bottom-right y-axis
 
-  if (checkHorizontalBoundary(tlx))
+  if (checkValidXAxisBoundary(tlx))
   {
     logf("Received invalid top-left x-axis boundary. Expected tlx=0-7, Received tlx=%u", tlx);
     return;
   }
-  if (checkHorizontalBoundary(brx))
+  if (checkValidXAxisBoundary(brx))
   {
     logf("Received invalid bottom-right x-axis boundary. Expected brx=0-7, Received brx=%u", brx);
     return;
   }
-  if (checkVerticalBoundary(tly))
+  if (checkValidYAxisBoundary(tly))
   {
     logf("Received invalid top-left y-axis boundary. Expected tly=0-3, Received tly=%u", tly);
     return;
   }
-  if (checkVerticalBoundary(bry))
+  if (checkValidYAxisBoundary(bry))
   {
     logf("Received invalid bottom-right y-axis boundary. Expected bry=0-3, Received bry=%u", bry);
     return;
@@ -122,17 +122,17 @@ void Renderer::drawSolidRect(const Lights::Color &color, const int8_t tlx, const
   {
     for (int8_t col = tlx; col <= brx; col++)
     {
-      leds(row, col) = color;
+      leds(col, row) = color;
     }
   }
 }
 
-inline bool Renderer::checkVerticalBoundary(const int8_t coordinate)
+inline bool Renderer::checkValidYAxisBoundary(const int8_t coordinate)
 {
   return coordinate < 0 || coordinate >= Platform::Configuration::numRows;
 }
 
-inline bool Renderer::checkHorizontalBoundary(const int8_t coordinate)
+inline bool Renderer::checkValidXAxisBoundary(const int8_t coordinate)
 {
   return coordinate < 0 || coordinate >= Platform::Configuration::numColumns;
 }

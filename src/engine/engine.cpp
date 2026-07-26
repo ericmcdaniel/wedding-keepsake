@@ -107,13 +107,25 @@ void KeychainEngine::pwmAdjustAndShiftToLeds()
 
   for (uint8_t col = 0; col < Platform::Configuration::numColumns; col++)
   {
-    Lights::Color pixel = contextManager.renderer.getPixel(activeRow, col);
+    Lights::Color pixel = contextManager.renderer.getPixel(col, activeRow);
 
     pixel = Lights::ColorCorrection::apply(pixel);
 
-    const uint8_t r = Lights::LedBrightness::apply(reduceTo6Bit(pixel.r));
-    const uint8_t g = Lights::LedBrightness::apply(reduceTo6Bit(pixel.g));
-    const uint8_t b = Lights::LedBrightness::apply(reduceTo6Bit(pixel.b));
+    const uint8_t r = reduceTo6Bit(pixel.r);
+    const uint8_t g = reduceTo6Bit(pixel.g);
+    const uint8_t b = reduceTo6Bit(pixel.b);
+
+    /*
+      Future me:
+      I really want this color brightness, balance, and gamma correction to work out... but every
+      microadjustment I made comes with downsides. E.g. with balance and correction both on, it creates
+      an aggressive PWM flickering, enough to ruin the effect. Revisit later?
+
+      The bit angle modulation (BAM) really might need to be reconsidered.
+    */
+    // const uint8_t r = Lights::LedBrightness::apply(reduceTo6Bit(pixel.r));
+    // const uint8_t g = Lights::LedBrightness::apply(reduceTo6Bit(pixel.g));
+    // const uint8_t b = Lights::LedBrightness::apply(reduceTo6Bit(pixel.b));
 
     if (r & bamSequenceBit)
     {
@@ -178,6 +190,16 @@ inline void KeychainEngine::shiftBamBit()
   }
 }
 
+/*
+  This really was just a compromise to stop the BAM from flickering too much. If suppose we kept
+  the 8-bit values, allowing 0-255. Values like 128 (0x80) would make a pattern of 0b10000000.
+  That means for every row activation, It's on for 128 ticks, and off for the rest because of that
+  bit format. If I did 170 (0xaa), then for example it's 0b10101010, which means its on for 128 ticks,
+  off for 64, on for 32 more, off for 16, ... and so on. That feels continuous to human eyes (at least
+  mines). But the 128 on, 128 off, you can clearly see the PWM pulsing. This function was a compromise.
+  I reduced the PWM flickering, but at the expense of reduced the color depth and bit-rate. Thanks for
+  coming to my Ted talk.
+*/
 uint8_t KeychainEngine::reduceTo6Bit(uint8_t value)
 {
   return value >> 2;

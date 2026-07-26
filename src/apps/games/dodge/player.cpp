@@ -4,11 +4,11 @@ using namespace Apps::Game::Dodge;
 
 void Player::render()
 {
-  for (int8_t y = 0; y < height; y++)
+  for (int8_t row = 0; row < height; row++)
   {
-    for (int8_t x = 0; x < width; x++)
+    for (int8_t col = 0; col < width; col++)
     {
-      contextManager.renderer.drawPixel(texture[y * width + x], position.y + y, position.x + x);
+      contextManager.renderer.drawPixel(texture[row * width + col], position.x + col, position.y + row);
     }
   }
 }

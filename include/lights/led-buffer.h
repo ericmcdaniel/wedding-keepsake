@@ -17,10 +17,10 @@ namespace Lights
     LedBuffer(const LedBuffer &other) = delete;
     LedBuffer &operator=(const LedBuffer &other) = delete;
 
-    Color &operator()(int8_t row, int8_t column) { return leds[(row * Platform::Configuration::numColumns) + column]; }
-    const Color &operator()(int8_t row, int8_t column) const { return leds[(row * Platform::Configuration::numColumns) + column]; }
+    Color &operator()(int8_t xIndex, int8_t yIndex) { return leds[(yIndex * Platform::Configuration::numColumns) + xIndex]; }
+    const Color &operator()(int8_t xIndex, int8_t yIndex) const { return leds[(yIndex * Platform::Configuration::numColumns) + xIndex]; }
 
-    int8_t size() const { return Platform::Configuration::numRows * Platform::Configuration::numColumns; }
+    const int8_t size() const { return Platform::Configuration::numRows * Platform::Configuration::numColumns; }
 
     Color &operator[](int8_t index) { return leds[index]; }
     const Color &operator[](int8_t index) const { return leds[index]; }
