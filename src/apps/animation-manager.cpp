@@ -2,6 +2,8 @@
 #include "apps/animations/rainbow.h"
 #include "apps/animations/tunnel.h"
 #include "apps/animations/swipe.h"
+#include "apps/animations/american-flag.h"
+#include "apps/animations/candle.h"
 #include "utilities/logger.h"
 #include "utilities/common.h"
 
@@ -45,6 +47,18 @@ void AnimationManager::nextAnimation()
     currentAnimation = new Apps::Animations::Rainbow{contextManager};
     state = AnimationRegistry::Rainbow;
     logf("Animation: Rainbow");
+    break;
+
+  case AnimationRegistry::AmericanFlag:
+    currentAnimation = new Apps::Animations::AmericanFlag{contextManager};
+    state = AnimationRegistry::AmericanFlag;
+    logf("Animation: American Flag");
+    break;
+
+  case AnimationRegistry::Candle:
+    currentAnimation = new Apps::Animations::Candle{contextManager};
+    state = AnimationRegistry::Candle;
+    logf("Animation: American Flag");
     break;
   }
 }

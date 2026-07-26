@@ -14,6 +14,17 @@ void Renderer::drawPixel(const Lights::Color &color, const int8_t row, const int
   leds[row * Platform::Configuration::numColumns + col] = color;
 }
 
+void Renderer::drawPixel(const Lights::Color &color, const int8_t index)
+{
+  if (index < 0 || index >= Platform::Configuration::numLeds)
+  {
+    logf("Received value out of boundary: index=%u", index);
+    return;
+  }
+
+  leds[index] = color;
+}
+
 void Renderer::drawFullCanvas(const Lights::Color &color)
 {
   for (int8_t i = 0; i < Platform::Configuration::numLeds; i++)

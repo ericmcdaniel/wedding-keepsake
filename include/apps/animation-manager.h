@@ -13,6 +13,8 @@ namespace Apps
     Tunnel,
     Swipe,
     Rainbow,
+    AmericanFlag,
+    Candle,
     COUNT
   };
 
@@ -22,7 +24,7 @@ namespace Apps
     AnimationManager(Platform::ContextManager &ctx) : Engine::Timer{ctx.time}, contextManager{ctx}
     {
       nextAnimation();
-      log("Initializing AnimationManager, starting with Rainbow.");
+      log("Initializing AnimationManager, starting with Tunnel.");
     }
 
     ~AnimationManager()
@@ -36,7 +38,7 @@ namespace Apps
   private:
     Platform::ContextManager &contextManager;
     Engine::ApplicationRuntime *currentAnimation = nullptr;
-    AnimationRegistry state = AnimationRegistry::Rainbow;
+    AnimationRegistry state = static_cast<AnimationRegistry>(static_cast<uint8_t>(AnimationRegistry::COUNT) - 2);
     void nextAnimation();
   };
 }

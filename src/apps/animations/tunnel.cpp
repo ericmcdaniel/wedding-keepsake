@@ -6,7 +6,7 @@ void Tunnel::nextEvent()
 {
   if (isReady())
   {
-    wait(10);
+    wait(idleTime);
     contextManager.renderer.clear();
     colorPhaseShift += 2;
 
