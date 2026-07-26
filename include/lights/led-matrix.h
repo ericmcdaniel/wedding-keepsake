@@ -3,7 +3,7 @@
 #include "platform/configuration.h"
 #include "lights/color.h"
 #include "lights/led-buffer.h"
-#include "lights/led-luminance.h"
+#include "lights/led-brightness.h"
 
 namespace Lights
 {
@@ -12,18 +12,17 @@ namespace Lights
   public:
     LedMatrix();
 
-    Color &operator()(uint8_t row, uint8_t column) { return buffer(row, column); }
-    const Color &operator()(uint8_t row, uint8_t column) const { return buffer(row, column); }
+    Color &operator()(int8_t row, int8_t column) { return buffer(row, column); }
+    const Color &operator()(int8_t row, int8_t column) const { return buffer(row, column); }
 
-    Color &operator[](uint16_t index) { return buffer[index]; }
-    const Color &operator[](uint16_t index) const { return buffer[index]; }
+    Color &operator[](int8_t index) { return buffer[index]; }
+    const Color &operator[](int8_t index) const { return buffer[index]; }
 
     Color *getRawColors();
     void reset();
-    void adjustLuminance();
 
   private:
     LedBuffer buffer;
-    LedLuminance luminance;
+    LedBrightness brightness;
   };
 }

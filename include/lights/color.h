@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 #include "lights/color-code.h"
-#include "clamp.h"
+#include "utilities/algorithms.h"
 
 namespace Lights
 {
@@ -18,30 +18,12 @@ namespace Lights
     uint8_t g;
     uint8_t b;
 
-    Color operator*(double scale) const
-    {
-      Color result;
-      result.r = static_cast<uint8_t>(CustomDataStructures::clamp(r * scale, 0.0, 255.0));
-      result.g = static_cast<uint8_t>(CustomDataStructures::clamp(g * scale, 0.0, 255.0));
-      result.b = static_cast<uint8_t>(CustomDataStructures::clamp(b * scale, 0.0, 255.0));
-      return result;
-    }
-
     Color operator*(uint8_t scale) const
     {
       Color result;
       result.r = (r * scale) / 255;
       result.g = (g * scale) / 255;
       result.b = (b * scale) / 255;
-      return result;
-    }
-
-    Color operator/(double scale) const
-    {
-      Color result;
-      result.r = static_cast<uint8_t>(CustomDataStructures::clamp(r / scale, 0.0, 255.0));
-      result.g = static_cast<uint8_t>(CustomDataStructures::clamp(g / scale, 0.0, 255.0));
-      result.b = static_cast<uint8_t>(CustomDataStructures::clamp(b / scale, 0.0, 255.0));
       return result;
     }
 
@@ -52,14 +34,6 @@ namespace Lights
       result.g = (g / scale) / 255;
       result.b = (b / scale) / 255;
       return result;
-    }
-
-    Color &operator*=(double scale)
-    {
-      r = static_cast<uint8_t>(CustomDataStructures::clamp(r * scale, 0.0, 255.0));
-      g = static_cast<uint8_t>(CustomDataStructures::clamp(g * scale, 0.0, 255.0));
-      b = static_cast<uint8_t>(CustomDataStructures::clamp(b * scale, 0.0, 255.0));
-      return *this;
     }
   };
 }

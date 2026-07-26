@@ -1,6 +1,6 @@
-#include "platform/entropy.h"
+#include "utilities/entropy.h"
 
-namespace Platform
+namespace Utilities
 {
   void Entropy::begin()
   {
@@ -11,7 +11,7 @@ namespace Platform
     ADC0.CTRLC = ADC_PRESC_DIV16_gc | ADC_REFSEL_VDDREF_gc;
     ADC0.MUXPOS = ADC_MUXPOS_AIN11_gc;
 
-    stir(micros());
+    stir(time.getMicrosecond());
   }
 
   void Entropy::update(uint32_t currentTimeMicros)
@@ -20,26 +20,26 @@ namespace Platform
 
     if (!adcBusy)
     {
-      startADC();
+      startAdc();
       return;
     }
 
-    uint16_t sample;
+    uint32_t sample;
 
-    if (readADC(sample))
+    if (readAdc(sample))
     {
       stir(sample);
       adcBusy = false;
     }
   }
 
-  void Entropy::startADC()
+  void Entropy::startAdc()
   {
     ADC0.COMMAND = ADC_STCONV_bm;
     adcBusy = true;
   }
 
-  bool Entropy::readADC(uint16_t &value)
+  bool Entropy::readAdc(uint32_t &value)
   {
     if (!(ADC0.INTFLAGS & ADC_RESRDY_bm))
       return false;
@@ -56,10 +56,21 @@ namespace Platform
     state ^= mix(value + state);
   }
 
-  uint32_t Entropy::get()
+  uint32_t Entropy::random()
   {
-    state = mix(state + micros());
+    state = mix(state + time.getMicrosecond());
     return state;
+  }
+
+  uint32_t Entropy::random(uint32_t range)
+  {
+    uint32_t nextRandom = random() % range;
+    while (nextRandom == previouslyUsed)
+    {
+      nextRandom = random() % range;
+    }
+    previouslyUsed = nextRandom;
+    return nextRandom;
   }
 
   uint32_t Entropy::mix(uint32_t value)
@@ -69,6 +80,7 @@ namespace Platform
 
     // Shamelessly stolen from the MurmurHash3 algorithm, the final stage
     // https://en.wikipedia.org/wiki/MurmurHash
+
     value ^= value >> 16;
     value *= 0x85EBCA6B;
     value ^= value >> 13;

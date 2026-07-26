@@ -4,16 +4,24 @@
 #include "engine/application-runtime.h"
 #include "engine/timer.h"
 #include "apps/animations/rainbow.h"
-#include "logger.h"
+#include "utilities/logger.h"
 
 namespace Apps
 {
+  enum class AnimationRegistry
+  {
+    Tunnel,
+    Swipe,
+    Rainbow,
+    COUNT
+  };
+
   class AnimationManager : public Engine::ApplicationRuntime, public Engine::Timer
   {
   public:
-    AnimationManager(Platform::ContextManager *ctx) : contextManager{ctx}
+    AnimationManager(Platform::ContextManager &ctx) : Engine::Timer{ctx.time}, contextManager{ctx}
     {
-      currentAnimation = new Apps::Animations::Rainbow{contextManager};
+      nextAnimation();
       log("Initializing AnimationManager, starting with Rainbow.");
     }
 
@@ -26,8 +34,9 @@ namespace Apps
     void nextEvent() override;
 
   private:
-    Platform::ContextManager *contextManager;
+    Platform::ContextManager &contextManager;
     Engine::ApplicationRuntime *currentAnimation = nullptr;
+    AnimationRegistry state = AnimationRegistry::Rainbow;
     void nextAnimation();
   };
 }

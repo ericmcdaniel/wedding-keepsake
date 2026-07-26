@@ -6,23 +6,21 @@ void Rainbow::nextEvent()
 {
   if (isReady())
   {
-    wait(100);
-    contextManager->renderer.reset();
+    wait(115);
+    contextManager.renderer.clear();
 
-    colorPhase++;
-    Lights::Color color = getRainbowColor(colorPhase);
-    contextManager->renderer.drawFullCanvas(color);
-    auto colorLight = getRainbowColor(colorPhase + 16);
-    contextManager->renderer.drawSolidRect(colorLight, 1, 1, 6, 2);
+    Lights::Color color = getRainbowColor();
+    contextManager.renderer.drawFullCanvas(color);
   }
 }
 
-Lights::Color Rainbow::getRainbowColor(uint8_t phase)
+Lights::Color Rainbow::getRainbowColor()
 {
   Lights::Color c;
+  colorPhaseShift++;
 
-  uint8_t section = phase / 43;
-  uint8_t offset = (phase % 43) * 6;
+  uint8_t section = colorPhaseShift / 43;
+  uint8_t offset = (colorPhaseShift % 43) * 6;
   uint8_t max = 255;
 
   switch (section)

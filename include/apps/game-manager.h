@@ -3,18 +3,18 @@
 #include "platform/context-manager.h"
 #include "engine/application-runtime.h"
 #include "engine/timer.h"
-#include "apps/game/temporary-placeholder.h"
-#include "logger.h"
+#include "apps/games/dodge/dodge-main.h"
+#include "utilities/logger.h"
 
 namespace Apps
 {
   class GameManager : public Engine::ApplicationRuntime, public Engine::Timer
   {
   public:
-    GameManager(Platform::ContextManager *ctx) : contextManager{ctx}
+    GameManager(Platform::ContextManager &ctx) : Engine::Timer{ctx.time}, contextManager{ctx}
     {
-      currentGame = new Apps::Game::TemporaryPlaceholder{contextManager};
-      log("Initializing GameManager with TemporaryPlaceholder (TBD).");
+      currentGame = new Apps::Game::DodgeMain{contextManager};
+      log("Initializing GameManager with DodgeMain (TBD).");
     }
 
     ~GameManager()
@@ -26,7 +26,7 @@ namespace Apps
     void nextEvent() override;
 
   private:
-    Platform::ContextManager *contextManager;
+    Platform::ContextManager &contextManager;
     Engine::ApplicationRuntime *currentGame = nullptr;
   };
 }
