@@ -1,5 +1,5 @@
 #include "apps/games/dodge/dodge-main.h"
-#include "utility/logger.h"
+#include "utilities/logger.h"
 
 using namespace Apps::Game;
 

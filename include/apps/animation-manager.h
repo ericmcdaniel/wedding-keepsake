@@ -4,7 +4,7 @@
 #include "engine/application-runtime.h"
 #include "engine/timer.h"
 #include "apps/animations/rainbow.h"
-#include "utility/logger.h"
+#include "utilities/logger.h"
 
 namespace Apps
 {

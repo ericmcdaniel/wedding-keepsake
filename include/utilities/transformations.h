@@ -2,14 +2,14 @@
 
 #include <stdint.h>
 
-namespace Utility
+namespace Utilities
 {
   template <uint32_t Size, uint32_t MaxValue = 255, uint32_t Shift = 2>
-  struct EaseCurve
+  struct EaseOutCurve
   {
     uint32_t values[Size];
 
-    constexpr EaseCurve() : values{}
+    constexpr EaseOutCurve() : values{}
     {
       uint16_t value = 1;
       for (uint32_t i = 0; i < Size; i++)

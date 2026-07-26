@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 #include "lights/color-code.h"
-#include "utility/algorithms.h"
+#include "utilities/algorithms.h"
 
 namespace Lights
 {

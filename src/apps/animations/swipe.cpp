@@ -1,6 +1,6 @@
 #include "apps/animations/swipe.h"
-#include "utility/entropy.h"
-#include "utility/common.h"
+#include "utilities/entropy.h"
+#include "utilities/common.h"
 
 using namespace Apps::Animations;
 
@@ -54,7 +54,7 @@ void Swipe::handleSwipeAnimation()
 
 Lights::Color Swipe::getSwipeColor()
 {
-  return Lights::Color{Lights::vividPalette[contextManager.entropy.random(8) % arraySize(Lights::vividPalette)]};
+  return Lights::Color{Lights::vividPalette[contextManager.entropy.random(8) % Utilities::arraySize(Lights::vividPalette)]};
 }
 
 void Swipe::drawSwipe()

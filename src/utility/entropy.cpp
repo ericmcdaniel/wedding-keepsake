@@ -1,6 +1,6 @@
-#include "utility/entropy.h"
+#include "utilities/entropy.h"
 
-namespace Utility
+namespace Utilities
 {
   void Entropy::begin()
   {

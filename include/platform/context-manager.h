@@ -6,7 +6,7 @@
 #include "engine/renderer.h"
 #include "user/button.h"
 #include "platform/time.h"
-#include "utility/entropy.h"
+#include "utilities/entropy.h"
 
 namespace Platform
 {
@@ -24,7 +24,7 @@ namespace Platform
     Engine::StateManager stateManager;
     Engine::Renderer renderer;
     User::Button button;
-    Utility::Entropy entropy;
+    Utilities::Entropy entropy;
 
     void initializeSystemMemory();
     void changeApplication(Engine::SystemState nextState);

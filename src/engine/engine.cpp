@@ -1,7 +1,7 @@
 #include "engine/engine.h"
 #include "platform/configuration.h"
 #include "lights/color-correction.h"
-#include "utility/logger.h"
+#include "utilities/logger.h"
 
 using namespace Engine;
 

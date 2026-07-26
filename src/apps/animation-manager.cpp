@@ -2,7 +2,8 @@
 #include "apps/animations/rainbow.h"
 #include "apps/animations/tunnel.h"
 #include "apps/animations/swipe.h"
-#include "utility/logger.h"
+#include "utilities/logger.h"
+#include "utilities/common.h"
 
 using namespace Apps;
 
@@ -24,7 +25,7 @@ void AnimationManager::nextAnimation()
     currentAnimation = nullptr;
   }
 
-  state = static_cast<AnimationRegistry>((static_cast<uint8_t>(state) + 1) % static_cast<uint8_t>(AnimationRegistry::COUNT));
+  Utilities::advance(state);
 
   switch (state)
   {

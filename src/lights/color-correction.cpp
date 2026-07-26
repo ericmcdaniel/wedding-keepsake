@@ -1,5 +1,5 @@
 #include "lights/color-correction.h"
-#include "utility/algorithms.h"
+#include "utilities/algorithms.h"
 
 using namespace Lights;
 
@@ -9,7 +9,7 @@ Color ColorCorrection::apply(const Color &color)
   uint16_t g = color.g * greenGain >> 8;
   uint16_t b = color.b * blueGain >> 8;
 
-  uint16_t maxVal = Utility::maxOf(r, g, b);
+  uint16_t maxVal = Utilities::maxOf(r, g, b);
 
   if (maxVal > 255)
   {

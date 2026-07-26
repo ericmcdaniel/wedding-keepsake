@@ -4,7 +4,7 @@
 #include "engine/timer.h"
 #include "platform/context-manager.h"
 #include "lights/color-palette.h"
-#include "utility/transformations.h"
+#include "utilities/transformations.h"
 
 namespace Apps::Animations
 {
@@ -20,7 +20,7 @@ namespace Apps::Animations
     Swiping
   };
 
-  constexpr Utility::EaseCurve<Platform::Configuration::numColumns> swipeTiming;
+  constexpr Utilities::EaseOutCurve<Platform::Configuration::numColumns> swipeTiming;
 
   class Swipe : public Engine::ApplicationRuntime, public Engine::Timer
   {

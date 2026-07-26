@@ -9,7 +9,7 @@ namespace Platform
   class ContextManager;
 }
 
-namespace Utility
+namespace Utilities
 {
   class Entropy
   {

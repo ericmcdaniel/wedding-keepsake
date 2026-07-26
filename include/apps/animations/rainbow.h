@@ -3,7 +3,7 @@
 #include "engine/application-runtime.h"
 #include "engine/timer.h"
 #include "platform/context-manager.h"
-#include "utility/entropy.h"
+#include "utilities/entropy.h"
 
 namespace Apps::Animations
 {

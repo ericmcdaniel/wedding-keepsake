@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 
-namespace Utility
+namespace Utilities
 {
 
   /*
