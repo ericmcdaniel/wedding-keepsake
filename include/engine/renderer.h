@@ -8,6 +8,7 @@ namespace Engine
   {
   public:
     void drawPixel(const Lights::Color &color, const int8_t row, const int8_t col);
+    void drawPixel(const Lights::Color &color, const int8_t index);
     void drawHorizontalLine(const Lights::Color &color, const int8_t row, const int8_t start, const int8_t end);  // inclusive boundary
     void drawVerticalLine(const Lights::Color &color, const int8_t column, const int8_t start, const int8_t end); // also inclusive
     void drawSolidRect(const Lights::Color &color, const int8_t tlx, const int8_t tly, const int8_t brx, const int8_t bry);

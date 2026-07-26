@@ -9,7 +9,7 @@ namespace Apps::Animations
   class Tunnel : public Engine::ApplicationRuntime, public Engine::Timer
   {
   public:
-    Tunnel(Platform::ContextManager &ctx) : Engine::Timer{ctx.time}, contextManager{ctx} { wait(25); }
+    Tunnel(Platform::ContextManager &ctx) : Engine::Timer{ctx.time}, contextManager{ctx} { wait(idleTime); }
     void nextEvent() override;
 
     uint8_t colorPhaseShift = 0u;
@@ -17,5 +17,6 @@ namespace Apps::Animations
 
   private:
     Platform::ContextManager &contextManager;
+    static constexpr uint32_t idleTime = 18;
   };
 }
