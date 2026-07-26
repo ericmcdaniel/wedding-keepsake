@@ -10,9 +10,9 @@ namespace Apps
 {
   enum class AnimationRegistry
   {
-    Rainbow,
     Tunnel,
     Swipe,
+    Rainbow,
     COUNT
   };
 
@@ -36,7 +36,7 @@ namespace Apps
   private:
     Platform::ContextManager &contextManager;
     Engine::ApplicationRuntime *currentAnimation = nullptr;
-    AnimationRegistry state = AnimationRegistry::Tunnel;
+    AnimationRegistry state = AnimationRegistry::Rainbow;
     void nextAnimation();
   };
 }

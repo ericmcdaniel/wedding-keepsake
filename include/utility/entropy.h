@@ -18,23 +18,10 @@ namespace Utility
     void begin();
     void update(uint32_t currentTime);
     uint32_t random();
-
-    uint32_t random(uint32_t range)
-    {
-      uint32_t nextRandom = random() % range;
-      while (nextRandom == previouslyUsed)
-      {
-        nextRandom = random() % range;
-      }
-      previouslyUsed = nextRandom;
-      return nextRandom;
-    }
+    uint32_t random(uint32_t range);
 
     template <typename T>
-    T randomEnum(T maxValue)
-    {
-      return static_cast<T>(random() % static_cast<uint32_t>(maxValue));
-    }
+    T randomEnum(T maxValue) { return static_cast<T>(random() % static_cast<uint32_t>(maxValue)); }
 
   private:
     Platform::Time &time;

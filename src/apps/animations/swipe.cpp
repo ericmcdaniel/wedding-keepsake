@@ -48,11 +48,7 @@ void Swipe::handleSwipeAnimation()
     return;
   }
 
-  constexpr uint32_t minDelay = 4;
-  constexpr uint32_t maxDelay = 48;
-  uint32_t delayMs = minDelay + ((maxDelay - minDelay) * swipeTiming[swipeProgress]) / 128;
-  wait(delayMs);
-
+  wait(swipeTiming.map(swipeProgress, minDelay, maxDelay));
   swipeProgress++;
 }
 

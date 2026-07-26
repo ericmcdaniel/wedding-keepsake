@@ -17,10 +17,10 @@ void Tunnel::nextEvent()
     contextManager.renderer.drawSolidRect(outerColor, 1, 1, 6, 2);
     contextManager.renderer.drawSolidRect(outerColor, 3, 0, 4, 3);
 
-    Lights::Color innerColor = getTunnelColor(colorPhaseShift + 16);
+    Lights::Color innerColor = getTunnelColor(colorPhaseShift + 14);
     contextManager.renderer.drawSolidRect(innerColor, 2, 1, 5, 2);
 
-    Lights::Color core = getTunnelColor(colorPhaseShift + 28);
+    Lights::Color core = getTunnelColor(colorPhaseShift + 30);
     contextManager.renderer.drawSolidRect(core, 3, 1, 4, 2);
   }
 }

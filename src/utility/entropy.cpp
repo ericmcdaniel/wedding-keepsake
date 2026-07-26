@@ -62,6 +62,17 @@ namespace Utility
     return state;
   }
 
+  uint32_t Entropy::random(uint32_t range)
+  {
+    uint32_t nextRandom = random() % range;
+    while (nextRandom == previouslyUsed)
+    {
+      nextRandom = random() % range;
+    }
+    previouslyUsed = nextRandom;
+    return nextRandom;
+  }
+
   uint32_t Entropy::mix(uint32_t value)
   {
     // Anyone reading this, there's a very interesting video about how RNG was implemented on the original
@@ -69,6 +80,7 @@ namespace Utility
 
     // Shamelessly stolen from the MurmurHash3 algorithm, the final stage
     // https://en.wikipedia.org/wiki/MurmurHash
+
     value ^= value >> 16;
     value *= 0x85EBCA6B;
     value ^= value >> 13;

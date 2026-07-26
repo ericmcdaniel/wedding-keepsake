@@ -13,6 +13,7 @@ namespace Lights
       0xff00ff,
       0xffffff,
       0x000000};
+
   constexpr uint32_t pico8Palette[8] = {
       0xffe2ce,
       0xf56214,

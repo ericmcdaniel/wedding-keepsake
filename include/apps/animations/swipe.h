@@ -28,8 +28,8 @@ namespace Apps::Animations
     Swipe(Platform::ContextManager &ctx) : Engine::Timer{ctx.time}, contextManager{ctx}
     {
       ctx.renderer.clear();
-      wait(idleWaitTime);
-      slot[0] = getSwipeColor();
+      wait(idleWaitTime / 4);
+      slot[0] = {};
       slot[1] = getSwipeColor();
     }
     void nextEvent() override;
@@ -40,7 +40,9 @@ namespace Apps::Animations
     Platform::ContextManager &contextManager;
     Direction direction = Direction::Right;
     SwipeState state = SwipeState::Idle;
-    static constexpr uint32_t idleWaitTime = 900;
+    static constexpr uint32_t idleWaitTime = 600;
+    static constexpr uint32_t minDelay = 8;
+    static constexpr uint32_t maxDelay = 80;
 
     Lights::Color slot[2];
     uint8_t activeColor = 0;

@@ -24,19 +24,23 @@ void AnimationManager::nextAnimation()
     currentAnimation = nullptr;
   }
 
+  state = static_cast<AnimationRegistry>((static_cast<uint8_t>(state) + 1) % static_cast<uint8_t>(AnimationRegistry::COUNT));
+
   switch (state)
   {
-  case AnimationRegistry::Rainbow:
+  case AnimationRegistry::Tunnel:
     currentAnimation = new Apps::Animations::Tunnel{contextManager};
     state = AnimationRegistry::Tunnel;
     logf("Animation: Tunnel");
     break;
-  case AnimationRegistry::Tunnel:
+
+  case AnimationRegistry::Swipe:
     currentAnimation = new Apps::Animations::Swipe{contextManager};
     state = AnimationRegistry::Swipe;
-    logf("Animation: Tunnel");
+    logf("Animation: Swipe");
     break;
-  case AnimationRegistry::Swipe:
+
+  case AnimationRegistry::Rainbow:
     currentAnimation = new Apps::Animations::Rainbow{contextManager};
     state = AnimationRegistry::Rainbow;
     logf("Animation: Rainbow");
