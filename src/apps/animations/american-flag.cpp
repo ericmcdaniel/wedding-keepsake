@@ -27,7 +27,7 @@ void AmericanFlag::nextEvent()
           uint8_t((uint16_t(original.g) * brightness) >> 8),
           uint8_t((uint16_t(original.b) * brightness) >> 8)};
 
-      contextManager.renderer.drawPixel(color, index);
+      contextManager.renderer.renderPixel(color, index);
     }
   }
 }

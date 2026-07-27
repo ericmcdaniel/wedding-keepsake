@@ -10,7 +10,7 @@ namespace Apps::Animations
   public:
     Candle(Platform::ContextManager &ctx) : Engine::Timer{ctx.time}, contextManager{ctx}
     {
-      ctx.renderer.clear();
+      ctx.renderer.clearDisplay();
       wait(idleTime);
     }
     void nextEvent() override;

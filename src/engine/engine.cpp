@@ -107,8 +107,7 @@ void KeychainEngine::pwmAdjustAndShiftToLeds()
 
   for (uint8_t col = 0; col < Platform::Configuration::numColumns; col++)
   {
-    Lights::Color pixel = contextManager.renderer.getPixel(col, activeRow);
-
+    const Lights::Color pixel = contextManager.renderer.getPixel(col, activeRow);
     // pixel = Lights::ColorCorrection::apply(pixel);
 
     const uint8_t r = reduceTo6Bit(pixel.r);

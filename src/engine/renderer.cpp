@@ -3,7 +3,7 @@
 
 using namespace Engine;
 
-void Renderer::drawPixel(const Lights::Color &color, const int8_t xPos, const int8_t yPos)
+void Renderer::renderPixel(const Lights::Color &color, const int8_t xPos, const int8_t yPos)
 {
   if (checkValidXAxisBoundary(xPos) || checkValidYAxisBoundary(yPos))
   {
@@ -14,7 +14,7 @@ void Renderer::drawPixel(const Lights::Color &color, const int8_t xPos, const in
   leds[yPos * Platform::Configuration::numColumns + xPos] = color;
 }
 
-void Renderer::drawPixel(const Lights::Color &color, const int8_t index)
+void Renderer::renderPixel(const Lights::Color &color, const int8_t index)
 {
   if (index < 0 || index >= Platform::Configuration::numLeds)
   {
@@ -25,7 +25,7 @@ void Renderer::drawPixel(const Lights::Color &color, const int8_t index)
   leds[index] = color;
 }
 
-void Renderer::drawFullCanvas(const Lights::Color &color)
+void Renderer::renderFullCanvas(const Lights::Color &color)
 {
   for (int8_t i = 0; i < Platform::Configuration::numLeds; i++)
   {
@@ -33,7 +33,7 @@ void Renderer::drawFullCanvas(const Lights::Color &color)
   }
 }
 
-void Renderer::drawHorizontalLine(const Lights::Color &color, const int8_t yPos, const int8_t xStart, const int8_t xEnd)
+void Renderer::renderHorizontalLine(const Lights::Color &color, const int8_t yPos, const int8_t xStart, const int8_t xEnd)
 {
   // End is inclusive. The boundary will however be checked.
   if (checkValidXAxisBoundary(xStart) || checkValidXAxisBoundary(xEnd))
@@ -59,7 +59,7 @@ void Renderer::drawHorizontalLine(const Lights::Color &color, const int8_t yPos,
   }
 }
 
-void Renderer::drawVerticalLine(const Lights::Color &color, const int8_t xPos, const int8_t yStart, const int8_t yEnd)
+void Renderer::renderVerticalLine(const Lights::Color &color, const int8_t xPos, const int8_t yStart, const int8_t yEnd)
 {
   // End is inclusive. The boundary will however be checked.
   if (checkValidYAxisBoundary(yStart) || checkValidYAxisBoundary(yEnd))
@@ -86,7 +86,7 @@ void Renderer::drawVerticalLine(const Lights::Color &color, const int8_t xPos, c
   }
 }
 
-void Renderer::drawSolidRect(const Lights::Color &color, const int8_t tlx, const int8_t tly, const int8_t brx, const int8_t bry)
+void Renderer::renderSolidRect(const Lights::Color &color, const int8_t tlx, const int8_t tly, const int8_t brx, const int8_t bry)
 {
   // draws a rectangle:
   //  *  tlx = top-left x-axis

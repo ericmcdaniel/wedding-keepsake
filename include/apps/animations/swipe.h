@@ -27,7 +27,7 @@ namespace Apps::Animations
   public:
     Swipe(Platform::ContextManager &ctx) : Engine::Timer{ctx.time}, contextManager{ctx}
     {
-      ctx.renderer.clear();
+      ctx.renderer.clearDisplay();
       wait(idleWaitTime / 4);
       slot[0] = {};
       slot[1] = getSwipeColor();

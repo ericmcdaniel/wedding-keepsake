@@ -27,12 +27,15 @@ namespace Apps::Game::Dodge
     Platform::ContextManager &contextManager;
     State state = State::BeginGame;
     Player player;
+
     void drawStartup();
     void drawBackground();
+    void drawGamePlay();
     void render();
 
     static constexpr uint32_t startDeplayTime = 80;
     Engine::Timer backgroundTimer;
-    uint32_t backgroundRenderRate = 240;
+    uint32_t backgroundRenderRate = 200; // 80;
+    uint8_t backgroundRepeatLength = 8;
   };
 }

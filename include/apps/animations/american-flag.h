@@ -10,7 +10,7 @@ namespace Apps::Animations
   public:
     AmericanFlag(Platform::ContextManager &ctx) : Engine::Timer{ctx.time}, contextManager{ctx}
     {
-      ctx.renderer.clear();
+      ctx.renderer.clearDisplay();
     }
     void nextEvent() override;
 
