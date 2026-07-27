@@ -20,8 +20,6 @@ namespace User
         return true;
       return false; // TODO: finish
     }
-
-  protected:
     Point position;
     Texture texture;
   };

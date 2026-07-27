@@ -109,7 +109,7 @@ void KeychainEngine::pwmAdjustAndShiftToLeds()
   {
     Lights::Color pixel = contextManager.renderer.getPixel(col, activeRow);
 
-    pixel = Lights::ColorCorrection::apply(pixel);
+    // pixel = Lights::ColorCorrection::apply(pixel);
 
     const uint8_t r = reduceTo6Bit(pixel.r);
     const uint8_t g = reduceTo6Bit(pixel.g);

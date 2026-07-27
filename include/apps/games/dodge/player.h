@@ -13,11 +13,11 @@ namespace Apps::Game::Dodge
     // void update(uint32_t deltaTime) override {}
     void render();
 
-    static constexpr int8_t width = 3;
+    static constexpr int8_t width = 2;
     static constexpr int8_t height = 2;
-    static constexpr uint32_t texture[] = {0xffffff, 0xffffff, 0xffffff, 0xff0000, 0xff0000, 0xff0000};
+    static constexpr uint32_t texture[] = {0xffffff, 0xffffff, 0xffffff, 0xffffff};
     static constexpr User::Texture defaultTexture{width, height, texture};
-    static constexpr User::Point defaultPosition{3, 1};
+    static constexpr User::Point defaultPosition{8, -2};
 
   private:
     Platform::ContextManager &contextManager;

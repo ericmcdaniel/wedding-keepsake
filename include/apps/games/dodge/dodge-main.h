@@ -7,19 +7,32 @@
 
 namespace Apps::Game::Dodge
 {
-  class DodgeMain : public Engine::ApplicationRuntime, public Engine::Timer
+  enum class State
+  {
+    BeginGame,
+    Playing
+  };
+
+  class Main : public Engine::ApplicationRuntime, public Engine::Timer
   {
   public:
-    DodgeMain(Platform::ContextManager &ctx) : Engine::Timer{ctx.time},
-                                               contextManager{ctx},
-                                               player{ctx}
+    Main(Platform::ContextManager &ctx) : Engine::Timer{ctx.time}, contextManager{ctx}, player{ctx}, backgroundTimer{ctx.time}
     {
-      wait(20);
+      wait(startDeplayTime);
+      backgroundTimer.wait(backgroundRenderRate);
     }
     void nextEvent() override;
 
   private:
     Platform::ContextManager &contextManager;
+    State state = State::BeginGame;
     Player player;
+    void drawStartup();
+    void drawBackground();
+    void render();
+
+    static constexpr uint32_t startDeplayTime = 80;
+    Engine::Timer backgroundTimer;
+    uint32_t backgroundRenderRate = 240;
   };
 }
