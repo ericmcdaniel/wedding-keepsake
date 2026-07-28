@@ -9,10 +9,10 @@ void Main::nextEvent()
   switch (state)
   {
   case State::BeginGame:
-    drawStartup();
+    handleStartup();
     break;
   case State::Playing:
-    drawGamePlay();
+    handleGamePlay();
     break;
   }
 
@@ -36,7 +36,7 @@ void Main::nextEvent()
   // }
 }
 
-void Main::drawStartup()
+void Main::handleStartup()
 {
   if (isReady())
   {
@@ -49,6 +49,7 @@ void Main::drawStartup()
     if (player.position.x <= 0)
     {
       state = State::Playing;
+      contextManager.button.reset();
     }
     else
     {
@@ -124,7 +125,7 @@ void Main::drawBackground()
 #endif
 }
 
-void Main::drawGamePlay()
+void Main::handleGamePlay()
 {
   if (contextManager.button.wasSinglePress())
   {

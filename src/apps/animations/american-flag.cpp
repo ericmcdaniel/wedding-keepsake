@@ -10,11 +10,11 @@ void AmericanFlag::nextEvent()
     wavePhase = (wavePhase + 1) & 0x0f;
   }
 
-  for (uint8_t row = 0; row < 4; row++)
+  for (uint8_t row = 0; row < Platform::Configuration::numRows; row++)
   {
-    for (uint8_t column = 0; column < 8; column++)
+    for (uint8_t column = 0; column < Platform::Configuration::numColumns; column++)
     {
-      uint8_t index = (row * 8) + column;
+      uint8_t index = (row * Platform::Configuration::numColumns) + column;
 
       uint8_t phase = (wavePhase - column) & 0x0f;
       uint8_t dim = waveTable[phase];

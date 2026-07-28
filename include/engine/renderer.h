@@ -1,6 +1,7 @@
 #pragma once
 
 #include "lights/led-matrix.h"
+#include "user/point.h"
 
 namespace Engine
 {
@@ -12,6 +13,7 @@ namespace Engine
     void renderHorizontalLine(const Lights::Color &color, const int8_t yPos, const int8_t xStart, const int8_t xEnd); // inclusive boundary
     void renderVerticalLine(const Lights::Color &color, const int8_t xPos, const int8_t yStart, const int8_t yEnd);   // also inclusive
     void renderSolidRect(const Lights::Color &color, const int8_t tlx, const int8_t tly, const int8_t brx, const int8_t bry);
+    void renderSolidRect(const Lights::Color &color, const User::Point &tl, const User::Point &br);
     void renderFullCanvas(const Lights::Color &color);
     void clearDisplay() { leds.reset(); }
 

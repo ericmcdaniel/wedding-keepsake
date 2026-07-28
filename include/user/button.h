@@ -12,6 +12,7 @@ namespace User
     bool wasSinglePress();
     bool wasDoublePress();
     bool wasHeld();
+    void reset();
     static inline void interruptHandler() { interruptCount++; }
 
   private:

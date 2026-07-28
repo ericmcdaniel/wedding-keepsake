@@ -180,3 +180,14 @@ bool Button::wasHeld()
 
   return false;
 }
+
+void Button::reset()
+{
+  singlePress = false;
+  doublePress = false;
+  secondPressPending = false;
+  completingDoublePress = false;
+  held = false;
+  stateTimestamp = 0;
+  holdTriggered = false;
+}

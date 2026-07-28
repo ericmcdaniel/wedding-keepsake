@@ -1,4 +1,5 @@
 #include "engine/renderer.h"
+#include "user/point.h"
 #include "utilities/logger.h"
 
 using namespace Engine;
@@ -125,6 +126,11 @@ void Renderer::renderSolidRect(const Lights::Color &color, const int8_t tlx, con
       leds(col, row) = color;
     }
   }
+}
+
+void Renderer::renderSolidRect(const Lights::Color &color, const User::Point &tl, const User::Point &br)
+{
+  renderSolidRect(color, tl.x, tl.y, br.x, br.y);
 }
 
 inline bool Renderer::checkValidYAxisBoundary(const int8_t coordinate)
