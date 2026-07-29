@@ -4,6 +4,7 @@
 #include "engine/timer.h"
 #include "platform/context-manager.h"
 #include "apps/games/dodge/player.h"
+#include "apps/games/dodge/debris.h"
 
 namespace Apps::Game::Dodge
 {
@@ -16,9 +17,9 @@ namespace Apps::Game::Dodge
   class Main : public Engine::ApplicationRuntime, public Engine::Timer
   {
   public:
-    Main(Platform::ContextManager &ctx) : Engine::Timer{ctx.time}, contextManager{ctx}, player{ctx}, backgroundTimer{ctx.time}
+    Main(Platform::ContextManager &ctx) : Engine::Timer{ctx.time}, contextManager{ctx}, player{ctx}, backgroundTimer{ctx.time}, debisPool{ctx, ctx, ctx, ctx}
     {
-      wait(startDeplayTime);
+      wait(750);
       backgroundTimer.wait(backgroundRenderRate);
     }
     void nextEvent() override;
@@ -27,13 +28,15 @@ namespace Apps::Game::Dodge
     Platform::ContextManager &contextManager;
     State state = State::BeginGame;
     Player player;
+    Debris debisPool[4];
 
-    void drawStartup();
-    void drawBackground();
-    void drawGamePlay();
+    void updateDebrisPositions();
+    void handleStartup();
+    void handleBackground();
+    void handleGamePlay();
     void render();
 
-    static constexpr uint32_t startDeplayTime = 80;
+    static constexpr uint32_t startDeplayTime = 110;
     Engine::Timer backgroundTimer;
     uint32_t backgroundRenderRate = 200; // 80;
     uint8_t backgroundRepeatLength = 8;

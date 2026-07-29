@@ -13,6 +13,7 @@ void Main::nextEvent()
     break;
   case State::Playing:
     handleGamePlay();
+    updateDebrisPositions();
     break;
   }
 
@@ -34,6 +35,14 @@ void Main::nextEvent()
   //     log("Single press fired.");
   //   }
   // }
+}
+
+void Main::updateDebrisPositions()
+{
+  // if (!debisPool[0].isActive())
+  // return; // continue;
+
+  debisPool[0].updatePosition();
 }
 
 void Main::handleStartup()
@@ -60,14 +69,14 @@ void Main::handleStartup()
 
 /*
   I kindasorta started microoptimizing, but this really just amounts to a srolling
-  display that has colors fade out, slated, and animate movement to the left.
+  display that has colors fade out, slanted, and animate movement to the left.
   Looks like:
       // // // / / /        // // // / / /
      // // // / / /        // // // / / /    <--- Scrolling to the left
     // // // / / /        // // // / / /
    // // // / / /        // // // / / /
 */
-void Main::drawBackground()
+void Main::handleBackground()
 {
 #if 1
   // diagonal
@@ -135,6 +144,7 @@ void Main::handleGamePlay()
 
 void Main::render()
 {
-  drawBackground();
+  handleBackground();
   player.render();
+  debisPool[0].render();
 }

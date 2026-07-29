@@ -2,23 +2,17 @@
 
 #include "platform/context-manager.h"
 #include "user/entity.h"
+#include "apps/games/dodge/location.h"
 #include "engine/timer.h"
 
 namespace Apps::Game::Dodge
 {
-  enum class Location
-  {
-    Top,
-    Bottom,
-    Transitioning
-  };
 
   class Player : public User::Entity
   {
   public:
     Player(Platform::ContextManager &ctx) : User::Entity(defaultTexture, defaultPosition), contextManager{ctx}, timer{ctx.time} {}
 
-    // void update(uint32_t deltaTime) override {}
     void dodge();
     void render();
     Location getLocation() const { return location; }
