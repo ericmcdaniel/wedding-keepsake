@@ -19,12 +19,14 @@ namespace User
     enum class State
     {
       Idle,
-      Debouncing,
-      Pressed,
+      PressedDebouncing,
+      PressedStable,
+      ReleaseDebouncing,
       WaitingForSecondPress,
       WaitingForRelease
     };
 
+    inline static uint8_t consumeInterruptCount();
     void handlePress(uint32_t currentTime);
     void handleRelease(uint32_t currentTime);
 
@@ -36,8 +38,8 @@ namespace User
     bool completingDoublePress = false;
     bool held = false;
     uint32_t stateTimestamp = 0;
-    static constexpr uint32_t debounceTime = 30;
-    static constexpr uint32_t doublePressWindow = 85;
+    static constexpr uint32_t debounceTime = 10;
+    static constexpr uint32_t doublePressWindow = 70;
     static constexpr uint32_t holdTime = 1000;
     bool holdTriggered = false;
   };

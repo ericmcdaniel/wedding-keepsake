@@ -39,9 +39,8 @@ void Main::nextEvent()
 
 void Main::updateDebrisPositions()
 {
-  // if (!debisPool[0].isActive())
-  // return; // continue;
-
+  if (!debisPool[0].isActive())
+    return; // continue;
   debisPool[0].updatePosition();
 }
 
