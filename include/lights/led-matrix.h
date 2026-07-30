@@ -12,8 +12,8 @@ namespace Lights
   public:
     LedMatrix();
 
-    Color &operator()(int8_t row, int8_t column) { return buffer(row, column); }
-    const Color &operator()(int8_t row, int8_t column) const { return buffer(row, column); }
+    Color &operator()(int8_t xIndex, int8_t yIndex) { return buffer(xIndex, yIndex); }
+    const Color &operator()(int8_t xIndex, int8_t yIndex) const { return buffer(xIndex, yIndex); }
 
     Color &operator[](int8_t index) { return buffer[index]; }
     const Color &operator[](int8_t index) const { return buffer[index]; }

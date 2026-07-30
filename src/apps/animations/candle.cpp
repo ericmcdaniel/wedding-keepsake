@@ -27,6 +27,6 @@ void Candle::nextEvent()
       patternIndex = candlePattern[i];
     }
 
-    contextManager.renderer.drawPixel(Lights::Color{patternIndex}, i);
+    contextManager.renderer.renderPixel(Lights::Color{patternIndex}, i);
   }
 }

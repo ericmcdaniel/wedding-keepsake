@@ -7,21 +7,21 @@ void Tunnel::nextEvent()
   if (isReady())
   {
     wait(idleTime);
-    contextManager.renderer.clear();
+    contextManager.renderer.clearDisplay();
     colorPhaseShift += 2;
 
     Lights::Color backgroundColor = getTunnelColor(colorPhaseShift);
-    contextManager.renderer.drawFullCanvas(backgroundColor);
+    contextManager.renderer.renderFullCanvas(backgroundColor);
 
     Lights::Color outerColor = getTunnelColor(colorPhaseShift + 6);
-    contextManager.renderer.drawSolidRect(outerColor, 1, 1, 6, 2);
-    contextManager.renderer.drawSolidRect(outerColor, 3, 0, 4, 3);
+    contextManager.renderer.renderSolidRect(outerColor, {1, 1}, {6, 2});
+    contextManager.renderer.renderSolidRect(outerColor, {3, 0}, {4, 3});
 
     Lights::Color innerColor = getTunnelColor(colorPhaseShift + 14);
-    contextManager.renderer.drawSolidRect(innerColor, 2, 1, 5, 2);
+    contextManager.renderer.renderSolidRect(innerColor, {2, 1}, {5, 2});
 
     Lights::Color core = getTunnelColor(colorPhaseShift + 30);
-    contextManager.renderer.drawSolidRect(core, 3, 1, 4, 2);
+    contextManager.renderer.renderSolidRect(core, {3, 1}, {4, 2});
   }
 }
 

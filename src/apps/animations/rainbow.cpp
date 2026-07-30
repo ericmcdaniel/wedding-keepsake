@@ -7,10 +7,10 @@ void Rainbow::nextEvent()
   if (isReady())
   {
     wait(115);
-    contextManager.renderer.clear();
+    contextManager.renderer.clearDisplay();
 
     Lights::Color color = getRainbowColor();
-    contextManager.renderer.drawFullCanvas(color);
+    contextManager.renderer.renderFullCanvas(color);
   }
 }
 

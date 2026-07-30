@@ -5,11 +5,11 @@
 
 namespace User
 {
-  struct Sprite
+  struct Texture
   {
     uint8_t width;
     uint8_t height;
 
-    const Lights::Color *pixels;
+    const uint32_t *pixels;
   };
 }

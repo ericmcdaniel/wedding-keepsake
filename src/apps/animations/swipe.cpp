@@ -26,8 +26,8 @@ void Swipe::handleIdleState()
     slot[activeColor] = getSwipeColor();
     return;
   }
-  contextManager.renderer.clear();
-  contextManager.renderer.drawFullCanvas(slot[activeColor]);
+  contextManager.renderer.clearDisplay();
+  contextManager.renderer.renderFullCanvas(slot[activeColor]);
 }
 
 void Swipe::handleSwipeAnimation()
@@ -78,11 +78,11 @@ void Swipe::drawSwipeRight()
     {
       if (col <= swipeProgress)
       {
-        contextManager.renderer.drawPixel(slot[activeColor], row, col);
+        contextManager.renderer.renderPixel(slot[activeColor], col, row);
       }
       else
       {
-        contextManager.renderer.drawPixel(slot[nextIndex()], row, col);
+        contextManager.renderer.renderPixel(slot[nextIndex()], col, row);
       }
     }
   }
@@ -96,11 +96,11 @@ void Swipe::drawSwipeLeft()
     {
       if (col >= Platform::Configuration::numColumns - 1 - swipeProgress)
       {
-        contextManager.renderer.drawPixel(slot[activeColor], row, col);
+        contextManager.renderer.renderPixel(slot[activeColor], col, row);
       }
       else
       {
-        contextManager.renderer.drawPixel(slot[nextIndex()], row, col);
+        contextManager.renderer.renderPixel(slot[nextIndex()], col, row);
       }
     }
   }

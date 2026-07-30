@@ -13,8 +13,8 @@ namespace Apps
   public:
     GameManager(Platform::ContextManager &ctx) : Engine::Timer{ctx.time}, contextManager{ctx}
     {
-      currentGame = new Apps::Game::DodgeMain{contextManager};
-      log("Initializing GameManager with DodgeMain (TBD).");
+      currentGame = new Apps::Game::Dodge::Main{ctx};
+      log("Initializing GameManager with Dodge.");
     }
 
     ~GameManager()
