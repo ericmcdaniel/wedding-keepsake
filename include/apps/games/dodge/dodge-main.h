@@ -17,7 +17,7 @@ namespace Apps::Game::Dodge
   class Main : public Engine::ApplicationRuntime, public Engine::Timer
   {
   public:
-    Main(Platform::ContextManager &ctx) : Engine::Timer{ctx.time}, contextManager{ctx}, player{ctx}, backgroundTimer{ctx.time}, debisPool{ctx, ctx, ctx, ctx}
+    Main(Platform::ContextManager &ctx) : Engine::Timer{ctx.time}, contextManager{ctx}, player{ctx}, backgroundTimer{ctx.time}, debrisPool{ctx, ctx, ctx, ctx}
     {
       wait(750);
       backgroundTimer.wait(backgroundRenderRate);
@@ -28,17 +28,22 @@ namespace Apps::Game::Dodge
     Platform::ContextManager &contextManager;
     State state = State::BeginGame;
     Player player;
-    Debris debisPool[4];
+    Debris debrisPool[4];
 
+    void dispatch();
     void updateDebrisPositions();
     void handleStartup();
     void handleBackground();
     void handleGamePlay();
+    void playAnimationSequence();
     void render();
 
     static constexpr uint32_t startDeplayTime = 110;
     Engine::Timer backgroundTimer;
-    uint32_t backgroundRenderRate = 200; // 80;
+    uint32_t backgroundRenderRate = 220; // 80;
     uint8_t backgroundRepeatLength = 8;
+
+    uint32_t debrisSpeed = 270;
+    uint32_t lastDebrisMovementMs = 0;
   };
 }

@@ -6,27 +6,31 @@ using namespace Apps::Game::Dodge;
 void Debris::updatePosition()
 {
   position.x -= 1;
-  if (position.x <= -2)
+  if (position.x <= -width)
   {
-    active = false;
-    completedCycle = true;
-    speed = 0;
+    deactivate();
   }
 }
 
-void Debris::activate(int8_t s)
+void Debris::activate()
 {
   active = true;
-  completedCycle = false;
-  speed = s;
-  position = Platform::Configuration::numLeds;
+  position = Platform::Configuration::numColumns;
 }
+
+void Debris::deactivate()
+{
+  if (contextManager.time.getMillisecond() - lastRespawnTime >= respawnTime)
+  {
+    lastRespawnTime = contextManager.time.getMillisecond();
+    active = false;
+    position = Platform::Configuration::numColumns;
+  }
+};
 
 void Debris::reset()
 {
   active = false;
-  speed = 0;
-  // impacted = false;
   position = Platform::Configuration::numColumns;
 }
 

@@ -13,56 +13,54 @@ void Main::nextEvent()
     break;
   case State::Playing:
     handleGamePlay();
+    dispatch();
     updateDebrisPositions();
     break;
   }
 
   render();
+}
 
-  // if (isReady())
-  // {
-  //   wait(20);
-
-  //   contextManager.renderer.clearDisplay();
-  //   player.render();
-
-  //   if (contextManager.button.wasDoublePress())
-  //   {
-  //     log("Double press fired.");
-  //   }
-  //   else if (contextManager.button.wasSinglePress())
-  //   {
-  //     log("Single press fired.");
-  //   }
-  // }
+void Main::dispatch()
+{
+  for (uint8_t i = 0; i < 4; i++)
+  {
+    if (!debrisPool[i].isActive())
+    {
+      debrisPool[i].activate();
+      logf("debrisPool[%u] dispatched: %u", i, i);
+      return;
+    }
+  }
+  logf("debrisPool[i] dispatch: no free flares");
 }
 
 void Main::updateDebrisPositions()
 {
-  if (!debisPool[0].isActive())
-    return; // continue;
-  debisPool[0].updatePosition();
+  if (!debrisPool[0].isActive())
+    return; // continue, when looping;
+
+  if (contextManager.time.getMillisecond() - lastDebrisMovementMs >= debrisSpeed)
+  {
+    debrisPool[0].updatePosition();
+    lastDebrisMovementMs = contextManager.time.getMillisecond();
+  }
 }
 
 void Main::handleStartup()
 {
   if (isReady())
   {
-    wait(startDeplayTime);
-    uint8_t offset = 1;
-    if (player.position.y >= 2)
-    {
-      offset = 0;
-    }
-    if (player.position.x <= 0)
+    if (player.position.x <= 0) // start game
     {
       state = State::Playing;
       contextManager.button.reset();
+      debrisPool[0].activate();
+      return;
     }
-    else
-    {
-      player.position.move(-1, offset);
-    }
+
+    playAnimationSequence();
+    wait(startDeplayTime);
   }
 }
 
@@ -79,14 +77,16 @@ void Main::handleBackground()
 {
 #if 1
   // diagonal
-  constexpr uint8_t waveFactors[] = {48, 30, 12, 12, 0, 0, 0, 0};
+  constexpr uint8_t waveFactorsBlue[] = {48, 30, 12, 12, 0, 0, 0, 0};
+  constexpr uint8_t waveFactorsGreen[] = {12, 0, 0, 0, 0, 0, 0, 0};
   static uint8_t offset = 3;
   Lights::Color color;
 
   for (uint8_t i = 0; i < Platform::Configuration::numColumns; i++)
   {
-    uint8_t factor = waveFactors[(offset + i) % backgroundRepeatLength];
-    color = {0, factor / 4, factor};
+    uint8_t factorBlue = waveFactorsBlue[(offset + i) % backgroundRepeatLength];
+    uint8_t factorGreen = waveFactorsGreen[(offset + i) % backgroundRepeatLength];
+    color = {0, factorGreen, factorBlue};
 
     for (uint8_t j = 0; j < Platform::Configuration::numRows; j++)
     {
@@ -139,11 +139,25 @@ void Main::handleGamePlay()
   {
     player.dodge();
   }
+  // debrisPool[0].activate(debrisSpeed);
+}
+
+void Main::playAnimationSequence()
+{
+  uint8_t offset = 1;
+  if (player.position.y >= 2)
+  {
+    offset = 0;
+  }
+  player.position.move(-1, offset);
 }
 
 void Main::render()
 {
   handleBackground();
+  if (debrisPool[0].isActive())
+  {
+    debrisPool[0].render();
+  }
   player.render();
-  debisPool[0].render();
 }
