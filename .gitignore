@@ -29,12 +29,10 @@ fp-info-cache
 *.dsn
 *.ses
 
-# Archived Backups (KiCad 6.0)
-**/*-backups/*.
-**/hardware/*.zip
 
 # Local git-based history (KiCad 9.0+)
 .history
+*.FCBak
 
 # Local project settings
 *.kicad_prl
