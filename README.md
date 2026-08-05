@@ -11,24 +11,24 @@ This is the full design and plans for the RGB LED PCB for Eric and Stephie's wed
 * All on an 80mm x 30mm PCB the size of a keychain
 
 # 3D Preview
-![Front side of the PCB](./hardware/images/pcb-3d-render-front.png)
+![Front side of the PCB](./hardware/pcb/images/pcb-3d-render-front.png)
 <p align="center"><i>Front side of the PCB</i></p>
 
-![Back side of the PCB](./hardware/images/pcb-3d-render-back.png)
+![Back side of the PCB](./hardware/pcb/images/pcb-3d-render-back.png)
 <p align="center"><i>Back side of the PCB</i></p>
 
 # Electrical Schematic
-![Electrical Schematic](./hardware/images/keepsake-keychain.jpg)
+![Electrical Schematic](./hardware/pcb/images/keepsake-keychain.jpg)
 
 # PCB Layout
-![Layer 1 of PCB Design](./hardware/images/pcb-design-L1.png)
+![Layer 1 of PCB Design](./hardware/pcb/images/pcb-design-L1.png)
 <p align="center"><i>Layer 1 of the PCB (signals/components)</i></p>
 
-![Layer 2 of PCB Design](./hardware/images/pcb-design-L2.png)
+![Layer 2 of PCB Design](./hardware/pcb/images/pcb-design-L2.png)
 <p align="center"><i>Layer 2 of the PCB (GND)</i><p>
 
-![Layer 3 of PCB Design](./hardware/images/pcb-design-L3.png)
+![Layer 3 of PCB Design](./hardware/pcb/images/pcb-design-L3.png)
 <p align="center"><i>Layer 3 of the PCB (3V3 copper pour)</i><p>
 
-![Layer 4 of PCB Design](./hardware/images/pcb-design-L4.png)
+![Layer 4 of PCB Design](./hardware/pcb/images/pcb-design-L4.png)
 <p align="center"><i>Layer 4 of the PCB (Additional signals/components)</i><p>
