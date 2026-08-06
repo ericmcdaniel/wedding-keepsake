@@ -1,6 +1,7 @@
 name: CD - Deploy, Label, and Create Release
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
