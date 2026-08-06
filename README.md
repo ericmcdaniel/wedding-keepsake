@@ -8,7 +8,7 @@ When powered on, the keychain begins in either one of two modes: Animation mode 
 
 ### Animation Mode
 
-The keychain displays an animation from the selection below. Single-press the button to cycle between animations.
+The keychain displays an animation from the selection below. Single-press the button to cycle between the following animations.
 * Tunnel
 * Swipe
 * Rainbow
@@ -28,8 +28,8 @@ Single-press the button to steer your rocket in the opposite direction to dodge 
   * This idea was included in the design and was manufactured. The idea was to create additional audio-reactive (and interactive) modes like animations for decibel and music analyzers, but development time exceeded my delivery timeline. This will be revisited later in future updates.
 * Animations can be cycled and games that can be played using the single tactile push button.
 * Controlled by the AVR-based ATtiny1614 manufactured by *Microchip Technology*.
-* Powered by a 24.5mm CR2450 coin cell battery.
-* On an 80mm x 30mm PCB with a clam-shell keychain.
+* Powered by a 24mm x 5mm CR2450 coin cell battery.
+* On an 80mm x 30mm PCB with a D-hook clasp and snake keychain.
 * Placed inside a custom-made sled enclosure with snap-fit sliding lid.
 
 # Design
