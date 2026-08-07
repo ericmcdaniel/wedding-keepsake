@@ -20,10 +20,12 @@ namespace Apps::Game::Dodge
     // int8_t getPosition() const { return position; }
     void updatePosition();
     bool isActive() const { return active; }
-    void activate();
+    void activate(uint8_t speed);
     void deactivate();
     void reset();
     void render();
+
+    bool completedCycle = false;
 
   private:
     Platform::ContextManager &contextManager;
@@ -35,10 +37,9 @@ namespace Apps::Game::Dodge
     static constexpr User::Point defaultPosition{6, 0};
 
     bool active;
-    bool completedCycle = false;
-
     uint32_t lastRespawnTime = 0;
     uint32_t respawnTime = 1000;
+    uint8_t speed;
 
     // bool impacted = false;
   };

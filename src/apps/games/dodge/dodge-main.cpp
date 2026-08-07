@@ -23,28 +23,28 @@ void Main::nextEvent()
 
 void Main::dispatch()
 {
-  for (uint8_t i = 0; i < 4; i++)
-  {
-    if (!debrisPool[i].isActive())
-    {
-      debrisPool[i].activate();
-      logf("debrisPool[%u] dispatched: %u", i, i);
-      return;
-    }
-  }
-  logf("debrisPool[i] dispatch: no free flares");
+  // for (uint8_t i = 0; i < 4; i++)
+  // {
+  //   if (!debrisPool[i].isActive())
+  //   {
+  //     debrisPool[i].activate();
+  //     logf("debrisPool[%u] dispatched: %u", i, i);
+  //     return;
+  //   }
+  // }
+  // logf("debrisPool[i] dispatch: no free flares");
 }
 
 void Main::updateDebrisPositions()
 {
-  if (!debrisPool[0].isActive())
-    return; // continue, when looping;
+  // if (!debrisPool[0].isActive())
+  //   return; // continue, when looping;
 
-  if (contextManager.time.getMillisecond() - lastDebrisMovementMs >= debrisSpeed)
-  {
-    debrisPool[0].updatePosition();
-    lastDebrisMovementMs = contextManager.time.getMillisecond();
-  }
+  // if (contextManager.time.getMillisecond() - lastDebrisMovementMs >= debrisSpeed)
+  // {
+  //   debrisPool[0].updatePosition();
+  //   lastDebrisMovementMs = contextManager.time.getMillisecond();
+  // }
 }
 
 void Main::handleStartup()
@@ -55,7 +55,7 @@ void Main::handleStartup()
     {
       state = State::Playing;
       contextManager.button.reset();
-      debrisPool[0].activate();
+      // debrisPool[0].activate();
       return;
     }
 
@@ -155,9 +155,9 @@ void Main::playAnimationSequence()
 void Main::render()
 {
   handleBackground();
-  if (debrisPool[0].isActive())
-  {
-    debrisPool[0].render();
-  }
+  // if (debrisPool[0].isActive())
+  // {
+  //   debrisPool[0].render();
+  // }
   player.render();
 }

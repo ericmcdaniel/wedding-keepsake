@@ -5,6 +5,7 @@
 #include "platform/context-manager.h"
 #include "apps/games/dodge/player.h"
 #include "apps/games/dodge/debris.h"
+#include "apps/games/dodge/debris-manager.h"
 
 namespace Apps::Game::Dodge
 {
@@ -17,7 +18,11 @@ namespace Apps::Game::Dodge
   class Main : public Engine::ApplicationRuntime, public Engine::Timer
   {
   public:
-    Main(Platform::ContextManager &ctx) : Engine::Timer{ctx.time}, contextManager{ctx}, player{ctx}, backgroundTimer{ctx.time}, debrisPool{ctx, ctx, ctx, ctx}
+    Main(Platform::ContextManager &ctx) : Engine::Timer{ctx.time},
+                                          contextManager{ctx},
+                                          player{ctx},
+                                          debrisManager{ctx},
+                                          backgroundTimer{ctx.time}
     {
       wait(750);
       backgroundTimer.wait(backgroundRenderRate);
@@ -28,7 +33,7 @@ namespace Apps::Game::Dodge
     Platform::ContextManager &contextManager;
     State state = State::BeginGame;
     Player player;
-    Debris debrisPool[4];
+    DebrisManager debrisManager;
 
     void dispatch();
     void updateDebrisPositions();

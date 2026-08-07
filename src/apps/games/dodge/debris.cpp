@@ -12,9 +12,10 @@ void Debris::updatePosition()
   }
 }
 
-void Debris::activate()
+void Debris::activate(uint8_t s)
 {
   active = true;
+  speed = s;
   position = Platform::Configuration::numColumns;
 }
 
