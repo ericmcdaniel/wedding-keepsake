@@ -20,27 +20,25 @@ namespace Apps::Game::Dodge
     // int8_t getPosition() const { return position; }
     void updatePosition();
     bool isActive() const { return active; }
-    void activate(uint8_t speed);
+    void activate();
     void deactivate();
     void reset();
     void render();
 
     bool completedCycle = false;
-
-  private:
-    Platform::ContextManager &contextManager;
-    Location location = Location::Bottom;
     static constexpr int8_t width = 4;
     static constexpr int8_t height = 2;
     static constexpr uint32_t texture[] = {0x000000, 0xff0000, 0xff0000, 0x000000, 0x000000, 0xff0000, 0xff0000, 0x000000};
     static constexpr User::Texture defaultTexture{width, height, texture};
     static constexpr User::Point defaultPosition{6, 0};
 
+  private:
+    Platform::ContextManager &contextManager;
+    Location location = Location::Bottom;
+
     bool active;
     uint32_t lastRespawnTime = 0;
     uint32_t respawnTime = 1000;
-    uint8_t speed;
-
     // bool impacted = false;
   };
 }

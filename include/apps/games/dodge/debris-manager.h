@@ -25,7 +25,8 @@ namespace Apps::Game::Dodge
     const uint8_t size() const;
 
     void updatePositions();
-    void dispatch(uint8_t speed);
+    void dispatch();
+    void render();
     void reset();
 
   private:

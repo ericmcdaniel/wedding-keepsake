@@ -5,17 +5,20 @@ using namespace Apps::Game::Dodge;
 
 void Debris::updatePosition()
 {
-  position.x -= 1;
-  if (position.x <= -width)
+  if (isReady())
   {
-    deactivate();
+    position.x -= 1;
+    if (position.x <= -width)
+    {
+      deactivate();
+    }
+    wait(250);
   }
 }
 
-void Debris::activate(uint8_t s)
+void Debris::activate()
 {
   active = true;
-  speed = s;
   position = Platform::Configuration::numColumns;
 }
 

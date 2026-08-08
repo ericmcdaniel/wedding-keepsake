@@ -9,45 +9,19 @@ void Main::nextEvent()
   switch (state)
   {
   case State::BeginGame:
-    handleStartup();
+    prepareUser();
     break;
   case State::Playing:
-    handleGamePlay();
-    dispatch();
-    updateDebrisPositions();
+    nextUpdate();
+    assessDifficulty();
+    checkCollisions();
     break;
   }
 
   render();
 }
 
-void Main::dispatch()
-{
-  // for (uint8_t i = 0; i < 4; i++)
-  // {
-  //   if (!debrisPool[i].isActive())
-  //   {
-  //     debrisPool[i].activate();
-  //     logf("debrisPool[%u] dispatched: %u", i, i);
-  //     return;
-  //   }
-  // }
-  // logf("debrisPool[i] dispatch: no free flares");
-}
-
-void Main::updateDebrisPositions()
-{
-  // if (!debrisPool[0].isActive())
-  //   return; // continue, when looping;
-
-  // if (contextManager.time.getMillisecond() - lastDebrisMovementMs >= debrisSpeed)
-  // {
-  //   debrisPool[0].updatePosition();
-  //   lastDebrisMovementMs = contextManager.time.getMillisecond();
-  // }
-}
-
-void Main::handleStartup()
+void Main::prepareUser()
 {
   if (isReady())
   {
@@ -65,7 +39,7 @@ void Main::handleStartup()
 }
 
 /*
-  I kindasorta started microoptimizing, but this really just amounts to a srolling
+  I kindasorta micro-optimized this function, but this really just amounts to a scrolling
   display that has colors fade out, slanted, and animate movement to the left.
   Looks like:
       // // // / / /        // // // / / /
@@ -133,13 +107,46 @@ void Main::handleBackground()
 #endif
 }
 
-void Main::handleGamePlay()
+void Main::nextUpdate()
 {
   if (contextManager.button.wasSinglePress())
   {
     player.dodge();
   }
-  // debrisPool[0].activate(debrisSpeed);
+  debrisManager.updatePositions();
+}
+
+void Main::assessDifficulty()
+{
+  if (isReady())
+  {
+    // if (windDownTimer.isReady())
+    // {
+    //   state.current = Actions::WindDown;
+    // }
+
+    if (state == State::Playing)
+    {
+      debrisManager.dispatch();
+      // uint32_t timeDelay = static_cast<uint32_t>((esp_random() % static_cast<uint32_t>(interval)) + gap);
+      uint32_t timeDelay = 1000;
+      wait(timeDelay);
+    }
+
+    // bool shouldStartNextRound = state.current == Actions::WindDown && flareManager.size() == 2;
+    // if (shouldStartNextRound)
+    // {
+    //   windDownTimer.wait(windDownLength);
+    //   state.current = Actions::ActiveGame;
+    //   speed *= 1.07;
+    //   interval *= 0.8;
+    //   gap *= 0.82;
+    // }
+  }
+}
+
+void Main::checkCollisions()
+{
 }
 
 void Main::playAnimationSequence()
@@ -155,9 +162,6 @@ void Main::playAnimationSequence()
 void Main::render()
 {
   handleBackground();
-  // if (debrisPool[0].isActive())
-  // {
-  //   debrisPool[0].render();
-  // }
+  debrisManager.render();
   player.render();
 }

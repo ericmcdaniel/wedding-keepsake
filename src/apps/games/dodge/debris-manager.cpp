@@ -4,18 +4,36 @@
 
 using namespace Apps::Game::Dodge;
 
-void DebrisManager::dispatch(uint8_t speed)
+void DebrisManager::dispatch()
 {
   for (auto &debris : debrisPool)
   {
     if (!debris.isActive())
     {
-      debris.activate(speed);
-      logf("debris dispatched with speed %u", speed);
+      debris.activate();
+      log("debris dispatched");
       return;
     }
   }
   logf("debris dispatch: no free slots remaining");
+}
+
+void DebrisManager::render()
+{
+  for (const auto &debris : debrisPool)
+  {
+    if (!debris.isActive())
+      continue;
+
+    for (int8_t row = 0; row < debris.height; row++)
+    {
+      for (int8_t col = 0; col < debris.width; col++)
+      {
+        contextManager.renderer.renderPixel(debris.texture[row * debris.width + col], debris.position.x + col, debris.position.y + row);
+      }
+    }
+  }
+  logf("Debris[0]=%d, Debris[1]=%d, Debris[2]=%d, Debris[3]=%d", debrisPool[0].position.x, debrisPool[1].position.x, debrisPool[2].position.x, debrisPool[3].position.x);
 }
 
 void DebrisManager::updatePositions()

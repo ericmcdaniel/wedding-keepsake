@@ -35,11 +35,11 @@ namespace Apps::Game::Dodge
     Player player;
     DebrisManager debrisManager;
 
-    void dispatch();
-    void updateDebrisPositions();
-    void handleStartup();
+    void prepareUser();
     void handleBackground();
-    void handleGamePlay();
+    void nextUpdate();
+    void assessDifficulty();
+    void checkCollisions();
     void playAnimationSequence();
     void render();
 
