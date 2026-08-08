@@ -29,7 +29,7 @@ void Main::prepareUser()
     {
       state = State::Playing;
       contextManager.button.reset();
-      // debrisPool[0].activate();
+      // wait(debrisRespawnDelay / 3);
       return;
     }
 
@@ -127,10 +127,9 @@ void Main::assessDifficulty()
 
     if (state == State::Playing)
     {
-      debrisManager.dispatch();
+      debrisManager.dispatch(debrisSpeed);
       // uint32_t timeDelay = static_cast<uint32_t>((esp_random() % static_cast<uint32_t>(interval)) + gap);
-      uint32_t timeDelay = 1000;
-      wait(timeDelay);
+      wait(debrisRespawnDelay);
     }
 
     // bool shouldStartNextRound = state.current == Actions::WindDown && flareManager.size() == 2;

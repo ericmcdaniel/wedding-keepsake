@@ -4,13 +4,13 @@
 
 using namespace Apps::Game::Dodge;
 
-void DebrisManager::dispatch()
+void DebrisManager::dispatch(uint32_t speed)
 {
   for (auto &debris : debrisPool)
   {
     if (!debris.isActive())
     {
-      debris.activate();
+      debris.activate(speed);
       log("debris dispatched");
       return;
     }

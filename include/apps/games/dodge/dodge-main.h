@@ -48,7 +48,7 @@ namespace Apps::Game::Dodge
     uint32_t backgroundRenderRate = 220; // 80;
     uint8_t backgroundRepeatLength = 8;
 
-    uint32_t debrisSpeed = 270;
-    uint32_t lastDebrisMovementMs = 0;
+    uint32_t debrisSpeed = 400;
+    uint32_t debrisRespawnDelay = 3000; /// 8000
   };
 }
