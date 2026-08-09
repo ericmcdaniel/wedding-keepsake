@@ -1,4 +1,5 @@
 #include "apps/games/dodge/debris-manager.h"
+#include "apps/games/dodge/player.h"
 #include "utilities/common.h"
 #include "utilities/logger.h"
 
@@ -16,6 +17,18 @@ void DebrisManager::dispatch(uint32_t speed)
     }
   }
   logf("debris dispatch: no free slots remaining");
+}
+
+bool DebrisManager::checkCollision(const Player &player)
+{
+  for (const auto &debris : debrisPool)
+  {
+    if (player.intersects(debris))
+    {
+      return true;
+    }
+  }
+  return false;
 }
 
 void DebrisManager::render()

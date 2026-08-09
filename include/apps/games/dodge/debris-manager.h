@@ -2,6 +2,7 @@
 
 #include "platform/context-manager.h"
 #include "apps/games/dodge/debris.h"
+#include "apps/games/dodge/player.h"
 
 namespace Apps::Game::Dodge
 {
@@ -26,6 +27,7 @@ namespace Apps::Game::Dodge
 
     void updatePositions();
     void dispatch(uint32_t speed);
+    bool checkCollision(const Player &player);
     void render();
     void reset();
 

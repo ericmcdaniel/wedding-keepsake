@@ -1,4 +1,5 @@
 #include "apps/games/dodge/dodge-main.h"
+#include "engine/state-manager.h"
 #include "utilities/logger.h"
 
 using namespace Apps::Game::Dodge;
@@ -147,6 +148,11 @@ void Main::assessDifficulty()
 
 void Main::checkCollisions()
 {
+  if (debrisManager.checkCollision(player))
+  {
+    log("Collided (from Main)");
+    contextManager.changeApplication(Engine::SystemState::Animation);
+  }
 }
 
 void Main::playAnimationSequence()

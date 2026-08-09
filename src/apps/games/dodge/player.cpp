@@ -37,6 +37,15 @@ void Player::update()
   }
 }
 
+bool Player::intersects(const Debris &debris) const
+{
+  return (
+      (position.y == debris.position.y)            // on the same line
+      && (position.x >= debris.position.x)         // within the hit box (user's right, debris's left)
+      && (position.x - width <= debris.position.x) // within the hit box end (user's left, debris's right)
+  );
+}
+
 void Player::render()
 {
   for (int8_t row = 0; row < height; row++)

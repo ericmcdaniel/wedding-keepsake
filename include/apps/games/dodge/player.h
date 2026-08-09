@@ -3,6 +3,7 @@
 #include "platform/context-manager.h"
 #include "user/entity.h"
 #include "apps/games/dodge/location.h"
+#include "apps/games/dodge/debris.h"
 #include "engine/timer.h"
 
 namespace Apps::Game::Dodge
@@ -22,6 +23,7 @@ namespace Apps::Game::Dodge
                                             textureTimer{ctx.time} {}
 
     void update();
+    bool intersects(const Debris &debris) const;
     void dodge();
     void render();
     Location getLocation() const { return location; }
