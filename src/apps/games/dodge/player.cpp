@@ -6,13 +6,34 @@ void Player::dodge()
 {
   if (location == Location::Top)
   {
-    position.move(0, 2);
-    location = Location::Bottom;
+    location = Location::TransitioningDown;
+    position.move(0, 1);
   }
-  else
+
+  if (location == Location::Bottom)
   {
-    position.move(0, -2);
-    location = Location::Top;
+    location = Location::TransitioningUp;
+    position.move(0, -1);
+  }
+
+  textureTimer.wait(100);
+}
+
+void Player::update()
+{
+  if (textureTimer.isReady())
+  {
+    switch (location)
+    {
+    case Location::TransitioningDown:
+      position.move(0, 1);
+      location = Location::Bottom;
+      break;
+    case Location::TransitioningUp:
+      position.move(0, -1);
+      location = Location::Top;
+      break;
+    };
   }
 }
 

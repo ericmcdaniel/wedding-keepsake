@@ -7,12 +7,21 @@
 
 namespace Apps::Game::Dodge
 {
+  enum class TextureState
+  {
+    Forward_1,
+    Forward_2,
+    Forward_3
+  };
 
   class Player : public User::Entity
   {
   public:
-    Player(Platform::ContextManager &ctx) : User::Entity(defaultTexture, defaultPosition), contextManager{ctx}, timer{ctx.time} {}
+    Player(Platform::ContextManager &ctx) : User::Entity(defaultTexture, defaultPosition),
+                                            contextManager{ctx},
+                                            textureTimer{ctx.time} {}
 
+    void update();
     void dodge();
     void render();
     Location getLocation() const { return location; }
@@ -25,7 +34,7 @@ namespace Apps::Game::Dodge
 
   private:
     Platform::ContextManager &contextManager;
-    Engine::Timer timer;
+    Engine::Timer textureTimer;
     Location location = Location::Bottom;
   };
 }

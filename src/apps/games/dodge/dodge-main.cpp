@@ -25,7 +25,7 @@ void Main::prepareUser()
 {
   if (isReady())
   {
-    if (player.position.x <= 0) // start game
+    if (player.position.x <= 1) // start game
     {
       state = State::Playing;
       contextManager.button.reset();
@@ -65,7 +65,7 @@ void Main::handleBackground()
     for (uint8_t j = 0; j < Platform::Configuration::numRows; j++)
     {
       uint8_t rowShift = Platform::Configuration::numRows - j - 1;
-      if (player.getLocation() == Location::Top)
+      if (player.getLocation() == Location::Top || player.getLocation() == Location::TransitioningUp)
       {
         rowShift = j;
       }
@@ -109,7 +109,8 @@ void Main::handleBackground()
 
 void Main::nextUpdate()
 {
-  if (contextManager.button.wasSinglePress())
+  player.update();
+  if (contextManager.button.wasDoublePress() || contextManager.button.wasSinglePress())
   {
     player.dodge();
   }

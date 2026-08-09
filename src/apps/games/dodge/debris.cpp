@@ -25,11 +25,11 @@ void Debris::activate(uint32_t s)
 
 void Debris::deactivate()
 {
+  completedCycle = true;
   if (contextManager.time.getMillisecond() - lastRespawnTime >= respawnTime)
   {
     lastRespawnTime = contextManager.time.getMillisecond();
-    active = false;
-    position = Platform::Configuration::numColumns;
+    reset();
   }
 };
 
