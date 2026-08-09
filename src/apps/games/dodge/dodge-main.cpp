@@ -23,7 +23,8 @@ void Main::nextEvent()
     renderMuzzleFlash();
     break;
   case State::GameOver:
-    render();
+    checkRestart();
+    renderGameOver();
     break;
   }
 }
@@ -163,6 +164,14 @@ void Main::checkCollisions()
   }
 }
 
+void Main::checkRestart()
+{
+  if (contextManager.button.wasDoublePress())
+  {
+    reset();
+  }
+}
+
 void Main::playAnimationSequence()
 {
   uint8_t offset = 1;
@@ -178,6 +187,24 @@ void Main::render()
   handleBackground();
   debrisManager.render();
   player.render();
+}
+
+void Main::renderGameOver()
+{
+  static bool shouldDisplayDebris = false;
+  handleBackground();
+
+  debrisManager.render();
+  if (shouldDisplayDebris)
+  {
+    player.render();
+  }
+
+  if (isReady())
+  {
+    shouldDisplayDebris = !shouldDisplayDebris;
+    wait(500);
+  }
 }
 
 void Main::renderMuzzleFlash()
@@ -211,4 +238,15 @@ void Main::renderMuzzleFlash()
 
     wait(25);
   }
+}
+
+void Main::reset()
+{
+  // TODO: reset score here
+
+  player.reset();
+  debrisManager.reset();
+  state = State::BeginGame;
+  wait(750);
+  backgroundTimer.enable(backgroundRenderRate);
 }

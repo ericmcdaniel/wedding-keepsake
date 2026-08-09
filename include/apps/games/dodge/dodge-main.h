@@ -42,9 +42,12 @@ namespace Apps::Game::Dodge
     void nextUpdate();
     void assessDifficulty();
     void checkCollisions();
+    void checkRestart();
     void playAnimationSequence();
     void render();
     void renderMuzzleFlash();
+    void renderGameOver();
+    void reset();
 
     static constexpr uint32_t startDeplayTime = 110;
     Engine::Timer backgroundTimer;

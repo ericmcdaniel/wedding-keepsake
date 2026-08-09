@@ -26,6 +26,7 @@ namespace Apps::Game::Dodge
     bool intersects(const Debris &debris) const;
     void dodge();
     void render();
+    void reset();
     Location getLocation() const { return location; }
 
     static constexpr int8_t width = 2;
