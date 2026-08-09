@@ -40,7 +40,7 @@ void Player::update()
 bool Player::intersects(const Debris &debris) const
 {
   return (
-      (position.y == debris.position.y)            // on the same line
+      (position.y - debris.position.y <= 0)        // on the same line (change 0 to -1 if including transition state, makes it harder)
       && (position.x >= debris.position.x)         // within the hit box (user's right, debris's left)
       && (position.x - width <= debris.position.x) // within the hit box end (user's left, debris's right)
   );
