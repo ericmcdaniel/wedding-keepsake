@@ -20,7 +20,7 @@ void Debris::activate(uint32_t s)
 {
   active = true;
   speed = s;
-  position = Platform::Configuration::numColumns;
+  position = defaultPosition;
 }
 
 void Debris::deactivate()
@@ -36,7 +36,7 @@ void Debris::deactivate()
 void Debris::reset()
 {
   active = false;
-  position = Platform::Configuration::numColumns;
+  position = defaultPosition;
 }
 
 void Debris::render()
