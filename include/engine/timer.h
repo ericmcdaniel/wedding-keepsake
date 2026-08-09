@@ -18,11 +18,22 @@ namespace Engine
     Timer(Platform::Time &t) : time{t}, next{time.getMillisecond()} {}
 
     void wait(uint32_t futureTime) { next = time.getMillisecond() + futureTime; }
-    const bool isReady() const { return time.getMillisecond() >= next; };
+    void disable()
+    {
+      next = 0xffffffff;
+      enabled = false;
+    }
+    void enable(uint32_t futureTime)
+    {
+      next = time.getMillisecond() + futureTime;
+      enabled = true;
+    }
+    const bool isReady() const { return enabled && time.getMillisecond() >= next; };
     uint32_t nextOccurrence() const { return next; }
 
   private:
     Platform::Time &time;
     uint32_t next;
+    bool enabled = true;
   };
 }

@@ -11,15 +11,21 @@ void Main::nextEvent()
   {
   case State::BeginGame:
     prepareUser();
+    render();
     break;
   case State::Playing:
     nextUpdate();
     assessDifficulty();
     checkCollisions();
+    render();
+    break;
+  case State::CollisionMuzzleFlash:
+    renderMuzzleFlash();
+    break;
+  case State::GameOver:
+    render();
     break;
   }
-
-  render();
 }
 
 void Main::prepareUser()
@@ -150,8 +156,10 @@ void Main::checkCollisions()
 {
   if (debrisManager.checkCollision(player))
   {
-    log("Collided (from Main)");
-    contextManager.changeApplication(Engine::SystemState::Animation);
+    state = State::CollisionMuzzleFlash;
+    backgroundTimer.disable();
+    wait(25);
+    log("Collision with debris");
   }
 }
 
@@ -170,4 +178,37 @@ void Main::render()
   handleBackground();
   debrisManager.render();
   player.render();
+}
+
+void Main::renderMuzzleFlash()
+{
+  static uint8_t flashCount = 0;
+
+  if (isReady())
+  {
+    flashCount++;
+    if (flashCount >= 5)
+    {
+      flashCount = 0;
+      state = State::GameOver;
+      return;
+    }
+
+    switch (flashCount)
+    {
+    case 1:
+      contextManager.renderer.renderFullCanvas(0xffffff);
+      break;
+    case 0:
+    case 2:
+    case 4:
+      contextManager.renderer.renderFullCanvas(0x000000);
+      break;
+    case 3:
+      contextManager.renderer.renderFullCanvas(0xff0000);
+      break;
+    }
+
+    wait(25);
+  }
 }

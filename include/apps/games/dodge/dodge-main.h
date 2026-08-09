@@ -12,7 +12,9 @@ namespace Apps::Game::Dodge
   enum class State
   {
     BeginGame,
-    Playing
+    Playing,
+    CollisionMuzzleFlash,
+    GameOver
   };
 
   class Main : public Engine::ApplicationRuntime, public Engine::Timer
@@ -42,6 +44,7 @@ namespace Apps::Game::Dodge
     void checkCollisions();
     void playAnimationSequence();
     void render();
+    void renderMuzzleFlash();
 
     static constexpr uint32_t startDeplayTime = 110;
     Engine::Timer backgroundTimer;
