@@ -11,7 +11,7 @@ namespace Apps::Game::Dodge
   public:
     DebrisManager(Platform::ContextManager &ctx) : Engine::Timer{ctx.time},
                                                    contextManager{ctx},
-                                                   debrisPool{ctx, ctx} {}
+                                                   debrisPool{ctx, ctx, ctx} {}
     DebrisManager(const DebrisManager &) = delete;
     DebrisManager &operator=(const DebrisManager &) = delete;
 
@@ -33,7 +33,7 @@ namespace Apps::Game::Dodge
 
   private:
     Platform::ContextManager &contextManager;
-    static constexpr uint8_t _size = 2;
+    static constexpr uint8_t _size = 3;
     Debris debrisPool[_size];
   };
 }

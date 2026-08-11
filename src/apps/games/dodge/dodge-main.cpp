@@ -37,12 +37,12 @@ void Main::prepareUser()
     {
       state = State::Playing;
       contextManager.button.reset();
-      // wait(debrisRespawnDelay / 3);
+      // wait(levelManager[level].debrisRespawn / 3);
       return;
     }
 
     playAnimationSequence();
-    wait(startDeplayTime);
+    wait(gameStartAnimationSpeed);
   }
 }
 
@@ -66,8 +66,8 @@ void Main::handleBackground()
 
   for (uint8_t i = 0; i < Platform::Configuration::numColumns; i++)
   {
-    uint8_t factorBlue = waveFactorsBlue[(offset + i) % backgroundRepeatLength];
-    uint8_t factorGreen = waveFactorsGreen[(offset + i) % backgroundRepeatLength];
+    uint8_t factorBlue = waveFactorsBlue[(offset + i) % 8];
+    uint8_t factorGreen = waveFactorsGreen[(offset + i) % 8];
     color = {0, factorGreen, factorBlue};
 
     for (uint8_t j = 0; j < Platform::Configuration::numRows; j++)
@@ -83,9 +83,9 @@ void Main::handleBackground()
 
   if (backgroundTimer.isReady())
   {
-    backgroundTimer.wait(backgroundRenderRate);
+    backgroundTimer.wait(levelManager[level].backgroundSpeed);
     offset++;
-    if (offset >= backgroundRepeatLength)
+    if (offset >= 8)
     {
       offset = 0;
     }
@@ -136,9 +136,9 @@ void Main::assessDifficulty()
 
     if (state == State::Playing)
     {
-      debrisManager.dispatch(debrisSpeed);
+      debrisManager.dispatch(levelManager[level].debrisSpeed);
       // uint32_t timeDelay = static_cast<uint32_t>((esp_random() % static_cast<uint32_t>(interval)) + gap);
-      wait(debrisRespawnDelay);
+      wait(levelManager[level].debrisRespawn);
     }
 
     // bool shouldStartNextRound = state.current == Actions::WindDown && flareManager.size() == 2;
@@ -248,5 +248,5 @@ void Main::reset()
   debrisManager.reset();
   state = State::BeginGame;
   wait(750);
-  backgroundTimer.enable(backgroundRenderRate);
+  backgroundTimer.enable(levelManager[level].backgroundSpeed);
 }

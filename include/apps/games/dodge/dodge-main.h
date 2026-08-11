@@ -6,6 +6,7 @@
 #include "apps/games/dodge/player.h"
 #include "apps/games/dodge/debris.h"
 #include "apps/games/dodge/debris-manager.h"
+#include "apps/games/dodge/level-manager.h"
 
 namespace Apps::Game::Dodge
 {
@@ -27,7 +28,7 @@ namespace Apps::Game::Dodge
                                           backgroundTimer{ctx.time}
     {
       wait(750);
-      backgroundTimer.wait(backgroundRenderRate);
+      backgroundTimer.wait(levelManager[level].backgroundSpeed);
     }
     void nextEvent() override;
 
@@ -36,6 +37,7 @@ namespace Apps::Game::Dodge
     State state = State::BeginGame;
     Player player;
     DebrisManager debrisManager;
+    LevelManager levelManager;
 
     void prepareUser();
     void handleBackground();
@@ -49,12 +51,10 @@ namespace Apps::Game::Dodge
     void renderGameOver();
     void reset();
 
-    static constexpr uint32_t startDeplayTime = 110;
-    Engine::Timer backgroundTimer;
-    uint32_t backgroundRenderRate = 220; // 80;
-    uint8_t backgroundRepeatLength = 8;
+    uint8_t level = 0;
+    uint16_t debrisDodged = 0;
 
-    uint32_t debrisSpeed = 400;
-    uint32_t debrisRespawnDelay = 3000; /// 8000
+    Engine::Timer backgroundTimer;
+    static constexpr uint32_t gameStartAnimationSpeed = 100;
   };
 }

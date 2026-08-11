@@ -27,8 +27,8 @@ namespace Apps::Game::Dodge
     static constexpr uint32_t redPalette[] = {0x000000, 0xb50000, 0xb50000, 0x000000, 0x000000, 0xb50000, 0xb50000, 0x000000};
     static constexpr uint32_t greenPalette[] = {0x000000, 0x00a910, 0x00a910, 0x000000, 0x000000, 0x00a910, 0x00a910, 0x000000};
     static constexpr User::Texture defaultTexture{width, height, orangePalette};
-    static constexpr User::Point topPosition{6, 0};
-    static constexpr User::Point bottomPosition{6, 2};
+    static constexpr User::Point topPosition{7, 0};
+    static constexpr User::Point bottomPosition{7, 2};
 
   private:
     Platform::ContextManager &contextManager;
