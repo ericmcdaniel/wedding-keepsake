@@ -20,23 +20,40 @@ void Debris::activate(uint32_t s)
 {
   active = true;
   speed = s;
-  position = defaultPosition;
 }
 
 void Debris::deactivate()
 {
   completedCycle = true;
-  if (contextManager.time.getMillisecond() - lastRespawnTime >= respawnTime)
-  {
-    lastRespawnTime = contextManager.time.getMillisecond();
-    reset();
-  }
+  reset();
 };
 
 void Debris::reset()
 {
   active = false;
-  position = defaultPosition;
+
+  uint32_t randInt = contextManager.entropy.random();
+  switch (randInt % 3)
+  {
+  case 0:
+    texture = {width, height, orangePalette};
+    break;
+  case 1:
+    texture = {width, height, redPalette};
+    break;
+  case 2:
+    texture = {width, height, greenPalette};
+    break;
+  }
+
+  if (randInt % 2 == 0)
+  {
+    position = topPosition;
+  }
+  else
+  {
+    position = bottomPosition;
+  }
 }
 
 void Debris::render()
@@ -45,7 +62,7 @@ void Debris::render()
   {
     for (int8_t col = 0; col < width; col++)
     {
-      contextManager.renderer.renderPixel(texture[row * width + col], position.x + col, position.y + row);
+      contextManager.renderer.renderPixel(texture.pixels[row * width + col], position.x + col, position.y + row);
     }
   }
 }
