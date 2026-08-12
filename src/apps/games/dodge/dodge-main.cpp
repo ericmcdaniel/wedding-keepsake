@@ -24,8 +24,12 @@ void Main::nextEvent()
     renderMuzzleFlash();
     break;
   case State::GameOver:
-    checkRestart();
+    checkContinue(State::DisplayScore);
     renderGameOver();
+    break;
+  case State::DisplayScore:
+    checkContinue(State::GameOver);
+    renderScore();
     break;
   }
 }
@@ -164,11 +168,17 @@ void Main::checkCollisions()
   }
 }
 
-void Main::checkRestart()
+void Main::checkContinue(State s)
 {
   if (contextManager.button.wasDoublePress())
   {
     reset();
+    state = State::BeginGame;
+  }
+
+  if (contextManager.button.wasSinglePress())
+  {
+    state = s;
   }
 }
 
@@ -205,6 +215,10 @@ void Main::renderGameOver()
     shouldDisplayDebris = !shouldDisplayDebris;
     wait(500);
   }
+}
+
+void Main::renderScore()
+{
 }
 
 void Main::renderMuzzleFlash()

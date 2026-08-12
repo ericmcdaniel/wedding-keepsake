@@ -16,7 +16,8 @@ namespace Apps::Game::Dodge
     Playing,
     Winddown,
     CollisionMuzzleFlash,
-    GameOver
+    GameOver,
+    DisplayScore
   };
 
   class Main : public Engine::ApplicationRuntime, public Engine::Timer
@@ -47,11 +48,12 @@ namespace Apps::Game::Dodge
     void nextUpdate();
     void assessDifficulty();
     void checkCollisions();
-    void checkRestart();
+    void checkContinue(State state);
     void playAnimationSequence();
     void render();
     void renderMuzzleFlash();
     void renderGameOver();
+    void renderScore();
     void reset();
 
     uint8_t level = 0;
