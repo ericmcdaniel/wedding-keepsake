@@ -6,6 +6,7 @@ namespace Apps::Game::Dodge
   {
     Top,
     Bottom,
-    Transitioning
+    TransitioningUp,
+    TransitioningDown
   };
 }

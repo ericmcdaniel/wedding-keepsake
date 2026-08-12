@@ -5,22 +5,33 @@
 #include "platform/context-manager.h"
 #include "apps/games/dodge/player.h"
 #include "apps/games/dodge/debris.h"
+#include "apps/games/dodge/debris-manager.h"
+#include "apps/games/dodge/level-manager.h"
 
 namespace Apps::Game::Dodge
 {
   enum class State
   {
     BeginGame,
-    Playing
+    Playing,
+    Winddown,
+    CollisionMuzzleFlash,
+    GameOver
   };
 
   class Main : public Engine::ApplicationRuntime, public Engine::Timer
   {
   public:
-    Main(Platform::ContextManager &ctx) : Engine::Timer{ctx.time}, contextManager{ctx}, player{ctx}, backgroundTimer{ctx.time}, debrisPool{ctx, ctx, ctx, ctx}
+    Main(Platform::ContextManager &ctx) : Engine::Timer{ctx.time},
+                                          contextManager{ctx},
+                                          player{ctx},
+                                          debrisManager{ctx},
+                                          backgroundTimer{ctx.time},
+                                          winddownTimer{ctx.time}
     {
       wait(750);
-      backgroundTimer.wait(backgroundRenderRate);
+      backgroundTimer.wait(levelManager[level].backgroundSpeed);
+      winddownTimer.wait(10000);
     }
     void nextEvent() override;
 
@@ -28,22 +39,26 @@ namespace Apps::Game::Dodge
     Platform::ContextManager &contextManager;
     State state = State::BeginGame;
     Player player;
-    Debris debrisPool[4];
+    DebrisManager debrisManager;
+    LevelManager levelManager;
 
-    void dispatch();
-    void updateDebrisPositions();
-    void handleStartup();
+    void prepareUser();
     void handleBackground();
-    void handleGamePlay();
+    void nextUpdate();
+    void assessDifficulty();
+    void checkCollisions();
+    void checkRestart();
     void playAnimationSequence();
     void render();
+    void renderMuzzleFlash();
+    void renderGameOver();
+    void reset();
 
-    static constexpr uint32_t startDeplayTime = 110;
+    uint8_t level = 0;
+    uint16_t debrisDodged = 0;
+
     Engine::Timer backgroundTimer;
-    uint32_t backgroundRenderRate = 220; // 80;
-    uint8_t backgroundRepeatLength = 8;
-
-    uint32_t debrisSpeed = 270;
-    uint32_t lastDebrisMovementMs = 0;
+    Engine::Timer winddownTimer;
+    static constexpr uint32_t gameStartAnimationSpeed = 100;
   };
 }

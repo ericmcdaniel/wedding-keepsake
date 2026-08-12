@@ -3,18 +3,30 @@
 #include "platform/context-manager.h"
 #include "user/entity.h"
 #include "apps/games/dodge/location.h"
+#include "apps/games/dodge/debris.h"
 #include "engine/timer.h"
 
 namespace Apps::Game::Dodge
 {
+  enum class TextureState
+  {
+    Forward_1,
+    Forward_2,
+    Forward_3
+  };
 
   class Player : public User::Entity
   {
   public:
-    Player(Platform::ContextManager &ctx) : User::Entity(defaultTexture, defaultPosition), contextManager{ctx}, timer{ctx.time} {}
+    Player(Platform::ContextManager &ctx) : User::Entity(defaultTexture, defaultPosition),
+                                            contextManager{ctx},
+                                            textureTimer{ctx.time} {}
 
+    void update();
+    bool intersects(const Debris &debris) const;
     void dodge();
     void render();
+    void reset();
     Location getLocation() const { return location; }
 
     static constexpr int8_t width = 2;
@@ -25,7 +37,7 @@ namespace Apps::Game::Dodge
 
   private:
     Platform::ContextManager &contextManager;
-    Engine::Timer timer;
+    Engine::Timer textureTimer;
     Location location = Location::Bottom;
   };
 }

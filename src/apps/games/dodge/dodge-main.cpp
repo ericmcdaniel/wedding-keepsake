@@ -1,4 +1,5 @@
 #include "apps/games/dodge/dodge-main.h"
+#include "engine/state-manager.h"
 #include "utilities/logger.h"
 
 using namespace Apps::Game::Dodge;
@@ -9,63 +10,45 @@ void Main::nextEvent()
   switch (state)
   {
   case State::BeginGame:
-    handleStartup();
+    prepareUser();
+    render();
     break;
   case State::Playing:
-    handleGamePlay();
-    dispatch();
-    updateDebrisPositions();
+  case State::Winddown:
+    nextUpdate();
+    assessDifficulty();
+    checkCollisions();
+    render();
+    break;
+  case State::CollisionMuzzleFlash:
+    renderMuzzleFlash();
+    break;
+  case State::GameOver:
+    checkRestart();
+    renderGameOver();
     break;
   }
-
-  render();
 }
 
-void Main::dispatch()
-{
-  for (uint8_t i = 0; i < 4; i++)
-  {
-    if (!debrisPool[i].isActive())
-    {
-      debrisPool[i].activate();
-      logf("debrisPool[%u] dispatched: %u", i, i);
-      return;
-    }
-  }
-  logf("debrisPool[i] dispatch: no free flares");
-}
-
-void Main::updateDebrisPositions()
-{
-  if (!debrisPool[0].isActive())
-    return; // continue, when looping;
-
-  if (contextManager.time.getMillisecond() - lastDebrisMovementMs >= debrisSpeed)
-  {
-    debrisPool[0].updatePosition();
-    lastDebrisMovementMs = contextManager.time.getMillisecond();
-  }
-}
-
-void Main::handleStartup()
+void Main::prepareUser()
 {
   if (isReady())
   {
-    if (player.position.x <= 0) // start game
+    if (player.position.x <= 1) // start game
     {
       state = State::Playing;
       contextManager.button.reset();
-      debrisPool[0].activate();
+      // wait(levelManager[level].debrisRespawn / 3);
       return;
     }
 
     playAnimationSequence();
-    wait(startDeplayTime);
+    wait(gameStartAnimationSpeed);
   }
 }
 
 /*
-  I kindasorta started microoptimizing, but this really just amounts to a srolling
+  I kindasorta micro-optimized this function, but this really just amounts to a scrolling
   display that has colors fade out, slanted, and animate movement to the left.
   Looks like:
       // // // / / /        // // // / / /
@@ -84,14 +67,14 @@ void Main::handleBackground()
 
   for (uint8_t i = 0; i < Platform::Configuration::numColumns; i++)
   {
-    uint8_t factorBlue = waveFactorsBlue[(offset + i) % backgroundRepeatLength];
-    uint8_t factorGreen = waveFactorsGreen[(offset + i) % backgroundRepeatLength];
+    uint8_t factorBlue = waveFactorsBlue[(offset + i) % 8];
+    uint8_t factorGreen = waveFactorsGreen[(offset + i) % 8];
     color = {0, factorGreen, factorBlue};
 
     for (uint8_t j = 0; j < Platform::Configuration::numRows; j++)
     {
       uint8_t rowShift = Platform::Configuration::numRows - j - 1;
-      if (player.getLocation() == Location::Top)
+      if (player.getLocation() == Location::Top || player.getLocation() == Location::TransitioningUp)
       {
         rowShift = j;
       }
@@ -101,9 +84,9 @@ void Main::handleBackground()
 
   if (backgroundTimer.isReady())
   {
-    backgroundTimer.wait(backgroundRenderRate);
+    backgroundTimer.wait(levelManager[level].backgroundSpeed);
     offset++;
-    if (offset >= backgroundRepeatLength)
+    if (offset >= 8)
     {
       offset = 0;
     }
@@ -133,13 +116,60 @@ void Main::handleBackground()
 #endif
 }
 
-void Main::handleGamePlay()
+void Main::nextUpdate()
 {
-  if (contextManager.button.wasSinglePress())
+  player.update();
+  if (contextManager.button.wasDoublePress() || contextManager.button.wasSinglePress())
   {
     player.dodge();
   }
-  // debrisPool[0].activate(debrisSpeed);
+  debrisManager.updatePositions();
+}
+
+void Main::assessDifficulty()
+{
+  if (isReady())
+  {
+    if (winddownTimer.isReady())
+    {
+      state = State::Winddown;
+      wait(1000);
+    }
+
+    if (state == State::Playing)
+    {
+      debrisManager.dispatch(levelManager[level].debrisSpeed);
+      uint32_t randomExtraDelay = contextManager.entropy.random() % (levelManager[level].debrisRespawn / 3);
+      wait(levelManager[level].debrisRespawn + randomExtraDelay);
+    }
+
+    bool shouldStartNextRound = state == State::Winddown && debrisManager.size() == 0;
+    if (shouldStartNextRound)
+    {
+      winddownTimer.wait(10000);
+      state = State::Playing;
+      level = level % (LevelManager::size - 1) + 1;
+    }
+  }
+}
+
+void Main::checkCollisions()
+{
+  if (debrisManager.checkCollision(player))
+  {
+    state = State::CollisionMuzzleFlash;
+    backgroundTimer.disable();
+    wait(25);
+    log("Collision with debris");
+  }
+}
+
+void Main::checkRestart()
+{
+  if (contextManager.button.wasDoublePress())
+  {
+    reset();
+  }
 }
 
 void Main::playAnimationSequence()
@@ -155,9 +185,69 @@ void Main::playAnimationSequence()
 void Main::render()
 {
   handleBackground();
-  if (debrisPool[0].isActive())
-  {
-    debrisPool[0].render();
-  }
+  debrisManager.render();
   player.render();
+}
+
+void Main::renderGameOver()
+{
+  static bool shouldDisplayDebris = false;
+  handleBackground();
+
+  debrisManager.render();
+  if (shouldDisplayDebris)
+  {
+    player.render();
+  }
+
+  if (isReady())
+  {
+    shouldDisplayDebris = !shouldDisplayDebris;
+    wait(500);
+  }
+}
+
+void Main::renderMuzzleFlash()
+{
+  static uint8_t flashCount = 0;
+
+  if (isReady())
+  {
+    flashCount++;
+    if (flashCount >= 5)
+    {
+      flashCount = 0;
+      state = State::GameOver;
+      return;
+    }
+
+    switch (flashCount)
+    {
+    case 1:
+      contextManager.renderer.renderFullCanvas(0xffffff);
+      break;
+    case 0:
+    case 2:
+    case 4:
+      contextManager.renderer.renderFullCanvas(0x000000);
+      break;
+    case 3:
+      contextManager.renderer.renderFullCanvas(0xff0000);
+      break;
+    }
+
+    wait(25);
+  }
+}
+
+void Main::reset()
+{
+  // TODO: reset score here
+
+  player.reset();
+  debrisManager.reset();
+  state = State::BeginGame;
+  level = 0;
+  wait(750);
+  backgroundTimer.enable(levelManager[level].backgroundSpeed);
 }
