@@ -14,6 +14,7 @@ namespace Apps::Game::Dodge
   {
     BeginGame,
     Playing,
+    Winddown,
     CollisionMuzzleFlash,
     GameOver
   };
@@ -25,10 +26,12 @@ namespace Apps::Game::Dodge
                                           contextManager{ctx},
                                           player{ctx},
                                           debrisManager{ctx},
-                                          backgroundTimer{ctx.time}
+                                          backgroundTimer{ctx.time},
+                                          winddownTimer{ctx.time}
     {
       wait(750);
       backgroundTimer.wait(levelManager[level].backgroundSpeed);
+      winddownTimer.wait(10000);
     }
     void nextEvent() override;
 
@@ -55,6 +58,7 @@ namespace Apps::Game::Dodge
     uint16_t debrisDodged = 0;
 
     Engine::Timer backgroundTimer;
+    Engine::Timer winddownTimer;
     static constexpr uint32_t gameStartAnimationSpeed = 100;
   };
 }

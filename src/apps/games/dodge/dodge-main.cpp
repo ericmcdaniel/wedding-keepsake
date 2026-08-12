@@ -14,6 +14,7 @@ void Main::nextEvent()
     render();
     break;
   case State::Playing:
+  case State::Winddown:
     nextUpdate();
     assessDifficulty();
     checkCollisions();
@@ -129,27 +130,26 @@ void Main::assessDifficulty()
 {
   if (isReady())
   {
-    // if (windDownTimer.isReady())
-    // {
-    //   state.current = Actions::WindDown;
-    // }
+    if (winddownTimer.isReady())
+    {
+      state = State::Winddown;
+      wait(1000);
+    }
 
     if (state == State::Playing)
     {
       debrisManager.dispatch(levelManager[level].debrisSpeed);
-      // uint32_t timeDelay = static_cast<uint32_t>((esp_random() % static_cast<uint32_t>(interval)) + gap);
-      wait(levelManager[level].debrisRespawn);
+      uint32_t randomExtraDelay = contextManager.entropy.random() % (levelManager[level].debrisRespawn / 3);
+      wait(levelManager[level].debrisRespawn + randomExtraDelay);
     }
 
-    // bool shouldStartNextRound = state.current == Actions::WindDown && flareManager.size() == 2;
-    // if (shouldStartNextRound)
-    // {
-    //   windDownTimer.wait(windDownLength);
-    //   state.current = Actions::ActiveGame;
-    //   speed *= 1.07;
-    //   interval *= 0.8;
-    //   gap *= 0.82;
-    // }
+    bool shouldStartNextRound = state == State::Winddown && debrisManager.size() == 0;
+    if (shouldStartNextRound)
+    {
+      winddownTimer.wait(10000);
+      state = State::Playing;
+      level = level % (LevelManager::size - 1) + 1;
+    }
   }
 }
 
@@ -247,6 +247,7 @@ void Main::reset()
   player.reset();
   debrisManager.reset();
   state = State::BeginGame;
+  level = 0;
   wait(750);
   backgroundTimer.enable(levelManager[level].backgroundSpeed);
 }

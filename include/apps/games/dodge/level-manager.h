@@ -15,14 +15,15 @@ namespace Apps::Game::Dodge
   {
   public:
     const LevelConfig &operator[](uint16_t index) const { return levelConfig[index]; }
+    static constexpr uint8_t size = 5;
 
   private:
-    static constexpr LevelConfig levelConfig[] = {
+    static constexpr LevelConfig levelConfig[size] = {
         {.debrisSpeed = 400, .debrisRespawn = 3000, .backgroundSpeed = 361},
         {.debrisSpeed = 170, .debrisRespawn = 3000, .backgroundSpeed = 113},
         {.debrisSpeed = 350, .debrisRespawn = 1650, .backgroundSpeed = 417},
         {.debrisSpeed = 170, .debrisRespawn = 1671, .backgroundSpeed = 80},
-        {.debrisSpeed = 163, .debrisRespawn = 1213, .backgroundSpeed = 80}};
+        {.debrisSpeed = 163, .debrisRespawn = 1013, .backgroundSpeed = 71}};
   };
 }
 
