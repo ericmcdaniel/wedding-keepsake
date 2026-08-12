@@ -19,6 +19,7 @@ namespace Apps::Game::Dodge
     void deactivate();
     void reset();
     void render();
+    int8_t nextPosition();
 
     bool completedCycle = false;
     static constexpr int8_t width = 4;
@@ -37,5 +38,8 @@ namespace Apps::Game::Dodge
     uint32_t speed = 0;
     uint32_t respawnTime = 1000;
     // bool impacted = false;
+
+    int8_t lastPosition = -1;
+    uint8_t repeatCount = 0;
   };
 }
