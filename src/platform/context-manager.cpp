@@ -18,7 +18,7 @@ ContextManager::~ContextManager()
 void ContextManager::initializeSystemMemory()
 {
   Configuration::load();
-  stateManager.setNext(Configuration::startupState());
+  stateManager.setNext(Configuration::startupSystemState());
 }
 
 void ContextManager::changeApplication(Engine::SystemState nextState)
@@ -42,4 +42,5 @@ void ContextManager::changeApplication(Engine::SystemState nextState)
     logf("Transitioning to Games (Temporary Placeholder)");
     break;
   }
+  EEPROM.put(4, nextState);
 }

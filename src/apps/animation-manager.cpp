@@ -6,6 +6,7 @@
 #include "apps/animations/candle.h"
 #include "utilities/logger.h"
 #include "utilities/common.h"
+#include <EEPROM.h>
 
 using namespace Apps;
 
@@ -28,6 +29,8 @@ void AnimationManager::nextAnimation()
   }
 
   Utilities::advance(state);
+
+  EEPROM.put(8, state);
 
   switch (state)
   {
@@ -58,7 +61,7 @@ void AnimationManager::nextAnimation()
   case AnimationRegistry::Candle:
     currentAnimation = new Apps::Animations::Candle{contextManager};
     state = AnimationRegistry::Candle;
-    logf("Animation: American Flag");
+    logf("Animation: Candle");
     break;
   }
 }

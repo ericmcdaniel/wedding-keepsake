@@ -27,7 +27,7 @@ void KeychainEngine::initializeEngine()
   log("Printing environment variables.");
   logf("numLeds = %u", Platform::Configuration::numLeds);
   logf("serialBaud = %u", Platform::Configuration::serialBaud);
-  logf("startupState = %u\n", Platform::Configuration::startupState());
+  logf("startupSystemState = %u\n", Platform::Configuration::startupSystemState());
   log("Startup process completed. Transitioning to the first animation.");
 
   // immediately set PA4-7 as HIGH, the row MOSFET is active low.
@@ -37,7 +37,7 @@ void KeychainEngine::initializeEngine()
   PORTA.DIRSET = PIN1_bm | PIN2_bm | PIN3_bm | PIN4_bm | PIN5_bm | PIN6_bm | PIN7_bm;
 
   contextManager.entropy.begin();
-  contextManager.changeApplication(Platform::Configuration::startupState());
+  contextManager.changeApplication(Platform::Configuration::startupSystemState());
 }
 
 void KeychainEngine::runApplication()

@@ -3,6 +3,7 @@
 #include "platform/context-manager.h"
 #include "apps/games/dodge/debris.h"
 #include "apps/games/dodge/player.h"
+#include <EEPROM.h>
 
 namespace Apps::Game::Dodge
 {

@@ -1,6 +1,5 @@
 #pragma once
 
-#include <EEPROM.h>
 #include "engine/application-runtime.h"
 #include "engine/state-manager.h"
 #include "engine/renderer.h"

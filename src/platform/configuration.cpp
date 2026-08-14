@@ -1,10 +1,9 @@
 #include "platform/configuration.h"
+#include <EEPROM.h>
 
 using namespace Platform;
 
 void Configuration::load()
 {
-  _startupState = Engine::SystemState::Animation;
-
-  // TODO: read from eeprom here
+  _startupSystemState = EEPROM.get(4, _startupSystemState);
 }
