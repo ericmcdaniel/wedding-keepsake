@@ -56,6 +56,9 @@ namespace Apps::Game::Dodge
     void renderScore();
     void reset();
 
+    uint8_t getLevel() { return level % (LevelManager::size - 1); };
+    void incrementLevel() { level++; }
+
     uint8_t level = 0;
     uint16_t debrisDodged = 0;
 

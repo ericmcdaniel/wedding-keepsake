@@ -42,7 +42,7 @@ void Main::prepareUser()
     {
       state = State::Playing;
       contextManager.button.reset();
-      // wait(levelManager[level].debrisRespawn / 3);
+      // wait(levelManager[getLevel()].debrisRespawn / 3);
       return;
     }
 
@@ -62,7 +62,7 @@ void Main::prepareUser()
 */
 void Main::handleBackground()
 {
-#if 1
+#ifdef USE_ANGLED_BACKGROUND
   // diagonal
   constexpr uint8_t waveFactorsBlue[] = {48, 30, 12, 12, 0, 0, 0, 0};
   constexpr uint8_t waveFactorsGreen[] = {12, 0, 0, 0, 0, 0, 0, 0};
@@ -78,17 +78,22 @@ void Main::handleBackground()
     for (uint8_t j = 0; j < Platform::Configuration::numRows; j++)
     {
       uint8_t rowShift = Platform::Configuration::numRows - j - 1;
-      if (player.getLocation() == Location::Top || player.getLocation() == Location::TransitioningUp)
-      {
-        rowShift = j;
-      }
+
+      //
+      // Taking this out because as much as I like the vision where it looks like it's
+      // actually flying in a direction, it's a little too busy. The angle is now static.
+      //
+      // if (player.getLocation() == Location::Top || player.getLocation() == Location::TransitioningUp)
+      // {
+      //   rowShift = j;
+      // }
       contextManager.renderer.renderPixel(color, (i + rowShift) % Platform::Configuration::numColumns, j);
     }
   }
 
   if (backgroundTimer.isReady())
   {
-    backgroundTimer.wait(levelManager[level].backgroundSpeed);
+    backgroundTimer.wait(levelManager[getLevel()].backgroundSpeed);
     offset++;
     if (offset >= 8)
     {
@@ -110,7 +115,7 @@ void Main::handleBackground()
 
   if (backgroundTimer.isReady())
   {
-    backgroundTimer.wait(backgroundRenderRate);
+    backgroundTimer.wait(levelManager[level].backgroundSpeed);
     offset++;
     if (offset >= 7)
     {
@@ -137,14 +142,14 @@ void Main::assessDifficulty()
     if (winddownTimer.isReady())
     {
       state = State::Winddown;
-      wait(1000);
+      wait(250);
     }
 
     if (state == State::Playing)
     {
-      debrisManager.dispatch(levelManager[level].debrisSpeed);
-      uint32_t randomExtraDelay = contextManager.entropy.random() % (levelManager[level].debrisRespawn / 3);
-      wait(levelManager[level].debrisRespawn + randomExtraDelay);
+      debrisManager.dispatch(levelManager[getLevel()].debrisSpeed);
+      uint32_t randomExtraDelay = contextManager.entropy.random() % (levelManager[getLevel()].debrisRespawn / (level + 3));
+      wait(levelManager[getLevel()].debrisRespawn + randomExtraDelay);
     }
 
     bool shouldStartNextRound = state == State::Winddown && debrisManager.size() == 0;
@@ -152,7 +157,7 @@ void Main::assessDifficulty()
     {
       winddownTimer.wait(10000);
       state = State::Playing;
-      level = level % (LevelManager::size - 1) + 1;
+      incrementLevel();
     }
   }
 }
@@ -263,5 +268,5 @@ void Main::reset()
   state = State::BeginGame;
   level = 0;
   wait(750);
-  backgroundTimer.enable(levelManager[level].backgroundSpeed);
+  backgroundTimer.enable(levelManager[getLevel()].backgroundSpeed);
 }
