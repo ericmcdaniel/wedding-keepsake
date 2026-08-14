@@ -162,6 +162,18 @@
 				]
 			},
 			{
+				"text": "$(terminal)",
+				"tooltip": "PlatformIO: Clear",
+				"commands": [
+					{
+						"id": "workbench.action.tasks.runTask",
+						"args": [
+							"Wedding Keychain - Clear",
+						],
+					},
+				]
+			},
+			{
 				"text": "$(plug)",
 				"tooltip": "PlatformIO: Serial Monitor",
 				"commands": [

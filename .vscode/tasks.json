@@ -67,6 +67,24 @@
         "focus": true,
         "panel": "shared"
       }
+    },
+    {
+      "label": "Wedding Keychain - Clear",
+      "type": "shell",
+      "command": "platformio run -e clear --target upload",
+      "problemMatcher": [
+        "$platformio"
+      ],
+      "options": {
+        "statusbar": {
+          "hide": true
+        }
+      },
+      "presentation": {
+        "reveal": "always",
+        "focus": true,
+        "panel": "shared"
+      }
     }
   ]
 }

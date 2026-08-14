@@ -28,11 +28,12 @@ namespace Apps::Game::Dodge
                                           player{ctx},
                                           debrisManager{ctx},
                                           backgroundTimer{ctx.time},
-                                          winddownTimer{ctx.time}
+                                          winddownTimer{ctx.time},
+                                          scoreTimer{ctx.time}
     {
       wait(750);
       backgroundTimer.wait(levelManager[level].backgroundSpeed);
-      winddownTimer.wait(10000);
+      winddownTimer.wait(levelDuration / 2);
     }
     void nextEvent() override;
 
@@ -56,7 +57,7 @@ namespace Apps::Game::Dodge
     void renderScore();
     void reset();
 
-    uint8_t getLevel() { return level % (LevelManager::size - 1); };
+    uint8_t getLevel() { return (level % (LevelManager::size)) + 1; };
     void incrementLevel() { level++; }
 
     uint8_t level = 0;
@@ -64,6 +65,10 @@ namespace Apps::Game::Dodge
 
     Engine::Timer backgroundTimer;
     Engine::Timer winddownTimer;
+    Engine::Timer scoreTimer;
     static constexpr uint32_t gameStartAnimationSpeed = 100;
+    static constexpr uint32_t levelDuration = 20000;
+
+    uint8_t scoreInc = 0;
   };
 }
