@@ -24,8 +24,12 @@ void Main::nextEvent()
     renderMuzzleFlash();
     break;
   case State::GameOver:
-    checkRestart();
+    checkContinue(State::DisplayScore);
     renderGameOver();
+    break;
+  case State::DisplayScore:
+    checkContinue(State::GameOver);
+    renderScore();
     break;
   }
 }
@@ -58,7 +62,7 @@ void Main::prepareUser()
 */
 void Main::handleBackground()
 {
-#if 1
+#ifdef USE_ANGLED_BACKGROUND
   // diagonal
   constexpr uint8_t waveFactorsBlue[] = {48, 30, 12, 12, 0, 0, 0, 0};
   constexpr uint8_t waveFactorsGreen[] = {12, 0, 0, 0, 0, 0, 0, 0};
@@ -74,10 +78,15 @@ void Main::handleBackground()
     for (uint8_t j = 0; j < Platform::Configuration::numRows; j++)
     {
       uint8_t rowShift = Platform::Configuration::numRows - j - 1;
-      if (player.getLocation() == Location::Top || player.getLocation() == Location::TransitioningUp)
-      {
-        rowShift = j;
-      }
+
+      //
+      // Taking this out because as much as I like the vision where it looks like it's
+      // actually flying in a direction, it's a little too busy. The angle is now static.
+      //
+      // if (player.getLocation() == Location::Top || player.getLocation() == Location::TransitioningUp)
+      // {
+      //   rowShift = j;
+      // }
       contextManager.renderer.renderPixel(color, (i + rowShift) % Platform::Configuration::numColumns, j);
     }
   }
@@ -106,7 +115,7 @@ void Main::handleBackground()
 
   if (backgroundTimer.isReady())
   {
-    backgroundTimer.wait(backgroundRenderRate);
+    backgroundTimer.wait(levelManager[level].backgroundSpeed);
     offset++;
     if (offset >= 7)
     {
@@ -133,20 +142,20 @@ void Main::assessDifficulty()
     if (winddownTimer.isReady())
     {
       state = State::Winddown;
-      wait(1000);
+      wait(250);
     }
 
     if (state == State::Playing)
     {
       debrisManager.dispatch(levelManager[level].debrisSpeed);
-      uint32_t randomExtraDelay = contextManager.entropy.random() % (levelManager[level].debrisRespawn / 3);
+      uint32_t randomExtraDelay = contextManager.entropy.random() % static_cast<uint32_t>(levelManager[level].debrisRespawn / 4);
       wait(levelManager[level].debrisRespawn + randomExtraDelay);
     }
 
     bool shouldStartNextRound = state == State::Winddown && debrisManager.size() == 0;
     if (shouldStartNextRound)
     {
-      winddownTimer.wait(10000);
+      winddownTimer.wait(levelDuration);
       state = State::Playing;
       level = level % (LevelManager::size - 1) + 1;
     }
@@ -164,11 +173,17 @@ void Main::checkCollisions()
   }
 }
 
-void Main::checkRestart()
+void Main::checkContinue(State s)
 {
   if (contextManager.button.wasDoublePress())
   {
     reset();
+    state = State::BeginGame;
+  }
+
+  if (contextManager.button.wasSinglePress())
+  {
+    state = s;
   }
 }
 
@@ -203,6 +218,55 @@ void Main::renderGameOver()
   if (isReady())
   {
     shouldDisplayDebris = !shouldDisplayDebris;
+    wait(500);
+  }
+}
+
+void Main::renderScore()
+{
+
+  // this is really starting to look janky and below the quality I try to deliver, but
+  // the deadline is here. I've ditched the scrolling marquee (for now) and just use the
+  // grid itself to show the score.
+  static bool isIlluminated = false;
+
+  static constexpr uint32_t scoreColors[] = {0x0000ff, 0xff8a00, 0x00ff00, 0xff0000, 0x00ffff, 0xffff00};
+
+  uint8_t scoreGrouping = (debrisManager.getScore() / 32) % 6;
+  uint8_t highScoreGrouping = (debrisManager.getHighScore() / 32) % 6;
+  uint32_t scoreColor = scoreColors[scoreGrouping];
+  uint32_t highScoreColor = scoreColors[highScoreGrouping];
+
+  // if (scoreTimer.isReady())
+  // {
+
+  for (uint8_t i = 0; i < debrisManager.getScore() % 32; ++i)
+  {
+    if (debrisManager.getScore() == debrisManager.getHighScore() && isIlluminated)
+    {
+      scoreColor = 0xffffff;
+    }
+    contextManager.renderer.renderPixel(scoreColor, i);
+  }
+  // if (scoreInc < debrisManager.getScore())
+  // {
+  //   scoreInc++;
+  //   scoreTimer.wait(100);
+  // }
+  // }
+
+  if ((debrisManager.getHighScore() % 32) > 0 && isIlluminated)
+  {
+    contextManager.renderer.renderPixel(0xffffff, (debrisManager.getHighScore() % 32) - 1);
+  }
+  else if ((debrisManager.getHighScore() % 32) > 0 && !isIlluminated)
+  {
+    contextManager.renderer.renderPixel(highScoreColor, (debrisManager.getHighScore() % 32) - 1);
+  }
+
+  if (isReady())
+  {
+    isIlluminated = !isIlluminated;
     wait(500);
   }
 }
@@ -242,12 +306,11 @@ void Main::renderMuzzleFlash()
 
 void Main::reset()
 {
-  // TODO: reset score here
-
   player.reset();
   debrisManager.reset();
   state = State::BeginGame;
   level = 0;
   wait(750);
   backgroundTimer.enable(levelManager[level].backgroundSpeed);
+  scoreInc = 0;
 }

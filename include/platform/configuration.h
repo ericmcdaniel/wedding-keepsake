@@ -14,12 +14,12 @@ namespace Platform
     static constexpr uint32_t serialBaud = 115200;
     static constexpr uint8_t pinButton = PIN0_bm;
 
-    inline static Engine::SystemState &startupState() { return _startupState; };
+    inline static Engine::SystemState &startupSystemState() { return _startupSystemState; };
 
     static void load();
 
   private:
-    inline static Engine::SystemState _startupState = Engine::SystemState::Animation;
+    inline static Engine::SystemState _startupSystemState = Engine::SystemState::Animation;
     static_assert((Platform::Configuration::numColumns & (Platform::Configuration::numColumns - 1)) == 0, "numColumns must be a power of two");
     static_assert((Platform::Configuration::numRows & (Platform::Configuration::numRows - 1)) == 0, "numRows must be a power of two");
   };

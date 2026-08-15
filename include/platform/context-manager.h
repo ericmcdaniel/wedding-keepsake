@@ -1,9 +1,9 @@
 #pragma once
 
-#include <EEPROM.h>
 #include "engine/application-runtime.h"
 #include "engine/state-manager.h"
 #include "engine/renderer.h"
+// #include "engine/marquee.h"
 #include "user/button.h"
 #include "platform/time.h"
 #include "utilities/entropy.h"
@@ -23,6 +23,7 @@ namespace Platform
     Engine::ApplicationRuntime *application = nullptr;
     Engine::StateManager stateManager;
     Engine::Renderer renderer;
+    // Engine::Marquee marquee;
     User::Button button;
     Utilities::Entropy entropy;
 

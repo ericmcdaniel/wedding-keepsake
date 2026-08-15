@@ -16,7 +16,8 @@ namespace Apps::Game::Dodge
     Playing,
     Winddown,
     CollisionMuzzleFlash,
-    GameOver
+    GameOver,
+    DisplayScore
   };
 
   class Main : public Engine::ApplicationRuntime, public Engine::Timer
@@ -27,11 +28,12 @@ namespace Apps::Game::Dodge
                                           player{ctx},
                                           debrisManager{ctx},
                                           backgroundTimer{ctx.time},
-                                          winddownTimer{ctx.time}
+                                          winddownTimer{ctx.time},
+                                          scoreTimer{ctx.time}
     {
       wait(750);
       backgroundTimer.wait(levelManager[level].backgroundSpeed);
-      winddownTimer.wait(10000);
+      winddownTimer.wait(levelDuration / 2);
     }
     void nextEvent() override;
 
@@ -47,18 +49,26 @@ namespace Apps::Game::Dodge
     void nextUpdate();
     void assessDifficulty();
     void checkCollisions();
-    void checkRestart();
+    void checkContinue(State state);
     void playAnimationSequence();
     void render();
     void renderMuzzleFlash();
     void renderGameOver();
+    void renderScore();
     void reset();
+
+    uint8_t getLevel() { return (level % (LevelManager::size)) + 1; };
+    void incrementLevel() { level++; }
 
     uint8_t level = 0;
     uint16_t debrisDodged = 0;
 
     Engine::Timer backgroundTimer;
     Engine::Timer winddownTimer;
+    Engine::Timer scoreTimer;
     static constexpr uint32_t gameStartAnimationSpeed = 100;
+    static constexpr uint32_t levelDuration = 20000;
+
+    uint8_t scoreInc = 0;
   };
 }

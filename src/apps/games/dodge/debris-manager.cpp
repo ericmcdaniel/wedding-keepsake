@@ -54,7 +54,12 @@ void DebrisManager::updatePositions()
 
     if (debris.completedCycle)
     {
-      // TODO: update game score here
+      score++;
+      if (score > highScore)
+      {
+        EEPROM.put(0, score);
+        highScore = score;
+      }
       debris.completedCycle = false;
     }
   }
@@ -79,4 +84,5 @@ void DebrisManager::reset()
   {
     debris.reset();
   }
+  score = 0;
 }

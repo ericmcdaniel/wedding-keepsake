@@ -3,6 +3,7 @@
 #include "platform/context-manager.h"
 #include "apps/games/dodge/debris.h"
 #include "apps/games/dodge/player.h"
+#include <EEPROM.h>
 
 namespace Apps::Game::Dodge
 {
@@ -11,7 +12,11 @@ namespace Apps::Game::Dodge
   public:
     DebrisManager(Platform::ContextManager &ctx) : Engine::Timer{ctx.time},
                                                    contextManager{ctx},
-                                                   debrisPool{ctx, ctx, ctx} {}
+                                                   debrisPool{ctx, ctx, ctx}
+    {
+      highScore = EEPROM.get(0, highScore);
+    }
+
     DebrisManager(const DebrisManager &) = delete;
     DebrisManager &operator=(const DebrisManager &) = delete;
 
@@ -30,10 +35,14 @@ namespace Apps::Game::Dodge
     bool checkCollision(const Player &player);
     void render();
     void reset();
+    uint16_t getScore() { return score; }
+    uint16_t getHighScore() { return highScore; }
 
   private:
     Platform::ContextManager &contextManager;
     static constexpr uint8_t _size = 3;
     Debris debrisPool[_size];
+    uint16_t score = 0;
+    uint16_t highScore = 0;
   };
 }
